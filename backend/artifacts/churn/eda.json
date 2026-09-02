@@ -1,0 +1,2947 @@
+{
+  "shape": {
+    "rows": 7043,
+    "columns": 26
+  },
+  "memory_mb": 6.7,
+  "dtypes": {
+    "tenure": "int64",
+    "MonthlyCharges": "float64",
+    "TotalCharges": "float64",
+    "charges_per_tenure": "float64",
+    "services_subscribed": "int64",
+    "tenure_bucket_idx": "float64",
+    "monthly_vs_avg_ratio": "float64",
+    "has_dependents_and_partner": "int64",
+    "Contract": "object",
+    "PaymentMethod": "object",
+    "PaperlessBilling": "object",
+    "InternetService": "object",
+    "OnlineSecurity": "object",
+    "TechSupport": "object",
+    "StreamingTV": "object",
+    "StreamingMovies": "object",
+    "DeviceProtection": "object",
+    "OnlineBackup": "object",
+    "MultipleLines": "object",
+    "PhoneService": "object",
+    "Dependents": "object",
+    "gender": "object",
+    "SeniorCitizen": "object",
+    "Partner": "object",
+    "tenure_bucket": "category",
+    "churned": "int64"
+  },
+  "numeric": [
+    {
+      "column": "tenure",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 32.371149,
+      "median": 29.0,
+      "std": 24.559481,
+      "min": 0.0,
+      "max": 72.0,
+      "q1": 9.0,
+      "q3": 55.0,
+      "iqr": 46.0,
+      "skew": 0.23954,
+      "kurtosis": -1.387372,
+      "zeros": 11,
+      "negatives": 0,
+      "n_unique": 73,
+      "outlier_fences": {
+        "lower": -60.0,
+        "upper": 124.0
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 3.535714,
+          "count": 1051
+        },
+        {
+          "bin_start": 3.535714,
+          "bin_end": 6.071429,
+          "count": 419
+        },
+        {
+          "bin_start": 6.071429,
+          "bin_end": 8.607143,
+          "count": 254
+        },
+        {
+          "bin_start": 8.607143,
+          "bin_end": 11.142857,
+          "count": 334
+        },
+        {
+          "bin_start": 11.142857,
+          "bin_end": 13.678571,
+          "count": 226
+        },
+        {
+          "bin_start": 13.678571,
+          "bin_end": 16.214286,
+          "count": 255
+        },
+        {
+          "bin_start": 16.214286,
+          "bin_end": 18.75,
+          "count": 184
+        },
+        {
+          "bin_start": 18.75,
+          "bin_end": 21.285714,
+          "count": 207
+        },
+        {
+          "bin_start": 21.285714,
+          "bin_end": 23.821429,
+          "count": 175
+        },
+        {
+          "bin_start": 23.821429,
+          "bin_end": 26.357143,
+          "count": 252
+        },
+        {
+          "bin_start": 26.357143,
+          "bin_end": 28.892857,
+          "count": 129
+        },
+        {
+          "bin_start": 28.892857,
+          "bin_end": 31.428571,
+          "count": 209
+        },
+        {
+          "bin_start": 31.428571,
+          "bin_end": 33.964286,
+          "count": 133
+        },
+        {
+          "bin_start": 33.964286,
+          "bin_end": 36.5,
+          "count": 203
+        },
+        {
+          "bin_start": 36.5,
+          "bin_end": 39.035714,
+          "count": 180
+        },
+        {
+          "bin_start": 39.035714,
+          "bin_end": 41.571429,
+          "count": 134
+        },
+        {
+          "bin_start": 41.571429,
+          "bin_end": 44.107143,
+          "count": 181
+        },
+        {
+          "bin_start": 44.107143,
+          "bin_end": 46.642857,
+          "count": 135
+        },
+        {
+          "bin_start": 46.642857,
+          "bin_end": 49.178571,
+          "count": 198
+        },
+        {
+          "bin_start": 49.178571,
+          "bin_end": 51.714286,
+          "count": 136
+        },
+        {
+          "bin_start": 51.714286,
+          "bin_end": 54.25,
+          "count": 218
+        },
+        {
+          "bin_start": 54.25,
+          "bin_end": 56.785714,
+          "count": 144
+        },
+        {
+          "bin_start": 56.785714,
+          "bin_end": 59.321429,
+          "count": 192
+        },
+        {
+          "bin_start": 59.321429,
+          "bin_end": 61.857143,
+          "count": 152
+        },
+        {
+          "bin_start": 61.857143,
+          "bin_end": 64.392857,
+          "count": 222
+        },
+        {
+          "bin_start": 64.392857,
+          "bin_end": 66.928571,
+          "count": 165
+        },
+        {
+          "bin_start": 66.928571,
+          "bin_end": 69.464286,
+          "count": 293
+        },
+        {
+          "bin_start": 69.464286,
+          "bin_end": 72.0,
+          "count": 651
+        }
+      ],
+      "histogram_range": {
+        "lower": 1.0,
+        "upper": 72.0,
+        "clipped_below": 11,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 1.0,
+        "p5": 1.0,
+        "p25": 9.0,
+        "p50": 29.0,
+        "p75": 55.0,
+        "p95": 72.0,
+        "p99": 72.0
+      }
+    },
+    {
+      "column": "MonthlyCharges",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 64.761692,
+      "median": 70.35,
+      "std": 30.090047,
+      "min": 18.25,
+      "max": 118.75,
+      "q1": 35.5,
+      "q3": 89.85,
+      "iqr": 54.35,
+      "skew": -0.220524,
+      "kurtosis": -1.25726,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 1585,
+      "outlier_fences": {
+        "lower": -46.025,
+        "upper": 171.375
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 19.05,
+          "bin_end": 22.506768,
+          "count": 1151
+        },
+        {
+          "bin_start": 22.506768,
+          "bin_end": 25.963536,
+          "count": 392
+        },
+        {
+          "bin_start": 25.963536,
+          "bin_end": 29.420304,
+          "count": 47
+        },
+        {
+          "bin_start": 29.420304,
+          "bin_end": 32.877071,
+          "count": 67
+        },
+        {
+          "bin_start": 32.877071,
+          "bin_end": 36.333839,
+          "count": 99
+        },
+        {
+          "bin_start": 36.333839,
+          "bin_end": 39.790607,
+          "count": 44
+        },
+        {
+          "bin_start": 39.790607,
+          "bin_end": 43.247375,
+          "count": 62
+        },
+        {
+          "bin_start": 43.247375,
+          "bin_end": 46.704143,
+          "count": 249
+        },
+        {
+          "bin_start": 46.704143,
+          "bin_end": 50.160911,
+          "count": 178
+        },
+        {
+          "bin_start": 50.160911,
+          "bin_end": 53.617679,
+          "count": 161
+        },
+        {
+          "bin_start": 53.617679,
+          "bin_end": 57.074446,
+          "count": 293
+        },
+        {
+          "bin_start": 57.074446,
+          "bin_end": 60.531214,
+          "count": 177
+        },
+        {
+          "bin_start": 60.531214,
+          "bin_end": 63.987982,
+          "count": 112
+        },
+        {
+          "bin_start": 63.987982,
+          "bin_end": 67.44475,
+          "count": 181
+        },
+        {
+          "bin_start": 67.44475,
+          "bin_end": 70.901518,
+          "count": 354
+        },
+        {
+          "bin_start": 70.901518,
+          "bin_end": 74.358286,
+          "count": 204
+        },
+        {
+          "bin_start": 74.358286,
+          "bin_end": 77.815054,
+          "count": 327
+        },
+        {
+          "bin_start": 77.815054,
+          "bin_end": 81.271821,
+          "count": 435
+        },
+        {
+          "bin_start": 81.271821,
+          "bin_end": 84.728589,
+          "count": 234
+        },
+        {
+          "bin_start": 84.728589,
+          "bin_end": 88.185357,
+          "count": 300
+        },
+        {
+          "bin_start": 88.185357,
+          "bin_end": 91.642125,
+          "count": 376
+        },
+        {
+          "bin_start": 91.642125,
+          "bin_end": 95.098893,
+          "count": 277
+        },
+        {
+          "bin_start": 95.098893,
+          "bin_end": 98.555661,
+          "count": 234
+        },
+        {
+          "bin_start": 98.555661,
+          "bin_end": 102.012429,
+          "count": 331
+        },
+        {
+          "bin_start": 102.012429,
+          "bin_end": 105.469196,
+          "count": 256
+        },
+        {
+          "bin_start": 105.469196,
+          "bin_end": 108.925964,
+          "count": 184
+        },
+        {
+          "bin_start": 108.925964,
+          "bin_end": 112.382732,
+          "count": 161
+        },
+        {
+          "bin_start": 112.382732,
+          "bin_end": 115.8395,
+          "count": 88
+        }
+      ],
+      "histogram_range": {
+        "lower": 19.05,
+        "upper": 115.8395,
+        "clipped_below": 33,
+        "clipped_above": 36
+      },
+      "percentiles": {
+        "p1": 19.2,
+        "p5": 19.65,
+        "p25": 35.5,
+        "p50": 70.35,
+        "p75": 89.85,
+        "p95": 107.4,
+        "p99": 114.729
+      }
+    },
+    {
+      "column": "TotalCharges",
+      "kind": "numeric",
+      "count": 7032,
+      "missing": 11,
+      "missing_pct": 0.001562,
+      "mean": 2283.300441,
+      "median": 1397.475,
+      "std": 2266.771362,
+      "min": 18.8,
+      "max": 8684.8,
+      "q1": 401.45,
+      "q3": 3794.7375,
+      "iqr": 3393.2875,
+      "skew": 0.961642,
+      "kurtosis": -0.231799,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 6530,
+      "outlier_fences": {
+        "lower": -4688.48125,
+        "upper": 8884.66875
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 19.55,
+          "bin_end": 315.449098,
+          "count": 1510
+        },
+        {
+          "bin_start": 315.449098,
+          "bin_end": 611.348196,
+          "count": 685
+        },
+        {
+          "bin_start": 611.348196,
+          "bin_end": 907.247295,
+          "count": 514
+        },
+        {
+          "bin_start": 907.247295,
+          "bin_end": 1203.146393,
+          "count": 466
+        },
+        {
+          "bin_start": 1203.146393,
+          "bin_end": 1499.045491,
+          "count": 451
+        },
+        {
+          "bin_start": 1499.045491,
+          "bin_end": 1794.944589,
+          "count": 330
+        },
+        {
+          "bin_start": 1794.944589,
+          "bin_end": 2090.843688,
+          "count": 257
+        },
+        {
+          "bin_start": 2090.843688,
+          "bin_end": 2386.742786,
+          "count": 203
+        },
+        {
+          "bin_start": 2386.742786,
+          "bin_end": 2682.641884,
+          "count": 206
+        },
+        {
+          "bin_start": 2682.641884,
+          "bin_end": 2978.540982,
+          "count": 161
+        },
+        {
+          "bin_start": 2978.540982,
+          "bin_end": 3274.44008,
+          "count": 188
+        },
+        {
+          "bin_start": 3274.44008,
+          "bin_end": 3570.339179,
+          "count": 156
+        },
+        {
+          "bin_start": 3570.339179,
+          "bin_end": 3866.238277,
+          "count": 148
+        },
+        {
+          "bin_start": 3866.238277,
+          "bin_end": 4162.137375,
+          "count": 171
+        },
+        {
+          "bin_start": 4162.137375,
+          "bin_end": 4458.036473,
+          "count": 136
+        },
+        {
+          "bin_start": 4458.036473,
+          "bin_end": 4753.935571,
+          "count": 147
+        },
+        {
+          "bin_start": 4753.935571,
+          "bin_end": 5049.83467,
+          "count": 162
+        },
+        {
+          "bin_start": 5049.83467,
+          "bin_end": 5345.733768,
+          "count": 114
+        },
+        {
+          "bin_start": 5345.733768,
+          "bin_end": 5641.632866,
+          "count": 132
+        },
+        {
+          "bin_start": 5641.632866,
+          "bin_end": 5937.531964,
+          "count": 135
+        },
+        {
+          "bin_start": 5937.531964,
+          "bin_end": 6233.431063,
+          "count": 123
+        },
+        {
+          "bin_start": 6233.431063,
+          "bin_end": 6529.330161,
+          "count": 116
+        },
+        {
+          "bin_start": 6529.330161,
+          "bin_end": 6825.229259,
+          "count": 96
+        },
+        {
+          "bin_start": 6825.229259,
+          "bin_end": 7121.128357,
+          "count": 101
+        },
+        {
+          "bin_start": 7121.128357,
+          "bin_end": 7417.027455,
+          "count": 78
+        },
+        {
+          "bin_start": 7417.027455,
+          "bin_end": 7712.926554,
+          "count": 67
+        },
+        {
+          "bin_start": 7712.926554,
+          "bin_end": 8008.825652,
+          "count": 67
+        },
+        {
+          "bin_start": 8008.825652,
+          "bin_end": 8304.72475,
+          "count": 41
+        }
+      ],
+      "histogram_range": {
+        "lower": 19.55,
+        "upper": 8304.72475,
+        "clipped_below": 35,
+        "clipped_above": 36
+      },
+      "percentiles": {
+        "p1": 19.9,
+        "p5": 49.605,
+        "p25": 401.45,
+        "p50": 1397.475,
+        "p75": 3794.7375,
+        "p95": 6923.59,
+        "p99": 8039.883
+      }
+    },
+    {
+      "column": "charges_per_tenure",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 64.762906,
+      "median": 70.3375,
+      "std": 30.189796,
+      "min": 13.775,
+      "max": 121.4,
+      "q1": 35.935156,
+      "q3": 90.174158,
+      "iqr": 54.239002,
+      "skew": -0.209563,
+      "kurtosis": -1.247771,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 6588,
+      "outlier_fences": {
+        "lower": -45.423346,
+        "upper": 171.532661
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 16.811979,
+          "bin_end": 20.386876,
+          "count": 745
+        },
+        {
+          "bin_start": 20.386876,
+          "bin_end": 23.961773,
+          "count": 469
+        },
+        {
+          "bin_start": 23.961773,
+          "bin_end": 27.536669,
+          "count": 342
+        },
+        {
+          "bin_start": 27.536669,
+          "bin_end": 31.111566,
+          "count": 83
+        },
+        {
+          "bin_start": 31.111566,
+          "bin_end": 34.686463,
+          "count": 53
+        },
+        {
+          "bin_start": 34.686463,
+          "bin_end": 38.26136,
+          "count": 83
+        },
+        {
+          "bin_start": 38.26136,
+          "bin_end": 41.836257,
+          "count": 89
+        },
+        {
+          "bin_start": 41.836257,
+          "bin_end": 45.411154,
+          "count": 172
+        },
+        {
+          "bin_start": 45.411154,
+          "bin_end": 48.98605,
+          "count": 160
+        },
+        {
+          "bin_start": 48.98605,
+          "bin_end": 52.560947,
+          "count": 226
+        },
+        {
+          "bin_start": 52.560947,
+          "bin_end": 56.135844,
+          "count": 226
+        },
+        {
+          "bin_start": 56.135844,
+          "bin_end": 59.710741,
+          "count": 202
+        },
+        {
+          "bin_start": 59.710741,
+          "bin_end": 63.285638,
+          "count": 179
+        },
+        {
+          "bin_start": 63.285638,
+          "bin_end": 66.860534,
+          "count": 186
+        },
+        {
+          "bin_start": 66.860534,
+          "bin_end": 70.435431,
+          "count": 279
+        },
+        {
+          "bin_start": 70.435431,
+          "bin_end": 74.010328,
+          "count": 291
+        },
+        {
+          "bin_start": 74.010328,
+          "bin_end": 77.585225,
+          "count": 324
+        },
+        {
+          "bin_start": 77.585225,
+          "bin_end": 81.160122,
+          "count": 374
+        },
+        {
+          "bin_start": 81.160122,
+          "bin_end": 84.735019,
+          "count": 325
+        },
+        {
+          "bin_start": 84.735019,
+          "bin_end": 88.309915,
+          "count": 302
+        },
+        {
+          "bin_start": 88.309915,
+          "bin_end": 91.884812,
+          "count": 312
+        },
+        {
+          "bin_start": 91.884812,
+          "bin_end": 95.459709,
+          "count": 315
+        },
+        {
+          "bin_start": 95.459709,
+          "bin_end": 99.034606,
+          "count": 271
+        },
+        {
+          "bin_start": 99.034606,
+          "bin_end": 102.609503,
+          "count": 265
+        },
+        {
+          "bin_start": 102.609503,
+          "bin_end": 106.184399,
+          "count": 281
+        },
+        {
+          "bin_start": 106.184399,
+          "bin_end": 109.759296,
+          "count": 199
+        },
+        {
+          "bin_start": 109.759296,
+          "bin_end": 113.334193,
+          "count": 150
+        },
+        {
+          "bin_start": 113.334193,
+          "bin_end": 116.90909,
+          "count": 68
+        }
+      ],
+      "histogram_range": {
+        "lower": 16.811979,
+        "upper": 116.90909,
+        "clipped_below": 36,
+        "clipped_above": 36
+      },
+      "percentiles": {
+        "p1": 17.623475,
+        "p5": 19.365877,
+        "p25": 35.935156,
+        "p50": 70.3375,
+        "p75": 90.174158,
+        "p95": 107.876719,
+        "p99": 115.020704
+      }
+    },
+    {
+      "column": "services_subscribed",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 4.146244,
+      "median": 4.0,
+      "std": 2.31272,
+      "min": 1.0,
+      "max": 9.0,
+      "q1": 2.0,
+      "q3": 6.0,
+      "iqr": 4.0,
+      "skew": 0.221909,
+      "kurtosis": -1.003354,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 9,
+      "outlier_fences": {
+        "lower": -4.0,
+        "upper": 12.0
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 1.285714,
+          "count": 1264
+        },
+        {
+          "bin_start": 1.285714,
+          "bin_end": 1.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 1.571429,
+          "bin_end": 1.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 1.857143,
+          "bin_end": 2.142857,
+          "count": 859
+        },
+        {
+          "bin_start": 2.142857,
+          "bin_end": 2.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 2.428571,
+          "bin_end": 2.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 2.714286,
+          "bin_end": 3.0,
+          "count": 0
+        },
+        {
+          "bin_start": 3.0,
+          "bin_end": 3.285714,
+          "count": 846
+        },
+        {
+          "bin_start": 3.285714,
+          "bin_end": 3.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 3.571429,
+          "bin_end": 3.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 3.857143,
+          "bin_end": 4.142857,
+          "count": 965
+        },
+        {
+          "bin_start": 4.142857,
+          "bin_end": 4.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 4.428571,
+          "bin_end": 4.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 4.714286,
+          "bin_end": 5.0,
+          "count": 0
+        },
+        {
+          "bin_start": 5.0,
+          "bin_end": 5.285714,
+          "count": 922
+        },
+        {
+          "bin_start": 5.285714,
+          "bin_end": 5.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 5.571429,
+          "bin_end": 5.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 5.857143,
+          "bin_end": 6.142857,
+          "count": 908
+        },
+        {
+          "bin_start": 6.142857,
+          "bin_end": 6.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 6.428571,
+          "bin_end": 6.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 6.714286,
+          "bin_end": 7.0,
+          "count": 0
+        },
+        {
+          "bin_start": 7.0,
+          "bin_end": 7.285714,
+          "count": 676
+        },
+        {
+          "bin_start": 7.285714,
+          "bin_end": 7.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 7.571429,
+          "bin_end": 7.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 7.857143,
+          "bin_end": 8.142857,
+          "count": 395
+        },
+        {
+          "bin_start": 8.142857,
+          "bin_end": 8.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 8.428571,
+          "bin_end": 8.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 8.714286,
+          "bin_end": 9.0,
+          "count": 208
+        }
+      ],
+      "histogram_range": {
+        "lower": 1.0,
+        "upper": 9.0,
+        "clipped_below": 0,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 1.0,
+        "p5": 1.0,
+        "p25": 2.0,
+        "p50": 4.0,
+        "p75": 6.0,
+        "p95": 8.0,
+        "p99": 9.0
+      }
+    },
+    {
+      "column": "tenure_bucket_idx",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 2.341474,
+      "median": 3.0,
+      "std": 1.524101,
+      "min": 0.0,
+      "max": 4.0,
+      "q1": 1.0,
+      "q3": 4.0,
+      "iqr": 3.0,
+      "skew": -0.40462,
+      "kurtosis": -1.314097,
+      "zeros": 1481,
+      "negatives": 0,
+      "n_unique": 5,
+      "outlier_fences": {
+        "lower": -3.5,
+        "upper": 8.5
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.142857,
+          "count": 1481
+        },
+        {
+          "bin_start": 0.142857,
+          "bin_end": 0.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.285714,
+          "bin_end": 0.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.428571,
+          "bin_end": 0.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.571429,
+          "bin_end": 0.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.714286,
+          "bin_end": 0.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.857143,
+          "bin_end": 1.0,
+          "count": 0
+        },
+        {
+          "bin_start": 1.0,
+          "bin_end": 1.142857,
+          "count": 705
+        },
+        {
+          "bin_start": 1.142857,
+          "bin_end": 1.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 1.285714,
+          "bin_end": 1.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 1.428571,
+          "bin_end": 1.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 1.571429,
+          "bin_end": 1.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 1.714286,
+          "bin_end": 1.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 1.857143,
+          "bin_end": 2.0,
+          "count": 0
+        },
+        {
+          "bin_start": 2.0,
+          "bin_end": 2.142857,
+          "count": 1024
+        },
+        {
+          "bin_start": 2.142857,
+          "bin_end": 2.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 2.285714,
+          "bin_end": 2.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 2.428571,
+          "bin_end": 2.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 2.571429,
+          "bin_end": 2.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 2.714286,
+          "bin_end": 2.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 2.857143,
+          "bin_end": 3.0,
+          "count": 0
+        },
+        {
+          "bin_start": 3.0,
+          "bin_end": 3.142857,
+          "count": 1594
+        },
+        {
+          "bin_start": 3.142857,
+          "bin_end": 3.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 3.285714,
+          "bin_end": 3.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 3.428571,
+          "bin_end": 3.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 3.571429,
+          "bin_end": 3.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 3.714286,
+          "bin_end": 3.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 3.857143,
+          "bin_end": 4.0,
+          "count": 2239
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 4.0,
+        "clipped_below": 0,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 1.0,
+        "p50": 3.0,
+        "p75": 4.0,
+        "p95": 4.0,
+        "p99": 4.0
+      }
+    },
+    {
+      "column": "monthly_vs_avg_ratio",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 1.002308,
+      "median": 1.0,
+      "std": 0.051248,
+      "min": 0.635545,
+      "max": 1.450628,
+      "q1": 0.980882,
+      "q3": 1.020801,
+      "iqr": 0.039919,
+      "skew": 0.826614,
+      "kurtosis": 9.441668,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 6414,
+      "outlier_fences": {
+        "lower": 0.921003,
+        "upper": 1.08068
+      },
+      "outlier_count": 628,
+      "outlier_pct": 0.089167,
+      "histogram": [
+        {
+          "bin_start": 0.83114,
+          "bin_end": 0.845008,
+          "count": 12
+        },
+        {
+          "bin_start": 0.845008,
+          "bin_end": 0.858876,
+          "count": 18
+        },
+        {
+          "bin_start": 0.858876,
+          "bin_end": 0.872744,
+          "count": 22
+        },
+        {
+          "bin_start": 0.872744,
+          "bin_end": 0.886612,
+          "count": 23
+        },
+        {
+          "bin_start": 0.886612,
+          "bin_end": 0.90048,
+          "count": 43
+        },
+        {
+          "bin_start": 0.90048,
+          "bin_end": 0.914347,
+          "count": 71
+        },
+        {
+          "bin_start": 0.914347,
+          "bin_end": 0.928215,
+          "count": 108
+        },
+        {
+          "bin_start": 0.928215,
+          "bin_end": 0.942083,
+          "count": 156
+        },
+        {
+          "bin_start": 0.942083,
+          "bin_end": 0.955951,
+          "count": 286
+        },
+        {
+          "bin_start": 0.955951,
+          "bin_end": 0.969819,
+          "count": 445
+        },
+        {
+          "bin_start": 0.969819,
+          "bin_end": 0.983687,
+          "count": 722
+        },
+        {
+          "bin_start": 0.983687,
+          "bin_end": 0.997555,
+          "count": 1071
+        },
+        {
+          "bin_start": 0.997555,
+          "bin_end": 1.011423,
+          "count": 1690
+        },
+        {
+          "bin_start": 1.011423,
+          "bin_end": 1.025291,
+          "count": 804
+        },
+        {
+          "bin_start": 1.025291,
+          "bin_end": 1.039159,
+          "count": 515
+        },
+        {
+          "bin_start": 1.039159,
+          "bin_end": 1.053027,
+          "count": 330
+        },
+        {
+          "bin_start": 1.053027,
+          "bin_end": 1.066895,
+          "count": 217
+        },
+        {
+          "bin_start": 1.066895,
+          "bin_end": 1.080763,
+          "count": 117
+        },
+        {
+          "bin_start": 1.080763,
+          "bin_end": 1.09463,
+          "count": 97
+        },
+        {
+          "bin_start": 1.09463,
+          "bin_end": 1.108498,
+          "count": 62
+        },
+        {
+          "bin_start": 1.108498,
+          "bin_end": 1.122366,
+          "count": 44
+        },
+        {
+          "bin_start": 1.122366,
+          "bin_end": 1.136234,
+          "count": 29
+        },
+        {
+          "bin_start": 1.136234,
+          "bin_end": 1.150102,
+          "count": 20
+        },
+        {
+          "bin_start": 1.150102,
+          "bin_end": 1.16397,
+          "count": 26
+        },
+        {
+          "bin_start": 1.16397,
+          "bin_end": 1.177838,
+          "count": 16
+        },
+        {
+          "bin_start": 1.177838,
+          "bin_end": 1.191706,
+          "count": 9
+        },
+        {
+          "bin_start": 1.191706,
+          "bin_end": 1.205574,
+          "count": 11
+        },
+        {
+          "bin_start": 1.205574,
+          "bin_end": 1.219442,
+          "count": 7
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.83114,
+        "upper": 1.219442,
+        "clipped_below": 36,
+        "clipped_above": 36
+      },
+      "percentiles": {
+        "p1": 0.862864,
+        "p5": 0.930426,
+        "p25": 0.980882,
+        "p50": 1.0,
+        "p75": 1.020801,
+        "p95": 1.081612,
+        "p99": 1.170077
+      }
+    },
+    {
+      "column": "has_dependents_and_partner",
+      "kind": "numeric",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.248332,
+      "median": 0.0,
+      "std": 0.432076,
+      "min": 0.0,
+      "max": 1.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 1.165257,
+      "kurtosis": -0.642358,
+      "zeros": 5294,
+      "negatives": 0,
+      "n_unique": 2,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 1749,
+      "outlier_pct": 0.248332,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.035714,
+          "count": 5294
+        },
+        {
+          "bin_start": 0.035714,
+          "bin_end": 0.071429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.071429,
+          "bin_end": 0.107143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.107143,
+          "bin_end": 0.142857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.142857,
+          "bin_end": 0.178571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.178571,
+          "bin_end": 0.214286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.214286,
+          "bin_end": 0.25,
+          "count": 0
+        },
+        {
+          "bin_start": 0.25,
+          "bin_end": 0.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.285714,
+          "bin_end": 0.321429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.321429,
+          "bin_end": 0.357143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.357143,
+          "bin_end": 0.392857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.392857,
+          "bin_end": 0.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.428571,
+          "bin_end": 0.464286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.464286,
+          "bin_end": 0.5,
+          "count": 0
+        },
+        {
+          "bin_start": 0.5,
+          "bin_end": 0.535714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.535714,
+          "bin_end": 0.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.571429,
+          "bin_end": 0.607143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.607143,
+          "bin_end": 0.642857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.642857,
+          "bin_end": 0.678571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.678571,
+          "bin_end": 0.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.714286,
+          "bin_end": 0.75,
+          "count": 0
+        },
+        {
+          "bin_start": 0.75,
+          "bin_end": 0.785714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.785714,
+          "bin_end": 0.821429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.821429,
+          "bin_end": 0.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.857143,
+          "bin_end": 0.892857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.892857,
+          "bin_end": 0.928571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.928571,
+          "bin_end": 0.964286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.964286,
+          "bin_end": 1.0,
+          "count": 1749
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 1.0,
+        "clipped_below": 0,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 1.0,
+        "p99": 1.0
+      }
+    }
+  ],
+  "categorical": [
+    {
+      "column": "Contract",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "Month-to-month",
+      "top_values": [
+        {
+          "value": "Month-to-month",
+          "count": 3875,
+          "share": 0.550192
+        },
+        {
+          "value": "Two year",
+          "count": 1695,
+          "share": 0.240664
+        },
+        {
+          "value": "One year",
+          "count": 1473,
+          "share": 0.209144
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "PaymentMethod",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 4,
+      "cardinality_ratio": 0.000568,
+      "mode": "Electronic check",
+      "top_values": [
+        {
+          "value": "Electronic check",
+          "count": 2365,
+          "share": 0.335794
+        },
+        {
+          "value": "Mailed check",
+          "count": 1612,
+          "share": 0.22888
+        },
+        {
+          "value": "Bank transfer (automatic)",
+          "count": 1544,
+          "share": 0.219225
+        },
+        {
+          "value": "Credit card (automatic)",
+          "count": 1522,
+          "share": 0.216101
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "PaperlessBilling",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.000284,
+      "mode": "Yes",
+      "top_values": [
+        {
+          "value": "Yes",
+          "count": 4171,
+          "share": 0.592219
+        },
+        {
+          "value": "No",
+          "count": 2872,
+          "share": 0.407781
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "InternetService",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "Fiber optic",
+      "top_values": [
+        {
+          "value": "Fiber optic",
+          "count": 3096,
+          "share": 0.439585
+        },
+        {
+          "value": "DSL",
+          "count": 2421,
+          "share": 0.343746
+        },
+        {
+          "value": "No",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "OnlineSecurity",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 3498,
+          "share": 0.496663
+        },
+        {
+          "value": "Yes",
+          "count": 2019,
+          "share": 0.286668
+        },
+        {
+          "value": "No internet service",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "TechSupport",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 3473,
+          "share": 0.493114
+        },
+        {
+          "value": "Yes",
+          "count": 2044,
+          "share": 0.290217
+        },
+        {
+          "value": "No internet service",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "StreamingTV",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 2810,
+          "share": 0.398978
+        },
+        {
+          "value": "Yes",
+          "count": 2707,
+          "share": 0.384353
+        },
+        {
+          "value": "No internet service",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "StreamingMovies",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 2785,
+          "share": 0.395428
+        },
+        {
+          "value": "Yes",
+          "count": 2732,
+          "share": 0.387903
+        },
+        {
+          "value": "No internet service",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "DeviceProtection",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 3095,
+          "share": 0.439443
+        },
+        {
+          "value": "Yes",
+          "count": 2422,
+          "share": 0.343888
+        },
+        {
+          "value": "No internet service",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "OnlineBackup",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 3088,
+          "share": 0.43845
+        },
+        {
+          "value": "Yes",
+          "count": 2429,
+          "share": 0.344881
+        },
+        {
+          "value": "No internet service",
+          "count": 1526,
+          "share": 0.216669
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "MultipleLines",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 0.000426,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 3390,
+          "share": 0.481329
+        },
+        {
+          "value": "Yes",
+          "count": 2971,
+          "share": 0.421837
+        },
+        {
+          "value": "No phone service",
+          "count": 682,
+          "share": 0.096834
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "PhoneService",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.000284,
+      "mode": "Yes",
+      "top_values": [
+        {
+          "value": "Yes",
+          "count": 6361,
+          "share": 0.903166
+        },
+        {
+          "value": "No",
+          "count": 682,
+          "share": 0.096834
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "Dependents",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.000284,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 4933,
+          "share": 0.700412
+        },
+        {
+          "value": "Yes",
+          "count": 2110,
+          "share": 0.299588
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "gender",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.000284,
+      "mode": "Male",
+      "top_values": [
+        {
+          "value": "Male",
+          "count": 3555,
+          "share": 0.504756
+        },
+        {
+          "value": "Female",
+          "count": 3488,
+          "share": 0.495244
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "SeniorCitizen",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.000284,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 5901,
+          "share": 0.837853
+        },
+        {
+          "value": "Yes",
+          "count": 1142,
+          "share": 0.162147
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "Partner",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.000284,
+      "mode": "No",
+      "top_values": [
+        {
+          "value": "No",
+          "count": 3641,
+          "share": 0.516967
+        },
+        {
+          "value": "Yes",
+          "count": 3402,
+          "share": 0.483033
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "tenure_bucket",
+      "kind": "categorical",
+      "count": 7043,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 5,
+      "cardinality_ratio": 0.00071,
+      "mode": "48m+",
+      "top_values": [
+        {
+          "value": "48m+",
+          "count": 2239,
+          "share": 0.317904
+        },
+        {
+          "value": "24-48m",
+          "count": 1594,
+          "share": 0.226324
+        },
+        {
+          "value": "0-6m",
+          "count": 1481,
+          "share": 0.21028
+        },
+        {
+          "value": "12-24m",
+          "count": 1024,
+          "share": 0.145393
+        },
+        {
+          "value": "6-12m",
+          "count": 705,
+          "share": 0.100099
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    }
+  ],
+  "correlation": {
+    "columns": [
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges",
+      "charges_per_tenure",
+      "services_subscribed",
+      "tenure_bucket_idx",
+      "monthly_vs_avg_ratio",
+      "has_dependents_and_partner"
+    ],
+    "pearson": [
+      [
+        1.0,
+        0.2479,
+        0.8259,
+        0.2472,
+        0.4738,
+        0.9413,
+        -0.0317,
+        0.2105
+      ],
+      [
+        0.2479,
+        1.0,
+        0.6511,
+        0.9962,
+        0.8514,
+        0.2377,
+        -0.0246,
+        -0.0724
+      ],
+      [
+        0.8259,
+        0.6511,
+        1.0,
+        0.6509,
+        0.7774,
+        0.7599,
+        -0.0467,
+        0.1173
+      ],
+      [
+        0.2472,
+        0.9962,
+        0.6509,
+        1.0,
+        0.849,
+        0.2367,
+        -0.0974,
+        -0.0728
+      ],
+      [
+        0.4738,
+        0.8514,
+        0.7774,
+        0.849,
+        1.0,
+        0.4455,
+        -0.0339,
+        0.0337
+      ],
+      [
+        0.9413,
+        0.2377,
+        0.7599,
+        0.2367,
+        0.4455,
+        1.0,
+        -0.0311,
+        0.2031
+      ],
+      [
+        -0.0317,
+        -0.0246,
+        -0.0467,
+        -0.0974,
+        -0.0339,
+        -0.0311,
+        1.0,
+        0.0141
+      ],
+      [
+        0.2105,
+        -0.0724,
+        0.1173,
+        -0.0728,
+        0.0337,
+        0.2031,
+        0.0141,
+        1.0
+      ]
+    ],
+    "spearman": [
+      [
+        1.0,
+        0.2764,
+        0.8892,
+        0.2741,
+        0.4641,
+        0.9715,
+        -0.006,
+        0.2149
+      ],
+      [
+        0.2764,
+        1.0,
+        0.638,
+        0.9918,
+        0.8525,
+        0.2653,
+        -0.0058,
+        -0.0661
+      ],
+      [
+        0.8892,
+        0.638,
+        1.0,
+        0.6372,
+        0.7541,
+        0.8745,
+        -0.032,
+        0.1377
+      ],
+      [
+        0.2741,
+        0.9918,
+        0.6372,
+        1.0,
+        0.8497,
+        0.2631,
+        -0.1093,
+        -0.0679
+      ],
+      [
+        0.4641,
+        0.8525,
+        0.7541,
+        0.8497,
+        1.0,
+        0.444,
+        -0.0161,
+        0.0266
+      ],
+      [
+        0.9715,
+        0.2653,
+        0.8745,
+        0.2631,
+        0.444,
+        1.0,
+        -0.005,
+        0.2039
+      ],
+      [
+        -0.006,
+        -0.0058,
+        -0.032,
+        -0.1093,
+        -0.0161,
+        -0.005,
+        1.0,
+        0.011
+      ],
+      [
+        0.2149,
+        -0.0661,
+        0.1377,
+        -0.0679,
+        0.0266,
+        0.2039,
+        0.011,
+        1.0
+      ]
+    ],
+    "strong_pairs": [
+      {
+        "a": "MonthlyCharges",
+        "b": "charges_per_tenure",
+        "pearson": 0.9962,
+        "spearman": 0.9918,
+        "nonlinear_gap": -0.0045
+      },
+      {
+        "a": "tenure",
+        "b": "tenure_bucket_idx",
+        "pearson": 0.9413,
+        "spearman": 0.9715,
+        "nonlinear_gap": 0.0303
+      },
+      {
+        "a": "tenure",
+        "b": "TotalCharges",
+        "pearson": 0.8259,
+        "spearman": 0.8892,
+        "nonlinear_gap": 0.0633
+      },
+      {
+        "a": "TotalCharges",
+        "b": "tenure_bucket_idx",
+        "pearson": 0.7599,
+        "spearman": 0.8745,
+        "nonlinear_gap": 0.1147
+      },
+      {
+        "a": "MonthlyCharges",
+        "b": "services_subscribed",
+        "pearson": 0.8514,
+        "spearman": 0.8525,
+        "nonlinear_gap": 0.0011
+      },
+      {
+        "a": "charges_per_tenure",
+        "b": "services_subscribed",
+        "pearson": 0.849,
+        "spearman": 0.8497,
+        "nonlinear_gap": 0.0006
+      },
+      {
+        "a": "TotalCharges",
+        "b": "services_subscribed",
+        "pearson": 0.7774,
+        "spearman": 0.7541,
+        "nonlinear_gap": -0.0233
+      },
+      {
+        "a": "MonthlyCharges",
+        "b": "TotalCharges",
+        "pearson": 0.6511,
+        "spearman": 0.638,
+        "nonlinear_gap": -0.013
+      },
+      {
+        "a": "TotalCharges",
+        "b": "charges_per_tenure",
+        "pearson": 0.6509,
+        "spearman": 0.6372,
+        "nonlinear_gap": -0.0138
+      }
+    ]
+  },
+  "missingness": {
+    "total_cells": 183118,
+    "missing_cells": 11,
+    "missing_pct": 6e-05,
+    "complete_rows_pct": 0.998438,
+    "columns": [
+      {
+        "column": "TotalCharges",
+        "missing_pct": 0.001562,
+        "missing": 11
+      }
+    ],
+    "co_missing_pairs": []
+  },
+  "quality": {
+    "dimensions": [
+      {
+        "dimension": "Completeness",
+        "score": 0.99994,
+        "detail": "11 of 183,118 cells are null",
+        "worst_column": "TotalCharges"
+      },
+      {
+        "dimension": "Uniqueness",
+        "score": 0.996876,
+        "detail": "22 fully duplicated rows"
+      },
+      {
+        "dimension": "Validity",
+        "score": 1.0,
+        "detail": "0 domain-rule violations across 2 rules",
+        "rules": [
+          {
+            "column": "tenure",
+            "rule": "tenure >= 0",
+            "violations": 0,
+            "violation_pct": 0.0
+          },
+          {
+            "column": "MonthlyCharges",
+            "rule": "MonthlyCharges > 0",
+            "violations": 0,
+            "violation_pct": 0.0
+          }
+        ]
+      },
+      {
+        "dimension": "Consistency",
+        "score": 1.0,
+        "detail": "no constant columns"
+      },
+      {
+        "dimension": "Timeliness",
+        "score": 1.0,
+        "detail": "no temporal column declared"
+      },
+      {
+        "dimension": "Cardinality health",
+        "score": 1.0,
+        "detail": "no identifier-like text columns among features"
+      }
+    ],
+    "overall_score": 0.999469,
+    "grade": "A",
+    "note": "Scores describe the data as published. Nothing here is repaired at the ingestion layer; remediation happens inside the modelling pipeline where it can be fitted per-fold."
+  },
+  "target_relationships": [
+    {
+      "feature": "tenure",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 37.57,
+        "1": 17.9791
+      },
+      "separation": 19.5908
+    },
+    {
+      "feature": "MonthlyCharges",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 61.2651,
+        "1": 74.4413
+      },
+      "separation": 13.1762
+    },
+    {
+      "feature": "TotalCharges",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 2555.3441,
+        "1": 1531.7961
+      },
+      "separation": 1023.548
+    },
+    {
+      "feature": "charges_per_tenure",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 61.2697,
+        "1": 74.4332
+      },
+      "separation": 13.1634
+    },
+    {
+      "feature": "services_subscribed",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 4.1732,
+        "1": 4.0717
+      },
+      "separation": 0.1015
+    },
+    {
+      "feature": "tenure_bucket_idx",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 2.6716,
+        "1": 1.4275
+      },
+      "separation": 1.2441
+    },
+    {
+      "feature": "monthly_vs_avg_ratio",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 1.0019,
+        "1": 1.0033
+      },
+      "separation": 0.0014
+    },
+    {
+      "feature": "has_dependents_and_partner",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 0.2899,
+        "1": 0.1332
+      },
+      "separation": 0.1567
+    },
+    {
+      "feature": "Contract",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Month-to-month": 0.4271,
+        "One year": 0.1127,
+        "Two year": 0.0283
+      },
+      "spread": 0.3988
+    },
+    {
+      "feature": "PaymentMethod",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Electronic check": 0.4529,
+        "Mailed check": 0.1911,
+        "Bank transfer (automatic)": 0.1671,
+        "Credit card (automatic)": 0.1524
+      },
+      "spread": 0.3004
+    }
+  ],
+  "target": "churned",
+  "churn_by_segment": [
+    {
+      "dimension": "tenure_bucket",
+      "segment": "0-6m",
+      "churn_rate": 0.5294,
+      "n": 1481
+    },
+    {
+      "dimension": "PaymentMethod",
+      "segment": "Electronic check",
+      "churn_rate": 0.4529,
+      "n": 2365
+    },
+    {
+      "dimension": "Contract",
+      "segment": "Month-to-month",
+      "churn_rate": 0.4271,
+      "n": 3875
+    },
+    {
+      "dimension": "InternetService",
+      "segment": "Fiber optic",
+      "churn_rate": 0.4189,
+      "n": 3096
+    },
+    {
+      "dimension": "OnlineSecurity",
+      "segment": "No",
+      "churn_rate": 0.4177,
+      "n": 3498
+    },
+    {
+      "dimension": "TechSupport",
+      "segment": "No",
+      "churn_rate": 0.4164,
+      "n": 3473
+    },
+    {
+      "dimension": "tenure_bucket",
+      "segment": "6-12m",
+      "churn_rate": 0.3589,
+      "n": 705
+    },
+    {
+      "dimension": "tenure_bucket",
+      "segment": "12-24m",
+      "churn_rate": 0.2871,
+      "n": 1024
+    },
+    {
+      "dimension": "tenure_bucket",
+      "segment": "24-48m",
+      "churn_rate": 0.2039,
+      "n": 1594
+    },
+    {
+      "dimension": "PaymentMethod",
+      "segment": "Mailed check",
+      "churn_rate": 0.1911,
+      "n": 1612
+    },
+    {
+      "dimension": "InternetService",
+      "segment": "DSL",
+      "churn_rate": 0.1896,
+      "n": 2421
+    },
+    {
+      "dimension": "PaymentMethod",
+      "segment": "Bank transfer (automatic)",
+      "churn_rate": 0.1671,
+      "n": 1544
+    },
+    {
+      "dimension": "PaymentMethod",
+      "segment": "Credit card (automatic)",
+      "churn_rate": 0.1524,
+      "n": 1522
+    },
+    {
+      "dimension": "TechSupport",
+      "segment": "Yes",
+      "churn_rate": 0.1517,
+      "n": 2044
+    },
+    {
+      "dimension": "OnlineSecurity",
+      "segment": "Yes",
+      "churn_rate": 0.1461,
+      "n": 2019
+    },
+    {
+      "dimension": "Contract",
+      "segment": "One year",
+      "churn_rate": 0.1127,
+      "n": 1473
+    },
+    {
+      "dimension": "tenure_bucket",
+      "segment": "48m+",
+      "churn_rate": 0.0951,
+      "n": 2239
+    },
+    {
+      "dimension": "InternetService",
+      "segment": "No",
+      "churn_rate": 0.074,
+      "n": 1526
+    },
+    {
+      "dimension": "TechSupport",
+      "segment": "No internet service",
+      "churn_rate": 0.074,
+      "n": 1526
+    },
+    {
+      "dimension": "OnlineSecurity",
+      "segment": "No internet service",
+      "churn_rate": 0.074,
+      "n": 1526
+    },
+    {
+      "dimension": "Contract",
+      "segment": "Two year",
+      "churn_rate": 0.0283,
+      "n": 1695
+    }
+  ],
+  "survival_by_tenure": [
+    {
+      "tenure": 1,
+      "churn_rate": 0.6199,
+      "n": 613
+    },
+    {
+      "tenure": 2,
+      "churn_rate": 0.5168,
+      "n": 238
+    },
+    {
+      "tenure": 3,
+      "churn_rate": 0.47,
+      "n": 200
+    },
+    {
+      "tenure": 4,
+      "churn_rate": 0.4716,
+      "n": 176
+    },
+    {
+      "tenure": 5,
+      "churn_rate": 0.4812,
+      "n": 133
+    },
+    {
+      "tenure": 6,
+      "churn_rate": 0.3636,
+      "n": 110
+    },
+    {
+      "tenure": 7,
+      "churn_rate": 0.3893,
+      "n": 131
+    },
+    {
+      "tenure": 8,
+      "churn_rate": 0.3415,
+      "n": 123
+    },
+    {
+      "tenure": 9,
+      "churn_rate": 0.3866,
+      "n": 119
+    },
+    {
+      "tenure": 10,
+      "churn_rate": 0.3879,
+      "n": 116
+    },
+    {
+      "tenure": 11,
+      "churn_rate": 0.3131,
+      "n": 99
+    },
+    {
+      "tenure": 12,
+      "churn_rate": 0.3248,
+      "n": 117
+    },
+    {
+      "tenure": 13,
+      "churn_rate": 0.3486,
+      "n": 109
+    },
+    {
+      "tenure": 14,
+      "churn_rate": 0.3158,
+      "n": 76
+    },
+    {
+      "tenure": 15,
+      "churn_rate": 0.3737,
+      "n": 99
+    },
+    {
+      "tenure": 16,
+      "churn_rate": 0.35,
+      "n": 80
+    },
+    {
+      "tenure": 17,
+      "churn_rate": 0.2989,
+      "n": 87
+    },
+    {
+      "tenure": 18,
+      "churn_rate": 0.2474,
+      "n": 97
+    },
+    {
+      "tenure": 19,
+      "churn_rate": 0.2603,
+      "n": 73
+    },
+    {
+      "tenure": 20,
+      "churn_rate": 0.2535,
+      "n": 71
+    },
+    {
+      "tenure": 21,
+      "churn_rate": 0.2698,
+      "n": 63
+    },
+    {
+      "tenure": 22,
+      "churn_rate": 0.3,
+      "n": 90
+    },
+    {
+      "tenure": 23,
+      "churn_rate": 0.1529,
+      "n": 85
+    },
+    {
+      "tenure": 24,
+      "churn_rate": 0.2447,
+      "n": 94
+    },
+    {
+      "tenure": 25,
+      "churn_rate": 0.2911,
+      "n": 79
+    },
+    {
+      "tenure": 26,
+      "churn_rate": 0.1899,
+      "n": 79
+    },
+    {
+      "tenure": 27,
+      "churn_rate": 0.1806,
+      "n": 72
+    },
+    {
+      "tenure": 28,
+      "churn_rate": 0.2105,
+      "n": 57
+    },
+    {
+      "tenure": 29,
+      "churn_rate": 0.2083,
+      "n": 72
+    },
+    {
+      "tenure": 30,
+      "churn_rate": 0.2222,
+      "n": 72
+    },
+    {
+      "tenure": 31,
+      "churn_rate": 0.2462,
+      "n": 65
+    },
+    {
+      "tenure": 32,
+      "churn_rate": 0.2754,
+      "n": 69
+    },
+    {
+      "tenure": 33,
+      "churn_rate": 0.2188,
+      "n": 64
+    },
+    {
+      "tenure": 34,
+      "churn_rate": 0.1846,
+      "n": 65
+    },
+    {
+      "tenure": 35,
+      "churn_rate": 0.1705,
+      "n": 88
+    },
+    {
+      "tenure": 36,
+      "churn_rate": 0.2,
+      "n": 50
+    },
+    {
+      "tenure": 37,
+      "churn_rate": 0.2308,
+      "n": 65
+    },
+    {
+      "tenure": 38,
+      "churn_rate": 0.2203,
+      "n": 59
+    },
+    {
+      "tenure": 39,
+      "churn_rate": 0.25,
+      "n": 56
+    },
+    {
+      "tenure": 40,
+      "churn_rate": 0.2031,
+      "n": 64
+    },
+    {
+      "tenure": 41,
+      "churn_rate": 0.2,
+      "n": 70
+    },
+    {
+      "tenure": 42,
+      "churn_rate": 0.2154,
+      "n": 65
+    },
+    {
+      "tenure": 43,
+      "churn_rate": 0.2308,
+      "n": 65
+    },
+    {
+      "tenure": 44,
+      "churn_rate": 0.1176,
+      "n": 51
+    },
+    {
+      "tenure": 45,
+      "churn_rate": 0.0984,
+      "n": 61
+    },
+    {
+      "tenure": 46,
+      "churn_rate": 0.1622,
+      "n": 74
+    },
+    {
+      "tenure": 47,
+      "churn_rate": 0.2059,
+      "n": 68
+    },
+    {
+      "tenure": 48,
+      "churn_rate": 0.1406,
+      "n": 64
+    },
+    {
+      "tenure": 49,
+      "churn_rate": 0.2273,
+      "n": 66
+    },
+    {
+      "tenure": 50,
+      "churn_rate": 0.1471,
+      "n": 68
+    },
+    {
+      "tenure": 51,
+      "churn_rate": 0.1176,
+      "n": 68
+    },
+    {
+      "tenure": 52,
+      "churn_rate": 0.1,
+      "n": 80
+    },
+    {
+      "tenure": 53,
+      "churn_rate": 0.2,
+      "n": 70
+    },
+    {
+      "tenure": 54,
+      "churn_rate": 0.1912,
+      "n": 68
+    },
+    {
+      "tenure": 55,
+      "churn_rate": 0.1406,
+      "n": 64
+    },
+    {
+      "tenure": 56,
+      "churn_rate": 0.125,
+      "n": 80
+    },
+    {
+      "tenure": 57,
+      "churn_rate": 0.1231,
+      "n": 65
+    },
+    {
+      "tenure": 58,
+      "churn_rate": 0.1642,
+      "n": 67
+    },
+    {
+      "tenure": 59,
+      "churn_rate": 0.1333,
+      "n": 60
+    },
+    {
+      "tenure": 60,
+      "churn_rate": 0.0789,
+      "n": 76
+    },
+    {
+      "tenure": 61,
+      "churn_rate": 0.1053,
+      "n": 76
+    },
+    {
+      "tenure": 62,
+      "churn_rate": 0.0714,
+      "n": 70
+    },
+    {
+      "tenure": 63,
+      "churn_rate": 0.0556,
+      "n": 72
+    },
+    {
+      "tenure": 64,
+      "churn_rate": 0.05,
+      "n": 80
+    },
+    {
+      "tenure": 65,
+      "churn_rate": 0.1184,
+      "n": 76
+    },
+    {
+      "tenure": 66,
+      "churn_rate": 0.1461,
+      "n": 89
+    },
+    {
+      "tenure": 67,
+      "churn_rate": 0.102,
+      "n": 98
+    },
+    {
+      "tenure": 68,
+      "churn_rate": 0.09,
+      "n": 100
+    },
+    {
+      "tenure": 69,
+      "churn_rate": 0.0842,
+      "n": 95
+    },
+    {
+      "tenure": 70,
+      "churn_rate": 0.0924,
+      "n": 119
+    },
+    {
+      "tenure": 71,
+      "churn_rate": 0.0353,
+      "n": 170
+    },
+    {
+      "tenure": 72,
+      "churn_rate": 0.0166,
+      "n": 362
+    }
+  ],
+  "class_balance": {
+    "positive": 1869,
+    "negative": 5174,
+    "positive_rate": 0.26537,
+    "note": "26.5% positive. Accuracy is therefore a misleading headline: predicting 'no churn' for everyone scores 73.5%."
+  },
+  "train_only_target_relationships": [
+    {
+      "feature": "Contract",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Month-to-month": 0.4284,
+        "One year": 0.1104,
+        "Two year": 0.0287
+      },
+      "spread": 0.3998
+    },
+    {
+      "feature": "tenure",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 37.5489,
+        "1": 17.9552
+      },
+      "separation": 19.5937
+    },
+    {
+      "feature": "MonthlyCharges",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 61.6248,
+        "1": 74.4677
+      },
+      "separation": 12.8429
+    },
+    {
+      "feature": "InternetService",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Fiber optic": 0.416,
+        "DSL": 0.1903,
+        "No": 0.0746
+      },
+      "spread": 0.3414
+    },
+    {
+      "feature": "PaymentMethod",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Electronic check": 0.4555,
+        "Mailed check": 0.1929,
+        "Bank transfer (automatic)": 0.1605,
+        "Credit card (automatic)": 0.1564
+      },
+      "spread": 0.2991
+    }
+  ],
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

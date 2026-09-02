@@ -1,0 +1,74 @@
+{
+  "checks": [
+    {
+      "check": "Identifier excluded from features",
+      "status": "pass",
+      "evidence": "customerID is absent from ALL_FEATURES; it is unique per row."
+    },
+    {
+      "check": "Sensitive attributes not modelled",
+      "status": "pass",
+      "evidence": "gender, SeniorCitizen, Partner routed to the fairness audit only."
+    },
+    {
+      "check": "Imputation fitted per fold",
+      "status": "pass",
+      "evidence": "SimpleImputer sits inside the ColumnTransformer that CV clones; the 11 blank TotalCharges are never filled at load time."
+    },
+    {
+      "check": "Split stratified and disjoint",
+      "status": "pass",
+      "evidence": "assert_disjoint() enforced; prevalence held at 0.2654 across folds."
+    },
+    {
+      "check": "Calibrator fitted without seeing its own evaluation data",
+      "status": "pass",
+      "evidence": "CalibratedClassifierCV(cv=3) refits the base estimator on inner folds; the hold-out is untouched by calibration."
+    },
+    {
+      "check": "Metric appropriate to prevalence",
+      "status": "pass",
+      "evidence": "PR-AUC is the headline at 26.5% prevalence; accuracy is reported but flagged as misleading."
+    },
+    {
+      "check": "Threshold justified",
+      "status": "pass",
+      "evidence": "Deployed at 0.27 from an explicit cost matrix, not the 0.5 default."
+    },
+    {
+      "check": "Search overfitting",
+      "status": "pass",
+      "evidence": "No family exceeds a 0.03 CV-to-hold-out gap."
+    },
+    {
+      "check": "Fairness measured, not assumed",
+      "status": "pass",
+      "evidence": "3 attributes audited on four criteria; failures: ['SeniorCitizen', 'Partner']."
+    },
+    {
+      "check": "Baselines published",
+      "status": "pass",
+      "evidence": "Prevalence floor and an analyst heuristic both reported."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "All estimators, splits and CV folds seeded at 42."
+    }
+  ],
+  "passed": 11,
+  "total": 11,
+  "grade": "A",
+  "scope": "Static review for identifier leakage, preprocessing leakage, calibration leakage, metric gaming and unmeasured disparity.",
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

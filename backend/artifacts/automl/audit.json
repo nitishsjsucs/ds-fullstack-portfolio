@@ -1,0 +1,73 @@
+{
+  "checks": [
+    {
+      "check": "Survey-design artefact excluded",
+      "status": "pass",
+      "evidence": "Census sampling weight -- a survey-design artefact describing how many people the row represents, not a property of the person. Correlates with geogra"
+    },
+    {
+      "check": "Redundant duplicate column removed",
+      "status": "pass",
+      "evidence": "education dropped in favour of the equivalent ordinal education_num."
+    },
+    {
+      "check": "Sensitive attributes not modelled",
+      "status": "pass",
+      "evidence": "sex, race and age band are excluded from the feature matrix and used only to measure disparity. Exclusion does not make the model fair -- occupation, "
+    },
+    {
+      "check": "Preprocessing fitted per fold",
+      "status": "pass",
+      "evidence": "Imputation, rare-level grouping and one-hot encoding are all ColumnTransformer steps inside the cloned Pipeline."
+    },
+    {
+      "check": "Stacking uses out-of-fold predictions only",
+      "status": "pass",
+      "evidence": "The meta-learner is trained exclusively on out-of-fold predictions: every base-model probability it sees was produced by a model that did not train on that row. Fitting i"
+    },
+    {
+      "check": "Hold-out scored once per family",
+      "status": "pass",
+      "evidence": "Hyperparameter search ran on CV folds; the hold-out was predicted after the search closed."
+    },
+    {
+      "check": "Search overfitting quantified",
+      "status": "pass",
+      "evidence": "No family overfitted the search. All 6 score at least as well on the untouched hold-out as on cross-validation (mean gap -0.0032), so the hill climbing did not fit its ow"
+    },
+    {
+      "check": "Necessity of complexity tested",
+      "status": "pass",
+      "evidence": "Depth-4 distilled tree retains 93.1% of AUC at 92.5% fidelity; reported rather than hidden."
+    },
+    {
+      "check": "Fairness measured on multiple criteria",
+      "status": "pass",
+      "evidence": "3 attributes on four criteria; failures: ['sex', 'race', 'age_band']."
+    },
+    {
+      "check": "Baselines published",
+      "status": "pass",
+      "evidence": "Random and an analyst heuristic both reported."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "All estimators, splits and folds seeded at 42."
+    }
+  ],
+  "passed": 11,
+  "total": 11,
+  "grade": "A",
+  "scope": "Review for the failure modes specific to automated search: hold-out contamination through repeated selection, stacking on in-fold predictions, artefact features that inflate CV, and unnecessary complexity presented as necessary.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

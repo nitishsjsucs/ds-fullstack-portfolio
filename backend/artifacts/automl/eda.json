@@ -1,0 +1,2413 @@
+{
+  "shape": {
+    "rows": 48842,
+    "columns": 17
+  },
+  "memory_mb": 26.0,
+  "dtypes": {
+    "age": "int64",
+    "education_num": "int64",
+    "capital_gain": "int64",
+    "capital_loss": "int64",
+    "hours_per_week": "int64",
+    "capital_net": "int64",
+    "has_capital_gain": "int64",
+    "hours_band": "float64",
+    "workclass": "object",
+    "marital_status": "object",
+    "occupation": "object",
+    "relationship": "object",
+    "native_country": "object",
+    "sex": "object",
+    "race": "object",
+    "age_band": "object",
+    "high_income": "int64"
+  },
+  "numeric": [
+    {
+      "column": "age",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 38.643585,
+      "median": 37.0,
+      "std": 13.71051,
+      "min": 17.0,
+      "max": 90.0,
+      "q1": 28.0,
+      "q3": 48.0,
+      "iqr": 20.0,
+      "skew": 0.55758,
+      "kurtosis": -0.184269,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 74,
+      "outlier_fences": {
+        "lower": -2.0,
+        "upper": 78.0
+      },
+      "outlier_count": 216,
+      "outlier_pct": 0.004422,
+      "histogram": [
+        {
+          "bin_start": 17.0,
+          "bin_end": 19.178571,
+          "count": 2510
+        },
+        {
+          "bin_start": 19.178571,
+          "bin_end": 21.357143,
+          "count": 2209
+        },
+        {
+          "bin_start": 21.357143,
+          "bin_end": 23.535714,
+          "count": 2507
+        },
+        {
+          "bin_start": 23.535714,
+          "bin_end": 25.714286,
+          "count": 2401
+        },
+        {
+          "bin_start": 25.714286,
+          "bin_end": 27.892857,
+          "count": 2385
+        },
+        {
+          "bin_start": 27.892857,
+          "bin_end": 30.071429,
+          "count": 3781
+        },
+        {
+          "bin_start": 30.071429,
+          "bin_end": 32.25,
+          "count": 2578
+        },
+        {
+          "bin_start": 32.25,
+          "bin_end": 34.428571,
+          "count": 2638
+        },
+        {
+          "bin_start": 34.428571,
+          "bin_end": 36.607143,
+          "count": 2685
+        },
+        {
+          "bin_start": 36.607143,
+          "bin_end": 38.785714,
+          "count": 2544
+        },
+        {
+          "bin_start": 38.785714,
+          "bin_end": 40.964286,
+          "count": 2393
+        },
+        {
+          "bin_start": 40.964286,
+          "bin_end": 43.142857,
+          "count": 3504
+        },
+        {
+          "bin_start": 43.142857,
+          "bin_end": 45.321429,
+          "count": 2163
+        },
+        {
+          "bin_start": 45.321429,
+          "bin_end": 47.5,
+          "count": 2178
+        },
+        {
+          "bin_start": 47.5,
+          "bin_end": 49.678571,
+          "count": 1692
+        },
+        {
+          "bin_start": 49.678571,
+          "bin_end": 51.857143,
+          "count": 1743
+        },
+        {
+          "bin_start": 51.857143,
+          "bin_end": 54.035714,
+          "count": 2062
+        },
+        {
+          "bin_start": 54.035714,
+          "bin_end": 56.214286,
+          "count": 1185
+        },
+        {
+          "bin_start": 56.214286,
+          "bin_end": 58.392857,
+          "count": 1106
+        },
+        {
+          "bin_start": 58.392857,
+          "bin_end": 60.571429,
+          "count": 972
+        },
+        {
+          "bin_start": 60.571429,
+          "bin_end": 62.75,
+          "count": 844
+        },
+        {
+          "bin_start": 62.75,
+          "bin_end": 64.928571,
+          "count": 675
+        },
+        {
+          "bin_start": 64.928571,
+          "bin_end": 67.107143,
+          "count": 759
+        },
+        {
+          "bin_start": 67.107143,
+          "bin_end": 69.285714,
+          "count": 327
+        },
+        {
+          "bin_start": 69.285714,
+          "bin_end": 71.464286,
+          "count": 251
+        },
+        {
+          "bin_start": 71.464286,
+          "bin_end": 73.642857,
+          "count": 228
+        },
+        {
+          "bin_start": 73.642857,
+          "bin_end": 75.821429,
+          "count": 149
+        },
+        {
+          "bin_start": 75.821429,
+          "bin_end": 78.0,
+          "count": 157
+        }
+      ],
+      "histogram_range": {
+        "lower": 17.0,
+        "upper": 78.0,
+        "clipped_below": 0,
+        "clipped_above": 216
+      },
+      "percentiles": {
+        "p1": 17.0,
+        "p5": 19.0,
+        "p25": 28.0,
+        "p50": 37.0,
+        "p75": 48.0,
+        "p95": 63.0,
+        "p99": 74.0
+      }
+    },
+    {
+      "column": "education_num",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 10.078089,
+      "median": 10.0,
+      "std": 2.570973,
+      "min": 1.0,
+      "max": 16.0,
+      "q1": 9.0,
+      "q3": 12.0,
+      "iqr": 3.0,
+      "skew": -0.316525,
+      "kurtosis": 0.625745,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 16,
+      "outlier_fences": {
+        "lower": 4.5,
+        "upper": 16.5
+      },
+      "outlier_count": 1794,
+      "outlier_pct": 0.036731,
+      "histogram": [
+        {
+          "bin_start": 2.0,
+          "bin_end": 2.5,
+          "count": 247
+        },
+        {
+          "bin_start": 2.5,
+          "bin_end": 3.0,
+          "count": 0
+        },
+        {
+          "bin_start": 3.0,
+          "bin_end": 3.5,
+          "count": 509
+        },
+        {
+          "bin_start": 3.5,
+          "bin_end": 4.0,
+          "count": 0
+        },
+        {
+          "bin_start": 4.0,
+          "bin_end": 4.5,
+          "count": 955
+        },
+        {
+          "bin_start": 4.5,
+          "bin_end": 5.0,
+          "count": 0
+        },
+        {
+          "bin_start": 5.0,
+          "bin_end": 5.5,
+          "count": 756
+        },
+        {
+          "bin_start": 5.5,
+          "bin_end": 6.0,
+          "count": 0
+        },
+        {
+          "bin_start": 6.0,
+          "bin_end": 6.5,
+          "count": 1389
+        },
+        {
+          "bin_start": 6.5,
+          "bin_end": 7.0,
+          "count": 0
+        },
+        {
+          "bin_start": 7.0,
+          "bin_end": 7.5,
+          "count": 1812
+        },
+        {
+          "bin_start": 7.5,
+          "bin_end": 8.0,
+          "count": 0
+        },
+        {
+          "bin_start": 8.0,
+          "bin_end": 8.5,
+          "count": 657
+        },
+        {
+          "bin_start": 8.5,
+          "bin_end": 9.0,
+          "count": 0
+        },
+        {
+          "bin_start": 9.0,
+          "bin_end": 9.5,
+          "count": 15784
+        },
+        {
+          "bin_start": 9.5,
+          "bin_end": 10.0,
+          "count": 0
+        },
+        {
+          "bin_start": 10.0,
+          "bin_end": 10.5,
+          "count": 10878
+        },
+        {
+          "bin_start": 10.5,
+          "bin_end": 11.0,
+          "count": 0
+        },
+        {
+          "bin_start": 11.0,
+          "bin_end": 11.5,
+          "count": 2061
+        },
+        {
+          "bin_start": 11.5,
+          "bin_end": 12.0,
+          "count": 0
+        },
+        {
+          "bin_start": 12.0,
+          "bin_end": 12.5,
+          "count": 1601
+        },
+        {
+          "bin_start": 12.5,
+          "bin_end": 13.0,
+          "count": 0
+        },
+        {
+          "bin_start": 13.0,
+          "bin_end": 13.5,
+          "count": 8025
+        },
+        {
+          "bin_start": 13.5,
+          "bin_end": 14.0,
+          "count": 0
+        },
+        {
+          "bin_start": 14.0,
+          "bin_end": 14.5,
+          "count": 2657
+        },
+        {
+          "bin_start": 14.5,
+          "bin_end": 15.0,
+          "count": 0
+        },
+        {
+          "bin_start": 15.0,
+          "bin_end": 15.5,
+          "count": 834
+        },
+        {
+          "bin_start": 15.5,
+          "bin_end": 16.0,
+          "count": 594
+        }
+      ],
+      "histogram_range": {
+        "lower": 2.0,
+        "upper": 16.0,
+        "clipped_below": 83,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 3.0,
+        "p5": 5.0,
+        "p25": 9.0,
+        "p50": 10.0,
+        "p75": 12.0,
+        "p95": 14.0,
+        "p99": 16.0
+      }
+    },
+    {
+      "column": "capital_gain",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 1079.067626,
+      "median": 0.0,
+      "std": 7452.019058,
+      "min": 0.0,
+      "max": 99999.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 11.894659,
+      "kurtosis": 152.693096,
+      "zeros": 44807,
+      "negatives": 0,
+      "n_unique": 123,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 4035,
+      "outlier_pct": 0.082613,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 1475.357143,
+          "count": 44981
+        },
+        {
+          "bin_start": 1475.357143,
+          "bin_end": 2950.714286,
+          "count": 495
+        },
+        {
+          "bin_start": 2950.714286,
+          "bin_end": 4426.071429,
+          "count": 751
+        },
+        {
+          "bin_start": 4426.071429,
+          "bin_end": 5901.428571,
+          "count": 460
+        },
+        {
+          "bin_start": 5901.428571,
+          "bin_end": 7376.785714,
+          "count": 465
+        },
+        {
+          "bin_start": 7376.785714,
+          "bin_end": 8852.142857,
+          "count": 520
+        },
+        {
+          "bin_start": 8852.142857,
+          "bin_end": 10327.5,
+          "count": 36
+        },
+        {
+          "bin_start": 10327.5,
+          "bin_end": 11802.857143,
+          "count": 95
+        },
+        {
+          "bin_start": 11802.857143,
+          "bin_end": 13278.214286,
+          "count": 0
+        },
+        {
+          "bin_start": 13278.214286,
+          "bin_end": 14753.571429,
+          "count": 125
+        },
+        {
+          "bin_start": 14753.571429,
+          "bin_end": 16228.928571,
+          "count": 531
+        },
+        {
+          "bin_start": 16228.928571,
+          "bin_end": 17704.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 17704.285714,
+          "bin_end": 19179.642857,
+          "count": 2
+        },
+        {
+          "bin_start": 19179.642857,
+          "bin_end": 20655.0,
+          "count": 49
+        },
+        {
+          "bin_start": 20655.0,
+          "bin_end": 22130.357143,
+          "count": 1
+        },
+        {
+          "bin_start": 22130.357143,
+          "bin_end": 23605.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 23605.714286,
+          "bin_end": 25081.071429,
+          "count": 0
+        },
+        {
+          "bin_start": 25081.071429,
+          "bin_end": 26556.428571,
+          "count": 20
+        },
+        {
+          "bin_start": 26556.428571,
+          "bin_end": 28031.785714,
+          "count": 58
+        },
+        {
+          "bin_start": 28031.785714,
+          "bin_end": 29507.142857,
+          "count": 0
+        },
+        {
+          "bin_start": 29507.142857,
+          "bin_end": 30982.5,
+          "count": 0
+        },
+        {
+          "bin_start": 30982.5,
+          "bin_end": 32457.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 32457.857143,
+          "bin_end": 33933.214286,
+          "count": 0
+        },
+        {
+          "bin_start": 33933.214286,
+          "bin_end": 35408.571429,
+          "count": 6
+        },
+        {
+          "bin_start": 35408.571429,
+          "bin_end": 36883.928571,
+          "count": 0
+        },
+        {
+          "bin_start": 36883.928571,
+          "bin_end": 38359.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 38359.285714,
+          "bin_end": 39834.642857,
+          "count": 0
+        },
+        {
+          "bin_start": 39834.642857,
+          "bin_end": 41310.0,
+          "count": 3
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 41310.0,
+        "clipped_below": 0,
+        "clipped_above": 244
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 5013.0,
+        "p99": 15024.0
+      }
+    },
+    {
+      "column": "capital_loss",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 87.502314,
+      "median": 0.0,
+      "std": 403.004552,
+      "min": 0.0,
+      "max": 4356.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 4.569809,
+      "kurtosis": 20.014346,
+      "zeros": 46560,
+      "negatives": 0,
+      "n_unique": 99,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 2282,
+      "outlier_pct": 0.046722,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 80.642857,
+          "count": 46560
+        },
+        {
+          "bin_start": 80.642857,
+          "bin_end": 161.285714,
+          "count": 1
+        },
+        {
+          "bin_start": 161.285714,
+          "bin_end": 241.928571,
+          "count": 5
+        },
+        {
+          "bin_start": 241.928571,
+          "bin_end": 322.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 322.571429,
+          "bin_end": 403.214286,
+          "count": 5
+        },
+        {
+          "bin_start": 403.214286,
+          "bin_end": 483.857143,
+          "count": 3
+        },
+        {
+          "bin_start": 483.857143,
+          "bin_end": 564.5,
+          "count": 0
+        },
+        {
+          "bin_start": 564.5,
+          "bin_end": 645.142857,
+          "count": 17
+        },
+        {
+          "bin_start": 645.142857,
+          "bin_end": 725.785714,
+          "count": 4
+        },
+        {
+          "bin_start": 725.785714,
+          "bin_end": 806.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 806.428571,
+          "bin_end": 887.071429,
+          "count": 8
+        },
+        {
+          "bin_start": 887.071429,
+          "bin_end": 967.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 967.714286,
+          "bin_end": 1048.357143,
+          "count": 2
+        },
+        {
+          "bin_start": 1048.357143,
+          "bin_end": 1129.0,
+          "count": 11
+        },
+        {
+          "bin_start": 1129.0,
+          "bin_end": 1209.642857,
+          "count": 4
+        },
+        {
+          "bin_start": 1209.642857,
+          "bin_end": 1290.285714,
+          "count": 6
+        },
+        {
+          "bin_start": 1290.285714,
+          "bin_end": 1370.928571,
+          "count": 11
+        },
+        {
+          "bin_start": 1370.928571,
+          "bin_end": 1451.571429,
+          "count": 53
+        },
+        {
+          "bin_start": 1451.571429,
+          "bin_end": 1532.214286,
+          "count": 100
+        },
+        {
+          "bin_start": 1532.214286,
+          "bin_end": 1612.857143,
+          "count": 219
+        },
+        {
+          "bin_start": 1612.857143,
+          "bin_end": 1693.5,
+          "count": 143
+        },
+        {
+          "bin_start": 1693.5,
+          "bin_end": 1774.142857,
+          "count": 202
+        },
+        {
+          "bin_start": 1774.142857,
+          "bin_end": 1854.785714,
+          "count": 79
+        },
+        {
+          "bin_start": 1854.785714,
+          "bin_end": 1935.428571,
+          "count": 598
+        },
+        {
+          "bin_start": 1935.428571,
+          "bin_end": 2016.071429,
+          "count": 388
+        },
+        {
+          "bin_start": 2016.071429,
+          "bin_end": 2096.714286,
+          "count": 58
+        },
+        {
+          "bin_start": 2096.714286,
+          "bin_end": 2177.357143,
+          "count": 24
+        },
+        {
+          "bin_start": 2177.357143,
+          "bin_end": 2258.0,
+          "count": 104
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 2258.0,
+        "clipped_below": 0,
+        "clipped_above": 237
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 0.0,
+        "p99": 2001.0
+      }
+    },
+    {
+      "column": "hours_per_week",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 40.422382,
+      "median": 40.0,
+      "std": 12.391444,
+      "min": 1.0,
+      "max": 99.0,
+      "q1": 40.0,
+      "q3": 45.0,
+      "iqr": 5.0,
+      "skew": 0.23875,
+      "kurtosis": 2.951059,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 96,
+      "outlier_fences": {
+        "lower": 32.5,
+        "upper": 52.5
+      },
+      "outlier_count": 13496,
+      "outlier_pct": 0.27632,
+      "histogram": [
+        {
+          "bin_start": 5.0,
+          "bin_end": 7.821429,
+          "count": 232
+        },
+        {
+          "bin_start": 7.821429,
+          "bin_end": 10.642857,
+          "count": 670
+        },
+        {
+          "bin_start": 10.642857,
+          "bin_end": 13.464286,
+          "count": 295
+        },
+        {
+          "bin_start": 13.464286,
+          "bin_end": 16.285714,
+          "count": 981
+        },
+        {
+          "bin_start": 16.285714,
+          "bin_end": 19.107143,
+          "count": 190
+        },
+        {
+          "bin_start": 19.107143,
+          "bin_end": 21.928571,
+          "count": 1908
+        },
+        {
+          "bin_start": 21.928571,
+          "bin_end": 24.75,
+          "count": 456
+        },
+        {
+          "bin_start": 24.75,
+          "bin_end": 27.571429,
+          "count": 1041
+        },
+        {
+          "bin_start": 27.571429,
+          "bin_end": 30.392857,
+          "count": 1855
+        },
+        {
+          "bin_start": 30.392857,
+          "bin_end": 33.214286,
+          "count": 496
+        },
+        {
+          "bin_start": 33.214286,
+          "bin_end": 36.035714,
+          "count": 2321
+        },
+        {
+          "bin_start": 36.035714,
+          "bin_end": 38.857143,
+          "count": 956
+        },
+        {
+          "bin_start": 38.857143,
+          "bin_end": 41.678571,
+          "count": 22925
+        },
+        {
+          "bin_start": 41.678571,
+          "bin_end": 44.5,
+          "count": 875
+        },
+        {
+          "bin_start": 44.5,
+          "bin_end": 47.321429,
+          "count": 2928
+        },
+        {
+          "bin_start": 47.321429,
+          "bin_end": 50.142857,
+          "count": 5055
+        },
+        {
+          "bin_start": 50.142857,
+          "bin_end": 52.964286,
+          "count": 225
+        },
+        {
+          "bin_start": 52.964286,
+          "bin_end": 55.785714,
+          "count": 1152
+        },
+        {
+          "bin_start": 55.785714,
+          "bin_end": 58.607143,
+          "count": 198
+        },
+        {
+          "bin_start": 58.607143,
+          "bin_end": 61.428571,
+          "count": 2188
+        },
+        {
+          "bin_start": 61.428571,
+          "bin_end": 64.25,
+          "count": 60
+        },
+        {
+          "bin_start": 64.25,
+          "bin_end": 67.071429,
+          "count": 384
+        },
+        {
+          "bin_start": 67.071429,
+          "bin_end": 69.892857,
+          "count": 17
+        },
+        {
+          "bin_start": 69.892857,
+          "bin_end": 72.714286,
+          "count": 544
+        },
+        {
+          "bin_start": 72.714286,
+          "bin_end": 75.535714,
+          "count": 112
+        },
+        {
+          "bin_start": 75.535714,
+          "bin_end": 78.357143,
+          "count": 26
+        },
+        {
+          "bin_start": 78.357143,
+          "bin_end": 81.178571,
+          "count": 214
+        },
+        {
+          "bin_start": 81.178571,
+          "bin_end": 84.0,
+          "count": 73
+        }
+      ],
+      "histogram_range": {
+        "lower": 5.0,
+        "upper": 84.0,
+        "clipped_below": 223,
+        "clipped_above": 242
+      },
+      "percentiles": {
+        "p1": 8.0,
+        "p5": 17.05,
+        "p25": 40.0,
+        "p50": 40.0,
+        "p75": 45.0,
+        "p95": 60.0,
+        "p99": 80.0
+      }
+    },
+    {
+      "column": "capital_net",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 991.565313,
+      "median": 0.0,
+      "std": 7475.549906,
+      "min": -4356.0,
+      "max": 99999.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 11.814939,
+      "kurtosis": 151.295654,
+      "zeros": 42525,
+      "negatives": 2282,
+      "n_unique": 221,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 6317,
+      "outlier_pct": 0.129335,
+      "histogram": [
+        {
+          "bin_start": -2258.0,
+          "bin_end": -702.0,
+          "count": 2010
+        },
+        {
+          "bin_start": -702.0,
+          "bin_end": 854.0,
+          "count": 42625
+        },
+        {
+          "bin_start": 854.0,
+          "bin_end": 2410.0,
+          "count": 404
+        },
+        {
+          "bin_start": 2410.0,
+          "bin_end": 3966.0,
+          "count": 736
+        },
+        {
+          "bin_start": 3966.0,
+          "bin_end": 5522.0,
+          "count": 662
+        },
+        {
+          "bin_start": 5522.0,
+          "bin_end": 7078.0,
+          "count": 113
+        },
+        {
+          "bin_start": 7078.0,
+          "bin_end": 8634.0,
+          "count": 885
+        },
+        {
+          "bin_start": 8634.0,
+          "bin_end": 10190.0,
+          "count": 36
+        },
+        {
+          "bin_start": 10190.0,
+          "bin_end": 11746.0,
+          "count": 95
+        },
+        {
+          "bin_start": 11746.0,
+          "bin_end": 13302.0,
+          "count": 0
+        },
+        {
+          "bin_start": 13302.0,
+          "bin_end": 14858.0,
+          "count": 125
+        },
+        {
+          "bin_start": 14858.0,
+          "bin_end": 16414.0,
+          "count": 531
+        },
+        {
+          "bin_start": 16414.0,
+          "bin_end": 17970.0,
+          "count": 0
+        },
+        {
+          "bin_start": 17970.0,
+          "bin_end": 19526.0,
+          "count": 2
+        },
+        {
+          "bin_start": 19526.0,
+          "bin_end": 21082.0,
+          "count": 49
+        },
+        {
+          "bin_start": 21082.0,
+          "bin_end": 22638.0,
+          "count": 1
+        },
+        {
+          "bin_start": 22638.0,
+          "bin_end": 24194.0,
+          "count": 0
+        },
+        {
+          "bin_start": 24194.0,
+          "bin_end": 25750.0,
+          "count": 20
+        },
+        {
+          "bin_start": 25750.0,
+          "bin_end": 27306.0,
+          "count": 0
+        },
+        {
+          "bin_start": 27306.0,
+          "bin_end": 28862.0,
+          "count": 58
+        },
+        {
+          "bin_start": 28862.0,
+          "bin_end": 30418.0,
+          "count": 0
+        },
+        {
+          "bin_start": 30418.0,
+          "bin_end": 31974.0,
+          "count": 0
+        },
+        {
+          "bin_start": 31974.0,
+          "bin_end": 33530.0,
+          "count": 0
+        },
+        {
+          "bin_start": 33530.0,
+          "bin_end": 35086.0,
+          "count": 6
+        },
+        {
+          "bin_start": 35086.0,
+          "bin_end": 36642.0,
+          "count": 0
+        },
+        {
+          "bin_start": 36642.0,
+          "bin_end": 38198.0,
+          "count": 0
+        },
+        {
+          "bin_start": 38198.0,
+          "bin_end": 39754.0,
+          "count": 0
+        },
+        {
+          "bin_start": 39754.0,
+          "bin_end": 41310.0,
+          "count": 3
+        }
+      ],
+      "histogram_range": {
+        "lower": -2258.0,
+        "upper": 41310.0,
+        "clipped_below": 237,
+        "clipped_above": 244
+      },
+      "percentiles": {
+        "p1": -2001.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 5013.0,
+        "p99": 15024.0
+      }
+    },
+    {
+      "column": "has_capital_gain",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.082613,
+      "median": 0.0,
+      "std": 0.2753,
+      "min": 0.0,
+      "max": 1.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 3.032359,
+      "kurtosis": 7.195497,
+      "zeros": 44807,
+      "negatives": 0,
+      "n_unique": 2,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 4035,
+      "outlier_pct": 0.082613,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.035714,
+          "count": 44807
+        },
+        {
+          "bin_start": 0.035714,
+          "bin_end": 0.071429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.071429,
+          "bin_end": 0.107143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.107143,
+          "bin_end": 0.142857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.142857,
+          "bin_end": 0.178571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.178571,
+          "bin_end": 0.214286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.214286,
+          "bin_end": 0.25,
+          "count": 0
+        },
+        {
+          "bin_start": 0.25,
+          "bin_end": 0.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.285714,
+          "bin_end": 0.321429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.321429,
+          "bin_end": 0.357143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.357143,
+          "bin_end": 0.392857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.392857,
+          "bin_end": 0.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.428571,
+          "bin_end": 0.464286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.464286,
+          "bin_end": 0.5,
+          "count": 0
+        },
+        {
+          "bin_start": 0.5,
+          "bin_end": 0.535714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.535714,
+          "bin_end": 0.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.571429,
+          "bin_end": 0.607143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.607143,
+          "bin_end": 0.642857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.642857,
+          "bin_end": 0.678571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.678571,
+          "bin_end": 0.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.714286,
+          "bin_end": 0.75,
+          "count": 0
+        },
+        {
+          "bin_start": 0.75,
+          "bin_end": 0.785714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.785714,
+          "bin_end": 0.821429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.821429,
+          "bin_end": 0.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.857143,
+          "bin_end": 0.892857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.892857,
+          "bin_end": 0.928571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.928571,
+          "bin_end": 0.964286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.964286,
+          "bin_end": 1.0,
+          "count": 4035
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 1.0,
+        "clipped_below": 0,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 1.0,
+        "p99": 1.0
+      }
+    },
+    {
+      "column": "hours_band",
+      "kind": "numeric",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 1.950698,
+      "median": 2.0,
+      "std": 0.897038,
+      "min": 0.0,
+      "max": 4.0,
+      "q1": 2.0,
+      "q3": 2.0,
+      "iqr": 0.0,
+      "skew": -0.375887,
+      "kurtosis": 0.471601,
+      "zeros": 4453,
+      "negatives": 0,
+      "n_unique": 5,
+      "outlier_fences": {
+        "lower": 2.0,
+        "upper": 2.0
+      },
+      "outlier_count": 21033,
+      "outlier_pct": 0.430633,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.142857,
+          "count": 4453
+        },
+        {
+          "bin_start": 0.142857,
+          "bin_end": 0.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.285714,
+          "bin_end": 0.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.428571,
+          "bin_end": 0.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.571429,
+          "bin_end": 0.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.714286,
+          "bin_end": 0.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.857143,
+          "bin_end": 1.0,
+          "count": 0
+        },
+        {
+          "bin_start": 1.0,
+          "bin_end": 1.142857,
+          "count": 5879
+        },
+        {
+          "bin_start": 1.142857,
+          "bin_end": 1.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 1.285714,
+          "bin_end": 1.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 1.428571,
+          "bin_end": 1.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 1.571429,
+          "bin_end": 1.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 1.714286,
+          "bin_end": 1.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 1.857143,
+          "bin_end": 2.0,
+          "count": 0
+        },
+        {
+          "bin_start": 2.0,
+          "bin_end": 2.142857,
+          "count": 27809
+        },
+        {
+          "bin_start": 2.142857,
+          "bin_end": 2.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 2.285714,
+          "bin_end": 2.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 2.428571,
+          "bin_end": 2.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 2.571429,
+          "bin_end": 2.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 2.714286,
+          "bin_end": 2.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 2.857143,
+          "bin_end": 3.0,
+          "count": 0
+        },
+        {
+          "bin_start": 3.0,
+          "bin_end": 3.142857,
+          "count": 9025
+        },
+        {
+          "bin_start": 3.142857,
+          "bin_end": 3.285714,
+          "count": 0
+        },
+        {
+          "bin_start": 3.285714,
+          "bin_end": 3.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 3.428571,
+          "bin_end": 3.571429,
+          "count": 0
+        },
+        {
+          "bin_start": 3.571429,
+          "bin_end": 3.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 3.714286,
+          "bin_end": 3.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 3.857143,
+          "bin_end": 4.0,
+          "count": 1676
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 4.0,
+        "clipped_below": 0,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 2.0,
+        "p50": 2.0,
+        "p75": 2.0,
+        "p95": 3.0,
+        "p99": 4.0
+      }
+    }
+  ],
+  "categorical": [
+    {
+      "column": "workclass",
+      "kind": "categorical",
+      "count": 46043,
+      "missing": 2799,
+      "missing_pct": 0.057307,
+      "n_unique": 8,
+      "cardinality_ratio": 0.000174,
+      "mode": "Private",
+      "top_values": [
+        {
+          "value": "Private",
+          "count": 33906,
+          "share": 0.736399
+        },
+        {
+          "value": "Self-emp-not-inc",
+          "count": 3862,
+          "share": 0.083878
+        },
+        {
+          "value": "Local-gov",
+          "count": 3136,
+          "share": 0.06811
+        },
+        {
+          "value": "State-gov",
+          "count": 1981,
+          "share": 0.043025
+        },
+        {
+          "value": "Self-emp-inc",
+          "count": 1695,
+          "share": 0.036813
+        },
+        {
+          "value": "Federal-gov",
+          "count": 1432,
+          "share": 0.031101
+        },
+        {
+          "value": "Without-pay",
+          "count": 21,
+          "share": 0.000456
+        },
+        {
+          "value": "Never-worked",
+          "count": 10,
+          "share": 0.000217
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "marital_status",
+      "kind": "categorical",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 7,
+      "cardinality_ratio": 0.000143,
+      "mode": "Married-civ-spouse",
+      "top_values": [
+        {
+          "value": "Married-civ-spouse",
+          "count": 22379,
+          "share": 0.458192
+        },
+        {
+          "value": "Never-married",
+          "count": 16117,
+          "share": 0.329982
+        },
+        {
+          "value": "Divorced",
+          "count": 6633,
+          "share": 0.135805
+        },
+        {
+          "value": "Separated",
+          "count": 1530,
+          "share": 0.031325
+        },
+        {
+          "value": "Widowed",
+          "count": 1518,
+          "share": 0.03108
+        },
+        {
+          "value": "Married-spouse-absent",
+          "count": 628,
+          "share": 0.012858
+        },
+        {
+          "value": "Married-AF-spouse",
+          "count": 37,
+          "share": 0.000758
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "occupation",
+      "kind": "categorical",
+      "count": 46033,
+      "missing": 2809,
+      "missing_pct": 0.057512,
+      "n_unique": 14,
+      "cardinality_ratio": 0.000304,
+      "mode": "Prof-specialty",
+      "top_values": [
+        {
+          "value": "Prof-specialty",
+          "count": 6172,
+          "share": 0.134078
+        },
+        {
+          "value": "Craft-repair",
+          "count": 6112,
+          "share": 0.132774
+        },
+        {
+          "value": "Exec-managerial",
+          "count": 6086,
+          "share": 0.13221
+        },
+        {
+          "value": "Adm-clerical",
+          "count": 5611,
+          "share": 0.121891
+        },
+        {
+          "value": "Sales",
+          "count": 5504,
+          "share": 0.119566
+        },
+        {
+          "value": "Other-service",
+          "count": 4923,
+          "share": 0.106945
+        },
+        {
+          "value": "Machine-op-inspct",
+          "count": 3022,
+          "share": 0.065649
+        },
+        {
+          "value": "Transport-moving",
+          "count": 2355,
+          "share": 0.051159
+        },
+        {
+          "value": "Handlers-cleaners",
+          "count": 2072,
+          "share": 0.045011
+        },
+        {
+          "value": "Farming-fishing",
+          "count": 1490,
+          "share": 0.032368
+        },
+        {
+          "value": "Tech-support",
+          "count": 1446,
+          "share": 0.031412
+        },
+        {
+          "value": "Protective-serv",
+          "count": 983,
+          "share": 0.021354
+        }
+      ],
+      "tail_share": 0.005583,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "relationship",
+      "kind": "categorical",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 6,
+      "cardinality_ratio": 0.000123,
+      "mode": "Husband",
+      "top_values": [
+        {
+          "value": "Husband",
+          "count": 19716,
+          "share": 0.403669
+        },
+        {
+          "value": "Not-in-family",
+          "count": 12583,
+          "share": 0.257627
+        },
+        {
+          "value": "Own-child",
+          "count": 7581,
+          "share": 0.155215
+        },
+        {
+          "value": "Unmarried",
+          "count": 5125,
+          "share": 0.10493
+        },
+        {
+          "value": "Wife",
+          "count": 2331,
+          "share": 0.047725
+        },
+        {
+          "value": "Other-relative",
+          "count": 1506,
+          "share": 0.030834
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "native_country",
+      "kind": "categorical",
+      "count": 47985,
+      "missing": 857,
+      "missing_pct": 0.017546,
+      "n_unique": 41,
+      "cardinality_ratio": 0.000854,
+      "mode": "United-States",
+      "top_values": [
+        {
+          "value": "United-States",
+          "count": 43832,
+          "share": 0.913452
+        },
+        {
+          "value": "Mexico",
+          "count": 951,
+          "share": 0.019819
+        },
+        {
+          "value": "Philippines",
+          "count": 295,
+          "share": 0.006148
+        },
+        {
+          "value": "Germany",
+          "count": 206,
+          "share": 0.004293
+        },
+        {
+          "value": "Puerto-Rico",
+          "count": 184,
+          "share": 0.003835
+        },
+        {
+          "value": "Canada",
+          "count": 182,
+          "share": 0.003793
+        },
+        {
+          "value": "El-Salvador",
+          "count": 155,
+          "share": 0.00323
+        },
+        {
+          "value": "India",
+          "count": 151,
+          "share": 0.003147
+        },
+        {
+          "value": "Cuba",
+          "count": 138,
+          "share": 0.002876
+        },
+        {
+          "value": "England",
+          "count": 127,
+          "share": 0.002647
+        },
+        {
+          "value": "China",
+          "count": 122,
+          "share": 0.002542
+        },
+        {
+          "value": "South",
+          "count": 115,
+          "share": 0.002397
+        }
+      ],
+      "tail_share": 0.031822,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "sex",
+      "kind": "categorical",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 4.1e-05,
+      "mode": "Male",
+      "top_values": [
+        {
+          "value": "Male",
+          "count": 32650,
+          "share": 0.668482
+        },
+        {
+          "value": "Female",
+          "count": 16192,
+          "share": 0.331518
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "race",
+      "kind": "categorical",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 5,
+      "cardinality_ratio": 0.000102,
+      "mode": "White",
+      "top_values": [
+        {
+          "value": "White",
+          "count": 41762,
+          "share": 0.855043
+        },
+        {
+          "value": "Black",
+          "count": 4685,
+          "share": 0.095922
+        },
+        {
+          "value": "Asian-Pac-Islander",
+          "count": 1519,
+          "share": 0.0311
+        },
+        {
+          "value": "Amer-Indian-Eskimo",
+          "count": 470,
+          "share": 0.009623
+        },
+        {
+          "value": "Other",
+          "count": 406,
+          "share": 0.008313
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "age_band",
+      "kind": "categorical",
+      "count": 48842,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 6,
+      "cardinality_ratio": 0.000123,
+      "mode": "25-34",
+      "top_values": [
+        {
+          "value": "25-34",
+          "count": 12719,
+          "share": 0.260411
+        },
+        {
+          "value": "35-44",
+          "count": 11952,
+          "share": 0.244707
+        },
+        {
+          "value": "<25",
+          "count": 9627,
+          "share": 0.197105
+        },
+        {
+          "value": "45-54",
+          "count": 8296,
+          "share": 0.169854
+        },
+        {
+          "value": "55-64",
+          "count": 4445,
+          "share": 0.091008
+        },
+        {
+          "value": "65+",
+          "count": 1803,
+          "share": 0.036915
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    }
+  ],
+  "correlation": {
+    "columns": [
+      "age",
+      "education_num",
+      "capital_gain",
+      "capital_loss",
+      "hours_per_week",
+      "capital_net",
+      "has_capital_gain",
+      "hours_band"
+    ],
+    "pearson": [
+      [
+        1.0,
+        0.0309,
+        0.0772,
+        0.0569,
+        0.0716,
+        0.0739,
+        0.1198,
+        0.0843
+      ],
+      [
+        0.0309,
+        1.0,
+        0.1251,
+        0.081,
+        0.1437,
+        0.1204,
+        0.1151,
+        0.1468
+      ],
+      [
+        0.0772,
+        0.1251,
+        1.0,
+        -0.0314,
+        0.0822,
+        0.9985,
+        0.4825,
+        0.08
+      ],
+      [
+        0.0569,
+        0.081,
+        -0.0314,
+        1.0,
+        0.0545,
+        -0.0853,
+        -0.0652,
+        0.0567
+      ],
+      [
+        0.0716,
+        0.1437,
+        0.0822,
+        0.0545,
+        1.0,
+        0.079,
+        0.0752,
+        0.944
+      ],
+      [
+        0.0739,
+        0.1204,
+        0.9985,
+        -0.0853,
+        0.079,
+        1.0,
+        0.4845,
+        0.0767
+      ],
+      [
+        0.1198,
+        0.1151,
+        0.4825,
+        -0.0652,
+        0.0752,
+        0.4845,
+        1.0,
+        0.0761
+      ],
+      [
+        0.0843,
+        0.1468,
+        0.08,
+        0.0567,
+        0.944,
+        0.0767,
+        0.0761,
+        1.0
+      ]
+    ],
+    "spearman": [
+      [
+        1.0,
+        0.0632,
+        0.1244,
+        0.0576,
+        0.1466,
+        0.064,
+        0.1218,
+        0.149
+      ],
+      [
+        0.0632,
+        1.0,
+        0.1189,
+        0.077,
+        0.1644,
+        0.0487,
+        0.1126,
+        0.1496
+      ],
+      [
+        0.1244,
+        0.1189,
+        1.0,
+        -0.0663,
+        0.0919,
+        0.8188,
+        0.9988,
+        0.0862
+      ],
+      [
+        0.0576,
+        0.077,
+        -0.0663,
+        1.0,
+        0.0601,
+        -0.6271,
+        -0.0664,
+        0.0573
+      ],
+      [
+        0.1466,
+        0.1644,
+        0.0919,
+        0.0601,
+        1.0,
+        0.0373,
+        0.0878,
+        0.9482
+      ],
+      [
+        0.064,
+        0.0487,
+        0.8188,
+        -0.6271,
+        0.0373,
+        1.0,
+        0.8178,
+        0.0345
+      ],
+      [
+        0.1218,
+        0.1126,
+        0.9988,
+        -0.0664,
+        0.0878,
+        0.8178,
+        1.0,
+        0.0821
+      ],
+      [
+        0.149,
+        0.1496,
+        0.0862,
+        0.0573,
+        0.9482,
+        0.0345,
+        0.0821,
+        1.0
+      ]
+    ],
+    "strong_pairs": [
+      {
+        "a": "capital_gain",
+        "b": "has_capital_gain",
+        "pearson": 0.4825,
+        "spearman": 0.9988,
+        "nonlinear_gap": 0.5162
+      },
+      {
+        "a": "capital_gain",
+        "b": "capital_net",
+        "pearson": 0.9985,
+        "spearman": 0.8188,
+        "nonlinear_gap": -0.1798
+      },
+      {
+        "a": "hours_per_week",
+        "b": "hours_band",
+        "pearson": 0.944,
+        "spearman": 0.9482,
+        "nonlinear_gap": 0.0042
+      },
+      {
+        "a": "capital_net",
+        "b": "has_capital_gain",
+        "pearson": 0.4845,
+        "spearman": 0.8178,
+        "nonlinear_gap": 0.3332
+      },
+      {
+        "a": "capital_loss",
+        "b": "capital_net",
+        "pearson": -0.0853,
+        "spearman": -0.6271,
+        "nonlinear_gap": 0.5419
+      }
+    ]
+  },
+  "missingness": {
+    "total_cells": 830314,
+    "missing_cells": 6465,
+    "missing_pct": 0.007786,
+    "complete_rows_pct": 0.925883,
+    "columns": [
+      {
+        "column": "occupation",
+        "missing_pct": 0.057512,
+        "missing": 2809
+      },
+      {
+        "column": "workclass",
+        "missing_pct": 0.057307,
+        "missing": 2799
+      },
+      {
+        "column": "native_country",
+        "missing_pct": 0.017546,
+        "missing": 857
+      }
+    ],
+    "co_missing_pairs": [
+      {
+        "a": "occupation",
+        "b": "workclass",
+        "jointly_missing_pct": 0.05731
+      },
+      {
+        "a": "occupation",
+        "b": "native_country",
+        "jointly_missing_pct": 0.00094
+      },
+      {
+        "a": "workclass",
+        "b": "native_country",
+        "jointly_missing_pct": 0.00094
+      }
+    ]
+  },
+  "quality": {
+    "dimensions": [
+      {
+        "dimension": "Completeness",
+        "score": 0.992214,
+        "detail": "6,465 of 830,314 cells are null",
+        "worst_column": "occupation"
+      },
+      {
+        "dimension": "Uniqueness",
+        "score": 0.869498,
+        "detail": "6,374 fully duplicated rows"
+      },
+      {
+        "dimension": "Validity",
+        "score": 1.0,
+        "detail": "0 domain-rule violations across 2 rules",
+        "rules": [
+          {
+            "column": "age",
+            "rule": "age >= 17",
+            "violations": 0,
+            "violation_pct": 0.0
+          },
+          {
+            "column": "hours_per_week",
+            "rule": "hours_per_week > 0",
+            "violations": 0,
+            "violation_pct": 0.0
+          }
+        ]
+      },
+      {
+        "dimension": "Consistency",
+        "score": 1.0,
+        "detail": "no constant columns"
+      },
+      {
+        "dimension": "Timeliness",
+        "score": 1.0,
+        "detail": "no temporal column declared"
+      },
+      {
+        "dimension": "Cardinality health",
+        "score": 1.0,
+        "detail": "no identifier-like text columns among features"
+      }
+    ],
+    "overall_score": 0.976952,
+    "grade": "A",
+    "note": "Scores describe the data as published. Nothing here is repaired at the ingestion layer; remediation happens inside the modelling pipeline where it can be fitted per-fold."
+  },
+  "target_relationships": [
+    {
+      "feature": "age",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 36.8722,
+        "1": 44.2752
+      },
+      "separation": 7.403
+    },
+    {
+      "feature": "education_num",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 9.5985,
+        "1": 11.6028
+      },
+      "separation": 2.0043
+    },
+    {
+      "feature": "capital_gain",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 147.0103,
+        "1": 4042.2395
+      },
+      "separation": 3895.2292
+    },
+    {
+      "feature": "capital_loss",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 54.1519,
+        "1": 193.529
+      },
+      "separation": 139.377
+    },
+    {
+      "feature": "hours_per_week",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 38.84,
+        "1": 45.4529
+      },
+      "separation": 6.6128
+    },
+    {
+      "feature": "capital_net",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 92.8584,
+        "1": 3848.7105
+      },
+      "separation": 3755.8522
+    },
+    {
+      "feature": "has_capital_gain",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 0.0416,
+        "1": 0.2131
+      },
+      "separation": 0.1716
+    },
+    {
+      "feature": "hours_band",
+      "kind": "numeric-by-class",
+      "means": {
+        "0": 1.8306,
+        "1": 2.3325
+      },
+      "separation": 0.5019
+    },
+    {
+      "feature": "workclass",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Self-emp-inc": 0.5534,
+        "Federal-gov": 0.3918,
+        "Local-gov": 0.2956,
+        "Self-emp-not-inc": 0.2789,
+        "State-gov": 0.2675,
+        "Private": 0.2179
+      },
+      "spread": 0.5534
+    },
+    {
+      "feature": "marital_status",
+      "kind": "rate-by-category",
+      "positive_class": "1",
+      "rates": {
+        "Married-civ-spouse": 0.4461,
+        "Married-AF-spouse": 0.3784,
+        "Divorced": 0.1012,
+        "Married-spouse-absent": 0.0924,
+        "Widowed": 0.0843,
+        "Separated": 0.0647
+      },
+      "spread": 0.4007
+    }
+  ],
+  "target": "high_income",
+  "dropped_columns": {
+    "fnlwgt": "Census sampling weight -- a survey-design artefact describing how many people the row represents, not a property of the person. Correlates with geographic strata, so a tree finds spurious structure in it.",
+    "education": "Perfectly redundant with education_num, which is the same variable as an ordinal code. Keeping both splits one signal across two columns and corrupts every importance measure.",
+    "split_origin": "Bookkeeping column recording which archive file the row came from.",
+    "sex": "Reserved for the fairness audit; excluded from features.",
+    "race": "Reserved for the fairness audit; excluded from features."
+  },
+  "sensitive_policy": "sex, race and age band are excluded from the feature matrix and used only to measure disparity. Exclusion does not make the model fair -- occupation, relationship and hours are all correlated proxies -- which is precisely why the audit exists.",
+  "class_balance": {
+    "positive": 11687,
+    "negative": 37155,
+    "positive_rate": 0.239282
+  },
+  "rate_by_group": [
+    {
+      "attribute": "age_band",
+      "group": "45-54",
+      "positive_rate": 0.3924,
+      "n": 8296
+    },
+    {
+      "attribute": "age_band",
+      "group": "35-44",
+      "positive_rate": 0.3456,
+      "n": 11952
+    },
+    {
+      "attribute": "age_band",
+      "group": "55-64",
+      "positive_rate": 0.3141,
+      "n": 4445
+    },
+    {
+      "attribute": "age_band",
+      "group": "65+",
+      "positive_rate": 0.198,
+      "n": 1803
+    },
+    {
+      "attribute": "age_band",
+      "group": "25-34",
+      "positive_rate": 0.187,
+      "n": 12719
+    },
+    {
+      "attribute": "age_band",
+      "group": "<25",
+      "positive_rate": 0.0176,
+      "n": 9627
+    },
+    {
+      "attribute": "race",
+      "group": "Asian-Pac-Islander",
+      "positive_rate": 0.2693,
+      "n": 1519
+    },
+    {
+      "attribute": "race",
+      "group": "White",
+      "positive_rate": 0.254,
+      "n": 41762
+    },
+    {
+      "attribute": "race",
+      "group": "Other",
+      "positive_rate": 0.1232,
+      "n": 406
+    },
+    {
+      "attribute": "race",
+      "group": "Black",
+      "positive_rate": 0.1208,
+      "n": 4685
+    },
+    {
+      "attribute": "race",
+      "group": "Amer-Indian-Eskimo",
+      "positive_rate": 0.117,
+      "n": 470
+    },
+    {
+      "attribute": "sex",
+      "group": "Male",
+      "positive_rate": 0.3038,
+      "n": 32650
+    },
+    {
+      "attribute": "sex",
+      "group": "Female",
+      "positive_rate": 0.1093,
+      "n": 16192
+    }
+  ],
+  "capital_gain_structure": {
+    "pct_with_capital_gain": 0.0826,
+    "positive_rate_with_gain": 0.6173,
+    "positive_rate_without": 0.2052,
+    "note": "Capital gains are non-zero for a small minority but are enormously predictive within it. A single sparse feature carrying this much signal is exactly the kind of structure a tree exploits and a linear model cannot."
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

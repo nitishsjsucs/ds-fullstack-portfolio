@@ -1,0 +1,210 @@
+{
+  "scoring": "MASE (lower is better)",
+  "leaderboard": [
+    {
+      "model": "Gradient boosting on lags",
+      "assumption": "Demand depends non-linearly on hour, weather and recent history, with interactions -- e.g. rain matters far more at commuting hours than at 3am.",
+      "cv_mase_mean": 0.4443,
+      "cv_mase_std": 0.103,
+      "cv_mae_mean": 33.382,
+      "cv_mae_std": 9.162,
+      "folds": 5,
+      "fit_seconds": 15.38,
+      "holdout_mase": 0.3347,
+      "holdout_mae": 28.797,
+      "holdout_rmse": 45.655,
+      "holdout_r2": 0.9571,
+      "generalisation_gap": -0.1096
+    },
+    {
+      "model": "Ridge on lags + calendar",
+      "assumption": "Demand is a linear combination of its own past and calendar effects. Fast, transparent, and a fair test of whether non-linearity is needed at all.",
+      "cv_mase_mean": 0.5402,
+      "cv_mase_std": 0.0632,
+      "cv_mae_mean": 40.186,
+      "cv_mae_std": 5.462,
+      "folds": 5,
+      "fit_seconds": 0.03,
+      "holdout_mase": 0.5169,
+      "holdout_mae": 44.475,
+      "holdout_rmse": 68.165,
+      "holdout_r2": 0.9044,
+      "generalisation_gap": -0.0233
+    },
+    {
+      "model": "Seasonal naive (t-168)",
+      "assumption": "Demand this hour equals demand the same hour last week. No parameters, no fitting -- the baseline MASE is defined against it.",
+      "cv_mase_mean": 0.7244,
+      "cv_mase_std": 0.1325,
+      "cv_mae_mean": 53.277,
+      "cv_mae_std": 6.76,
+      "folds": 5,
+      "fit_seconds": 0.01,
+      "holdout_mase": 0.7463,
+      "holdout_mae": 64.217,
+      "holdout_rmse": 110.088,
+      "holdout_r2": 0.7507,
+      "generalisation_gap": 0.0219
+    }
+  ],
+  "backtest": {
+    "Seasonal naive (t-168)": [
+      {
+        "fold": 1,
+        "n_train": 2049,
+        "n_val": 2193,
+        "mae": 42.541,
+        "rmse": 69.979,
+        "mase": 0.5439,
+        "r2": 0.782
+      },
+      {
+        "fold": 2,
+        "n_train": 4266,
+        "n_val": 2193,
+        "mae": 54.509,
+        "rmse": 92.735,
+        "mase": 0.9143,
+        "r2": 0.6025
+      },
+      {
+        "fold": 3,
+        "n_train": 6483,
+        "n_val": 2193,
+        "mae": 49.306,
+        "rmse": 80.151,
+        "mase": 0.7063,
+        "r2": 0.5385
+      },
+      {
+        "fold": 4,
+        "n_train": 8700,
+        "n_val": 2193,
+        "mae": 61.619,
+        "rmse": 106.61,
+        "mase": 0.8255,
+        "r2": 0.6907
+      },
+      {
+        "fold": 5,
+        "n_train": 10917,
+        "n_val": 2193,
+        "mae": 58.412,
+        "rmse": 98.761,
+        "mase": 0.6319,
+        "r2": 0.7963
+      }
+    ],
+    "Ridge on lags + calendar": [
+      {
+        "fold": 1,
+        "n_train": 2049,
+        "n_val": 2193,
+        "mae": 44.019,
+        "rmse": 57.642,
+        "mase": 0.5628,
+        "r2": 0.8521
+      },
+      {
+        "fold": 2,
+        "n_train": 4266,
+        "n_val": 2193,
+        "mae": 37.712,
+        "rmse": 55.807,
+        "mase": 0.6326,
+        "r2": 0.8561
+      },
+      {
+        "fold": 3,
+        "n_train": 6483,
+        "n_val": 2193,
+        "mae": 30.971,
+        "rmse": 45.001,
+        "mase": 0.4436,
+        "r2": 0.8545
+      },
+      {
+        "fold": 4,
+        "n_train": 8700,
+        "n_val": 2193,
+        "mae": 41.608,
+        "rmse": 62.188,
+        "mase": 0.5574,
+        "r2": 0.8948
+      },
+      {
+        "fold": 5,
+        "n_train": 10917,
+        "n_val": 2193,
+        "mae": 46.622,
+        "rmse": 68.893,
+        "mase": 0.5044,
+        "r2": 0.9009
+      }
+    ],
+    "Gradient boosting on lags": [
+      {
+        "fold": 1,
+        "n_train": 2049,
+        "n_val": 2193,
+        "mae": 45.175,
+        "rmse": 64.606,
+        "mase": 0.5776,
+        "r2": 0.8142
+      },
+      {
+        "fold": 2,
+        "n_train": 4266,
+        "n_val": 2193,
+        "mae": 24.775,
+        "rmse": 40.116,
+        "mase": 0.4156,
+        "r2": 0.9256
+      },
+      {
+        "fold": 3,
+        "n_train": 6483,
+        "n_val": 2193,
+        "mae": 21.141,
+        "rmse": 33.206,
+        "mase": 0.3028,
+        "r2": 0.9208
+      },
+      {
+        "fold": 4,
+        "n_train": 8700,
+        "n_val": 2193,
+        "mae": 40.714,
+        "rmse": 69.935,
+        "mase": 0.5455,
+        "r2": 0.8669
+      },
+      {
+        "fold": 5,
+        "n_train": 10917,
+        "n_val": 2193,
+        "mae": 35.103,
+        "rmse": 54.46,
+        "mase": 0.3798,
+        "r2": 0.9381
+      }
+    ]
+  },
+  "protocol": {
+    "strategy": "purged & embargoed expanding-window CV",
+    "n_splits": 5,
+    "purge_window_rows": 168,
+    "embargo_rows": 24,
+    "rationale": "Expanding-window folds keep training strictly in the past. The purge drops the 168 rows before each validation fold so trailing-window features cannot span the boundary, and the embargo skips the first 24 validation rows to break autocorrelation carry-over."
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

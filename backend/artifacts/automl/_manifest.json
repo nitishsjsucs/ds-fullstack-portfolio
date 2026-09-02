@@ -1,0 +1,28 @@
+{
+  "slug": "automl",
+  "payloads": [
+    "audit",
+    "crispdm",
+    "eda",
+    "evaluation",
+    "explain",
+    "extras",
+    "leaderboard",
+    "model_card",
+    "overview"
+  ],
+  "models": [
+    "distilled",
+    "model"
+  ],
+  "provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

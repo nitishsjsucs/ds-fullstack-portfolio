@@ -1,0 +1,385 @@
+{
+  "fairness": {
+    "attributes": [
+      {
+        "attribute": "gender",
+        "threshold": 0.2746,
+        "groups": {
+          "Female": {
+            "n": 716,
+            "base_rate": 0.256983,
+            "selection_rate": 0.417598,
+            "tpr": 0.820652,
+            "fpr": 0.278195,
+            "tnr": 0.721805,
+            "fnr": 0.179348,
+            "precision": 0.505017,
+            "accuracy": 0.747207,
+            "confusion": {
+              "tp": 151,
+              "fp": 148,
+              "fn": 33,
+              "tn": 384
+            },
+            "mean_predicted": 0.265574,
+            "observed_rate": 0.256983,
+            "calibration_error": 0.00859
+          },
+          "Male": {
+            "n": 693,
+            "base_rate": 0.27417,
+            "selection_rate": 0.430014,
+            "tpr": 0.821053,
+            "fpr": 0.282306,
+            "tnr": 0.717694,
+            "fnr": 0.178947,
+            "precision": 0.52349,
+            "accuracy": 0.746032,
+            "confusion": {
+              "tp": 156,
+              "fp": 142,
+              "fn": 34,
+              "tn": 361
+            },
+            "mean_predicted": 0.262305,
+            "observed_rate": 0.27417,
+            "calibration_error": 0.011865
+          }
+        },
+        "reference_group": "Male",
+        "disparate_impact": {
+          "Female": 0.9711,
+          "Male": 1.0
+        },
+        "min_disparate_impact": 0.9711,
+        "passes_four_fifths": true,
+        "demographic_parity_difference": 0.0124,
+        "equal_opportunity_difference": 0.0004,
+        "equalised_odds_difference": 0.0041,
+        "base_rate_difference": 0.0172,
+        "calibration_spread": 0.0033
+      },
+      {
+        "attribute": "SeniorCitizen",
+        "threshold": 0.2746,
+        "groups": {
+          "No": {
+            "n": 1175,
+            "base_rate": 0.237447,
+            "selection_rate": 0.382128,
+            "tpr": 0.792115,
+            "fpr": 0.254464,
+            "tnr": 0.745536,
+            "fnr": 0.207885,
+            "precision": 0.492205,
+            "accuracy": 0.756596,
+            "confusion": {
+              "tp": 221,
+              "fp": 228,
+              "fn": 58,
+              "tn": 668
+            },
+            "mean_predicted": 0.243792,
+            "observed_rate": 0.237447,
+            "calibration_error": 0.006345
+          },
+          "Yes": {
+            "n": 234,
+            "base_rate": 0.405983,
+            "selection_rate": 0.632479,
+            "tpr": 0.905263,
+            "fpr": 0.446043,
+            "tnr": 0.553957,
+            "fnr": 0.094737,
+            "precision": 0.581081,
+            "accuracy": 0.696581,
+            "confusion": {
+              "tp": 86,
+              "fp": 62,
+              "fn": 9,
+              "tn": 77
+            },
+            "mean_predicted": 0.365267,
+            "observed_rate": 0.405983,
+            "calibration_error": 0.040716
+          }
+        },
+        "reference_group": "Yes",
+        "disparate_impact": {
+          "No": 0.6042,
+          "Yes": 1.0
+        },
+        "min_disparate_impact": 0.6042,
+        "passes_four_fifths": false,
+        "demographic_parity_difference": 0.2504,
+        "equal_opportunity_difference": 0.1131,
+        "equalised_odds_difference": 0.1916,
+        "base_rate_difference": 0.1685,
+        "calibration_spread": 0.0344
+      },
+      {
+        "attribute": "Partner",
+        "threshold": 0.2746,
+        "groups": {
+          "No": {
+            "n": 705,
+            "base_rate": 0.329078,
+            "selection_rate": 0.561702,
+            "tpr": 0.892241,
+            "fpr": 0.399577,
+            "tnr": 0.600423,
+            "fnr": 0.107759,
+            "precision": 0.522727,
+            "accuracy": 0.696454,
+            "confusion": {
+              "tp": 207,
+              "fp": 189,
+              "fn": 25,
+              "tn": 284
+            },
+            "mean_predicted": 0.338277,
+            "observed_rate": 0.329078,
+            "calibration_error": 0.009199
+          },
+          "Yes": {
+            "n": 704,
+            "base_rate": 0.201705,
+            "selection_rate": 0.285511,
+            "tpr": 0.704225,
+            "fpr": 0.179715,
+            "tnr": 0.820285,
+            "fnr": 0.295775,
+            "precision": 0.497512,
+            "accuracy": 0.796875,
+            "confusion": {
+              "tp": 100,
+              "fp": 101,
+              "fn": 42,
+              "tn": 461
+            },
+            "mean_predicted": 0.189549,
+            "observed_rate": 0.201705,
+            "calibration_error": 0.012155
+          }
+        },
+        "reference_group": "No",
+        "disparate_impact": {
+          "No": 1.0,
+          "Yes": 0.5083
+        },
+        "min_disparate_impact": 0.5083,
+        "passes_four_fifths": false,
+        "demographic_parity_difference": 0.2762,
+        "equal_opportunity_difference": 0.188,
+        "equalised_odds_difference": 0.2199,
+        "base_rate_difference": 0.1274,
+        "calibration_spread": 0.003
+      }
+    ],
+    "n_attributes": 3,
+    "four_fifths_failures": [
+      "SeniorCitizen",
+      "Partner"
+    ],
+    "worst_disparate_impact": 0.5083,
+    "prioritised_criterion": "equal opportunity",
+    "impossibility_note": "Demographic parity, equalised odds and calibration cannot all hold at once when base rates differ across groups (Kleinberg et al. 2016). All four are reported; this project prioritises equal opportunity, and the trade-off is a stated choice rather than an oversight.",
+    "measurement_only_note": "Sensitive attributes are excluded from the model's feature set and used solely for this audit. Exclusion does not eliminate bias -- correlated proxies survive -- which is precisely why it has to be measured.",
+    "threshold_equalisation": {
+      "gender": {
+        "target_metric": "tpr",
+        "reference_rate": 0.4973,
+        "per_group_threshold": {
+          "Female": {
+            "threshold": 0.511,
+            "residual_gap": 0.0027
+          },
+          "Male": {
+            "threshold": 0.489,
+            "residual_gap": 0.0131
+          }
+        },
+        "caveat": "Group-specific thresholds equalise the chosen rate but give different decisions to individuals with identical predicted risk. Shown to quantify the trade-off, not as a deployment recommendation."
+      },
+      "SeniorCitizen": {
+        "target_metric": "tpr",
+        "reference_rate": 0.4973,
+        "per_group_threshold": {
+          "No": {
+            "threshold": 0.477,
+            "residual_gap": 0.0152
+          },
+          "Yes": {
+            "threshold": 0.534,
+            "residual_gap": 0.0026
+          }
+        },
+        "caveat": "Group-specific thresholds equalise the chosen rate but give different decisions to individuals with identical predicted risk. Shown to quantify the trade-off, not as a deployment recommendation."
+      },
+      "Partner": {
+        "target_metric": "tpr",
+        "reference_rate": 0.4973,
+        "per_group_threshold": {
+          "No": {
+            "threshold": 0.534,
+            "residual_gap": 0.0059
+          },
+          "Yes": {
+            "threshold": 0.387,
+            "residual_gap": 0.0027
+          }
+        },
+        "caveat": "Group-specific thresholds equalise the chosen rate but give different decisions to individuals with identical predicted risk. Shown to quantify the trade-off, not as a deployment recommendation."
+      }
+    }
+  },
+  "personas": [
+    {
+      "label": "New fibre customer, month-to-month",
+      "note": "The archetypal high-risk profile: short tenure, no contract, premium price, electronic-check billing.",
+      "payload": {
+        "tenure": 2,
+        "MonthlyCharges": 89.9,
+        "Contract": "Month-to-month",
+        "PaymentMethod": "Electronic check",
+        "InternetService": "Fiber optic",
+        "OnlineSecurity": "No",
+        "TechSupport": "No"
+      }
+    },
+    {
+      "label": "Long-tenure two-year contract",
+      "note": "Locked in and well-served; the model should be confident this customer stays.",
+      "payload": {
+        "tenure": 62,
+        "MonthlyCharges": 105.5,
+        "Contract": "Two year",
+        "PaymentMethod": "Bank transfer (automatic)",
+        "InternetService": "Fiber optic",
+        "OnlineSecurity": "Yes",
+        "TechSupport": "Yes",
+        "StreamingTV": "Yes",
+        "StreamingMovies": "Yes"
+      }
+    },
+    {
+      "label": "Mid-tenure DSL, one-year contract",
+      "note": "The ambiguous middle, where the threshold choice actually decides the outcome.",
+      "payload": {
+        "tenure": 24,
+        "MonthlyCharges": 56.0,
+        "Contract": "One year",
+        "PaymentMethod": "Credit card (automatic)",
+        "InternetService": "DSL",
+        "OnlineSecurity": "Yes",
+        "TechSupport": "No"
+      }
+    },
+    {
+      "label": "Phone-only, minimal spend",
+      "note": "Low monthly margin: even a modest retention offer may not pay for itself here.",
+      "payload": {
+        "tenure": 8,
+        "MonthlyCharges": 20.05,
+        "Contract": "Month-to-month",
+        "PaymentMethod": "Mailed check",
+        "InternetService": "No",
+        "PhoneService": "Yes"
+      }
+    }
+  ],
+  "economics": {
+    "monthly_margin_pct": 0.3,
+    "retention_offer_cost": 45.0,
+    "offer_acceptance_rate": 0.35,
+    "expected_remaining_months": 18,
+    "source": "Illustrative but conventional telco assumptions: 30% contribution margin, a $45 retention incentive accepted by roughly a third of those offered, and an 18-month remaining-life horizon."
+  },
+  "feature_domains": {
+    "Contract": [
+      "Month-to-month",
+      "One year",
+      "Two year"
+    ],
+    "PaymentMethod": [
+      "Bank transfer (automatic)",
+      "Credit card (automatic)",
+      "Electronic check",
+      "Mailed check"
+    ],
+    "PaperlessBilling": [
+      "No",
+      "Yes"
+    ],
+    "InternetService": [
+      "DSL",
+      "Fiber optic",
+      "No"
+    ],
+    "OnlineSecurity": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "TechSupport": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "StreamingTV": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "StreamingMovies": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "DeviceProtection": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "OnlineBackup": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "MultipleLines": [
+      "No",
+      "No phone service",
+      "Yes"
+    ],
+    "PhoneService": [
+      "No",
+      "Yes"
+    ],
+    "Dependents": [
+      "No",
+      "Yes"
+    ],
+    "_numeric_ranges": {
+      "tenure": [
+        0,
+        72
+      ],
+      "MonthlyCharges": [
+        18.25,
+        118.75
+      ]
+    }
+  },
+  "deployed_threshold": 0.2746,
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "anomaly",
+  "number": 5,
+  "title": "Network Intrusion Anomaly Detection",
+  "tagline": "Unsupervised outlier detection on 80,000 KDD-99 connections with a 3.4% attack base rate.",
+  "task": "Anomaly / outlier detection",
+  "domain": "Security telemetry",
+  "dataset": "kdd99_intrusion",
+  "dataset_title": "KDD Cup 1999 network intrusion (SA subset)",
+  "dataset_rows": 80000,
+  "primary_metric": "PR-AUC + precision@k",
+  "metric_reason": "At 3.4% prevalence a detector that flags nothing is 96.6% accurate. Analysts triage a fixed queue, so precision@k is the operational metric.",
+  "techniques": [
+    "Isolation Forest",
+    "Local Outlier Factor",
+    "One-Class SVM",
+    "Elliptic Envelope",
+    "PCA reconstruction error",
+    "Score fusion"
+  ],
+  "skills": [
+    "Unsupervised anomaly detection",
+    "Extreme class imbalance",
+    "Threshold-free evaluation",
+    "Alert triage economics"
+  ],
+  "accent": "red",
+  "icon": "shield",
+  "highlights": [
+    "Five detectors scored on identical folds; labels used only post hoc",
+    "Analyst-queue simulator: set a daily alert budget, see caught vs missed",
+    "Per-attack-family recall showing which intrusions are invisible"
+  ],
+  "rows_modelled": 80000,
+  "champion": "Isolation Forest",
+  "headline": {
+    "pr_auc": 0.473889,
+    "roc_auc": 0.965933,
+    "attack_rate": 0.033675,
+    "lift_over_random": 14.1,
+    "precision_at_100": 0.56,
+    "detectors_compared": 4
+  },
+  "train_seconds": 16.8,
+  "_provenance": {
+    "trained_at": "2026-09-02T21:29:36+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "kdd99_intrusion",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Isolation Forest"
+  }
+}

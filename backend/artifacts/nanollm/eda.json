@@ -1,0 +1,216 @@
+{
+  "corpus": {
+    "characters": 1115394,
+    "tokens": 1115394,
+    "vocab_size": 65,
+    "train_tokens": 1003855,
+    "val_tokens": 111539,
+    "split_at_char": 1003855,
+    "split_policy": "The final 10% of the text, as one contiguous block, is held out. Never shuffled: a random split would place a line in training and the next line in validation, so the model would be scored on completing a passage it had effectively already read.",
+    "line_count": 40001
+  },
+  "tokenizer": {
+    "vocab_size": 65,
+    "characters": [
+      "\\n",
+      " ",
+      "!",
+      "$",
+      "&",
+      "'",
+      ",",
+      "-",
+      ".",
+      "3",
+      ":",
+      ";",
+      "?",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z"
+    ],
+    "note": "Character-level: the entire vocabulary is 65 printable symbols, so nothing about the input representation is hidden."
+  },
+  "character_statistics": {
+    "frequencies": [
+      {
+        "char": "' '",
+        "count": 169892,
+        "probability": 0.15232
+      },
+      {
+        "char": "e",
+        "count": 94611,
+        "probability": 0.08482
+      },
+      {
+        "char": "t",
+        "count": 67009,
+        "probability": 0.06008
+      },
+      {
+        "char": "o",
+        "count": 65798,
+        "probability": 0.05899
+      },
+      {
+        "char": "a",
+        "count": 55507,
+        "probability": 0.04976
+      },
+      {
+        "char": "h",
+        "count": 51310,
+        "probability": 0.046
+      },
+      {
+        "char": "s",
+        "count": 49696,
+        "probability": 0.04455
+      },
+      {
+        "char": "r",
+        "count": 48889,
+        "probability": 0.04383
+      },
+      {
+        "char": "n",
+        "count": 48529,
+        "probability": 0.04351
+      },
+      {
+        "char": "i",
+        "count": 45537,
+        "probability": 0.04083
+      },
+      {
+        "char": "\\n",
+        "count": 40000,
+        "probability": 0.03586
+      },
+      {
+        "char": "l",
+        "count": 33339,
+        "probability": 0.02989
+      },
+      {
+        "char": "d",
+        "count": 31358,
+        "probability": 0.02811
+      },
+      {
+        "char": "u",
+        "count": 26584,
+        "probability": 0.02383
+      },
+      {
+        "char": "m",
+        "count": 22243,
+        "probability": 0.01994
+      },
+      {
+        "char": "y",
+        "count": 20448,
+        "probability": 0.01833
+      },
+      {
+        "char": ",",
+        "count": 19846,
+        "probability": 0.01779
+      },
+      {
+        "char": "w",
+        "count": 17585,
+        "probability": 0.01577
+      },
+      {
+        "char": "f",
+        "count": 15770,
+        "probability": 0.01414
+      },
+      {
+        "char": "c",
+        "count": 15623,
+        "probability": 0.01401
+      }
+    ],
+    "unigram_entropy_bits": 4.7794,
+    "uniform_entropy_bits": 6.0224,
+    "baselines": {
+      "uniform_random": {
+        "bits_per_char": 6.0224,
+        "description": "Guess uniformly among 65 characters -- the absolute floor."
+      },
+      "unigram_frequency": {
+        "bits_per_char": 4.7794,
+        "description": "Always predict the marginal character distribution, ignoring context entirely. Any model that does not beat this has learned nothing about language."
+      }
+    },
+    "note": "Cross-entropy is reported in bits per character so it can be compared directly against these two baselines. Nats would make the comparison arithmetic rather than obvious."
+  },
+  "shape": {
+    "rows": 1115394,
+    "columns": 1
+  },
+  "sample_text": "First Citizen:\nBefore we proceed any further, hear me speak.\n\nAll:\nSpeak, speak.\n\nFirst Citizen:\nYou are all resolved rather to die than to famish?\n\nAll:\nResolved. resolved.\n\nFirst Citizen:\nFirst, you know Caius Marcius is chief enemy to the people.\n\nAll:\nWe know't, we know't.\n\nFirst Citizen:\nLet us kill him, and we'll have corn at our own price.\nIs't a verdict?\n\nAll:\nNo more talking on't; let it be done: away, away!\n\nSecond Citizen:\nOne word, good citizens.\n\nFirst Citizen:\nWe are accounted poor citizens, the patricians good.\nWhat authority surfeits on would relieve us: if they\nwould yield us but the superfluity, while it were\nwholesome, we might guess they relieved us humanely;\nbut they think we are too dear: the leanness that\nafflicts us, the object of our misery, is as an\ninventory to particularise their abundance; our\nsufferance is a gain to them Let us revenge this with\nour pikes, e",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

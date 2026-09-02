@@ -1,0 +1,67 @@
+{
+  "feature_importance": [
+    {
+      "feature": "monetary",
+      "eta_squared": 0.7165,
+      "interpretation": "dominant separator"
+    },
+    {
+      "feature": "frequency",
+      "eta_squared": 0.665,
+      "interpretation": "dominant separator"
+    },
+    {
+      "feature": "n_distinct_skus",
+      "eta_squared": 0.5711,
+      "interpretation": "dominant separator"
+    },
+    {
+      "feature": "recency_days",
+      "eta_squared": 0.5,
+      "interpretation": "contributes"
+    },
+    {
+      "feature": "avg_basket_value",
+      "eta_squared": 0.4684,
+      "interpretation": "contributes"
+    }
+  ],
+  "loadings": [
+    {
+      "feature": "recency_days",
+      "pc1": -0.3769,
+      "pc2": 0.5095
+    },
+    {
+      "feature": "frequency",
+      "pc1": 0.4792,
+      "pc2": -0.3533
+    },
+    {
+      "feature": "monetary",
+      "pc1": 0.5431,
+      "pc2": 0.1967
+    },
+    {
+      "feature": "n_distinct_skus",
+      "pc1": 0.4695,
+      "pc2": -0.0012
+    },
+    {
+      "feature": "avg_basket_value",
+      "pc1": 0.3359,
+      "pc2": 0.7596
+    }
+  ],
+  "note": "Unsupervised: 'importance' means how strongly a feature separates the discovered segments, measured as between-cluster variance over total variance.",
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

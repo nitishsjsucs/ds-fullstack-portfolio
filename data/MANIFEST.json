@@ -1,0 +1,478 @@
+{
+  "generated_by": "scripts/fetch_data.py",
+  "seed": 20240115,
+  "contract": "Curation is limited to column selection, dtype coercion, deterministic subsampling and stable sorting. No imputation, scaling, outlier removal or target-aware filtering happens at this layer.",
+  "datasets": [
+    {
+      "name": "adult_census_income",
+      "file": "data/curated/adult_census_income.csv.gz",
+      "rows": 48842,
+      "columns": [
+        "age",
+        "workclass",
+        "fnlwgt",
+        "education",
+        "education_num",
+        "marital_status",
+        "occupation",
+        "relationship",
+        "race",
+        "sex",
+        "capital_gain",
+        "capital_loss",
+        "hours_per_week",
+        "native_country",
+        "income",
+        "split_origin"
+      ],
+      "dtypes": {
+        "age": "int64",
+        "workclass": "object",
+        "fnlwgt": "int64",
+        "education": "object",
+        "education_num": "int64",
+        "marital_status": "object",
+        "occupation": "object",
+        "relationship": "object",
+        "race": "object",
+        "sex": "object",
+        "capital_gain": "int64",
+        "capital_loss": "int64",
+        "hours_per_week": "int64",
+        "native_country": "object",
+        "income": "object",
+        "split_origin": "object"
+      },
+      "size_mb": 0.605,
+      "sha256": "672dbbf9cc85555d8b46300e58c0d9cf752c493a8333ea765add32ec62950bee",
+      "curation_rule": "adult.data + adult.test concatenated (48,842 rows); '?' -> NaN; label period stripped from the test half",
+      "notes": [
+        "Missing values in workclass/occupation/native_country are preserved as NaN for pipeline-internal imputation.",
+        "'sex' and 'race' are retained solely to compute the fairness audit; they are excluded from the model feature set."
+      ],
+      "source": {
+        "key": "adult",
+        "title": "UCI Adult / Census Income (1994 CPS extract)",
+        "url": "https://archive.ics.uci.edu/static/public/2/adult.zip",
+        "licence": "CC BY 4.0",
+        "citation": "Becker, B. & Kohavi, R. (1996). Adult. UCI Machine Learning Repository."
+      }
+    },
+    {
+      "name": "bike_sharing_hourly",
+      "file": "data/curated/bike_sharing_hourly.parquet",
+      "rows": 17379,
+      "columns": [
+        "timestamp",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "dtypes": {
+        "timestamp": "datetime64[ns]",
+        "season": "int64",
+        "yr": "int64",
+        "mnth": "int64",
+        "hr": "int64",
+        "holiday": "int64",
+        "weekday": "int64",
+        "workingday": "int64",
+        "weathersit": "int64",
+        "temp": "float64",
+        "atemp": "float64",
+        "hum": "float64",
+        "windspeed": "float64",
+        "casual": "int64",
+        "registered": "int64",
+        "cnt": "int64"
+      },
+      "size_mb": 0.298,
+      "sha256": "488b5ee92e919bf1bb870f55374a27d1a73446bbd579c2ec3e204f1a93a2c7b0",
+      "curation_rule": "hour.csv, all 17,379 rows, chronologically sorted with a reconstructed hourly timestamp",
+      "notes": [
+        "temp/atemp/hum/windspeed arrive min-max normalised by the archive authors; denormalisation constants are documented in the project's data dictionary.",
+        "The series has genuine gaps (165 missing hours) which the forecasting project reindexes explicitly rather than silently forward-filling."
+      ],
+      "source": {
+        "key": "bike_sharing",
+        "title": "UCI Bike Sharing (Capital Bikeshare hourly demand, 2011-2012)",
+        "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+        "licence": "CC BY 4.0",
+        "citation": "Fanaee-T, H. & Gama, J. (2013). Event labeling combining ensemble detectors and background knowledge. Progress in AI."
+      }
+    },
+    {
+      "name": "kdd99_intrusion",
+      "file": "data/curated/kdd99_intrusion.parquet",
+      "rows": 80000,
+      "columns": [
+        "duration",
+        "protocol_type",
+        "service",
+        "flag",
+        "src_bytes",
+        "dst_bytes",
+        "land",
+        "wrong_fragment",
+        "urgent",
+        "hot",
+        "num_failed_logins",
+        "logged_in",
+        "num_compromised",
+        "root_shell",
+        "su_attempted",
+        "num_root",
+        "num_file_creations",
+        "num_shells",
+        "num_access_files",
+        "num_outbound_cmds",
+        "is_host_login",
+        "is_guest_login",
+        "count",
+        "srv_count",
+        "serror_rate",
+        "srv_serror_rate",
+        "rerror_rate",
+        "srv_rerror_rate",
+        "same_srv_rate",
+        "diff_srv_rate",
+        "srv_diff_host_rate",
+        "dst_host_count",
+        "dst_host_srv_count",
+        "dst_host_same_srv_rate",
+        "dst_host_diff_srv_rate",
+        "dst_host_same_src_port_rate",
+        "dst_host_srv_diff_host_rate",
+        "dst_host_serror_rate",
+        "dst_host_srv_serror_rate",
+        "dst_host_rerror_rate",
+        "dst_host_srv_rerror_rate",
+        "labels",
+        "is_attack"
+      ],
+      "dtypes": {
+        "duration": "object",
+        "protocol_type": "object",
+        "service": "object",
+        "flag": "object",
+        "src_bytes": "object",
+        "dst_bytes": "object",
+        "land": "object",
+        "wrong_fragment": "object",
+        "urgent": "object",
+        "hot": "object",
+        "num_failed_logins": "object",
+        "logged_in": "object",
+        "num_compromised": "object",
+        "root_shell": "object",
+        "su_attempted": "object",
+        "num_root": "object",
+        "num_file_creations": "object",
+        "num_shells": "object",
+        "num_access_files": "object",
+        "num_outbound_cmds": "object",
+        "is_host_login": "object",
+        "is_guest_login": "object",
+        "count": "object",
+        "srv_count": "object",
+        "serror_rate": "object",
+        "srv_serror_rate": "object",
+        "rerror_rate": "object",
+        "srv_rerror_rate": "object",
+        "same_srv_rate": "object",
+        "diff_srv_rate": "object",
+        "srv_diff_host_rate": "object",
+        "dst_host_count": "object",
+        "dst_host_srv_count": "object",
+        "dst_host_same_srv_rate": "object",
+        "dst_host_diff_srv_rate": "object",
+        "dst_host_same_src_port_rate": "object",
+        "dst_host_srv_diff_host_rate": "object",
+        "dst_host_serror_rate": "object",
+        "dst_host_srv_serror_rate": "object",
+        "dst_host_rerror_rate": "object",
+        "dst_host_srv_rerror_rate": "object",
+        "labels": "object",
+        "is_attack": "int64"
+      },
+      "size_mb": 1.227,
+      "sha256": "df2835957fa25212b076dd9056241f6fc42c03348170b51cd242582f24e5a228",
+      "curation_rule": "fetch_kddcup99(subset='SA', percent10=True), sampled to 80,000 of 100,655 rows, seed=20240115",
+      "notes": [
+        "Attack prevalence 3.367% -- a genuine needle-in-haystack problem, which is why the project reports PR-AUC and precision@k, not accuracy.",
+        "'labels' is held out entirely from the unsupervised detectors and used only for post-hoc evaluation."
+      ],
+      "source": {
+        "key": "kdd99_sklearn",
+        "title": "scikit-learn bundled fetcher",
+        "url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_kddcup99.html",
+        "licence": "Public domain (DARPA/MIT Lincoln Labs 1999)",
+        "citation": "Stolfo, S. et al. (1999). KDD Cup 1999 Data."
+      }
+    },
+    {
+      "name": "nyc_taxi_trips",
+      "file": "data/curated/nyc_taxi_trips.parquet",
+      "rows": 150000,
+      "columns": [
+        "pickup_datetime",
+        "dropoff_datetime",
+        "passenger_count",
+        "trip_distance",
+        "ratecode_id",
+        "pu_location_id",
+        "do_location_id",
+        "payment_type",
+        "fare_amount",
+        "tip_amount",
+        "tolls_amount",
+        "total_amount",
+        "congestion_surcharge",
+        "airport_fee"
+      ],
+      "dtypes": {
+        "pickup_datetime": "datetime64[us]",
+        "dropoff_datetime": "datetime64[us]",
+        "passenger_count": "float64",
+        "trip_distance": "float64",
+        "ratecode_id": "float64",
+        "pu_location_id": "int32",
+        "do_location_id": "int32",
+        "payment_type": "int64",
+        "fare_amount": "float64",
+        "tip_amount": "float64",
+        "tolls_amount": "float64",
+        "total_amount": "float64",
+        "congestion_surcharge": "float64",
+        "airport_fee": "float64"
+      },
+      "size_mb": 3.967,
+      "sha256": "7343bf7803a95bdcb00533d6588dff4c739bdb93faf9e7fdddc2990a9e97bff8",
+      "curation_rule": "uniform sample n=150000 of 2,964,624 rows, seed=20240115, sorted by pickup time",
+      "notes": [
+        "No cleaning applied: anomalous fares/distances are retained on purpose so the EDA and data-quality scorecard describe the real distribution.",
+        "Zone IDs are TLC LocationIDs (1-265); borough mapping is applied downstream."
+      ],
+      "source": {
+        "key": "nyc_taxi",
+        "title": "NYC TLC Yellow Taxi Trip Records, January 2024",
+        "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-01.parquet",
+        "licence": "NYC Open Data / TLC public domain",
+        "citation": "NYC Taxi & Limousine Commission, Trip Record Data (2024)."
+      }
+    },
+    {
+      "name": "online_retail_rfm",
+      "file": "data/curated/online_retail_rfm.csv.gz",
+      "rows": 4339,
+      "columns": [
+        "customer_id",
+        "recency_days",
+        "frequency",
+        "monetary",
+        "n_items",
+        "n_distinct_skus",
+        "avg_unit_price",
+        "tenure_days",
+        "country"
+      ],
+      "dtypes": {
+        "customer_id": "int64",
+        "recency_days": "int64",
+        "frequency": "int64",
+        "monetary": "float64",
+        "n_items": "int64",
+        "n_distinct_skus": "int64",
+        "avg_unit_price": "float64",
+        "tenure_days": "int64",
+        "country": "object"
+      },
+      "size_mb": 0.087,
+      "sha256": "d693e3c96f1c3e19fe1aca9c963a8761ab5b0880370ec22e30ac9a2e51c4018e",
+      "curation_rule": "customer-level aggregation of positive-quantity invoices; recency as-of 2011-12-10 (last invoice + 1 day)",
+      "notes": [
+        "Only customers with a CustomerID are included; ~25% of line items are anonymous guest checkouts and cannot be aggregated to a person.",
+        "Monetary is gross revenue (quantity x unit price), not net of returns."
+      ],
+      "source": {
+        "key": "online_retail",
+        "title": "UCI Online Retail (UK gift retailer invoices, 2010-2011)",
+        "url": "https://archive.ics.uci.edu/static/public/352/online+retail.zip",
+        "licence": "CC BY 4.0",
+        "citation": "Chen, D. (2015). Online Retail. UCI Machine Learning Repository."
+      }
+    },
+    {
+      "name": "online_retail_transactions",
+      "file": "data/curated/online_retail_transactions.parquet",
+      "rows": 530693,
+      "columns": [
+        "invoice_no",
+        "stock_code",
+        "description",
+        "quantity",
+        "invoice_date",
+        "unit_price",
+        "customer_id",
+        "country"
+      ],
+      "dtypes": {
+        "invoice_no": "object",
+        "stock_code": "object",
+        "description": "object",
+        "quantity": "int64",
+        "invoice_date": "datetime64[ns]",
+        "unit_price": "float64",
+        "customer_id": "float64",
+        "country": "object"
+      },
+      "size_mb": 3.408,
+      "sha256": "314302ba9691177c6251d3d7d5806876b4498aaa104c062fa9b0bc8cd2ad06a4",
+      "curation_rule": "530,693 of 541,909 line items: positive quantity, non-null description, credit-note invoices ('C...') excluded",
+      "notes": [
+        "Unit of analysis is a purchase basket, so returns are out of scope by definition rather than by cleaning.",
+        "Descriptions upper-cased and whitespace-stripped to merge trivial variants."
+      ],
+      "source": {
+        "key": "online_retail",
+        "title": "UCI Online Retail (UK gift retailer invoices, 2010-2011)",
+        "url": "https://archive.ics.uci.edu/static/public/352/online+retail.zip",
+        "licence": "CC BY 4.0",
+        "citation": "Chen, D. (2015). Online Retail. UCI Machine Learning Repository."
+      }
+    },
+    {
+      "name": "taxi_zone_lookup",
+      "file": "data/curated/taxi_zone_lookup.csv.gz",
+      "rows": 265,
+      "columns": [
+        "location_id",
+        "borough",
+        "zone",
+        "service_zone"
+      ],
+      "dtypes": {
+        "location_id": "int64",
+        "borough": "object",
+        "zone": "object",
+        "service_zone": "object"
+      },
+      "size_mb": 0.003,
+      "sha256": "7bba931a80338c3dcb07b876d18eaf7a66110c3c0a79d5ef394ed577e4add957",
+      "curation_rule": "verbatim lookup table, columns lower-cased",
+      "notes": [
+        "265 LocationIDs across Manhattan, Brooklyn, Queens, Bronx, Staten Island and EWR, plus 'Unknown' placeholders 264/265."
+      ],
+      "source": {
+        "key": "taxi_zones",
+        "title": "NYC TLC Taxi Zone Lookup (265 zones, 6 boroughs)",
+        "url": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+        "licence": "NYC Open Data / TLC public domain",
+        "citation": "NYC Taxi & Limousine Commission, Taxi Zone Lookup Table."
+      }
+    },
+    {
+      "name": "telco_churn",
+      "file": "data/curated/telco_churn.csv.gz",
+      "rows": 7043,
+      "columns": [
+        "customerID",
+        "gender",
+        "SeniorCitizen",
+        "Partner",
+        "Dependents",
+        "tenure",
+        "PhoneService",
+        "MultipleLines",
+        "InternetService",
+        "OnlineSecurity",
+        "OnlineBackup",
+        "DeviceProtection",
+        "TechSupport",
+        "StreamingTV",
+        "StreamingMovies",
+        "Contract",
+        "PaperlessBilling",
+        "PaymentMethod",
+        "MonthlyCharges",
+        "TotalCharges",
+        "Churn"
+      ],
+      "dtypes": {
+        "customerID": "object",
+        "gender": "object",
+        "SeniorCitizen": "int64",
+        "Partner": "object",
+        "Dependents": "object",
+        "tenure": "int64",
+        "PhoneService": "object",
+        "MultipleLines": "object",
+        "InternetService": "object",
+        "OnlineSecurity": "object",
+        "OnlineBackup": "object",
+        "DeviceProtection": "object",
+        "TechSupport": "object",
+        "StreamingTV": "object",
+        "StreamingMovies": "object",
+        "Contract": "object",
+        "PaperlessBilling": "object",
+        "PaymentMethod": "object",
+        "MonthlyCharges": "float64",
+        "TotalCharges": "float64",
+        "Churn": "object"
+      },
+      "size_mb": 0.148,
+      "sha256": "d0cd7903da8e9d70c7810d5cc494d9424155ad22cd3e02381dd031af86509b4b",
+      "curation_rule": "complete dataset, no sampling; TotalCharges coerced to float64",
+      "notes": [
+        "11 TotalCharges cells are blank (tenure=0 customers); left as NaN so imputation happens inside the cross-validated pipeline.",
+        "Target column is 'Churn' (Yes/No), 26.5% positive -- imbalanced, so the project optimises PR-AUC rather than accuracy."
+      ],
+      "source": {
+        "key": "telco_churn",
+        "title": "IBM Telco Customer Churn",
+        "url": "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv",
+        "licence": "Apache-2.0 (IBM sample data)",
+        "citation": "IBM Cognos Analytics, Telco customer churn sample dataset."
+      }
+    },
+    {
+      "name": "tiny_shakespeare_stats",
+      "file": "data/curated/tiny_shakespeare_stats.csv.gz",
+      "rows": 3,
+      "columns": [
+        "metric",
+        "value"
+      ],
+      "dtypes": {
+        "metric": "object",
+        "value": "int64"
+      },
+      "size_mb": 0.0,
+      "sha256": "12c02d4e235975a4810987408e018c3f956d1a8a5267c5548fb7f833852f3040",
+      "curation_rule": "verbatim copy; 1,115,394 characters, 65 unique symbols",
+      "notes": [
+        "Character-level corpus; the language model splits it 90/10 by position (never shuffled) so the validation text is strictly unseen continuation."
+      ],
+      "source": {
+        "key": "tiny_shakespeare",
+        "title": "Tiny Shakespeare character corpus",
+        "url": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt",
+        "licence": "Public domain (Shakespeare) / MIT packaging",
+        "citation": "Karpathy, A. (2015). char-rnn tinyshakespeare corpus."
+      }
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "profiles": [
+    {
+      "cluster": 0,
+      "name": "Champions",
+      "recommended_action": "Recent, frequent and high-spending -- the core of the book. Protect with early access and loyalty perks, never with discounts they would have spent without.",
+      "size": 911,
+      "share": 0.21,
+      "revenue": 6445981.42,
+      "revenue_share": 0.7233,
+      "median": {
+        "recency_days": 12.0,
+        "frequency": 8.0,
+        "monetary": 3406.72,
+        "n_items": 1956.0,
+        "n_distinct_skus": 120.0,
+        "avg_unit_price": 2.89,
+        "tenure_days": 306.0,
+        "avg_basket_value": 412.23
+      },
+      "vs_population": {
+        "recency_days": 0.235,
+        "frequency": 4.0,
+        "monetary": 5.051,
+        "n_items": 5.161,
+        "n_distinct_skus": 3.429,
+        "avg_unit_price": 0.991,
+        "tenure_days": 3.308,
+        "avg_basket_value": 1.403
+      },
+      "mean_rfm_score": 13.85,
+      "top_countries": {
+        "United Kingdom": 797,
+        "Germany": 31,
+        "France": 26
+      },
+      "mean_silhouette": 0.2062,
+      "poorly_assigned_pct": 0.1131
+    },
+    {
+      "cluster": 3,
+      "name": "Lapsed modest spenders",
+      "recommended_action": "Silent for months with a modest but real purchase history. Worth exactly one well-timed reactivation offer -- not a sustained campaign.",
+      "size": 1188,
+      "share": 0.2739,
+      "revenue": 1196480.17,
+      "revenue_share": 0.1343,
+      "median": {
+        "recency_days": 120.0,
+        "frequency": 1.0,
+        "monetary": 618.43,
+        "n_items": 338.0,
+        "n_distinct_skus": 29.0,
+        "avg_unit_price": 3.09,
+        "tenure_days": 0.0,
+        "avg_basket_value": 408.48
+      },
+      "vs_population": {
+        "recency_days": 2.353,
+        "frequency": 0.5,
+        "monetary": 0.917,
+        "n_items": 0.892,
+        "n_distinct_skus": 0.829,
+        "avg_unit_price": 1.058,
+        "tenure_days": 0.0,
+        "avg_basket_value": 1.39
+      },
+      "mean_rfm_score": 7.07,
+      "top_countries": {
+        "United Kingdom": 1026,
+        "Germany": 30,
+        "France": 21
+      },
+      "mean_silhouette": 0.2279,
+      "poorly_assigned_pct": 0.0059
+    },
+    {
+      "cluster": 1,
+      "name": "Frequent low-ticket",
+      "recommended_action": "Buys often but small. Raise order value with basket-building bundles and a free-shipping threshold just above their current average.",
+      "size": 1183,
+      "share": 0.2727,
+      "revenue": 1057008.85,
+      "revenue_share": 0.1186,
+      "median": {
+        "recency_days": 22.0,
+        "frequency": 3.0,
+        "monetary": 804.49,
+        "n_items": 459.0,
+        "n_distinct_skus": 48.0,
+        "avg_unit_price": 2.8,
+        "tenure_days": 191.0,
+        "avg_basket_value": 242.41
+      },
+      "vs_population": {
+        "recency_days": 0.431,
+        "frequency": 1.5,
+        "monetary": 1.193,
+        "n_items": 1.211,
+        "n_distinct_skus": 1.371,
+        "avg_unit_price": 0.959,
+        "tenure_days": 2.065,
+        "avg_basket_value": 0.825
+      },
+      "mean_rfm_score": 10.56,
+      "top_countries": {
+        "United Kingdom": 1101,
+        "France": 24,
+        "Germany": 21
+      },
+      "mean_silhouette": 0.2276,
+      "poorly_assigned_pct": 0.0025
+    },
+    {
+      "cluster": 2,
+      "name": "Dormant minimal-value",
+      "recommended_action": "Long silent and never more than a token spender. Suppress from all campaigns; the contact cost exceeds any plausible return.",
+      "size": 1056,
+      "share": 0.2434,
+      "revenue": 211937.46,
+      "revenue_share": 0.0238,
+      "median": {
+        "recency_days": 149.5,
+        "frequency": 1.0,
+        "monetary": 176.21,
+        "n_items": 94.0,
+        "n_distinct_skus": 10.0,
+        "avg_unit_price": 2.93,
+        "tenure_days": 0.0,
+        "avg_basket_value": 141.49
+      },
+      "vs_population": {
+        "recency_days": 2.931,
+        "frequency": 0.5,
+        "monetary": 0.261,
+        "n_items": 0.248,
+        "n_distinct_skus": 0.286,
+        "avg_unit_price": 1.006,
+        "tenure_days": 0.0,
+        "avg_basket_value": 0.481
+      },
+      "mean_rfm_score": 5.3,
+      "top_countries": {
+        "United Kingdom": 996,
+        "France": 16,
+        "Germany": 12
+      },
+      "mean_silhouette": 0.2922,
+      "poorly_assigned_pct": 0.0246
+    }
+  ],
+  "features": [
+    "recency_days",
+    "frequency",
+    "monetary",
+    "n_distinct_skus",
+    "avg_basket_value"
+  ],
+  "population": {
+    "customers": 4338,
+    "total_revenue": 8911407.9,
+    "median": {
+      "recency_days": 51.0,
+      "frequency": 2.0,
+      "monetary": 674.49,
+      "n_items": 379.0,
+      "n_distinct_skus": 35.0,
+      "avg_unit_price": 2.92,
+      "tenure_days": 92.5,
+      "avg_basket_value": 293.9
+    },
+    "p90": {
+      "recency_days": 263.0,
+      "frequency": 9.0,
+      "monetary": 3646.53,
+      "n_items": 2118.3,
+      "n_distinct_skus": 143.0,
+      "avg_unit_price": 5.22,
+      "tenure_days": 339.0,
+      "avg_basket_value": 667.24
+    }
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

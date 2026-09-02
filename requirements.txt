@@ -1,0 +1,40 @@
+# Pinned so a clean checkout reproduces the published leaderboards exactly.
+# Python 3.11+ (developed on 3.12).
+
+# --- API -------------------------------------------------------------------
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+orjson==3.10.13
+
+# --- data ------------------------------------------------------------------
+numpy==2.1.3
+pandas==2.2.3
+pyarrow==18.1.0          # NYC TLC and KDD-99 parquet
+openpyxl==3.1.5          # the UCI Online Retail archive ships as xlsx
+
+# --- modelling -------------------------------------------------------------
+scikit-learn==1.6.0
+scipy==1.14.1
+statsmodels==0.14.4      # STL, ACF/PACF, ADF and KPSS
+mlxtend==0.23.3          # Apriori and FP-Growth
+
+# xgboost 3.x is required: earlier releases break against scikit-learn 1.6's
+# __sklearn_tags__ API. lightgbm 4.6+ is required for the same reason.
+xgboost==3.4.1
+lightgbm==4.7.0
+
+# shap 0.52+ is required: earlier releases cannot parse an xgboost 3.x model
+# dump. The explainability module also routes xgboost through the booster's own
+# pred_contribs as a version-independent path.
+shap==0.52.0
+
+torch==2.5.1             # the from-scratch transformer
+
+# --- verification ----------------------------------------------------------
+pytest==8.3.4
+httpx==0.28.1            # FastAPI TestClient
+
+# --- screenshots (optional; only needed for scripts/capture_screenshots.py) --
+playwright==1.62.0
+pillow==12.3.0

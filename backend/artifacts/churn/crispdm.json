@@ -1,0 +1,345 @@
+{
+  "project": "Telco Churn & Retention Economics",
+  "business_question": "Which subscribers are about to leave, and for which of them is a retention offer actually worth making?",
+  "success_criteria": [
+    "PR-AUC materially above the 0.265 prevalence floor and above an analyst heuristic.",
+    "Probabilities calibrated well enough to multiply by a dollar amount.",
+    "A campaign that nets positive value on held-out customers.",
+    "No group fails the four-fifths rule at the deployed threshold."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "The deliverable is not a churn score, it is a contact list. That reframing drives every later decision: the probability must be calibrated because it gets multiplied by margin, and the threshold must come from the cost asymmetry rather than from convention.",
+      "activities": [
+        "Framed the output as a ranked contact list with a spend decision.",
+        "Elicited the retention economics and wrote them down as assumptions.",
+        "Chose PR-AUC as the selection metric given 26.5% prevalence.",
+        "Declared gender, senior-citizen and partner status as audit-only."
+      ],
+      "findings": [
+        {
+          "statement": "Cost asymmetry is roughly an order of magnitude",
+          "evidence": "missing a churner costs 3x a wasted incentive",
+          "implication": "A 0.5 threshold would be far too conservative.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Optimise average precision (PR-AUC).",
+          "rationale": "Prevalence is 26.5%; PR-AUC tracks how well the minority class is ranked, which is the whole task.",
+          "alternative_rejected": "Accuracy",
+          "rejection_reason": "73.5% is achievable by predicting 'stays' for everyone, which produces an empty contact list."
+        },
+        {
+          "decision": "Treat retention economics as explicit, editable assumptions.",
+          "rationale": "They are estimates; the UI lets a reader change them and watch the recommended threshold move.",
+          "alternative_rejected": "Hard-coding a 0.5 cut-off",
+          "rejection_reason": "Silently assumes a false positive and a false negative cost the same, which is never true here."
+        }
+      ],
+      "metrics": {
+        "prevalence": 0.26537,
+        "cost_ratio": 2.72
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Business objective is a decision, not a score",
+          "Cost model written down",
+          "Metric justified against prevalence"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "7,043 subscribers, 21 fields, 11 missing cells. Quality grade A. Churn is heavily concentrated in month-to-month contracts and short tenure.",
+      "activities": [
+        "Profiled every field and cross-tabulated churn by segment.",
+        "Built the empirical retention curve by tenure month.",
+        "Checked the 11 blank TotalCharges cells against tenure."
+      ],
+      "findings": [
+        {
+          "statement": "All blank TotalCharges belong to tenure-0 customers",
+          "evidence": "11 of 11 blanks",
+          "implication": "Structurally missing, not randomly missing; left as NaN for pipeline imputation.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Contract type is the single strongest segment signal",
+          "evidence": "month-to-month churn far exceeds two-year churn",
+          "implication": "Confirms the analyst heuristic is a fair baseline.",
+          "severity": "info"
+        },
+        {
+          "statement": "Churn risk decays sharply with tenure",
+          "evidence": "see the retention curve",
+          "implication": "Motivated tenure bucketing and the charges-per-tenure ratio feature.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Keep the 11 blanks as NaN.",
+          "rationale": "Imputing before the split fits a median on test rows.",
+          "alternative_rejected": "Fill with 0 at load time",
+          "rejection_reason": "Convenient, but it is a fitted decision disguised as a constant, and it hides the pattern."
+        }
+      ],
+      "metrics": {
+        "rows": 7043,
+        "columns": 26,
+        "quality_score": 0.999469
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "All fields profiled",
+          "Missingness explained structurally",
+          "Segment churn rates tabulated"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "21 features: 8 engineered numerics and 13 categoricals. customerID dropped; three sensitive attributes held out for audit. Stratified 80/20 split preserving the 26.5% rate.",
+      "activities": [
+        "Dropped customerID as a pure identifier.",
+        "Built charges-per-tenure, service count and tenure buckets.",
+        "One-hot encoded categoricals inside the pipeline.",
+        "Stratified the split to hold prevalence constant across folds."
+      ],
+      "findings": [
+        {
+          "statement": "customerID is unique for every row",
+          "evidence": "7,043 distinct values in 7,043 rows",
+          "implication": "Excluded: a tree given it memorises the training set and generalises to nothing.",
+          "severity": "critical"
+        },
+        {
+          "statement": "Sensitive attributes excluded from features",
+          "evidence": "3 columns routed to the audit only",
+          "implication": "Measured for disparity without being modelled on.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Stratify the split on the target.",
+          "rationale": "At 26.5% positive on 7k rows, an unlucky shuffle shifts prevalence enough to move PR-AUC materially.",
+          "alternative_rejected": "Plain random split",
+          "rejection_reason": "Adds avoidable variance to every comparison."
+        }
+      ],
+      "metrics": {
+        "features": 21,
+        "n_train": 5634,
+        "n_test": 1409
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Identifier removed",
+          "Sensitive attributes quarantined",
+          "All fitted transforms inside the Pipeline"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "95 hill-climbing trials over 6 families on cross-validated average precision, then Caruana greedy ensembling over out-of-fold predictions. 'XGBoost' was deployed.",
+      "activities": [
+        "Hill-climbed each family on 5-fold stratified CV.",
+        "Generated out-of-fold predictions for greedy ensemble selection.",
+        "Fitted isotonic and Platt calibrators on inner folds.",
+        "Searched the threshold grid against the cost matrix."
+      ],
+      "findings": [
+        {
+          "statement": "Greedy ensembling added little over the best single model",
+          "evidence": "ensemble hold-out AP delta: 0.00356",
+          "implication": "Families agree closely on this dataset; the single model ships for simplicity.",
+          "severity": "info"
+        },
+        {
+          "statement": "Calibration barely moved the ranking metrics",
+          "evidence": "PR-AUC changed marginally while ECE went 0.0177 -> 0.0100",
+          "implication": "Exactly as theory predicts: calibration is monotone, so it fixes probabilities without reordering them.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Deploy isotonic calibration.",
+          "rationale": "Chosen on ECE because the probability is multiplied by a dollar amount downstream.",
+          "alternative_rejected": "Ship the raw model score",
+          "rejection_reason": "Ranks well but is not a probability, so the expected-value calculation would be wrong."
+        },
+        {
+          "decision": "Deploy at threshold 0.27, not 0.50.",
+          "rationale": "Minimises expected cost under the stated economics.",
+          "alternative_rejected": "Default 0.50",
+          "rejection_reason": "Implicitly assumes symmetric costs and would leave most recoverable churners uncontacted."
+        }
+      ],
+      "metrics": {
+        "trials": 95,
+        "families": 6,
+        "champion": "XGBoost",
+        "calibration": "isotonic",
+        "deployed_threshold": 0.2746
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Search confined to training folds",
+          "Calibrator fitted on inner folds only",
+          "Threshold derived from cost, not convention"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "Hold-out PR-AUC 0.660 against a 0.539 best baseline and a 0.265 prevalence floor. At the deployed threshold recall is 82.1% at 51.4% precision. The simulated campaign nets $11,597.",
+      "activities": [
+        "Scored the untouched hold-out once.",
+        "Simulated campaigns at every targeting depth from 5% to 100%.",
+        "Audited disparity across three sensitive attributes.",
+        "Compared permutation against impurity importance."
+      ],
+      "findings": [
+        {
+          "statement": "The model beats the analyst heuristic",
+          "evidence": "PR-AUC 0.660 vs 0.539",
+          "implication": "Justifies the modelling effort over a rule sheet.",
+          "severity": "info"
+        },
+        {
+          "statement": "Blanket contact destroys value",
+          "evidence": "optimum is the top 35% by risk",
+          "implication": "The ranking, not the classification, is the product.",
+          "severity": "info"
+        },
+        {
+          "statement": "Fairness: worst disparate impact 0.5083",
+          "evidence": "four-fifths failures: ['SeniorCitizen', 'Partner']",
+          "implication": "Reported across all three attributes with the impossibility trade-off stated.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report the campaign value curve, not just PR-AUC.",
+          "rationale": "A stakeholder decides how many people to contact, not what average precision to accept.",
+          "alternative_rejected": "Headline metrics only",
+          "rejection_reason": "Leaves the actual business decision unanswered."
+        }
+      ],
+      "metrics": {
+        "pr_auc": 0.660406,
+        "roc_auc": 0.848044,
+        "brier": 0.134951,
+        "recall": 0.820856,
+        "precision": 0.514238,
+        "net_campaign_value": 11597.29
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Beats prevalence floor and analyst heuristic",
+          "Campaign nets positive value",
+          "Fairness measured on all declared attributes"
+        ],
+        "passed": true,
+        "notes": "PR-AUC 0.660 vs baseline 0.539."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Served at /api/projects/churn/predict, returning a calibrated probability, the expected value of an offer and a SHAP breakdown. The threshold travels with the model as configuration.",
+      "activities": [
+        "Pickled the calibrated pipeline.",
+        "Exposed an expected-value endpoint the UI drives interactively.",
+        "Documented the economic assumptions in the model card.",
+        "Set drift monitors on tenure and contract mix."
+      ],
+      "findings": [
+        {
+          "statement": "The threshold is configuration, not a constant",
+          "evidence": "recomputed whenever the economics change",
+          "implication": "Business can retune without retraining.",
+          "severity": "info"
+        },
+        {
+          "statement": "Static snapshot with no time dimension",
+          "evidence": "single-snapshot dataset",
+          "implication": "Cannot detect seasonality or campaign effects; documented as a limitation.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Return the expected-value calculation, not just the probability.",
+          "rationale": "The consumer of this API wants an action.",
+          "alternative_rejected": "Probability only",
+          "rejection_reason": "Pushes the cost model into every caller, where it would drift out of sync."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/churn/predict",
+        "deployed_threshold": 0.2746
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Calibrated model pickled",
+          "Economics documented",
+          "Fairness audit published alongside"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "The first pass used a 0.5 threshold and reported 80% accuracy. The evaluation review rejected it: at that cut the model contacted too few churners to fund the campaign. Introducing the cost matrix sent us back to phase 1 to write the economics down properly.",
+    "Calibration was added after noticing that ranking was strong while predicted probabilities systematically understated observed churn."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "forecast",
+  "payloads": [
+    "audit",
+    "crispdm",
+    "eda",
+    "evaluation",
+    "explain",
+    "extras",
+    "leaderboard",
+    "model_card",
+    "overview"
+  ],
+  "models": [
+    "model",
+    "q_high",
+    "q_low"
+  ],
+  "provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

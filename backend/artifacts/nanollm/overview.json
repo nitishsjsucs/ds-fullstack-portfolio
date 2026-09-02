@@ -1,0 +1,59 @@
+{
+  "slug": "nanollm",
+  "number": 8,
+  "title": "NanoGPT: A Transformer From Scratch",
+  "tagline": "A decoder-only language model built layer by layer and trained on 1.1M characters of Shakespeare.",
+  "task": "Self-supervised sequence modelling",
+  "domain": "Deep learning / NLP",
+  "dataset": "tiny_shakespeare",
+  "dataset_title": "Tiny Shakespeare character corpus",
+  "dataset_rows": 1115394,
+  "primary_metric": "Validation cross-entropy (bits/char)",
+  "metric_reason": "Held-out perplexity is the only honest measure for a generative model; sampled text is a demo, not an evaluation.",
+  "techniques": [
+    "Multi-head causal self-attention",
+    "Rotary position embeddings",
+    "RMSNorm & SwiGLU",
+    "AdamW with cosine schedule",
+    "Temperature/top-k sampling"
+  ],
+  "skills": [
+    "Attention mechanics",
+    "Autoregressive training",
+    "Tokenisation",
+    "Optimisation scheduling",
+    "Generative sampling"
+  ],
+  "accent": "fuchsia",
+  "icon": "sparkles",
+  "highlights": [
+    "Attention heat-maps rendered from the real trained weights",
+    "Streaming generation with live temperature and top-k controls",
+    "Loss curves showing the exact epoch where over-fitting begins"
+  ],
+  "rows_modelled": 1115394,
+  "champion": "NanoGPT",
+  "headline": {
+    "parameters": 812288,
+    "val_bits_per_char": 2.1714,
+    "perplexity": 4.505,
+    "beats_unigram_baseline": true,
+    "improvement_over_unigram_bits": 2.608,
+    "layers": 4,
+    "heads": 4,
+    "context": 128,
+    "training_seconds": 249.4
+  },
+  "train_seconds": 249.4,
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

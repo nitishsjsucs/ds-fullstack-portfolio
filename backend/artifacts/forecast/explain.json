@@ -1,0 +1,148 @@
+{
+  "feature_importance": {
+    "method": "permutation importance (held-out)",
+    "scoring": "neg_mean_absolute_error",
+    "n_repeats": 5,
+    "n_samples": 2500,
+    "features": [
+      {
+        "feature": "lag_1",
+        "importance": 132.599615,
+        "std": 1.472094,
+        "significant": true
+      },
+      {
+        "feature": "lag_168",
+        "importance": 17.971576,
+        "std": 0.256213,
+        "significant": true
+      },
+      {
+        "feature": "hour_cos",
+        "importance": 12.008468,
+        "std": 0.319833,
+        "significant": true
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 9.759472,
+        "std": 0.498221,
+        "significant": true
+      },
+      {
+        "feature": "lag_24",
+        "importance": 8.945418,
+        "std": 0.324512,
+        "significant": true
+      },
+      {
+        "feature": "hour",
+        "importance": 6.267476,
+        "std": 0.245155,
+        "significant": true
+      },
+      {
+        "feature": "lag_2",
+        "importance": 3.742465,
+        "std": 0.187812,
+        "significant": true
+      },
+      {
+        "feature": "workingday",
+        "importance": 3.527227,
+        "std": 0.269767,
+        "significant": true
+      },
+      {
+        "feature": "weathersit",
+        "importance": 2.256217,
+        "std": 0.176335,
+        "significant": true
+      },
+      {
+        "feature": "delta_24",
+        "importance": 2.235089,
+        "std": 0.090634,
+        "significant": true
+      },
+      {
+        "feature": "temp",
+        "importance": 2.035571,
+        "std": 0.199503,
+        "significant": true
+      },
+      {
+        "feature": "dayofweek",
+        "importance": 1.586044,
+        "std": 0.077339,
+        "significant": true
+      },
+      {
+        "feature": "lag_3",
+        "importance": 1.355091,
+        "std": 0.092503,
+        "significant": true
+      },
+      {
+        "feature": "roll_max_24",
+        "importance": 1.273083,
+        "std": 0.085134,
+        "significant": true
+      },
+      {
+        "feature": "hum",
+        "importance": 1.029205,
+        "std": 0.207515,
+        "significant": true
+      },
+      {
+        "feature": "atemp",
+        "importance": 0.683876,
+        "std": 0.087321,
+        "significant": true
+      },
+      {
+        "feature": "roll_mean_24",
+        "importance": 0.495344,
+        "std": 0.056467,
+        "significant": true
+      },
+      {
+        "feature": "roll_std_24",
+        "importance": 0.477143,
+        "std": 0.073891,
+        "significant": true
+      },
+      {
+        "feature": "lag_25",
+        "importance": 0.468623,
+        "std": 0.095981,
+        "significant": true
+      },
+      {
+        "feature": "dayofyear",
+        "importance": 0.428913,
+        "std": 0.072255,
+        "significant": true
+      }
+    ],
+    "n_significant": 24,
+    "note": "24 of 33 features shift neg_mean_absolute_error by more than twice their own permutation noise. Measured on held-out rows, so it reflects generalisation rather than how often a split was taken."
+  },
+  "lag_rationale": "Peaks at lag 24 and 168 are what motivated those lags as features: yesterday's same hour and last week's same hour carry the most information in a commuting series.",
+  "decomposition_variance": {
+    "trend": 0.1703,
+    "seasonal": 0.6976,
+    "residual": 0.283
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

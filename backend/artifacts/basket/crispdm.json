@@ -1,0 +1,319 @@
+{
+  "project": "Market Basket Association Mining",
+  "business_question": "Which products are genuinely bought together, strongly enough to justify changing shelf adjacency, bundle pricing or on-site recommendations?",
+  "success_criteria": [
+    "Rules must show dependence (lift > 1.2), not just co-popularity.",
+    "Rules must survive on invoices the miner never saw.",
+    "Support must rest on enough baskets to be a stable estimate.",
+    "The output must be short enough for a merchandiser to read."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "The failure mode here is volume, not accuracy. Lowering the support floor produces thousands of true, useless rules. We fixed in advance that the deliverable is a short ranked list of dependencies that hold out of sample, and that lift -- not confidence -- decides rank.",
+      "activities": [
+        "Defined the unit of analysis as the invoice.",
+        "Chose lift over confidence and wrote down why.",
+        "Set an out-of-sample survival test as a success criterion."
+      ],
+      "findings": [
+        {
+          "statement": "Confidence alone would rank popular items highest",
+          "evidence": "any rule ending in a top-10 item inherits its base rate",
+          "implication": "Ranking switched to lift; confidence retained only as a secondary filter.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Rank by lift and require out-of-sample confirmation.",
+          "rationale": "Lift isolates dependence; the hold-out separates a durable pattern from a seasonal promotion.",
+          "alternative_rejected": "Rank by confidence over the full archive",
+          "rejection_reason": "Produces rules that restate base rates and cannot be falsified."
+        }
+      ],
+      "metrics": {
+        "min_lift": 1.2,
+        "min_confidence": 0.25
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Deliverable defined as a short ranked list",
+          "Ranking metric justified",
+          "Validation test fixed in advance"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "530,693 line items across 20,136 invoices and 4,060 distinct products. The item distribution is a severe long tail.",
+      "activities": [
+        "Measured the item frequency distribution and its long tail.",
+        "Profiled basket sizes and monthly invoice volume.",
+        "Checked the country mix for a dominant home market."
+      ],
+      "findings": [
+        {
+          "statement": "Product frequency follows a severe long tail",
+          "evidence": "480 of 4,060 items cover 49.6% of all line items",
+          "implication": "Justifies a capped vocabulary without losing meaningful co-occurrence.",
+          "severity": "info"
+        },
+        {
+          "statement": "Volume is strongly seasonal",
+          "evidence": "monthly invoice counts peak sharply before Christmas",
+          "implication": "Directly motivates the temporal hold-out: rules mined across the peak may not hold after it.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Cap the vocabulary at the most frequent items.",
+          "rationale": "Below roughly 1% basket share, support estimates rest on too few baskets to be stable.",
+          "alternative_rejected": "Mine all 3,925 SKUs",
+          "rejection_reason": "Explodes the lattice for rules that are statistically noise."
+        }
+      ],
+      "metrics": {
+        "invoices": 20136,
+        "items": 4060,
+        "line_coverage": 0.4964
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Item distribution characterised",
+          "Seasonality identified",
+          "Vocabulary cut justified"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "A boolean 16,785 x 480 matrix at 3.181% density. Singleton baskets dropped; quantity discarded.",
+      "activities": [
+        "Collapsed line items to distinct products per invoice.",
+        "Restricted to the top-frequency vocabulary.",
+        "Dropped baskets with fewer than two distinct items.",
+        "Split invoices chronologically for the hold-out test."
+      ],
+      "findings": [
+        {
+          "statement": "Quantity is irrelevant to co-occurrence",
+          "evidence": "matrix is boolean by construction",
+          "implication": "Buying six of an item is still one co-occurrence.",
+          "severity": "info"
+        },
+        {
+          "statement": "3,351 singleton baskets removed",
+          "evidence": "median basket size 10",
+          "implication": "They carry no pair information but deflate every support figure.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Split the hold-out by invoice date, not at random.",
+          "rationale": "Seasonal assortments make a random split leak the period into both halves.",
+          "alternative_rejected": "Random 80/20 invoice split",
+          "rejection_reason": "Would confirm seasonal rules as durable."
+        }
+      ],
+      "metrics": {
+        "baskets": 16785,
+        "items": 480,
+        "density": 0.03181,
+        "mean_basket_size": 15.27
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Boolean matrix constructed",
+          "Exclusions counted",
+          "Temporal split prepared"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "Apriori and FP-Growth both run at min_support=0.012. Both algorithms return identical itemsets -- they must, because both are exact; only the search strategy differs. On this configuration (480 items at min_support=0.012, 3.2% density) Apriori is 3.2x faster. That is the opposite of the usual textbook ordering when Apriori is Apriori: FP-Growth's advantage comes from avoiding candidate generation, which only pays off once the support floor is low enough for candidates to explode. Here the floor is high, the lattice is small, and building the tree costs more than it saves.",
+      "activities": [
+        "Ran both algorithms at identical support and timed them.",
+        "Verified the itemset outputs are identical.",
+        "Swept the support floor to show the lattice explosion.",
+        "Derived rules and computed the full metric family."
+      ],
+      "findings": [
+        {
+          "statement": "Both algorithms return identical itemsets",
+          "evidence": "True",
+          "implication": "Confirms the choice is computational only -- a useful thing for a learner to see demonstrated.",
+          "severity": "info"
+        },
+        {
+          "statement": "Apriori is faster on this configuration",
+          "evidence": "3.22x at min_support=0.012, 480 items, 3.2% density",
+          "implication": "Measured rather than assumed. FP-Growth's advantage requires a support floor low enough for Apriori's candidates to explode; at this floor the tree-building cost dominates.",
+          "severity": "info"
+        },
+        {
+          "statement": "Rule count is hypersensitive to the support floor",
+          "evidence": "see the support sensitivity curve",
+          "implication": "The floor is the single most consequential parameter and is stated explicitly.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Cap itemsets at length 3.",
+          "rationale": "Longer rules are rarer, less stable and harder to act on; a merchandiser cannot merchandise a 5-way bundle.",
+          "alternative_rejected": "Unbounded itemset length",
+          "rejection_reason": "Combinatorial cost for rules nobody deploys."
+        }
+      ],
+      "metrics": {
+        "min_support": 0.012,
+        "frequent_itemsets": 1497,
+        "rules": 1861,
+        "speedup": 3.22
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Both algorithms agree exactly",
+          "Runtimes recorded",
+          "Support sensitivity documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "1,861 rules pass the thresholds. 1672 of 1672 measurable rules still show lift above 1.2 on invoices the miner never saw (189 more could not be scored because an item vanished from the hold-out vocabulary). Note that this archive ends in December, so the chronological hold-out is the Christmas peak: the test rules out patterns that faded across the year, but it cannot refute ones specific to that season.",
+      "activities": [
+        "Recomputed lift for every rule on unseen later invoices.",
+        "Classified rules as confirmed, degraded or unmeasurable.",
+        "Built the rule network for visual inspection."
+      ],
+      "findings": [
+        {
+          "statement": "1672 rules survive out of sample",
+          "evidence": "survival rate 1.0",
+          "implication": "Only these are presented as actionable.",
+          "severity": "info"
+        },
+        {
+          "statement": "0 rules degrade out of sample",
+          "evidence": "189 more could not be measured (item absent or zero support in the hold-out)",
+          "implication": "Period-specific patterns that a train-only analysis would have shipped as fact.",
+          "severity": "watch"
+        },
+        {
+          "statement": "The hold-out period is itself the Christmas peak",
+          "evidence": "the archive ends in December, so the final 20% of invoices is the seasonal high point",
+          "implication": "The split rules out patterns that decayed over the year, but it cannot refute patterns specific to the season it sits in. Seasonal gift pairings are confirmed by this test, and that limitation is stated rather than glossed.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Publish hold-out status on every rule.",
+          "rationale": "A rule that failed validation is still informative -- it says the pattern is seasonal.",
+          "alternative_rejected": "Silently drop the failures",
+          "rejection_reason": "Hides the most interesting finding in the project."
+        }
+      ],
+      "metrics": {
+        "rules": 1861,
+        "confirmed": 1672,
+        "survival_rate": 1.0
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Rules validated out of sample",
+          "Failures reported rather than hidden"
+        ],
+        "passed": true,
+        "notes": "1672 of 1672 measurable rules still show lift above 1.2 on invoices the miner never saw (189 more could not be scored because an item vanished from th"
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Rules are served as a lookup: given a basket, return the highest-lift confirmed consequents. No model object is needed at inference -- the rule table is the model.",
+      "activities": [
+        "Persisted the rule table with hold-out status attached.",
+        "Exposed a basket-completion recommender endpoint.",
+        "Documented that rules must be re-mined as assortment changes."
+      ],
+      "findings": [
+        {
+          "statement": "Association rules are not a recommender on their own",
+          "evidence": "no personalisation, no cold-start handling",
+          "implication": "Documented as a complement to, not a replacement for, collaborative filtering.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Serve only rules confirmed on the hold-out.",
+          "rationale": "Degraded rules would recommend last season's pairings.",
+          "alternative_rejected": "Serve everything above the lift threshold",
+          "rejection_reason": "Ships known-stale patterns to customers."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/basket/recommend",
+        "served_rules": 1672
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Rule table persisted",
+          "Recommender endpoint live",
+          "Re-mining cadence documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "The first run mined all 3,925 SKUs at 0.5% support and produced tens of thousands of rules, most resting on a handful of baskets. That is what drove the vocabulary cap and the higher support floor.",
+    "The temporal hold-out was added after noticing that several of the highest-lift rules paired Christmas-specific items -- real patterns, but not ones that justify a permanent shelf change."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

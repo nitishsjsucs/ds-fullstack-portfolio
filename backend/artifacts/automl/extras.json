@@ -1,0 +1,564 @@
+{
+  "fairness": {
+    "attributes": [
+      {
+        "attribute": "sex",
+        "threshold": 0.5,
+        "groups": {
+          "Female": {
+            "n": 3289,
+            "base_rate": 0.111584,
+            "selection_rate": 0.086652,
+            "tpr": 0.594005,
+            "fpr": 0.02293,
+            "tnr": 0.97707,
+            "fnr": 0.405995,
+            "precision": 0.764912,
+            "accuracy": 0.934327,
+            "confusion": {
+              "tp": 218,
+              "fp": 67,
+              "fn": 149,
+              "tn": 2855
+            },
+            "mean_predicted": 0.118109,
+            "observed_rate": 0.111584,
+            "calibration_error": 0.006525
+          },
+          "Male": {
+            "n": 6480,
+            "base_rate": 0.304167,
+            "selection_rate": 0.260185,
+            "tpr": 0.679351,
+            "fpr": 0.076957,
+            "tnr": 0.923043,
+            "fnr": 0.320649,
+            "precision": 0.794187,
+            "accuracy": 0.84892,
+            "confusion": {
+              "tp": 1339,
+              "fp": 347,
+              "fn": 632,
+              "tn": 4162
+            },
+            "mean_predicted": 0.300714,
+            "observed_rate": 0.304167,
+            "calibration_error": 0.003453
+          }
+        },
+        "reference_group": "Male",
+        "disparate_impact": {
+          "Female": 0.333,
+          "Male": 1.0
+        },
+        "min_disparate_impact": 0.333,
+        "passes_four_fifths": false,
+        "demographic_parity_difference": 0.1735,
+        "equal_opportunity_difference": 0.0853,
+        "equalised_odds_difference": 0.0853,
+        "base_rate_difference": 0.1926,
+        "calibration_spread": 0.0031
+      },
+      {
+        "attribute": "race",
+        "threshold": 0.5,
+        "groups": {
+          "Amer-Indian-Eskimo": {
+            "n": 104,
+            "base_rate": 0.086538,
+            "selection_rate": 0.105769,
+            "tpr": 0.666667,
+            "fpr": 0.052632,
+            "tnr": 0.947368,
+            "fnr": 0.333333,
+            "precision": 0.545455,
+            "accuracy": 0.923077,
+            "confusion": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 3,
+              "tn": 90
+            },
+            "mean_predicted": 0.156996,
+            "observed_rate": 0.086538,
+            "calibration_error": 0.070458
+          },
+          "Asian-Pac-Islander": {
+            "n": 304,
+            "base_rate": 0.256579,
+            "selection_rate": 0.236842,
+            "tpr": 0.679487,
+            "fpr": 0.084071,
+            "tnr": 0.915929,
+            "fnr": 0.320513,
+            "precision": 0.736111,
+            "accuracy": 0.855263,
+            "confusion": {
+              "tp": 53,
+              "fp": 19,
+              "fn": 25,
+              "tn": 207
+            },
+            "mean_predicted": 0.263463,
+            "observed_rate": 0.256579,
+            "calibration_error": 0.006884
+          },
+          "Black": {
+            "n": 944,
+            "base_rate": 0.128178,
+            "selection_rate": 0.09322,
+            "tpr": 0.578512,
+            "fpr": 0.021871,
+            "tnr": 0.978129,
+            "fnr": 0.421488,
+            "precision": 0.795455,
+            "accuracy": 0.926907,
+            "confusion": {
+              "tp": 70,
+              "fp": 18,
+              "fn": 51,
+              "tn": 805
+            },
+            "mean_predicted": 0.134805,
+            "observed_rate": 0.128178,
+            "calibration_error": 0.006627
+          },
+          "Other": {
+            "n": 69,
+            "base_rate": 0.15942,
+            "selection_rate": 0.086957,
+            "tpr": 0.454545,
+            "fpr": 0.017241,
+            "tnr": 0.982759,
+            "fnr": 0.545455,
+            "precision": 0.833333,
+            "accuracy": 0.898551,
+            "confusion": {
+              "tp": 5,
+              "fp": 1,
+              "fn": 6,
+              "tn": 57
+            },
+            "mean_predicted": 0.150765,
+            "observed_rate": 0.15942,
+            "calibration_error": 0.008655
+          },
+          "White": {
+            "n": 8348,
+            "base_rate": 0.253833,
+            "selection_rate": 0.214902,
+            "tpr": 0.671543,
+            "fpr": 0.05956,
+            "tnr": 0.94044,
+            "fnr": 0.328457,
+            "precision": 0.7932,
+            "accuracy": 0.872185,
+            "confusion": {
+              "tp": 1423,
+              "fp": 371,
+              "fn": 696,
+              "tn": 5858
+            },
+            "mean_predicted": 0.251918,
+            "observed_rate": 0.253833,
+            "calibration_error": 0.001916
+          }
+        },
+        "reference_group": "Asian-Pac-Islander",
+        "disparate_impact": {
+          "Amer-Indian-Eskimo": 0.4466,
+          "Asian-Pac-Islander": 1.0,
+          "Black": 0.3936,
+          "Other": 0.3671,
+          "White": 0.9074
+        },
+        "min_disparate_impact": 0.3671,
+        "passes_four_fifths": false,
+        "demographic_parity_difference": 0.1499,
+        "equal_opportunity_difference": 0.2249,
+        "equalised_odds_difference": 0.2249,
+        "base_rate_difference": 0.17,
+        "calibration_spread": 0.0685
+      },
+      {
+        "attribute": "age_band",
+        "threshold": 0.5,
+        "groups": {
+          "25-34": {
+            "n": 2501,
+            "base_rate": 0.187925,
+            "selection_rate": 0.134346,
+            "tpr": 0.565957,
+            "fpr": 0.034466,
+            "tnr": 0.965534,
+            "fnr": 0.434043,
+            "precision": 0.791667,
+            "accuracy": 0.890444,
+            "confusion": {
+              "tp": 266,
+              "fp": 70,
+              "fn": 204,
+              "tn": 1961
+            },
+            "mean_predicted": 0.184349,
+            "observed_rate": 0.187925,
+            "calibration_error": 0.003575
+          },
+          "35-44": {
+            "n": 2357,
+            "base_rate": 0.349597,
+            "selection_rate": 0.31311,
+            "tpr": 0.691748,
+            "fpr": 0.109589,
+            "tnr": 0.890411,
+            "fnr": 0.308252,
+            "precision": 0.772358,
+            "accuracy": 0.820959,
+            "confusion": {
+              "tp": 570,
+              "fp": 168,
+              "fn": 254,
+              "tn": 1365
+            },
+            "mean_predicted": 0.345146,
+            "observed_rate": 0.349597,
+            "calibration_error": 0.00445
+          },
+          "45-54": {
+            "n": 1675,
+            "base_rate": 0.384478,
+            "selection_rate": 0.349851,
+            "tpr": 0.73913,
+            "fpr": 0.106693,
+            "tnr": 0.893307,
+            "fnr": 0.26087,
+            "precision": 0.812287,
+            "accuracy": 0.83403,
+            "confusion": {
+              "tp": 476,
+              "fp": 110,
+              "fn": 168,
+              "tn": 921
+            },
+            "mean_predicted": 0.387809,
+            "observed_rate": 0.384478,
+            "calibration_error": 0.003331
+          },
+          "55-64": {
+            "n": 906,
+            "base_rate": 0.312362,
+            "selection_rate": 0.267108,
+            "tpr": 0.664311,
+            "fpr": 0.086677,
+            "tnr": 0.913323,
+            "fnr": 0.335689,
+            "precision": 0.77686,
+            "accuracy": 0.835541,
+            "confusion": {
+              "tp": 188,
+              "fp": 54,
+              "fn": 95,
+              "tn": 569
+            },
+            "mean_predicted": 0.328458,
+            "observed_rate": 0.312362,
+            "calibration_error": 0.016096
+          },
+          "65+": {
+            "n": 361,
+            "base_rate": 0.227147,
+            "selection_rate": 0.152355,
+            "tpr": 0.54878,
+            "fpr": 0.035842,
+            "tnr": 0.964158,
+            "fnr": 0.45122,
+            "precision": 0.818182,
+            "accuracy": 0.869806,
+            "confusion": {
+              "tp": 45,
+              "fp": 10,
+              "fn": 37,
+              "tn": 269
+            },
+            "mean_predicted": 0.212828,
+            "observed_rate": 0.227147,
+            "calibration_error": 0.014319
+          },
+          "<25": {
+            "n": 1969,
+            "base_rate": 0.017776,
+            "selection_rate": 0.00711,
+            "tpr": 0.342857,
+            "fpr": 0.001034,
+            "tnr": 0.998966,
+            "fnr": 0.657143,
+            "precision": 0.857143,
+            "accuracy": 0.987303,
+            "confusion": {
+              "tp": 12,
+              "fp": 2,
+              "fn": 23,
+              "tn": 1932
+            },
+            "mean_predicted": 0.019566,
+            "observed_rate": 0.017776,
+            "calibration_error": 0.00179
+          }
+        },
+        "reference_group": "45-54",
+        "disparate_impact": {
+          "25-34": 0.384,
+          "35-44": 0.895,
+          "45-54": 1.0,
+          "55-64": 0.7635,
+          "65+": 0.4355,
+          "<25": 0.0203
+        },
+        "min_disparate_impact": 0.0203,
+        "passes_four_fifths": false,
+        "demographic_parity_difference": 0.3427,
+        "equal_opportunity_difference": 0.3963,
+        "equalised_odds_difference": 0.3963,
+        "base_rate_difference": 0.3667,
+        "calibration_spread": 0.0143
+      }
+    ],
+    "n_attributes": 3,
+    "four_fifths_failures": [
+      "sex",
+      "race",
+      "age_band"
+    ],
+    "worst_disparate_impact": 0.0203,
+    "prioritised_criterion": "equalised odds",
+    "impossibility_note": "Demographic parity, equalised odds and calibration cannot all hold at once when base rates differ across groups (Kleinberg et al. 2016). All four are reported; this project prioritises equalised odds, and the trade-off is a stated choice rather than an oversight.",
+    "measurement_only_note": "Sensitive attributes are excluded from the model's feature set and used solely for this audit. Exclusion does not eliminate bias -- correlated proxies survive -- which is precisely why it has to be measured.",
+    "threshold_equalisation": {
+      "sex": {
+        "target_metric": "tpr",
+        "reference_rate": 0.666,
+        "per_group_threshold": {
+          "Female": {
+            "threshold": 0.387,
+            "residual_gap": 0.0011
+          },
+          "Male": {
+            "threshold": 0.522,
+            "residual_gap": 0.0003
+          }
+        },
+        "caveat": "Group-specific thresholds equalise the chosen rate but give different decisions to individuals with identical predicted risk. Shown to quantify the trade-off, not as a deployment recommendation."
+      },
+      "race": {
+        "target_metric": "tpr",
+        "reference_rate": 0.666,
+        "per_group_threshold": {
+          "Amer-Indian-Eskimo": {
+            "threshold": 0.309,
+            "residual_gap": 0.0007
+          },
+          "Asian-Pac-Islander": {
+            "threshold": 0.511,
+            "residual_gap": 0.0007
+          },
+          "Black": {
+            "threshold": 0.365,
+            "residual_gap": 0.0035
+          },
+          "Other": {
+            "threshold": 0.331,
+            "residual_gap": 0.0296
+          },
+          "White": {
+            "threshold": 0.511,
+            "residual_gap": 0.0015
+          }
+        },
+        "caveat": "Group-specific thresholds equalise the chosen rate but give different decisions to individuals with identical predicted risk. Shown to quantify the trade-off, not as a deployment recommendation."
+      }
+    }
+  },
+  "profiles": [
+    {
+      "label": "Senior manager, married, 55h/week",
+      "note": "The profile the model is most confident about at the high end.",
+      "payload": {
+        "age": 47,
+        "education_num": 14,
+        "hours_per_week": 55,
+        "workclass": "Private",
+        "marital_status": "Married-civ-spouse",
+        "occupation": "Exec-managerial",
+        "relationship": "Husband",
+        "capital_gain": 0
+      }
+    },
+    {
+      "label": "Early-career service worker",
+      "note": "Young, part-time, no capital income -- confidently below the threshold.",
+      "payload": {
+        "age": 22,
+        "education_num": 9,
+        "hours_per_week": 25,
+        "workclass": "Private",
+        "marital_status": "Never-married",
+        "occupation": "Other-service",
+        "relationship": "Own-child"
+      }
+    },
+    {
+      "label": "Mid-career professional, single",
+      "note": "The genuinely ambiguous middle, where the threshold decides the answer.",
+      "payload": {
+        "age": 38,
+        "education_num": 13,
+        "hours_per_week": 45,
+        "workclass": "Private",
+        "marital_status": "Never-married",
+        "occupation": "Prof-specialty",
+        "relationship": "Not-in-family"
+      }
+    },
+    {
+      "label": "Self-employed with capital gains",
+      "note": "Capital gains are the single most decisive feature in the model.",
+      "payload": {
+        "age": 52,
+        "education_num": 12,
+        "hours_per_week": 50,
+        "workclass": "Self-emp-not-inc",
+        "marital_status": "Married-civ-spouse",
+        "occupation": "Sales",
+        "relationship": "Husband",
+        "capital_gain": 15024
+      }
+    }
+  ],
+  "feature_domains": {
+    "workclass": [
+      "Federal-gov",
+      "Local-gov",
+      "Never-worked",
+      "Private",
+      "Self-emp-inc",
+      "Self-emp-not-inc",
+      "State-gov",
+      "Without-pay"
+    ],
+    "marital_status": [
+      "Divorced",
+      "Married-AF-spouse",
+      "Married-civ-spouse",
+      "Married-spouse-absent",
+      "Never-married",
+      "Separated",
+      "Widowed"
+    ],
+    "occupation": [
+      "Adm-clerical",
+      "Armed-Forces",
+      "Craft-repair",
+      "Exec-managerial",
+      "Farming-fishing",
+      "Handlers-cleaners",
+      "Machine-op-inspct",
+      "Other-service",
+      "Priv-house-serv",
+      "Prof-specialty",
+      "Protective-serv",
+      "Sales",
+      "Tech-support",
+      "Transport-moving"
+    ],
+    "relationship": [
+      "Husband",
+      "Not-in-family",
+      "Other-relative",
+      "Own-child",
+      "Unmarried",
+      "Wife"
+    ],
+    "native_country": [
+      "Cambodia",
+      "Canada",
+      "China",
+      "Columbia",
+      "Cuba",
+      "Dominican-Republic",
+      "Ecuador",
+      "El-Salvador",
+      "England",
+      "France",
+      "Germany",
+      "Greece",
+      "Guatemala",
+      "Haiti",
+      "Holand-Netherlands",
+      "Honduras",
+      "Hong",
+      "Hungary",
+      "India",
+      "Iran",
+      "Ireland",
+      "Italy",
+      "Jamaica",
+      "Japan",
+      "Laos",
+      "Mexico",
+      "Nicaragua",
+      "Outlying-US(Guam-USVI-etc)",
+      "Peru",
+      "Philippines",
+      "Poland",
+      "Portugal",
+      "Puerto-Rico",
+      "Scotland",
+      "South",
+      "Taiwan",
+      "Thailand",
+      "Trinadad&Tobago",
+      "United-States",
+      "Vietnam",
+      "Yugoslavia"
+    ],
+    "_numeric_ranges": {
+      "age": [
+        17.0,
+        90.0
+      ],
+      "education_num": [
+        1.0,
+        16.0
+      ],
+      "hours_per_week": [
+        1.0,
+        99.0
+      ],
+      "capital_gain": [
+        0.0,
+        99999.0
+      ],
+      "capital_loss": [
+        0.0,
+        4356.0
+      ]
+    }
+  },
+  "dropped_columns": {
+    "fnlwgt": "Census sampling weight -- a survey-design artefact describing how many people the row represents, not a property of the person. Correlates with geographic strata, so a tree finds spurious structure in it.",
+    "education": "Perfectly redundant with education_num, which is the same variable as an ordinal code. Keeping both splits one signal across two columns and corrupts every importance measure.",
+    "split_origin": "Bookkeeping column recording which archive file the row came from.",
+    "sex": "Reserved for the fairness audit; excluded from features.",
+    "race": "Reserved for the fairness audit; excluded from features."
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

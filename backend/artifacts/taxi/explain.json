@@ -1,0 +1,466 @@
+{
+  "permutation": {
+    "method": "permutation importance (held-out)",
+    "scoring": "neg_mean_absolute_error",
+    "n_repeats": 8,
+    "n_samples": 3500,
+    "features": [
+      {
+        "feature": "trip_distance",
+        "importance": 8.348413,
+        "std": 0.138973,
+        "significant": true
+      },
+      {
+        "feature": "hour_cos",
+        "importance": 0.850779,
+        "std": 0.032178,
+        "significant": true
+      },
+      {
+        "feature": "do_location_id",
+        "importance": 0.371831,
+        "std": 0.022879,
+        "significant": true
+      },
+      {
+        "feature": "dow_sin",
+        "importance": 0.322442,
+        "std": 0.021106,
+        "significant": true
+      },
+      {
+        "feature": "pu_location_id",
+        "importance": 0.310502,
+        "std": 0.017493,
+        "significant": true
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 0.304916,
+        "std": 0.020901,
+        "significant": true
+      },
+      {
+        "feature": "pu_borough",
+        "importance": 0.153014,
+        "std": 0.008129,
+        "significant": true
+      },
+      {
+        "feature": "trip_type",
+        "importance": 0.091561,
+        "std": 0.005782,
+        "significant": true
+      },
+      {
+        "feature": "ratecode_label",
+        "importance": 0.067273,
+        "std": 0.003476,
+        "significant": true
+      },
+      {
+        "feature": "same_borough",
+        "importance": 0.064121,
+        "std": 0.005506,
+        "significant": true
+      },
+      {
+        "feature": "do_borough",
+        "importance": 0.055156,
+        "std": 0.006635,
+        "significant": true
+      },
+      {
+        "feature": "dow_cos",
+        "importance": 0.040444,
+        "std": 0.003095,
+        "significant": true
+      },
+      {
+        "feature": "is_rush_hour",
+        "importance": 0.013025,
+        "std": 0.003402,
+        "significant": true
+      },
+      {
+        "feature": "passenger_count",
+        "importance": 0.006532,
+        "std": 0.001778,
+        "significant": true
+      },
+      {
+        "feature": "is_night",
+        "importance": 0.004032,
+        "std": 0.003075,
+        "significant": false
+      },
+      {
+        "feature": "day_of_month",
+        "importance": 0.0,
+        "std": 0.0,
+        "significant": false
+      },
+      {
+        "feature": "is_weekend",
+        "importance": -0.000213,
+        "std": 0.001248,
+        "significant": false
+      }
+    ],
+    "n_significant": 14,
+    "note": "14 of 17 features shift neg_mean_absolute_error by more than twice their own permutation noise. Measured on held-out rows, so it reflects generalisation rather than how often a split was taken."
+  },
+  "impurity": {
+    "method": "mean impurity decrease (in-sample)",
+    "features": [
+      {
+        "feature": "trip_distance",
+        "importance": 0.312426
+      },
+      {
+        "feature": "same_borough",
+        "importance": 0.129624
+      },
+      {
+        "feature": "ratecode_label_Unknown",
+        "importance": 0.070047
+      },
+      {
+        "feature": "ratecode_label_JFK flat",
+        "importance": 0.051609
+      },
+      {
+        "feature": "hour_cos",
+        "importance": 0.038562
+      },
+      {
+        "feature": "do_borough_infrequent_sklearn",
+        "importance": 0.036064
+      },
+      {
+        "feature": "trip_type_inter_borough",
+        "importance": 0.032125
+      },
+      {
+        "feature": "trip_type_airport",
+        "importance": 0.02833
+      },
+      {
+        "feature": "ratecode_label_Standard rate",
+        "importance": 0.028082
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 0.025851
+      },
+      {
+        "feature": "pu_borough_Queens",
+        "importance": 0.025351
+      },
+      {
+        "feature": "pu_borough_Brooklyn",
+        "importance": 0.021555
+      },
+      {
+        "feature": "dow_sin",
+        "importance": 0.020354
+      },
+      {
+        "feature": "do_borough_Queens",
+        "importance": 0.018859
+      },
+      {
+        "feature": "do_borough_Brooklyn",
+        "importance": 0.018688
+      },
+      {
+        "feature": "pu_borough_Manhattan",
+        "importance": 0.014889
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 0.013543
+      },
+      {
+        "feature": "do_borough_Manhattan",
+        "importance": 0.012668
+      },
+      {
+        "feature": "ratecode_label_infrequent_sklearn",
+        "importance": 0.012217
+      },
+      {
+        "feature": "day_of_month",
+        "importance": 0.010274
+      }
+    ],
+    "caveat": "Impurity importance is biased toward high-cardinality and continuous features and is computed on training data. Compare against permutation importance; large disagreement indicates memorisation."
+  },
+  "shap": null,
+  "partial_dependence": [
+    {
+      "feature": "trip_distance",
+      "curve": [
+        {
+          "x": 0.5,
+          "y": 5.461839
+        },
+        {
+          "x": 1.084404,
+          "y": 8.99649
+        },
+        {
+          "x": 1.668809,
+          "y": 12.611017
+        },
+        {
+          "x": 2.253213,
+          "y": 16.113926
+        },
+        {
+          "x": 2.837617,
+          "y": 19.259403
+        },
+        {
+          "x": 3.422022,
+          "y": 21.810982
+        },
+        {
+          "x": 4.006426,
+          "y": 23.978718
+        },
+        {
+          "x": 4.59083,
+          "y": 25.098108
+        },
+        {
+          "x": 5.175235,
+          "y": 26.640923
+        },
+        {
+          "x": 5.759639,
+          "y": 27.034147
+        },
+        {
+          "x": 6.344043,
+          "y": 27.555256
+        },
+        {
+          "x": 6.928448,
+          "y": 28.291388
+        },
+        {
+          "x": 7.512852,
+          "y": 31.157701
+        },
+        {
+          "x": 8.097257,
+          "y": 31.333021
+        },
+        {
+          "x": 8.681661,
+          "y": 31.278658
+        },
+        {
+          "x": 9.266065,
+          "y": 33.473797
+        },
+        {
+          "x": 9.85047,
+          "y": 36.012451
+        },
+        {
+          "x": 10.434874,
+          "y": 40.033905
+        },
+        {
+          "x": 11.019278,
+          "y": 40.744869
+        },
+        {
+          "x": 11.603683,
+          "y": 43.130402
+        },
+        {
+          "x": 12.188087,
+          "y": 44.379993
+        },
+        {
+          "x": 12.772491,
+          "y": 48.916656
+        },
+        {
+          "x": 13.356896,
+          "y": 48.916656
+        },
+        {
+          "x": 13.9413,
+          "y": 49.195271
+        }
+      ],
+      "deciles": [
+        0.64,
+        0.86,
+        1.1,
+        1.34,
+        1.655,
+        2.01,
+        2.54,
+        3.762,
+        8.802
+      ],
+      "effect_range": 43.733432,
+      "monotone": false
+    },
+    {
+      "feature": "hour_sin",
+      "curve": [
+        {
+          "x": -0.707107,
+          "y": 17.098686
+        },
+        {
+          "x": -0.5,
+          "y": 16.893538
+        },
+        {
+          "x": -0.258819,
+          "y": 16.492157
+        },
+        {
+          "x": 0.0,
+          "y": 16.181463
+        },
+        {
+          "x": 0.258819,
+          "y": 16.227909
+        },
+        {
+          "x": 0.258819,
+          "y": 16.227909
+        },
+        {
+          "x": 0.5,
+          "y": 16.094286
+        },
+        {
+          "x": 0.707107,
+          "y": 15.695
+        },
+        {
+          "x": 0.707107,
+          "y": 15.695
+        },
+        {
+          "x": 0.866025,
+          "y": 15.618644
+        },
+        {
+          "x": 0.866025,
+          "y": 15.618644
+        },
+        {
+          "x": 0.965926,
+          "y": 14.913645
+        },
+        {
+          "x": 1.0,
+          "y": 15.097532
+        }
+      ],
+      "deciles": [
+        -0.5,
+        -0.258819,
+        0.0,
+        0.258819,
+        0.258819,
+        0.5,
+        0.707107,
+        0.866025,
+        0.965926
+      ],
+      "effect_range": 2.185041,
+      "monotone": false
+    },
+    {
+      "feature": "passenger_count",
+      "curve": [
+        {
+          "x": 1.0,
+          "y": 16.013397
+        },
+        {
+          "x": 2.0,
+          "y": 16.174757
+        },
+        {
+          "x": 3.0,
+          "y": 16.152252
+        },
+        {
+          "x": 4.0,
+          "y": 16.184113
+        },
+        {
+          "x": 5.0,
+          "y": 15.767827
+        },
+        {
+          "x": 6.0,
+          "y": 15.782866
+        }
+      ],
+      "deciles": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0
+      ],
+      "effect_range": 0.416286,
+      "monotone": false
+    },
+    {
+      "feature": "is_rush_hour",
+      "curve": [
+        {
+          "x": 0.0,
+          "y": 15.946744
+        },
+        {
+          "x": 1.0,
+          "y": 16.138885
+        }
+      ],
+      "deciles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "effect_range": 0.192142,
+      "monotone": true
+    }
+  ],
+  "feature_count": 30,
+  "_provenance": {
+    "trained_at": "2026-09-02T18:06:42+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "nyc_taxi_trips",
+    "seed": 42,
+    "quick_mode": false,
+    "train_seconds": 431.3
+  }
+}

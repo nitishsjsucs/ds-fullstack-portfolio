@@ -1,0 +1,57 @@
+{
+  "model": "Association rules (Apriori miner)",
+  "version": "1.0.0",
+  "task": "Association rule mining",
+  "intended_use": "Identify product pairs bought together more often than chance, to inform shelf adjacency, bundling and on-site cross-sell.",
+  "out_of_scope": [
+    "Personalised recommendation -- these rules are population-level and have no notion of an individual's taste.",
+    "Causal claims: co-occurrence is not evidence that promoting A will sell B.",
+    "Assortments materially different from this UK gift retailer's."
+  ],
+  "training_data": {
+    "source": "UCI Online Retail (invoice line items)",
+    "baskets": 16785,
+    "items": 480,
+    "period": "2010-12 to 2011-12",
+    "licence": "CC BY 4.0"
+  },
+  "parameters": {
+    "min_support": 0.012,
+    "min_confidence": 0.25,
+    "min_lift": 1.2,
+    "max_itemset_length": 3
+  },
+  "metrics": {
+    "frequent_itemsets": 1497,
+    "rules": 1861,
+    "rules_confirmed_out_of_sample": 1672,
+    "survival_rate": 1.0
+  },
+  "ethical_considerations": [
+    "Cross-sell prompts derived from these rules nudge purchasing. That is ordinary merchandising, but the rules should not be used to construct artificial scarcity or dark-pattern bundling.",
+    "Population-level rules can encode assumptions that do not fit individual shoppers; they belong in ambient placement, not in aggressive targeting."
+  ],
+  "limitations": [
+    "Vocabulary capped at 480 items; the long tail is unrepresented and cannot generate rules at all.",
+    "Purely correlational -- no experiment supports a causal reading.",
+    "Strongly seasonal source period; rules should be re-mined at least quarterly and after any assortment change.",
+    "Anonymous guest checkouts are included as baskets but cannot be linked to a customer, so no repeat-purchase structure is modelled."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Quarterly, or on any major assortment change.",
+    "monitored_signals": [
+      "rule survival rate on new invoices",
+      "vocabulary coverage drift"
+    ]
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

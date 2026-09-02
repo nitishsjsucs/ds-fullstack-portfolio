@@ -1,0 +1,58 @@
+{
+  "slug": "automl",
+  "number": 7,
+  "title": "AutoML Stacking Tournament",
+  "tagline": "Hill-climbing search and Caruana ensembling over 48,842 census records.",
+  "task": "AutoML / model selection",
+  "domain": "Income prediction & fairness",
+  "dataset": "adult_census_income",
+  "dataset_title": "UCI Adult / Census Income (1994 CPS)",
+  "dataset_rows": 48842,
+  "primary_metric": "ROC-AUC (CV) with hold-out gap",
+  "metric_reason": "Model selection needs a ranking metric stable across folds; the CV-to-hold-out gap is reported alongside to expose search overfitting.",
+  "techniques": [
+    "Coordinate-ascent hill climbing",
+    "Stacked generalisation",
+    "Caruana greedy ensemble selection",
+    "Out-of-fold prediction",
+    "Fairness constraints",
+    "Model distillation"
+  ],
+  "skills": [
+    "Hyperparameter search",
+    "Ensembling",
+    "Leakage-free stacking",
+    "Search-overfitting diagnosis",
+    "Responsible AI"
+  ],
+  "accent": "cyan",
+  "icon": "tournament",
+  "highlights": [
+    "Every hill-climbing trial replayable as an animated trajectory",
+    "Greedy ensemble weights derived purely from out-of-fold predictions",
+    "Disparate-impact ratio before and after threshold adjustment"
+  ],
+  "rows_modelled": 48842,
+  "champion": "Caruana greedy ensemble",
+  "headline": {
+    "roc_auc": 0.931425,
+    "pr_auc": 0.836278,
+    "trials": 101,
+    "families": 6,
+    "ensemble_gain": 0.0001,
+    "distillation_fidelity": 0.9249,
+    "worst_disparate_impact": 0.0203,
+    "families_overfitting_search": 0
+  },
+  "train_seconds": 1113.2,
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

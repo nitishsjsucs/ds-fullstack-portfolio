@@ -1,0 +1,51 @@
+{
+  "metric_glossary": [
+    {
+      "metric": "Support",
+      "formula": "P(A and B)",
+      "reads_as": "How often this combination appears at all.",
+      "watch_out": "Low support means the estimate rests on few baskets and is unstable."
+    },
+    {
+      "metric": "Confidence",
+      "formula": "P(B|A) = support(A,B) / support(A)",
+      "reads_as": "Given A, how often does B appear?",
+      "watch_out": "Inflated whenever B is popular; never rank on this alone."
+    },
+    {
+      "metric": "Lift",
+      "formula": "confidence / P(B)",
+      "reads_as": "How many times more likely is B given A than in general?",
+      "watch_out": "Lift 1.0 means independence. Unstable when P(B) is tiny."
+    },
+    {
+      "metric": "Leverage",
+      "formula": "P(A,B) - P(A)P(B)",
+      "reads_as": "Excess co-occurrence in absolute terms.",
+      "watch_out": "Favours frequent pairs; complements lift rather than replacing it."
+    },
+    {
+      "metric": "Conviction",
+      "formula": "(1 - P(B)) / (1 - confidence)",
+      "reads_as": "How much more often A appears without B than expected by chance.",
+      "watch_out": "Diverges to infinity as confidence approaches 1."
+    },
+    {
+      "metric": "Zhang's metric",
+      "formula": "(conf - P(B)) / max(conf(1-P(B)), P(B)(1-conf))",
+      "reads_as": "Bounded in [-1, 1]; negative means the items substitute.",
+      "watch_out": "Less familiar to stakeholders; useful precisely because it is signed."
+    }
+  ],
+  "why_lift_over_confidence": "Confidence P(B|A) is high whenever B is common, regardless of A. Lift divides by P(B), so it isolates dependence. A rule with 90% confidence and lift 1.0 tells you nothing you did not already know from B's base rate.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

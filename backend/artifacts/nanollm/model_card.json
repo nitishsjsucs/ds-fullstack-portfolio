@@ -1,0 +1,62 @@
+{
+  "model": "NanoGPT (4L / 4H / 128D)",
+  "version": "1.0.0",
+  "task": "Self-supervised sequence modelling",
+  "intended_use": "An educational demonstration of transformer mechanics. The deliverable is the implementation and its measured perplexity, not a usable text service.",
+  "out_of_scope": [
+    "Answering questions. It has no knowledge, no instruction tuning and no notion of truth -- it models character sequences in one 1.1M-character corpus.",
+    "Any production text generation.",
+    "Generating text in any style other than the corpus it saw."
+  ],
+  "training_data": {
+    "source": "Tiny Shakespeare character corpus",
+    "characters": 1115394,
+    "tokens": 1003855,
+    "licence": "Public domain"
+  },
+  "architecture": {
+    "parameters": 812288,
+    "layers": 4,
+    "heads": 4,
+    "embedding_dim": 128,
+    "context": 128,
+    "components": [
+      "RMSNorm",
+      "RoPE",
+      "SwiGLU",
+      "weight tying"
+    ]
+  },
+  "metrics": {
+    "val_loss_nats": 1.5051,
+    "val_bits_per_char": 2.1714,
+    "perplexity": 4.505,
+    "uniform_baseline_bpc": 6.0224,
+    "unigram_baseline_bpc": 4.7794
+  },
+  "ethical_considerations": [
+    "A model this small cannot produce convincing misinformation, but the same architecture at scale can. The mechanism shown here -- next-token prediction with no notion of truth -- is exactly the mechanism behind confident fabrication in large language models.",
+    "Trained on a single author's public-domain work; it reproduces that voice and nothing else, which makes it a poor demonstration of anything about language in general."
+  ],
+  "limitations": [
+    "812,288 parameters -- five orders of magnitude below a production model.",
+    "128-character context: it cannot track a sentence, let alone a scene.",
+    "Character-level, so it must learn spelling from scratch and wastes capacity doing so.",
+    "Single corpus, single style, no instruction following, no factual grounding."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Not applicable -- a fixed teaching artefact.",
+    "monitored_signals": []
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

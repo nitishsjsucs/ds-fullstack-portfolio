@@ -1,0 +1,359 @@
+{
+  "project": "NYC Taxi Fare & Duration",
+  "business_question": "Can we tell a rider, at the moment they request a yellow cab, how long the trip will take and what it will cost -- accurately enough that they trust the number and plan around it?",
+  "success_criteria": [
+    "Mean absolute duration error under 5 minutes on unseen future days.",
+    "Beat the dispatcher's distance-over-speed heuristic by a wide margin.",
+    "Publish an 80% interval whose empirical coverage is within 5 points of 80%.",
+    "No feature may use information unavailable at the moment of booking."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "A duration estimate is only useful if it is honest about uncertainty. A rider told '22 minutes' who arrives in 40 is worse off than one told '20-35 minutes'. We therefore committed up front to shipping an interval, not just a point estimate, and to scoring the interval's coverage as a first-class success criterion.",
+      "activities": [
+        "Framed the task as dual regression: duration in minutes and fare in dollars.",
+        "Chose MAE over RMSE because riders experience absolute lateness.",
+        "Defined the booking-time information boundary: anything the meter produces during or after the trip is off limits as a feature.",
+        "Set three heuristic baselines that any model must beat to justify itself."
+      ],
+      "findings": [
+        {
+          "statement": "Tip, tolls and total fare are recorded post-trip",
+          "evidence": "4 of 14 source columns",
+          "implication": "Excluded from the feature set; using them would leak the outcome into the prediction.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Optimise mean absolute error.",
+          "rationale": "Lateness is felt linearly, and MAE is robust to the genuine multi-hour outliers the TLC publishes.",
+          "alternative_rejected": "RMSE",
+          "rejection_reason": "Squared error lets a handful of corrupt 4-hour records dominate model selection."
+        },
+        {
+          "decision": "Ship an 80% prediction interval alongside the point estimate.",
+          "rationale": "Uncertainty is the actionable part for trip planning.",
+          "alternative_rejected": "Point estimate only",
+          "rejection_reason": "Implies a precision the model does not have."
+        }
+      ],
+      "metrics": {
+        "targets": 2,
+        "success_criteria": 4
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Business question is measurable",
+          "Success criteria fixed before any modelling",
+          "Information boundary defined"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "150,000 trips sampled from the 2.96M the TLC published for January 2024, joined to the official 265-zone dictionary. The data is real, and so are its defects: the quality scorecard grades it A at 100.0%.",
+      "activities": [
+        "Profiled all numeric and categorical fields with Tukey fences.",
+        "Built 7x24 demand and mean-duration heatmaps.",
+        "Joined LocationIDs to boroughs and zone names.",
+        "Cross-tabulated mean duration for all 36 borough pairs."
+      ],
+      "findings": [
+        {
+          "statement": "A visible minority of trips are physically impossible",
+          "evidence": "6,312 rows (4.21%) violate at least one plausibility rule",
+          "implication": "Removed by stated rule, each exclusion counted and published.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Average speed collapses during the weekday peak",
+          "evidence": "peak-hour mean duration cell: Wed 4:00",
+          "implication": "Motivated explicit rush-hour and cyclical-time features.",
+          "severity": "info"
+        },
+        {
+          "statement": "Trip distance is strongly but non-linearly related to duration",
+          "evidence": "Spearman exceeds Pearson across the correlation matrix",
+          "implication": "Signals that tree ensembles should beat linear models.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Join the TLC zone lookup and model borough, not LocationID.",
+          "rationale": "265 arbitrary integers invite memorisation; 6 boroughs carry real geographic meaning.",
+          "alternative_rejected": "Raw LocationID as a numeric feature",
+          "rejection_reason": "Implies an ordering between zones that does not exist."
+        }
+      ],
+      "metrics": {
+        "rows": 150000,
+        "columns": 21,
+        "quality_score": 1.0,
+        "missing_pct": 0.0
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Every field profiled",
+          "Quality scored on six dimensions",
+          "Defects documented rather than silently repaired"
+        ],
+        "passed": true,
+        "notes": "Overall data quality 100.0% (grade A)."
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "143,688 trips survive the eight plausibility rules. Fifteen booking-time features are constructed; every fitted transformation lives inside the model pipeline.",
+      "activities": [
+        "Applied 8 physical-plausibility filters, counting each exclusion.",
+        "Encoded hour and weekday cyclically so 23:00 neighbours 00:00.",
+        "Frequency-encoded the 265 zone IDs inside the pipeline.",
+        "One-hot encoded boroughs, rate codes and trip type with a rare-level floor.",
+        "Split chronologically at 2024-01-26 01:45:58."
+      ],
+      "findings": [
+        {
+          "statement": "No filter references the target distribution",
+          "evidence": "8 of 8 rules are physical bounds",
+          "implication": "Hard-but-real cases stay in the test set.",
+          "severity": "info"
+        },
+        {
+          "statement": "Preprocessing is re-fitted per fold",
+          "evidence": "3 fitted transformers, all inside the Pipeline",
+          "implication": "Cross-validated scores are not optimistically biased.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Split chronologically rather than randomly.",
+          "rationale": "Deployment predicts future trips from past ones; the evaluation must mirror that.",
+          "alternative_rejected": "Random 80/20 shuffle",
+          "rejection_reason": "Lets the model interpolate within a rush hour it has already seen, inflating the score."
+        },
+        {
+          "decision": "Frequency-encode zone IDs instead of one-hot.",
+          "rationale": "Captures 'busy origin' in one column instead of 530.",
+          "alternative_rejected": "Target encoding",
+          "rejection_reason": "Target encoding needs careful nested CV to avoid leaking the label; the gain did not justify the risk."
+        }
+      ],
+      "metrics": {
+        "features": 17,
+        "rows_kept": 143688,
+        "excluded_pct": 0.04208,
+        "n_train": 114950,
+        "n_test": 28738,
+        "test_fraction": 0.2
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "All fitted transforms inside the Pipeline",
+          "Chronological ordering asserted, not assumed",
+          "Every exclusion counted and published"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "79 hill-climbing trials across 6 model families, scored by expanding-window cross-validated MAE. 'XGBoost' won and was deployed.",
+      "activities": [
+        "Seeded each family with a sane baseline configuration.",
+        "Ran coordinate-ascent hill climbing over discrete hyperparameter grids.",
+        "Refitted each family's winner on the full training half.",
+        "Fitted paired 10th/90th-percentile quantile models for intervals.",
+        "Trained a second model on fare using the identical feature set."
+      ],
+      "findings": [
+        {
+          "statement": "Search improved the champion by 0.007 minutes MAE over its seed",
+          "evidence": "15 trials for XGBoost",
+          "implication": "Modest gains: the feature set, not the hyperparameters, carries the performance.",
+          "severity": "info"
+        },
+        {
+          "statement": "Independently-fitted quantiles crossed on a minority of rows",
+          "evidence": "1 rows repaired by sorting",
+          "implication": "A known artefact of separate quantile fits; repaired monotonically and reported, not hidden.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Hill climbing rather than random or grid search.",
+          "rationale": "Produces a readable improvement trajectory and reaches a good configuration in ~14 fits per family.",
+          "alternative_rejected": "Exhaustive grid search",
+          "rejection_reason": "Hundreds of fits for a fraction of a minute of MAE."
+        },
+        {
+          "decision": "Tune on cross-validated MAE, never on the hold-out.",
+          "rationale": "The hold-out has to stay unseen to mean anything.",
+          "alternative_rejected": "Early stopping against the test set",
+          "rejection_reason": "Standard practice in tutorials and a direct leak."
+        }
+      ],
+      "metrics": {
+        "trials": 79,
+        "families": 6,
+        "search_seconds": 383.0,
+        "champion": "XGBoost"
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Search ran only on training folds",
+          "Hold-out scored once per family",
+          "Every trial logged and replayable"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "On the untouched final week the champion achieves 2.93 minutes MAE (R^2 0.836), against 6.29 for the best heuristic -- a 53% reduction in error. The 80% interval covers 77.3% of outcomes.",
+      "activities": [
+        "Scored the held-out final week once.",
+        "Compared against three heuristic baselines.",
+        "Decomposed error by trip type, borough, rush hour and hour of day.",
+        "Tested interval coverage against its nominal 80%.",
+        "Cross-checked permutation against impurity importance."
+      ],
+      "findings": [
+        {
+          "statement": "Champion beats the best heuristic baseline",
+          "evidence": "MAE 2.93 vs 6.29 minutes",
+          "implication": "The model earns its complexity.",
+          "severity": "info"
+        },
+        {
+          "statement": "Interval coverage is well calibrated",
+          "evidence": "77.3% empirical vs 80% nominal",
+          "implication": "Riders can act on the band as stated.",
+          "severity": "info"
+        },
+        {
+          "statement": "Error is concentrated in airport trips",
+          "evidence": "see the per-segment error table",
+          "implication": "Airport runs have the widest genuine variance; the interval widens there rather than the point estimate being wrong.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report per-segment error, not just the aggregate.",
+          "rationale": "An average hides which riders are served badly.",
+          "alternative_rejected": "Headline MAE alone",
+          "rejection_reason": "Would conceal systematically worse airport estimates."
+        }
+      ],
+      "metrics": {
+        "mae": 2.928357,
+        "rmse": 4.607179,
+        "r2": 0.835585,
+        "bias": -0.036539,
+        "p90_abs_error": 6.376711,
+        "interval_coverage": 0.77267
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "MAE under the 5-minute success criterion",
+          "Beats all three heuristic baselines",
+          "Interval coverage within tolerance"
+        ],
+        "passed": true,
+        "notes": "MAE 2.93 min against a 5.00 min target."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Served by FastAPI behind /api/projects/taxi/predict. The pipeline is pickled whole -- preprocessing travels with the model, so training and serving cannot drift apart.",
+      "activities": [
+        "Pickled the fitted Pipeline including all preprocessing.",
+        "Exposed point estimate, 80% band, fare estimate and a SHAP waterfall.",
+        "Stamped artifacts with git commit, timestamp and platform.",
+        "Published the model card with documented limitations."
+      ],
+      "findings": [
+        {
+          "statement": "Training and serving share one code path",
+          "evidence": "the same Pipeline object is fitted and pickled",
+          "implication": "Removes the most common source of training/serving skew.",
+          "severity": "info"
+        },
+        {
+          "statement": "Model is fixed to January 2024 conditions",
+          "evidence": "single-month training window",
+          "implication": "Congestion pricing and seasonality will drift; the card sets a quarterly retraining trigger.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Pin artifacts to disk rather than recomputing per request.",
+          "rationale": "The dashboard is a record of a specific, auditable run.",
+          "alternative_rejected": "Recompute SHAP and metrics on every request",
+          "rejection_reason": "Slow, and it would let the reported numbers drift silently between restarts."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/taxi/predict",
+        "artifacts": 8,
+        "p50_latency_target_ms": 50
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Model pickled with preprocessing",
+          "Inference endpoint live",
+          "Model card published",
+          "Retraining trigger documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "Phase 5 sent us back to phase 3: the first evaluation showed airport trips with double the error of city trips, which is why an explicit trip_type feature exists at all.",
+    "The interval was added after phase 1's review concluded that a bare point estimate would overstate what the data supports."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T18:06:42+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "nyc_taxi_trips",
+    "seed": 42,
+    "quick_mode": false,
+    "train_seconds": 431.3
+  }
+}

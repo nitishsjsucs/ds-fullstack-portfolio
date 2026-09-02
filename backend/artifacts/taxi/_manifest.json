@@ -1,0 +1,30 @@
+{
+  "slug": "taxi",
+  "payloads": [
+    "audit",
+    "crispdm",
+    "eda",
+    "evaluation",
+    "explain",
+    "extras",
+    "leaderboard",
+    "model_card",
+    "overview"
+  ],
+  "models": [
+    "fare_model",
+    "model",
+    "q_high",
+    "q_low"
+  ],
+  "provenance": {
+    "trained_at": "2026-09-02T18:06:42+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "nyc_taxi_trips",
+    "seed": 42,
+    "quick_mode": false,
+    "train_seconds": 431.3
+  }
+}

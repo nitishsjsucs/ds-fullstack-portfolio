@@ -1,0 +1,26 @@
+{
+  "slug": "nanollm",
+  "payloads": [
+    "audit",
+    "crispdm",
+    "eda",
+    "evaluation",
+    "explain",
+    "extras",
+    "leaderboard",
+    "model_card",
+    "overview"
+  ],
+  "models": [],
+  "provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

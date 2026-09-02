@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "check": "No target leakage possible",
+      "status": "pass",
+      "evidence": "Unsupervised task; there is no label anywhere in the pipeline."
+    },
+    {
+      "check": "Transform fitted as part of the model",
+      "status": "pass",
+      "evidence": "log1p and StandardScaler are Pipeline steps pickled with the centroids, so inference reproduces training exactly."
+    },
+    {
+      "check": "Cluster count justified, not assumed",
+      "status": "pass",
+      "evidence": "k swept 2-10 on silhouette, Davies-Bouldin, Calinski-Harabasz and the elbow; disagreement reported openly."
+    },
+    {
+      "check": "Null hypothesis tested",
+      "status": "pass",
+      "evidence": "Maximum gap over a uniform null is 1.924. A positive gap means the data is genuinely more clustered than featureless noise spanning the same range; a gap near zero at every k would mean there is no segment structure to find."
+    },
+    {
+      "check": "Stability verified",
+      "status": "pass",
+      "evidence": "Bootstrap ARI 0.9273 over resampled subsets; a partition that dissolved would be rejected."
+    },
+    {
+      "check": "Multiple algorithms cross-checked",
+      "status": "pass",
+      "evidence": "Four algorithms with different cluster definitions; best pairwise ARI 0.4817."
+    },
+    {
+      "check": "Exclusions counted",
+      "status": "pass",
+      "evidence": "1 customers removed by the stated rule 'monetary > 0 and frequency > 0'."
+    },
+    {
+      "check": "Per-customer confidence published",
+      "status": "pass",
+      "evidence": "Individual silhouette values reported; boundary members flagged rather than presented as confident assignments."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "All algorithms seeded at 42; n_init pinned."
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "grade": "A",
+  "scope": "Review for the failure modes specific to unsupervised work: imposing structure on noise, unstable partitions, and selecting k by an index that cannot fail.",
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

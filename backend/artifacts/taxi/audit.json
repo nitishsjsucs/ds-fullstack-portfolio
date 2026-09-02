@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "check": "Temporal ordering preserved",
+      "status": "pass",
+      "evidence": "assert_chronological() enforced at the split boundary 2024-01-26 01:45:58; no shuffle anywhere in the path."
+    },
+    {
+      "check": "Post-outcome columns excluded",
+      "status": "pass",
+      "evidence": "tip_amount, tolls_amount, total_amount, congestion_surcharge and dropoff_datetime are absent from ALL_FEATURES."
+    },
+    {
+      "check": "Preprocessing fitted per fold",
+      "status": "pass",
+      "evidence": "Imputers, one-hot vocabulary and the zone frequency table are ColumnTransformer steps inside the Pipeline that CV clones."
+    },
+    {
+      "check": "Row filters independent of the target distribution",
+      "status": "pass",
+      "evidence": "All 8 rules are physical bounds; none references a mean, standard deviation or quantile of the target."
+    },
+    {
+      "check": "Hold-out used once",
+      "status": "pass",
+      "evidence": "Hyperparameter search scored only cross-validated folds; the test half was predicted after the search closed."
+    },
+    {
+      "check": "Search overfitting",
+      "status": "pass",
+      "evidence": "No family's CV score exceeds its hold-out score by more than 0.5 min."
+    },
+    {
+      "check": "Metric appropriate to the task",
+      "status": "pass",
+      "evidence": "MAE reported as headline with RMSE, R^2, bias and p90 error alongside; no accuracy-style metric is claimed for a regression."
+    },
+    {
+      "check": "Baselines published",
+      "status": "pass",
+      "evidence": "Three heuristics reported; champion MAE 2.93 min beats the best of them."
+    },
+    {
+      "check": "Importance cross-validated across methods",
+      "status": "pass",
+      "evidence": "14 features exceed twice their permutation noise; impurity importance shown alongside for contrast."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "Every estimator and sampler seeded (seed=42); ingestion seeded separately at 20240115."
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "grade": "A",
+  "scope": "Static review of the training path for target leakage, temporal leakage, preprocessing leakage, selection leakage and metric gaming.",
+  "_provenance": {
+    "trained_at": "2026-09-02T18:06:42+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "nyc_taxi_trips",
+    "seed": 42,
+    "quick_mode": false,
+    "train_seconds": 431.3
+  }
+}

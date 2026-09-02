@@ -1,0 +1,8876 @@
+{
+  "shape": {
+    "rows": 16631,
+    "columns": 10
+  },
+  "memory_mb": 1.26,
+  "dtypes": {
+    "cnt": "float64",
+    "temp": "float64",
+    "atemp": "float64",
+    "hum": "float64",
+    "windspeed": "float64",
+    "hour": "int32",
+    "weathersit": "float64",
+    "season": "float64",
+    "workingday": "float64",
+    "timestamp": "datetime64[ns]"
+  },
+  "numeric": [
+    {
+      "column": "cnt",
+      "kind": "numeric",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 195.411942,
+      "median": 150.0,
+      "std": 182.022955,
+      "min": 1.0,
+      "max": 977.0,
+      "q1": 46.0,
+      "q3": 287.0,
+      "iqr": 241.0,
+      "skew": 1.244854,
+      "kurtosis": 1.33302,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 869,
+      "outlier_fences": {
+        "lower": -315.5,
+        "upper": 648.5
+      },
+      "outlier_count": 478,
+      "outlier_pct": 0.028742,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 30.892857,
+          "count": 3322
+        },
+        {
+          "bin_start": 30.892857,
+          "bin_end": 60.785714,
+          "count": 1478
+        },
+        {
+          "bin_start": 60.785714,
+          "bin_end": 90.678571,
+          "count": 1240
+        },
+        {
+          "bin_start": 90.678571,
+          "bin_end": 120.571429,
+          "count": 1166
+        },
+        {
+          "bin_start": 120.571429,
+          "bin_end": 150.464286,
+          "count": 1122
+        },
+        {
+          "bin_start": 150.464286,
+          "bin_end": 180.357143,
+          "count": 1104
+        },
+        {
+          "bin_start": 180.357143,
+          "bin_end": 210.25,
+          "count": 999
+        },
+        {
+          "bin_start": 210.25,
+          "bin_end": 240.142857,
+          "count": 928
+        },
+        {
+          "bin_start": 240.142857,
+          "bin_end": 270.035714,
+          "count": 705
+        },
+        {
+          "bin_start": 270.035714,
+          "bin_end": 299.928571,
+          "count": 670
+        },
+        {
+          "bin_start": 299.928571,
+          "bin_end": 329.821429,
+          "count": 588
+        },
+        {
+          "bin_start": 329.821429,
+          "bin_end": 359.714286,
+          "count": 472
+        },
+        {
+          "bin_start": 359.714286,
+          "bin_end": 389.607143,
+          "count": 440
+        },
+        {
+          "bin_start": 389.607143,
+          "bin_end": 419.5,
+          "count": 364
+        },
+        {
+          "bin_start": 419.5,
+          "bin_end": 449.392857,
+          "count": 291
+        },
+        {
+          "bin_start": 449.392857,
+          "bin_end": 479.285714,
+          "count": 275
+        },
+        {
+          "bin_start": 479.285714,
+          "bin_end": 509.178571,
+          "count": 265
+        },
+        {
+          "bin_start": 509.178571,
+          "bin_end": 539.071429,
+          "count": 201
+        },
+        {
+          "bin_start": 539.071429,
+          "bin_end": 568.964286,
+          "count": 176
+        },
+        {
+          "bin_start": 568.964286,
+          "bin_end": 598.857143,
+          "count": 161
+        },
+        {
+          "bin_start": 598.857143,
+          "bin_end": 628.75,
+          "count": 119
+        },
+        {
+          "bin_start": 628.75,
+          "bin_end": 658.642857,
+          "count": 100
+        },
+        {
+          "bin_start": 658.642857,
+          "bin_end": 688.535714,
+          "count": 95
+        },
+        {
+          "bin_start": 688.535714,
+          "bin_end": 718.428571,
+          "count": 72
+        },
+        {
+          "bin_start": 718.428571,
+          "bin_end": 748.321429,
+          "count": 61
+        },
+        {
+          "bin_start": 748.321429,
+          "bin_end": 778.214286,
+          "count": 36
+        },
+        {
+          "bin_start": 778.214286,
+          "bin_end": 808.107143,
+          "count": 46
+        },
+        {
+          "bin_start": 808.107143,
+          "bin_end": 838.0,
+          "count": 52
+        }
+      ],
+      "histogram_range": {
+        "lower": 1.0,
+        "upper": 838.0,
+        "clipped_below": 0,
+        "clipped_above": 83
+      },
+      "percentiles": {
+        "p1": 2.0,
+        "p5": 5.0,
+        "p25": 46.0,
+        "p50": 150.0,
+        "p75": 287.0,
+        "p95": 568.0,
+        "p99": 785.0
+      }
+    },
+    {
+      "column": "temp",
+      "kind": "numeric",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.506516,
+      "median": 0.52,
+      "std": 0.189168,
+      "min": 0.02,
+      "max": 1.0,
+      "q1": 0.34,
+      "q3": 0.66,
+      "iqr": 0.32,
+      "skew": -0.033602,
+      "kurtosis": -0.914038,
+      "zeros": 0,
+      "negatives": 0,
+      "n_unique": 50,
+      "outlier_fences": {
+        "lower": -0.14,
+        "upper": 1.14
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 0.1,
+          "bin_end": 0.129179,
+          "count": 100
+        },
+        {
+          "bin_start": 0.129179,
+          "bin_end": 0.158357,
+          "count": 108
+        },
+        {
+          "bin_start": 0.158357,
+          "bin_end": 0.187536,
+          "count": 297
+        },
+        {
+          "bin_start": 0.187536,
+          "bin_end": 0.216714,
+          "count": 267
+        },
+        {
+          "bin_start": 0.216714,
+          "bin_end": 0.245893,
+          "count": 803
+        },
+        {
+          "bin_start": 0.245893,
+          "bin_end": 0.275071,
+          "count": 520
+        },
+        {
+          "bin_start": 0.275071,
+          "bin_end": 0.30425,
+          "count": 866
+        },
+        {
+          "bin_start": 0.30425,
+          "bin_end": 0.333429,
+          "count": 579
+        },
+        {
+          "bin_start": 0.333429,
+          "bin_end": 0.362607,
+          "count": 1255
+        },
+        {
+          "bin_start": 0.362607,
+          "bin_end": 0.391786,
+          "count": 362
+        },
+        {
+          "bin_start": 0.391786,
+          "bin_end": 0.420964,
+          "count": 1125
+        },
+        {
+          "bin_start": 0.420964,
+          "bin_end": 0.450143,
+          "count": 495
+        },
+        {
+          "bin_start": 0.450143,
+          "bin_end": 0.479321,
+          "count": 547
+        },
+        {
+          "bin_start": 0.479321,
+          "bin_end": 0.5085,
+          "count": 808
+        },
+        {
+          "bin_start": 0.5085,
+          "bin_end": 0.537679,
+          "count": 550
+        },
+        {
+          "bin_start": 0.537679,
+          "bin_end": 0.566857,
+          "count": 1130
+        },
+        {
+          "bin_start": 0.566857,
+          "bin_end": 0.596036,
+          "count": 302
+        },
+        {
+          "bin_start": 0.596036,
+          "bin_end": 0.625214,
+          "count": 1382
+        },
+        {
+          "bin_start": 0.625214,
+          "bin_end": 0.654393,
+          "count": 685
+        },
+        {
+          "bin_start": 0.654393,
+          "bin_end": 0.683571,
+          "count": 1032
+        },
+        {
+          "bin_start": 0.683571,
+          "bin_end": 0.71275,
+          "count": 688
+        },
+        {
+          "bin_start": 0.71275,
+          "bin_end": 0.741929,
+          "count": 1082
+        },
+        {
+          "bin_start": 0.741929,
+          "bin_end": 0.771107,
+          "count": 396
+        },
+        {
+          "bin_start": 0.771107,
+          "bin_end": 0.800286,
+          "count": 494
+        },
+        {
+          "bin_start": 0.800286,
+          "bin_end": 0.829464,
+          "count": 213
+        },
+        {
+          "bin_start": 0.829464,
+          "bin_end": 0.858643,
+          "count": 138
+        },
+        {
+          "bin_start": 0.858643,
+          "bin_end": 0.887821,
+          "count": 184
+        },
+        {
+          "bin_start": 0.887821,
+          "bin_end": 0.917,
+          "count": 90
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.1,
+        "upper": 0.917,
+        "clipped_below": 49,
+        "clipped_above": 84
+      },
+      "percentiles": {
+        "p1": 0.14,
+        "p5": 0.22,
+        "p25": 0.34,
+        "p50": 0.52,
+        "p75": 0.66,
+        "p95": 0.8,
+        "p99": 0.9
+      }
+    },
+    {
+      "column": "atemp",
+      "kind": "numeric",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.48425,
+      "median": 0.5,
+      "std": 0.168809,
+      "min": 0.0,
+      "max": 1.0,
+      "q1": 0.3333,
+      "q3": 0.6212,
+      "iqr": 0.2879,
+      "skew": -0.12373,
+      "kurtosis": -0.794342,
+      "zeros": 1,
+      "negatives": 0,
+      "n_unique": 65,
+      "outlier_fences": {
+        "lower": -0.09855,
+        "upper": 1.05305
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 0.1061,
+          "bin_end": 0.132614,
+          "count": 101
+        },
+        {
+          "bin_start": 0.132614,
+          "bin_end": 0.159129,
+          "count": 162
+        },
+        {
+          "bin_start": 0.159129,
+          "bin_end": 0.185643,
+          "count": 196
+        },
+        {
+          "bin_start": 0.185643,
+          "bin_end": 0.212157,
+          "count": 423
+        },
+        {
+          "bin_start": 0.212157,
+          "bin_end": 0.238671,
+          "count": 390
+        },
+        {
+          "bin_start": 0.238671,
+          "bin_end": 0.265186,
+          "count": 638
+        },
+        {
+          "bin_start": 0.265186,
+          "bin_end": 0.2917,
+          "count": 748
+        },
+        {
+          "bin_start": 0.2917,
+          "bin_end": 0.318214,
+          "count": 903
+        },
+        {
+          "bin_start": 0.318214,
+          "bin_end": 0.344729,
+          "count": 565
+        },
+        {
+          "bin_start": 0.344729,
+          "bin_end": 0.371243,
+          "count": 596
+        },
+        {
+          "bin_start": 0.371243,
+          "bin_end": 0.397757,
+          "count": 442
+        },
+        {
+          "bin_start": 0.397757,
+          "bin_end": 0.424271,
+          "count": 1125
+        },
+        {
+          "bin_start": 0.424271,
+          "bin_end": 0.450786,
+          "count": 495
+        },
+        {
+          "bin_start": 0.450786,
+          "bin_end": 0.4773,
+          "count": 833
+        },
+        {
+          "bin_start": 0.4773,
+          "bin_end": 0.503814,
+          "count": 1090
+        },
+        {
+          "bin_start": 0.503814,
+          "bin_end": 0.530329,
+          "count": 1178
+        },
+        {
+          "bin_start": 0.530329,
+          "bin_end": 0.556843,
+          "count": 483
+        },
+        {
+          "bin_start": 0.556843,
+          "bin_end": 0.583357,
+          "count": 534
+        },
+        {
+          "bin_start": 0.583357,
+          "bin_end": 0.609871,
+          "count": 988
+        },
+        {
+          "bin_start": 0.609871,
+          "bin_end": 0.636386,
+          "count": 980
+        },
+        {
+          "bin_start": 0.636386,
+          "bin_end": 0.6629,
+          "count": 946
+        },
+        {
+          "bin_start": 0.6629,
+          "bin_end": 0.689414,
+          "count": 969
+        },
+        {
+          "bin_start": 0.689414,
+          "bin_end": 0.715929,
+          "count": 701
+        },
+        {
+          "bin_start": 0.715929,
+          "bin_end": 0.742443,
+          "count": 382
+        },
+        {
+          "bin_start": 0.742443,
+          "bin_end": 0.768957,
+          "count": 142
+        },
+        {
+          "bin_start": 0.768957,
+          "bin_end": 0.795471,
+          "count": 262
+        },
+        {
+          "bin_start": 0.795471,
+          "bin_end": 0.821986,
+          "count": 152
+        },
+        {
+          "bin_start": 0.821986,
+          "bin_end": 0.8485,
+          "count": 73
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.1061,
+        "upper": 0.8485,
+        "clipped_below": 66,
+        "clipped_above": 68
+      },
+      "percentiles": {
+        "p1": 0.12576,
+        "p5": 0.2121,
+        "p25": 0.3333,
+        "p50": 0.5,
+        "p75": 0.6212,
+        "p95": 0.7424,
+        "p99": 0.8182
+      }
+    },
+    {
+      "column": "hum",
+      "kind": "numeric",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.626188,
+      "median": 0.63,
+      "std": 0.193538,
+      "min": 0.0,
+      "max": 1.0,
+      "q1": 0.47,
+      "q3": 0.78,
+      "iqr": 0.31,
+      "skew": -0.107676,
+      "kurtosis": -0.843309,
+      "zeros": 19,
+      "negatives": 0,
+      "n_unique": 88,
+      "outlier_fences": {
+        "lower": 0.005,
+        "upper": 1.245
+      },
+      "outlier_count": 19,
+      "outlier_pct": 0.001142,
+      "histogram": [
+        {
+          "bin_start": 0.2,
+          "bin_end": 0.228571,
+          "count": 70
+        },
+        {
+          "bin_start": 0.228571,
+          "bin_end": 0.257143,
+          "count": 161
+        },
+        {
+          "bin_start": 0.257143,
+          "bin_end": 0.285714,
+          "count": 242
+        },
+        {
+          "bin_start": 0.285714,
+          "bin_end": 0.314286,
+          "count": 330
+        },
+        {
+          "bin_start": 0.314286,
+          "bin_end": 0.342857,
+          "count": 383
+        },
+        {
+          "bin_start": 0.342857,
+          "bin_end": 0.371429,
+          "count": 555
+        },
+        {
+          "bin_start": 0.371429,
+          "bin_end": 0.4,
+          "count": 389
+        },
+        {
+          "bin_start": 0.4,
+          "bin_end": 0.428571,
+          "count": 730
+        },
+        {
+          "bin_start": 0.428571,
+          "bin_end": 0.457143,
+          "count": 726
+        },
+        {
+          "bin_start": 0.457143,
+          "bin_end": 0.485714,
+          "count": 762
+        },
+        {
+          "bin_start": 0.485714,
+          "bin_end": 0.514286,
+          "count": 809
+        },
+        {
+          "bin_start": 0.514286,
+          "bin_end": 0.542857,
+          "count": 833
+        },
+        {
+          "bin_start": 0.542857,
+          "bin_end": 0.571429,
+          "count": 836
+        },
+        {
+          "bin_start": 0.571429,
+          "bin_end": 0.6,
+          "count": 761
+        },
+        {
+          "bin_start": 0.6,
+          "bin_end": 0.628571,
+          "count": 644
+        },
+        {
+          "bin_start": 0.628571,
+          "bin_end": 0.657143,
+          "count": 724
+        },
+        {
+          "bin_start": 0.657143,
+          "bin_end": 0.685714,
+          "count": 698
+        },
+        {
+          "bin_start": 0.685714,
+          "bin_end": 0.714286,
+          "count": 913
+        },
+        {
+          "bin_start": 0.714286,
+          "bin_end": 0.742857,
+          "count": 815
+        },
+        {
+          "bin_start": 0.742857,
+          "bin_end": 0.771429,
+          "count": 733
+        },
+        {
+          "bin_start": 0.771429,
+          "bin_end": 0.8,
+          "count": 564
+        },
+        {
+          "bin_start": 0.8,
+          "bin_end": 0.828571,
+          "count": 624
+        },
+        {
+          "bin_start": 0.828571,
+          "bin_end": 0.857143,
+          "count": 744
+        },
+        {
+          "bin_start": 0.857143,
+          "bin_end": 0.885714,
+          "count": 1168
+        },
+        {
+          "bin_start": 0.885714,
+          "bin_end": 0.914286,
+          "count": 245
+        },
+        {
+          "bin_start": 0.914286,
+          "bin_end": 0.942857,
+          "count": 835
+        },
+        {
+          "bin_start": 0.942857,
+          "bin_end": 0.971429,
+          "count": 2
+        },
+        {
+          "bin_start": 0.971429,
+          "bin_end": 1.0,
+          "count": 260
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.2,
+        "upper": 1.0,
+        "clipped_below": 75,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.23,
+        "p5": 0.31,
+        "p25": 0.47,
+        "p50": 0.63,
+        "p75": 0.78,
+        "p95": 0.93,
+        "p99": 1.0
+      }
+    },
+    {
+      "column": "windspeed",
+      "kind": "numeric",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.190442,
+      "median": 0.194,
+      "std": 0.122739,
+      "min": 0.0,
+      "max": 0.8507,
+      "q1": 0.1045,
+      "q3": 0.2537,
+      "iqr": 0.1492,
+      "skew": 0.574303,
+      "kurtosis": 0.593255,
+      "zeros": 2098,
+      "negatives": 0,
+      "n_unique": 30,
+      "outlier_fences": {
+        "lower": -0.1193,
+        "upper": 0.4775
+      },
+      "outlier_count": 330,
+      "outlier_pct": 0.019842,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.020789,
+          "count": 2098
+        },
+        {
+          "bin_start": 0.020789,
+          "bin_end": 0.041579,
+          "count": 0
+        },
+        {
+          "bin_start": 0.041579,
+          "bin_end": 0.062368,
+          "count": 0
+        },
+        {
+          "bin_start": 0.062368,
+          "bin_end": 0.083157,
+          "count": 0
+        },
+        {
+          "bin_start": 0.083157,
+          "bin_end": 0.103946,
+          "count": 1363
+        },
+        {
+          "bin_start": 0.103946,
+          "bin_end": 0.124736,
+          "count": 1531
+        },
+        {
+          "bin_start": 0.124736,
+          "bin_end": 0.145525,
+          "count": 1640
+        },
+        {
+          "bin_start": 0.145525,
+          "bin_end": 0.166314,
+          "count": 1624
+        },
+        {
+          "bin_start": 0.166314,
+          "bin_end": 0.187104,
+          "count": 0
+        },
+        {
+          "bin_start": 0.187104,
+          "bin_end": 0.207893,
+          "count": 1584
+        },
+        {
+          "bin_start": 0.207893,
+          "bin_end": 0.228682,
+          "count": 1447
+        },
+        {
+          "bin_start": 0.228682,
+          "bin_end": 0.249471,
+          "count": 0
+        },
+        {
+          "bin_start": 0.249471,
+          "bin_end": 0.270261,
+          "count": 1246
+        },
+        {
+          "bin_start": 0.270261,
+          "bin_end": 0.29105,
+          "count": 1007
+        },
+        {
+          "bin_start": 0.29105,
+          "bin_end": 0.311839,
+          "count": 778
+        },
+        {
+          "bin_start": 0.311839,
+          "bin_end": 0.332629,
+          "count": 573
+        },
+        {
+          "bin_start": 0.332629,
+          "bin_end": 0.353418,
+          "count": 0
+        },
+        {
+          "bin_start": 0.353418,
+          "bin_end": 0.374207,
+          "count": 440
+        },
+        {
+          "bin_start": 0.374207,
+          "bin_end": 0.394996,
+          "count": 372
+        },
+        {
+          "bin_start": 0.394996,
+          "bin_end": 0.415786,
+          "count": 0
+        },
+        {
+          "bin_start": 0.415786,
+          "bin_end": 0.436575,
+          "count": 286
+        },
+        {
+          "bin_start": 0.436575,
+          "bin_end": 0.457364,
+          "count": 171
+        },
+        {
+          "bin_start": 0.457364,
+          "bin_end": 0.478154,
+          "count": 141
+        },
+        {
+          "bin_start": 0.478154,
+          "bin_end": 0.498943,
+          "count": 107
+        },
+        {
+          "bin_start": 0.498943,
+          "bin_end": 0.519732,
+          "count": 0
+        },
+        {
+          "bin_start": 0.519732,
+          "bin_end": 0.540521,
+          "count": 80
+        },
+        {
+          "bin_start": 0.540521,
+          "bin_end": 0.561311,
+          "count": 37
+        },
+        {
+          "bin_start": 0.561311,
+          "bin_end": 0.5821,
+          "count": 43
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 0.5821,
+        "clipped_below": 0,
+        "clipped_above": 63
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.1045,
+        "p50": 0.194,
+        "p75": 0.2537,
+        "p95": 0.4179,
+        "p99": 0.5224
+      }
+    }
+  ],
+  "categorical": [
+    {
+      "column": "weathersit",
+      "kind": "categorical",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 4,
+      "cardinality_ratio": 0.000241,
+      "mode": "1.0",
+      "top_values": [
+        {
+          "value": "1.0",
+          "count": 10938,
+          "share": 0.657687
+        },
+        {
+          "value": "2.0",
+          "count": 4344,
+          "share": 0.261199
+        },
+        {
+          "value": "3.0",
+          "count": 1346,
+          "share": 0.080933
+        },
+        {
+          "value": "4.0",
+          "count": 3,
+          "share": 0.00018
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "season",
+      "kind": "categorical",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 4,
+      "cardinality_ratio": 0.000241,
+      "mode": "3.0",
+      "top_values": [
+        {
+          "value": "3.0",
+          "count": 4432,
+          "share": 0.26649
+        },
+        {
+          "value": "2.0",
+          "count": 4364,
+          "share": 0.262402
+        },
+        {
+          "value": "4.0",
+          "count": 4120,
+          "share": 0.24773
+        },
+        {
+          "value": "1.0",
+          "count": 3715,
+          "share": 0.223378
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "workingday",
+      "kind": "categorical",
+      "count": 16631,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "cardinality_ratio": 0.00012,
+      "mode": "1.0",
+      "top_values": [
+        {
+          "value": "1.0",
+          "count": 11282,
+          "share": 0.678372
+        },
+        {
+          "value": "0.0",
+          "count": 5349,
+          "share": 0.321628
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    }
+  ],
+  "correlation": {
+    "columns": [
+      "cnt",
+      "temp",
+      "atemp",
+      "hum",
+      "windspeed"
+    ],
+    "pearson": [
+      [
+        1.0,
+        0.3873,
+        0.3834,
+        -0.327,
+        0.0942
+      ],
+      [
+        0.3873,
+        1.0,
+        0.9871,
+        -0.0749,
+        -0.0303
+      ],
+      [
+        0.3834,
+        0.9871,
+        1.0,
+        -0.0574,
+        -0.0676
+      ],
+      [
+        -0.327,
+        -0.0749,
+        -0.0574,
+        1.0,
+        -0.2909
+      ],
+      [
+        0.0942,
+        -0.0303,
+        -0.0676,
+        -0.2909,
+        1.0
+      ]
+    ],
+    "spearman": [
+      [
+        1.0,
+        0.4006,
+        0.4012,
+        -0.3669,
+        0.1288
+      ],
+      [
+        0.4006,
+        1.0,
+        0.9892,
+        -0.0629,
+        -0.0159
+      ],
+      [
+        0.4012,
+        0.9892,
+        1.0,
+        -0.0616,
+        -0.0435
+      ],
+      [
+        -0.3669,
+        -0.0629,
+        -0.0616,
+        1.0,
+        -0.2946
+      ],
+      [
+        0.1288,
+        -0.0159,
+        -0.0435,
+        -0.2946,
+        1.0
+      ]
+    ],
+    "strong_pairs": [
+      {
+        "a": "temp",
+        "b": "atemp",
+        "pearson": 0.9871,
+        "spearman": 0.9892,
+        "nonlinear_gap": 0.0021
+      }
+    ]
+  },
+  "missingness": {
+    "total_cells": 166310,
+    "missing_cells": 0,
+    "missing_pct": 0.0,
+    "complete_rows_pct": 1.0,
+    "columns": [],
+    "co_missing_pairs": []
+  },
+  "quality": {
+    "dimensions": [
+      {
+        "dimension": "Completeness",
+        "score": 1.0,
+        "detail": "0 of 166,310 cells are null",
+        "worst_column": null
+      },
+      {
+        "dimension": "Uniqueness",
+        "score": 1.0,
+        "detail": "0 fully duplicated rows"
+      },
+      {
+        "dimension": "Validity",
+        "score": 1.0,
+        "detail": "0 domain-rule violations across 2 rules",
+        "rules": [
+          {
+            "column": "cnt",
+            "rule": "cnt >= 0",
+            "violations": 0,
+            "violation_pct": 0.0
+          },
+          {
+            "column": "hum",
+            "rule": "hum >= 0 and hum <= 1",
+            "violations": 0,
+            "violation_pct": 0.0
+          }
+        ]
+      },
+      {
+        "dimension": "Consistency",
+        "score": 1.0,
+        "detail": "no constant columns"
+      },
+      {
+        "dimension": "Timeliness",
+        "score": 1.0,
+        "detail": "spans 2011-01-08 to 2012-12-31 (723 days); sorted; 0 unparseable timestamps"
+      },
+      {
+        "dimension": "Cardinality health",
+        "score": 1.0,
+        "detail": "no identifier-like text columns among features"
+      }
+    ],
+    "overall_score": 1.0,
+    "grade": "A",
+    "note": "Scores describe the data as published. Nothing here is repaired at the ingestion layer; remediation happens inside the modelling pipeline where it can be fitted per-fold."
+  },
+  "target_relationships": [
+    {
+      "feature": "temp",
+      "kind": "numeric-vs-numeric",
+      "pearson": 0.3873,
+      "spearman": 0.4006
+    },
+    {
+      "feature": "atemp",
+      "kind": "numeric-vs-numeric",
+      "pearson": 0.3834,
+      "spearman": 0.4012
+    },
+    {
+      "feature": "hum",
+      "kind": "numeric-vs-numeric",
+      "pearson": -0.327,
+      "spearman": -0.3669
+    },
+    {
+      "feature": "windspeed",
+      "kind": "numeric-vs-numeric",
+      "pearson": 0.0942,
+      "spearman": 0.1288
+    },
+    {
+      "feature": "weathersit",
+      "kind": "numeric-vs-numeric",
+      "pearson": -0.1457,
+      "spearman": -0.1306
+    },
+    {
+      "feature": "season",
+      "kind": "numeric-vs-numeric",
+      "pearson": 0.152,
+      "spearman": 0.1497
+    },
+    {
+      "feature": "workingday",
+      "kind": "numeric-vs-numeric",
+      "pearson": 0.0362,
+      "spearman": 0.0289
+    }
+  ],
+  "target": "cnt",
+  "gaps": {
+    "observed_hours": 17379,
+    "expected_hours": 17544,
+    "missing_hours": 165,
+    "missing_pct": 0.0094,
+    "policy": "The archive omits 165 hours. They are reindexed in as explicit NaNs rather than left as absent rows, so a 24-lag is genuinely 24 hours back. Rows whose target is missing are excluded from training and scoring; they are never imputed, because inventing demand would corrupt both the lag features and the error metric.",
+    "rows_modelled": 16631,
+    "rows_dropped_missing_target": 165,
+    "rows_dropped_warmup": 748,
+    "warmup_reason": "The 168-hour look-back is undefined at the start of the series; those rows cannot be scored fairly.",
+    "features": 33,
+    "max_lookback_hours": 168,
+    "forbidden_features": [
+      "casual",
+      "registered"
+    ],
+    "forbidden_reason": "casual + registered == cnt exactly. Either would give a perfect score and neither is known before the hour happens.",
+    "span": {
+      "start": "2011-01-08 00:00:00",
+      "end": "2012-12-31 23:00:00"
+    }
+  },
+  "decomposition": {
+    "period": 24,
+    "points": [
+      {
+        "i": 0,
+        "observed": 25.0,
+        "trend": 39.89,
+        "seasonal": -23.95,
+        "residual": 9.06
+      },
+      {
+        "i": 18,
+        "observed": 28.0,
+        "trend": 39.98,
+        "seasonal": -22.78,
+        "residual": 10.8
+      },
+      {
+        "i": 36,
+        "observed": 92.0,
+        "trend": 37.03,
+        "seasonal": 43.93,
+        "residual": 11.04
+      },
+      {
+        "i": 54,
+        "observed": 52.0,
+        "trend": 39.29,
+        "seasonal": -4.93,
+        "residual": 17.64
+      },
+      {
+        "i": 72,
+        "observed": 35.0,
+        "trend": 42.68,
+        "seasonal": 1.06,
+        "residual": -8.75
+      },
+      {
+        "i": 90,
+        "observed": 39.0,
+        "trend": 49.94,
+        "seasonal": -1.27,
+        "residual": -9.66
+      },
+      {
+        "i": 108,
+        "observed": 72.0,
+        "trend": 51.64,
+        "seasonal": 5.28,
+        "residual": 15.08
+      },
+      {
+        "i": 126,
+        "observed": 5.0,
+        "trend": 50.24,
+        "seasonal": -29.76,
+        "residual": -15.49
+      },
+      {
+        "i": 144,
+        "observed": 28.0,
+        "trend": 51.82,
+        "seasonal": -11.33,
+        "residual": -12.49
+      },
+      {
+        "i": 162,
+        "observed": 41.0,
+        "trend": 55.29,
+        "seasonal": -6.94,
+        "residual": -7.35
+      },
+      {
+        "i": 180,
+        "observed": 113.0,
+        "trend": 49.83,
+        "seasonal": 51.46,
+        "residual": 11.7
+      },
+      {
+        "i": 198,
+        "observed": 47.0,
+        "trend": 44.93,
+        "seasonal": -11.0,
+        "residual": 13.07
+      },
+      {
+        "i": 216,
+        "observed": 133.0,
+        "trend": 60.15,
+        "seasonal": -31.16,
+        "residual": 104.01
+      },
+      {
+        "i": 234,
+        "observed": 98.0,
+        "trend": 70.55,
+        "seasonal": 2.81,
+        "residual": 24.64
+      },
+      {
+        "i": 252,
+        "observed": 166.0,
+        "trend": 57.31,
+        "seasonal": 40.34,
+        "residual": 68.35
+      },
+      {
+        "i": 270,
+        "observed": 7.0,
+        "trend": 48.7,
+        "seasonal": -32.41,
+        "residual": -9.29
+      },
+      {
+        "i": 288,
+        "observed": 13.0,
+        "trend": 45.49,
+        "seasonal": -12.24,
+        "residual": -20.25
+      },
+      {
+        "i": 306,
+        "observed": 21.0,
+        "trend": 50.65,
+        "seasonal": 6.09,
+        "residual": -35.74
+      },
+      {
+        "i": 324,
+        "observed": 59.0,
+        "trend": 67.62,
+        "seasonal": 3.15,
+        "residual": -11.77
+      },
+      {
+        "i": 342,
+        "observed": 58.0,
+        "trend": 52.96,
+        "seasonal": 10.78,
+        "residual": -5.75
+      },
+      {
+        "i": 360,
+        "observed": 33.0,
+        "trend": 55.62,
+        "seasonal": -5.58,
+        "residual": -17.04
+      },
+      {
+        "i": 378,
+        "observed": 7.0,
+        "trend": 57.95,
+        "seasonal": 32.72,
+        "residual": -83.67
+      },
+      {
+        "i": 396,
+        "observed": 34.0,
+        "trend": 52.22,
+        "seasonal": -16.47,
+        "residual": -1.76
+      },
+      {
+        "i": 414,
+        "observed": 64.0,
+        "trend": 47.19,
+        "seasonal": 9.29,
+        "residual": 7.52
+      },
+      {
+        "i": 432,
+        "observed": 78.0,
+        "trend": 55.41,
+        "seasonal": 13.42,
+        "residual": 9.17
+      },
+      {
+        "i": 450,
+        "observed": 91.0,
+        "trend": 55.54,
+        "seasonal": 29.54,
+        "residual": 5.92
+      },
+      {
+        "i": 468,
+        "observed": 34.0,
+        "trend": 46.05,
+        "seasonal": -10.73,
+        "residual": -1.33
+      },
+      {
+        "i": 486,
+        "observed": 1.0,
+        "trend": 46.69,
+        "seasonal": -26.74,
+        "residual": -18.95
+      },
+      {
+        "i": 504,
+        "observed": 15.0,
+        "trend": 41.48,
+        "seasonal": -21.96,
+        "residual": -4.52
+      },
+      {
+        "i": 522,
+        "observed": 175.0,
+        "trend": 49.82,
+        "seasonal": 40.0,
+        "residual": 85.18
+      },
+      {
+        "i": 540,
+        "observed": 50.0,
+        "trend": 47.17,
+        "seasonal": 7.81,
+        "residual": -4.98
+      },
+      {
+        "i": 558,
+        "observed": 41.0,
+        "trend": 49.87,
+        "seasonal": -5.25,
+        "residual": -3.62
+      },
+      {
+        "i": 576,
+        "observed": 122.0,
+        "trend": 64.13,
+        "seasonal": 2.26,
+        "residual": 55.62
+      },
+      {
+        "i": 594,
+        "observed": 216.0,
+        "trend": 69.74,
+        "seasonal": 45.55,
+        "residual": 100.71
+      },
+      {
+        "i": 612,
+        "observed": 15.0,
+        "trend": 59.32,
+        "seasonal": 19.31,
+        "residual": -63.63
+      },
+      {
+        "i": 630,
+        "observed": 32.0,
+        "trend": 57.73,
+        "seasonal": -0.67,
+        "residual": -25.06
+      },
+      {
+        "i": 648,
+        "observed": 30.0,
+        "trend": 61.48,
+        "seasonal": -24.23,
+        "residual": -7.26
+      },
+      {
+        "i": 666,
+        "observed": 98.0,
+        "trend": 65.44,
+        "seasonal": 11.99,
+        "residual": 20.57
+      },
+      {
+        "i": 684,
+        "observed": 206.0,
+        "trend": 64.34,
+        "seasonal": 23.64,
+        "residual": 118.03
+      },
+      {
+        "i": 702,
+        "observed": 117.0,
+        "trend": 77.63,
+        "seasonal": 28.01,
+        "residual": 11.36
+      },
+      {
+        "i": 720,
+        "observed": 90.0,
+        "trend": 87.56,
+        "seasonal": 12.9,
+        "residual": -10.45
+      },
+      {
+        "i": 738,
+        "observed": 272.0,
+        "trend": 87.77,
+        "seasonal": -40.49,
+        "residual": 224.73
+      },
+      {
+        "i": 756,
+        "observed": 17.0,
+        "trend": 66.43,
+        "seasonal": -36.47,
+        "residual": -12.96
+      },
+      {
+        "i": 774,
+        "observed": 47.0,
+        "trend": 58.63,
+        "seasonal": 7.24,
+        "residual": -18.87
+      },
+      {
+        "i": 792,
+        "observed": 101.0,
+        "trend": 55.75,
+        "seasonal": 35.53,
+        "residual": 9.72
+      },
+      {
+        "i": 810,
+        "observed": 116.0,
+        "trend": 58.95,
+        "seasonal": 24.42,
+        "residual": 32.62
+      },
+      {
+        "i": 828,
+        "observed": 196.0,
+        "trend": 71.95,
+        "seasonal": 21.33,
+        "residual": 102.71
+      },
+      {
+        "i": 846,
+        "observed": 141.0,
+        "trend": 76.0,
+        "seasonal": -29.77,
+        "residual": 94.77
+      },
+      {
+        "i": 864,
+        "observed": 83.0,
+        "trend": 63.88,
+        "seasonal": -9.27,
+        "residual": 28.39
+      },
+      {
+        "i": 882,
+        "observed": 90.0,
+        "trend": 60.87,
+        "seasonal": 7.16,
+        "residual": 21.97
+      },
+      {
+        "i": 900,
+        "observed": 165.0,
+        "trend": 68.73,
+        "seasonal": 33.85,
+        "residual": 62.43
+      },
+      {
+        "i": 918,
+        "observed": 282.0,
+        "trend": 60.18,
+        "seasonal": -25.44,
+        "residual": 247.26
+      },
+      {
+        "i": 936,
+        "observed": 25.0,
+        "trend": 66.2,
+        "seasonal": -32.35,
+        "residual": -8.86
+      },
+      {
+        "i": 954,
+        "observed": 79.0,
+        "trend": 73.05,
+        "seasonal": 30.75,
+        "residual": -24.8
+      },
+      {
+        "i": 972,
+        "observed": 76.0,
+        "trend": 73.73,
+        "seasonal": 2.94,
+        "residual": -0.67
+      },
+      {
+        "i": 990,
+        "observed": 8.0,
+        "trend": 67.56,
+        "seasonal": -53.7,
+        "residual": -5.86
+      },
+      {
+        "i": 1008,
+        "observed": 23.0,
+        "trend": 65.49,
+        "seasonal": -28.97,
+        "residual": -13.53
+      },
+      {
+        "i": 1026,
+        "observed": 187.0,
+        "trend": 63.89,
+        "seasonal": 108.85,
+        "residual": 14.26
+      },
+      {
+        "i": 1044,
+        "observed": 167.0,
+        "trend": 48.82,
+        "seasonal": -7.36,
+        "residual": 125.53
+      },
+      {
+        "i": 1062,
+        "observed": 31.0,
+        "trend": 44.8,
+        "seasonal": -5.93,
+        "residual": -7.87
+      },
+      {
+        "i": 1080,
+        "observed": 134.0,
+        "trend": 56.16,
+        "seasonal": 25.16,
+        "residual": 52.68
+      },
+      {
+        "i": 1098,
+        "observed": 45.0,
+        "trend": 65.74,
+        "seasonal": 3.51,
+        "residual": -24.25
+      },
+      {
+        "i": 1116,
+        "observed": 9.0,
+        "trend": 59.05,
+        "seasonal": -27.52,
+        "residual": -22.53
+      },
+      {
+        "i": 1134,
+        "observed": 134.0,
+        "trend": 40.96,
+        "seasonal": -15.47,
+        "residual": 108.51
+      },
+      {
+        "i": 1152,
+        "observed": 82.0,
+        "trend": 44.7,
+        "seasonal": 9.42,
+        "residual": 27.87
+      },
+      {
+        "i": 1170,
+        "observed": 223.0,
+        "trend": 72.8,
+        "seasonal": 0.97,
+        "residual": 149.22
+      },
+      {
+        "i": 1188,
+        "observed": 166.0,
+        "trend": 76.56,
+        "seasonal": 41.88,
+        "residual": 47.56
+      },
+      {
+        "i": 1206,
+        "observed": 194.0,
+        "trend": 82.46,
+        "seasonal": -51.47,
+        "residual": 163.02
+      },
+      {
+        "i": 1224,
+        "observed": 94.0,
+        "trend": 105.33,
+        "seasonal": -32.02,
+        "residual": 20.69
+      },
+      {
+        "i": 1242,
+        "observed": 78.0,
+        "trend": 101.86,
+        "seasonal": -8.85,
+        "residual": -15.01
+      },
+      {
+        "i": 1260,
+        "observed": 154.0,
+        "trend": 104.35,
+        "seasonal": 33.84,
+        "residual": 15.81
+      },
+      {
+        "i": 1278,
+        "observed": 51.0,
+        "trend": 107.34,
+        "seasonal": -32.63,
+        "residual": -23.71
+      },
+      {
+        "i": 1296,
+        "observed": 29.0,
+        "trend": 114.78,
+        "seasonal": -57.31,
+        "residual": -28.48
+      },
+      {
+        "i": 1314,
+        "observed": 86.0,
+        "trend": 105.63,
+        "seasonal": -30.11,
+        "residual": 10.48
+      },
+      {
+        "i": 1332,
+        "observed": 154.0,
+        "trend": 78.86,
+        "seasonal": -30.3,
+        "residual": 105.44
+      },
+      {
+        "i": 1350,
+        "observed": 308.0,
+        "trend": 81.18,
+        "seasonal": 14.88,
+        "residual": 211.93
+      },
+      {
+        "i": 1368,
+        "observed": 112.0,
+        "trend": 91.95,
+        "seasonal": -6.59,
+        "residual": 26.64
+      },
+      {
+        "i": 1386,
+        "observed": 124.0,
+        "trend": 90.35,
+        "seasonal": 10.12,
+        "residual": 23.53
+      },
+      {
+        "i": 1404,
+        "observed": 182.0,
+        "trend": 76.55,
+        "seasonal": -23.15,
+        "residual": 128.59
+      },
+      {
+        "i": 1422,
+        "observed": 1.0,
+        "trend": 67.38,
+        "seasonal": -42.62,
+        "residual": -23.75
+      },
+      {
+        "i": 1440,
+        "observed": 33.0,
+        "trend": 76.37,
+        "seasonal": -46.36,
+        "residual": 2.98
+      },
+      {
+        "i": 1458,
+        "observed": 198.0,
+        "trend": 76.03,
+        "seasonal": 57.0,
+        "residual": 64.97
+      },
+      {
+        "i": 1476,
+        "observed": 227.0,
+        "trend": 72.77,
+        "seasonal": 46.23,
+        "residual": 107.99
+      },
+      {
+        "i": 1494,
+        "observed": 86.0,
+        "trend": 89.98,
+        "seasonal": -14.68,
+        "residual": 10.7
+      },
+      {
+        "i": 1512,
+        "observed": 254.0,
+        "trend": 85.51,
+        "seasonal": -28.42,
+        "residual": 196.91
+      },
+      {
+        "i": 1530,
+        "observed": 3.0,
+        "trend": 73.54,
+        "seasonal": -37.7,
+        "residual": -32.84
+      },
+      {
+        "i": 1548,
+        "observed": 55.0,
+        "trend": 74.06,
+        "seasonal": -6.91,
+        "residual": -12.15
+      },
+      {
+        "i": 1566,
+        "observed": 116.0,
+        "trend": 60.92,
+        "seasonal": 68.53,
+        "residual": -13.45
+      },
+      {
+        "i": 1584,
+        "observed": 58.0,
+        "trend": 66.29,
+        "seasonal": 4.47,
+        "residual": -12.76
+      },
+      {
+        "i": 1602,
+        "observed": 12.0,
+        "trend": 78.15,
+        "seasonal": -68.85,
+        "residual": 2.7
+      },
+      {
+        "i": 1620,
+        "observed": 53.0,
+        "trend": 90.85,
+        "seasonal": -49.68,
+        "residual": 11.83
+      },
+      {
+        "i": 1638,
+        "observed": 184.0,
+        "trend": 101.35,
+        "seasonal": 82.25,
+        "residual": 0.4
+      },
+      {
+        "i": 1656,
+        "observed": 313.0,
+        "trend": 95.84,
+        "seasonal": 15.14,
+        "residual": 202.01
+      },
+      {
+        "i": 1674,
+        "observed": 157.0,
+        "trend": 104.64,
+        "seasonal": -12.55,
+        "residual": 64.91
+      },
+      {
+        "i": 1692,
+        "observed": 15.0,
+        "trend": 100.34,
+        "seasonal": -88.67,
+        "residual": 3.33
+      },
+      {
+        "i": 1710,
+        "observed": 160.0,
+        "trend": 87.68,
+        "seasonal": 87.75,
+        "residual": -15.43
+      },
+      {
+        "i": 1728,
+        "observed": 112.0,
+        "trend": 109.95,
+        "seasonal": 1.57,
+        "residual": 0.48
+      },
+      {
+        "i": 1746,
+        "observed": 160.0,
+        "trend": 121.09,
+        "seasonal": 21.49,
+        "residual": 17.42
+      },
+      {
+        "i": 1764,
+        "observed": 9.0,
+        "trend": 119.48,
+        "seasonal": -98.52,
+        "residual": -11.96
+      },
+      {
+        "i": 1782,
+        "observed": 53.0,
+        "trend": 106.68,
+        "seasonal": 60.69,
+        "residual": -114.37
+      },
+      {
+        "i": 1800,
+        "observed": 222.0,
+        "trend": 112.35,
+        "seasonal": 103.76,
+        "residual": 5.89
+      },
+      {
+        "i": 1818,
+        "observed": 10.0,
+        "trend": 116.22,
+        "seasonal": -4.19,
+        "residual": -102.03
+      },
+      {
+        "i": 1836,
+        "observed": 4.0,
+        "trend": 118.74,
+        "seasonal": -1.1,
+        "residual": -113.64
+      },
+      {
+        "i": 1854,
+        "observed": 54.0,
+        "trend": 101.65,
+        "seasonal": -41.03,
+        "residual": -6.62
+      },
+      {
+        "i": 1872,
+        "observed": 130.0,
+        "trend": 86.88,
+        "seasonal": 58.06,
+        "residual": -14.94
+      },
+      {
+        "i": 1890,
+        "observed": 106.0,
+        "trend": 92.55,
+        "seasonal": 12.78,
+        "residual": 0.67
+      },
+      {
+        "i": 1908,
+        "observed": 337.0,
+        "trend": 118.55,
+        "seasonal": 28.2,
+        "residual": 190.24
+      },
+      {
+        "i": 1926,
+        "observed": 18.0,
+        "trend": 127.86,
+        "seasonal": -97.15,
+        "residual": -12.71
+      },
+      {
+        "i": 1944,
+        "observed": 118.0,
+        "trend": 119.01,
+        "seasonal": 6.98,
+        "residual": -7.99
+      },
+      {
+        "i": 1962,
+        "observed": 63.0,
+        "trend": 96.74,
+        "seasonal": 14.81,
+        "residual": -48.55
+      },
+      {
+        "i": 1980,
+        "observed": 43.0,
+        "trend": 112.21,
+        "seasonal": -31.55,
+        "residual": -37.67
+      },
+      {
+        "i": 1998,
+        "observed": 16.0,
+        "trend": 139.65,
+        "seasonal": -111.96,
+        "residual": -11.69
+      },
+      {
+        "i": 2016,
+        "observed": 151.0,
+        "trend": 141.27,
+        "seasonal": -1.53,
+        "residual": 11.27
+      },
+      {
+        "i": 2034,
+        "observed": 127.0,
+        "trend": 135.58,
+        "seasonal": 10.43,
+        "residual": -19.02
+      },
+      {
+        "i": 2052,
+        "observed": 197.0,
+        "trend": 155.56,
+        "seasonal": 30.56,
+        "residual": 10.88
+      },
+      {
+        "i": 2070,
+        "observed": 7.0,
+        "trend": 168.09,
+        "seasonal": -158.07,
+        "residual": -3.03
+      },
+      {
+        "i": 2088,
+        "observed": 184.0,
+        "trend": 171.37,
+        "seasonal": -5.75,
+        "residual": 18.38
+      },
+      {
+        "i": 2106,
+        "observed": 75.0,
+        "trend": 163.47,
+        "seasonal": 47.06,
+        "residual": -135.53
+      },
+      {
+        "i": 2124,
+        "observed": 68.0,
+        "trend": 168.22,
+        "seasonal": 15.12,
+        "residual": -115.34
+      },
+      {
+        "i": 2142,
+        "observed": 24.0,
+        "trend": 180.7,
+        "seasonal": -157.25,
+        "residual": 0.55
+      },
+      {
+        "i": 2160,
+        "observed": 61.0,
+        "trend": 164.62,
+        "seasonal": -17.77,
+        "residual": -85.85
+      },
+      {
+        "i": 2178,
+        "observed": 175.0,
+        "trend": 172.2,
+        "seasonal": -0.2,
+        "residual": 3.0
+      },
+      {
+        "i": 2196,
+        "observed": 199.0,
+        "trend": 180.18,
+        "seasonal": 12.34,
+        "residual": 6.48
+      },
+      {
+        "i": 2214,
+        "observed": 7.0,
+        "trend": 172.66,
+        "seasonal": -161.84,
+        "residual": -3.82
+      },
+      {
+        "i": 2232,
+        "observed": 145.0,
+        "trend": 162.18,
+        "seasonal": 6.53,
+        "residual": -23.71
+      },
+      {
+        "i": 2250,
+        "observed": 163.0,
+        "trend": 168.63,
+        "seasonal": 11.66,
+        "residual": -17.28
+      },
+      {
+        "i": 2268,
+        "observed": 230.0,
+        "trend": 191.54,
+        "seasonal": 0.95,
+        "residual": 37.51
+      },
+      {
+        "i": 2286,
+        "observed": 17.0,
+        "trend": 191.56,
+        "seasonal": -170.75,
+        "residual": -3.81
+      },
+      {
+        "i": 2304,
+        "observed": 177.0,
+        "trend": 186.83,
+        "seasonal": 9.27,
+        "residual": -19.1
+      },
+      {
+        "i": 2322,
+        "observed": 266.0,
+        "trend": 186.59,
+        "seasonal": 26.13,
+        "residual": 53.28
+      },
+      {
+        "i": 2340,
+        "observed": 172.0,
+        "trend": 175.0,
+        "seasonal": -13.16,
+        "residual": 10.15
+      },
+      {
+        "i": 2358,
+        "observed": 2.0,
+        "trend": 179.66,
+        "seasonal": -167.73,
+        "residual": -9.93
+      },
+      {
+        "i": 2376,
+        "observed": 225.0,
+        "trend": 175.94,
+        "seasonal": 35.24,
+        "residual": 13.82
+      },
+      {
+        "i": 2394,
+        "observed": 129.0,
+        "trend": 152.17,
+        "seasonal": -12.88,
+        "residual": -10.29
+      },
+      {
+        "i": 2412,
+        "observed": 184.0,
+        "trend": 177.6,
+        "seasonal": 3.52,
+        "residual": 2.88
+      },
+      {
+        "i": 2430,
+        "observed": 9.0,
+        "trend": 191.63,
+        "seasonal": -173.85,
+        "residual": -8.77
+      },
+      {
+        "i": 2448,
+        "observed": 152.0,
+        "trend": 194.68,
+        "seasonal": -24.91,
+        "residual": -17.77
+      },
+      {
+        "i": 2466,
+        "observed": 378.0,
+        "trend": 196.87,
+        "seasonal": 40.76,
+        "residual": 140.37
+      },
+      {
+        "i": 2484,
+        "observed": 160.0,
+        "trend": 188.07,
+        "seasonal": -0.73,
+        "residual": -27.34
+      },
+      {
+        "i": 2502,
+        "observed": 7.0,
+        "trend": 177.74,
+        "seasonal": -174.09,
+        "residual": 3.35
+      },
+      {
+        "i": 2520,
+        "observed": 156.0,
+        "trend": 185.1,
+        "seasonal": -17.86,
+        "residual": -11.24
+      },
+      {
+        "i": 2538,
+        "observed": 180.0,
+        "trend": 199.02,
+        "seasonal": -3.66,
+        "residual": -15.36
+      },
+      {
+        "i": 2556,
+        "observed": 203.0,
+        "trend": 199.51,
+        "seasonal": 9.95,
+        "residual": -6.46
+      },
+      {
+        "i": 2574,
+        "observed": 5.0,
+        "trend": 199.61,
+        "seasonal": -188.23,
+        "residual": -6.38
+      },
+      {
+        "i": 2592,
+        "observed": 223.0,
+        "trend": 195.52,
+        "seasonal": 7.65,
+        "residual": 19.83
+      },
+      {
+        "i": 2610,
+        "observed": 198.0,
+        "trend": 181.75,
+        "seasonal": 20.87,
+        "residual": -4.62
+      },
+      {
+        "i": 2628,
+        "observed": 100.0,
+        "trend": 179.8,
+        "seasonal": 20.81,
+        "residual": -100.62
+      },
+      {
+        "i": 2646,
+        "observed": 32.0,
+        "trend": 160.38,
+        "seasonal": -147.21,
+        "residual": 18.83
+      },
+      {
+        "i": 2664,
+        "observed": 151.0,
+        "trend": 157.44,
+        "seasonal": -0.94,
+        "residual": -5.49
+      },
+      {
+        "i": 2682,
+        "observed": 165.0,
+        "trend": 163.83,
+        "seasonal": 12.87,
+        "residual": -11.71
+      },
+      {
+        "i": 2700,
+        "observed": 207.0,
+        "trend": 166.16,
+        "seasonal": 30.54,
+        "residual": 10.3
+      },
+      {
+        "i": 2718,
+        "observed": 9.0,
+        "trend": 172.96,
+        "seasonal": -169.43,
+        "residual": 5.47
+      },
+      {
+        "i": 2736,
+        "observed": 85.0,
+        "trend": 178.76,
+        "seasonal": 4.75,
+        "residual": -98.51
+      },
+      {
+        "i": 2754,
+        "observed": 188.0,
+        "trend": 188.72,
+        "seasonal": 11.76,
+        "residual": -12.48
+      },
+      {
+        "i": 2772,
+        "observed": 234.0,
+        "trend": 204.24,
+        "seasonal": 21.95,
+        "residual": 7.82
+      },
+      {
+        "i": 2790,
+        "observed": 19.0,
+        "trend": 206.9,
+        "seasonal": -183.41,
+        "residual": -4.48
+      },
+      {
+        "i": 2808,
+        "observed": 227.0,
+        "trend": 212.76,
+        "seasonal": -4.09,
+        "residual": 18.33
+      },
+      {
+        "i": 2826,
+        "observed": 331.0,
+        "trend": 178.46,
+        "seasonal": 13.88,
+        "residual": 138.66
+      },
+      {
+        "i": 2844,
+        "observed": 167.0,
+        "trend": 173.89,
+        "seasonal": -5.52,
+        "residual": -1.36
+      },
+      {
+        "i": 2862,
+        "observed": 2.0,
+        "trend": 179.92,
+        "seasonal": -176.4,
+        "residual": -1.52
+      },
+      {
+        "i": 2880,
+        "observed": 189.0,
+        "trend": 183.42,
+        "seasonal": 11.53,
+        "residual": -5.95
+      },
+      {
+        "i": 2898,
+        "observed": 182.0,
+        "trend": 199.94,
+        "seasonal": 59.93,
+        "residual": -77.87
+      },
+      {
+        "i": 2916,
+        "observed": 216.0,
+        "trend": 201.9,
+        "seasonal": 14.77,
+        "residual": -0.68
+      },
+      {
+        "i": 2934,
+        "observed": 12.0,
+        "trend": 198.94,
+        "seasonal": -189.62,
+        "residual": 2.68
+      },
+      {
+        "i": 2952,
+        "observed": 151.0,
+        "trend": 196.07,
+        "seasonal": -1.17,
+        "residual": -43.9
+      },
+      {
+        "i": 2970,
+        "observed": 374.0,
+        "trend": 210.8,
+        "seasonal": 158.57,
+        "residual": 4.63
+      },
+      {
+        "i": 2988,
+        "observed": 152.0,
+        "trend": 225.19,
+        "seasonal": -46.72,
+        "residual": -26.47
+      },
+      {
+        "i": 3006,
+        "observed": 18.0,
+        "trend": 220.34,
+        "seasonal": -196.31,
+        "residual": -6.03
+      },
+      {
+        "i": 3024,
+        "observed": 149.0,
+        "trend": 192.57,
+        "seasonal": -8.98,
+        "residual": -34.6
+      },
+      {
+        "i": 3042,
+        "observed": 175.0,
+        "trend": 191.34,
+        "seasonal": 39.46,
+        "residual": -55.81
+      },
+      {
+        "i": 3060,
+        "observed": 207.0,
+        "trend": 188.93,
+        "seasonal": 3.36,
+        "residual": 14.71
+      },
+      {
+        "i": 3078,
+        "observed": 4.0,
+        "trend": 192.8,
+        "seasonal": -192.8,
+        "residual": 4.0
+      },
+      {
+        "i": 3096,
+        "observed": 248.0,
+        "trend": 210.31,
+        "seasonal": 16.68,
+        "residual": 21.01
+      },
+      {
+        "i": 3114,
+        "observed": 212.0,
+        "trend": 223.3,
+        "seasonal": -16.97,
+        "residual": 5.67
+      },
+      {
+        "i": 3132,
+        "observed": 224.0,
+        "trend": 232.01,
+        "seasonal": -8.15,
+        "residual": 0.15
+      },
+      {
+        "i": 3150,
+        "observed": 47.0,
+        "trend": 226.25,
+        "seasonal": -194.24,
+        "residual": 14.98
+      },
+      {
+        "i": 3168,
+        "observed": 165.0,
+        "trend": 188.24,
+        "seasonal": -14.42,
+        "residual": -8.82
+      },
+      {
+        "i": 3186,
+        "observed": 165.0,
+        "trend": 191.38,
+        "seasonal": -21.15,
+        "residual": -5.23
+      },
+      {
+        "i": 3204,
+        "observed": 217.0,
+        "trend": 201.22,
+        "seasonal": 4.0,
+        "residual": 11.78
+      },
+      {
+        "i": 3222,
+        "observed": 3.0,
+        "trend": 193.31,
+        "seasonal": -184.83,
+        "residual": -5.48
+      },
+      {
+        "i": 3240,
+        "observed": 202.0,
+        "trend": 179.4,
+        "seasonal": 12.44,
+        "residual": 10.16
+      },
+      {
+        "i": 3258,
+        "observed": 104.0,
+        "trend": 171.6,
+        "seasonal": -23.17,
+        "residual": -44.43
+      },
+      {
+        "i": 3276,
+        "observed": 213.0,
+        "trend": 188.34,
+        "seasonal": 11.44,
+        "residual": 13.21
+      },
+      {
+        "i": 3294,
+        "observed": 28.0,
+        "trend": 205.23,
+        "seasonal": -178.86,
+        "residual": 1.63
+      },
+      {
+        "i": 3312,
+        "observed": 220.0,
+        "trend": 216.57,
+        "seasonal": 4.13,
+        "residual": -0.7
+      },
+      {
+        "i": 3330,
+        "observed": 360.0,
+        "trend": 197.19,
+        "seasonal": -5.75,
+        "residual": 168.57
+      },
+      {
+        "i": 3348,
+        "observed": 224.0,
+        "trend": 200.64,
+        "seasonal": -0.52,
+        "residual": 23.89
+      },
+      {
+        "i": 3366,
+        "observed": 2.0,
+        "trend": 200.43,
+        "seasonal": -197.47,
+        "residual": -0.95
+      },
+      {
+        "i": 3384,
+        "observed": 243.0,
+        "trend": 201.13,
+        "seasonal": 27.7,
+        "residual": 14.16
+      },
+      {
+        "i": 3402,
+        "observed": 164.0,
+        "trend": 202.65,
+        "seasonal": -19.91,
+        "residual": -18.74
+      },
+      {
+        "i": 3420,
+        "observed": 261.0,
+        "trend": 185.21,
+        "seasonal": 21.47,
+        "residual": 54.32
+      },
+      {
+        "i": 3438,
+        "observed": 6.0,
+        "trend": 186.35,
+        "seasonal": -184.52,
+        "residual": 4.17
+      },
+      {
+        "i": 3456,
+        "observed": 208.0,
+        "trend": 199.89,
+        "seasonal": 5.84,
+        "residual": 2.27
+      },
+      {
+        "i": 3474,
+        "observed": 367.0,
+        "trend": 193.17,
+        "seasonal": 32.13,
+        "residual": 141.71
+      },
+      {
+        "i": 3492,
+        "observed": 169.0,
+        "trend": 185.64,
+        "seasonal": 33.23,
+        "residual": -49.87
+      },
+      {
+        "i": 3510,
+        "observed": 1.0,
+        "trend": 168.78,
+        "seasonal": -171.61,
+        "residual": 3.82
+      },
+      {
+        "i": 3528,
+        "observed": 206.0,
+        "trend": 181.39,
+        "seasonal": 19.27,
+        "residual": 5.34
+      },
+      {
+        "i": 3546,
+        "observed": 170.0,
+        "trend": 195.82,
+        "seasonal": -8.21,
+        "residual": -17.61
+      },
+      {
+        "i": 3564,
+        "observed": 219.0,
+        "trend": 188.87,
+        "seasonal": 40.44,
+        "residual": -10.31
+      },
+      {
+        "i": 3582,
+        "observed": 5.0,
+        "trend": 191.38,
+        "seasonal": -189.43,
+        "residual": 3.05
+      },
+      {
+        "i": 3600,
+        "observed": 234.0,
+        "trend": 200.48,
+        "seasonal": 31.34,
+        "residual": 2.19
+      },
+      {
+        "i": 3618,
+        "observed": 216.0,
+        "trend": 211.33,
+        "seasonal": 6.27,
+        "residual": -1.6
+      },
+      {
+        "i": 3636,
+        "observed": 186.0,
+        "trend": 211.62,
+        "seasonal": 7.84,
+        "residual": -33.47
+      },
+      {
+        "i": 3654,
+        "observed": 34.0,
+        "trend": 205.82,
+        "seasonal": -177.54,
+        "residual": 5.72
+      },
+      {
+        "i": 3672,
+        "observed": 183.0,
+        "trend": 174.9,
+        "seasonal": 13.44,
+        "residual": -5.35
+      },
+      {
+        "i": 3690,
+        "observed": 202.0,
+        "trend": 190.76,
+        "seasonal": 6.68,
+        "residual": 4.56
+      },
+      {
+        "i": 3708,
+        "observed": 246.0,
+        "trend": 197.79,
+        "seasonal": 21.47,
+        "residual": 26.74
+      },
+      {
+        "i": 3726,
+        "observed": 5.0,
+        "trend": 203.15,
+        "seasonal": -200.81,
+        "residual": 2.66
+      },
+      {
+        "i": 3744,
+        "observed": 221.0,
+        "trend": 213.34,
+        "seasonal": 1.12,
+        "residual": 6.54
+      },
+      {
+        "i": 3762,
+        "observed": 240.0,
+        "trend": 208.98,
+        "seasonal": 25.23,
+        "residual": 5.78
+      },
+      {
+        "i": 3780,
+        "observed": 260.0,
+        "trend": 210.57,
+        "seasonal": 16.51,
+        "residual": 32.92
+      },
+      {
+        "i": 3798,
+        "observed": 26.0,
+        "trend": 217.61,
+        "seasonal": -193.28,
+        "residual": 1.67
+      },
+      {
+        "i": 3816,
+        "observed": 232.0,
+        "trend": 219.74,
+        "seasonal": 9.06,
+        "residual": 3.21
+      },
+      {
+        "i": 3834,
+        "observed": 376.0,
+        "trend": 222.82,
+        "seasonal": 93.0,
+        "residual": 60.18
+      },
+      {
+        "i": 3852,
+        "observed": 238.0,
+        "trend": 213.26,
+        "seasonal": 7.12,
+        "residual": 17.62
+      },
+      {
+        "i": 3870,
+        "observed": 8.0,
+        "trend": 192.64,
+        "seasonal": -186.94,
+        "residual": 2.3
+      },
+      {
+        "i": 3888,
+        "observed": 245.0,
+        "trend": 189.09,
+        "seasonal": 57.06,
+        "residual": -1.15
+      },
+      {
+        "i": 3906,
+        "observed": 185.0,
+        "trend": 194.82,
+        "seasonal": -24.65,
+        "residual": 14.83
+      },
+      {
+        "i": 3924,
+        "observed": 179.0,
+        "trend": 191.89,
+        "seasonal": 11.66,
+        "residual": -24.56
+      },
+      {
+        "i": 3942,
+        "observed": 6.0,
+        "trend": 198.84,
+        "seasonal": -184.72,
+        "residual": -8.11
+      },
+      {
+        "i": 3960,
+        "observed": 204.0,
+        "trend": 204.61,
+        "seasonal": 22.54,
+        "residual": -23.15
+      },
+      {
+        "i": 3978,
+        "observed": 402.0,
+        "trend": 205.33,
+        "seasonal": -42.46,
+        "residual": 239.13
+      },
+      {
+        "i": 3996,
+        "observed": 169.0,
+        "trend": 186.27,
+        "seasonal": 23.67,
+        "residual": -40.94
+      },
+      {
+        "i": 4014,
+        "observed": 10.0,
+        "trend": 170.03,
+        "seasonal": -167.54,
+        "residual": 7.5
+      },
+      {
+        "i": 4032,
+        "observed": 130.0,
+        "trend": 171.72,
+        "seasonal": 61.65,
+        "residual": -103.37
+      },
+      {
+        "i": 4050,
+        "observed": 148.0,
+        "trend": 176.87,
+        "seasonal": -26.69,
+        "residual": -2.18
+      },
+      {
+        "i": 4068,
+        "observed": 186.0,
+        "trend": 186.85,
+        "seasonal": 6.72,
+        "residual": -7.57
+      },
+      {
+        "i": 4086,
+        "observed": 6.0,
+        "trend": 200.51,
+        "seasonal": -193.68,
+        "residual": -0.83
+      },
+      {
+        "i": 4104,
+        "observed": 261.0,
+        "trend": 212.3,
+        "seasonal": 44.11,
+        "residual": 4.59
+      },
+      {
+        "i": 4122,
+        "observed": 237.0,
+        "trend": 228.69,
+        "seasonal": -12.16,
+        "residual": 20.47
+      },
+      {
+        "i": 4140,
+        "observed": 222.0,
+        "trend": 228.07,
+        "seasonal": -9.14,
+        "residual": 3.06
+      },
+      {
+        "i": 4158,
+        "observed": 47.0,
+        "trend": 218.55,
+        "seasonal": -186.36,
+        "residual": 14.81
+      },
+      {
+        "i": 4176,
+        "observed": 207.0,
+        "trend": 183.86,
+        "seasonal": 28.02,
+        "residual": -4.88
+      },
+      {
+        "i": 4194,
+        "observed": 164.0,
+        "trend": 181.09,
+        "seasonal": -17.21,
+        "residual": 0.12
+      },
+      {
+        "i": 4212,
+        "observed": 199.0,
+        "trend": 185.51,
+        "seasonal": 17.83,
+        "residual": -4.34
+      },
+      {
+        "i": 4230,
+        "observed": 6.0,
+        "trend": 181.38,
+        "seasonal": -171.86,
+        "residual": -3.53
+      },
+      {
+        "i": 4248,
+        "observed": 242.0,
+        "trend": 173.76,
+        "seasonal": 56.05,
+        "residual": 12.19
+      },
+      {
+        "i": 4266,
+        "observed": 133.0,
+        "trend": 159.68,
+        "seasonal": -24.88,
+        "residual": -1.81
+      },
+      {
+        "i": 4284,
+        "observed": 208.0,
+        "trend": 149.58,
+        "seasonal": 25.37,
+        "residual": 33.05
+      },
+      {
+        "i": 4302,
+        "observed": 22.0,
+        "trend": 149.17,
+        "seasonal": -132.25,
+        "residual": 5.08
+      },
+      {
+        "i": 4320,
+        "observed": 154.0,
+        "trend": 156.6,
+        "seasonal": 25.91,
+        "residual": -28.51
+      },
+      {
+        "i": 4338,
+        "observed": 238.0,
+        "trend": 151.42,
+        "seasonal": -26.45,
+        "residual": 113.03
+      },
+      {
+        "i": 4356,
+        "observed": 135.0,
+        "trend": 150.16,
+        "seasonal": -3.47,
+        "residual": -11.7
+      },
+      {
+        "i": 4374,
+        "observed": 4.0,
+        "trend": 175.52,
+        "seasonal": -166.44,
+        "residual": -5.08
+      },
+      {
+        "i": 4392,
+        "observed": 267.0,
+        "trend": 190.55,
+        "seasonal": 39.34,
+        "residual": 37.11
+      },
+      {
+        "i": 4410,
+        "observed": 140.0,
+        "trend": 190.85,
+        "seasonal": -36.44,
+        "residual": -14.42
+      },
+      {
+        "i": 4428,
+        "observed": 210.0,
+        "trend": 186.33,
+        "seasonal": 15.98,
+        "residual": 7.7
+      },
+      {
+        "i": 4446,
+        "observed": 11.0,
+        "trend": 172.16,
+        "seasonal": -157.14,
+        "residual": -4.01
+      },
+      {
+        "i": 4464,
+        "observed": 163.0,
+        "trend": 162.8,
+        "seasonal": 15.82,
+        "residual": -15.62
+      },
+      {
+        "i": 4482,
+        "observed": 302.0,
+        "trend": 181.12,
+        "seasonal": -14.59,
+        "residual": 135.47
+      },
+      {
+        "i": 4500,
+        "observed": 183.0,
+        "trend": 177.7,
+        "seasonal": 8.98,
+        "residual": -3.67
+      },
+      {
+        "i": 4518,
+        "observed": 4.0,
+        "trend": 159.52,
+        "seasonal": -153.43,
+        "residual": -2.09
+      },
+      {
+        "i": 4536,
+        "observed": 220.0,
+        "trend": 171.86,
+        "seasonal": 41.97,
+        "residual": 6.18
+      },
+      {
+        "i": 4554,
+        "observed": 168.0,
+        "trend": 189.37,
+        "seasonal": -35.39,
+        "residual": 14.02
+      },
+      {
+        "i": 4572,
+        "observed": 195.0,
+        "trend": 178.62,
+        "seasonal": 13.04,
+        "residual": 3.33
+      },
+      {
+        "i": 4590,
+        "observed": 3.0,
+        "trend": 181.67,
+        "seasonal": -182.34,
+        "residual": 3.67
+      },
+      {
+        "i": 4608,
+        "observed": 211.0,
+        "trend": 196.88,
+        "seasonal": 4.42,
+        "residual": 9.69
+      },
+      {
+        "i": 4626,
+        "observed": 210.0,
+        "trend": 205.69,
+        "seasonal": 3.46,
+        "residual": 0.85
+      },
+      {
+        "i": 4644,
+        "observed": 215.0,
+        "trend": 204.15,
+        "seasonal": 9.67,
+        "residual": 1.18
+      },
+      {
+        "i": 4662,
+        "observed": 32.0,
+        "trend": 190.99,
+        "seasonal": -169.68,
+        "residual": 10.7
+      },
+      {
+        "i": 4680,
+        "observed": 136.0,
+        "trend": 172.66,
+        "seasonal": -25.63,
+        "residual": -11.03
+      },
+      {
+        "i": 4698,
+        "observed": 126.0,
+        "trend": 181.03,
+        "seasonal": -52.65,
+        "residual": -2.38
+      },
+      {
+        "i": 4716,
+        "observed": 175.0,
+        "trend": 188.85,
+        "seasonal": -6.73,
+        "residual": -7.12
+      },
+      {
+        "i": 4734,
+        "observed": 4.0,
+        "trend": 194.6,
+        "seasonal": -187.39,
+        "residual": -3.21
+      },
+      {
+        "i": 4752,
+        "observed": 209.0,
+        "trend": 199.72,
+        "seasonal": 15.09,
+        "residual": -5.81
+      },
+      {
+        "i": 4770,
+        "observed": 178.0,
+        "trend": 197.92,
+        "seasonal": 7.99,
+        "residual": -27.91
+      },
+      {
+        "i": 4788,
+        "observed": 205.0,
+        "trend": 203.58,
+        "seasonal": 2.23,
+        "residual": -0.82
+      },
+      {
+        "i": 4806,
+        "observed": 27.0,
+        "trend": 208.39,
+        "seasonal": -179.03,
+        "residual": -2.36
+      },
+      {
+        "i": 4824,
+        "observed": 167.0,
+        "trend": 197.59,
+        "seasonal": -9.0,
+        "residual": -21.59
+      },
+      {
+        "i": 4842,
+        "observed": 331.0,
+        "trend": 186.8,
+        "seasonal": 11.04,
+        "residual": 133.16
+      },
+      {
+        "i": 4860,
+        "observed": 222.0,
+        "trend": 181.51,
+        "seasonal": 20.45,
+        "residual": 20.05
+      },
+      {
+        "i": 4878,
+        "observed": 6.0,
+        "trend": 188.23,
+        "seasonal": -180.71,
+        "residual": -1.52
+      },
+      {
+        "i": 4896,
+        "observed": 215.0,
+        "trend": 191.57,
+        "seasonal": 8.82,
+        "residual": 14.61
+      },
+      {
+        "i": 4914,
+        "observed": 159.0,
+        "trend": 193.46,
+        "seasonal": -16.62,
+        "residual": -17.85
+      },
+      {
+        "i": 4932,
+        "observed": 228.0,
+        "trend": 184.95,
+        "seasonal": 25.12,
+        "residual": 17.93
+      },
+      {
+        "i": 4950,
+        "observed": 3.0,
+        "trend": 180.8,
+        "seasonal": -170.33,
+        "residual": -7.46
+      },
+      {
+        "i": 4968,
+        "observed": 107.0,
+        "trend": 189.85,
+        "seasonal": -4.34,
+        "residual": -78.51
+      },
+      {
+        "i": 4986,
+        "observed": 390.0,
+        "trend": 203.04,
+        "seasonal": 26.13,
+        "residual": 160.83
+      },
+      {
+        "i": 5004,
+        "observed": 231.0,
+        "trend": 191.16,
+        "seasonal": 21.87,
+        "residual": 17.97
+      },
+      {
+        "i": 5022,
+        "observed": 5.0,
+        "trend": 172.37,
+        "seasonal": -167.4,
+        "residual": 0.03
+      },
+      {
+        "i": 5040,
+        "observed": 208.0,
+        "trend": 187.55,
+        "seasonal": 8.77,
+        "residual": 11.68
+      },
+      {
+        "i": 5058,
+        "observed": 601.0,
+        "trend": 199.1,
+        "seasonal": 6.42,
+        "residual": 395.48
+      },
+      {
+        "i": 5076,
+        "observed": 213.0,
+        "trend": 195.41,
+        "seasonal": 7.84,
+        "residual": 9.75
+      },
+      {
+        "i": 5094,
+        "observed": 4.0,
+        "trend": 186.82,
+        "seasonal": -178.55,
+        "residual": -4.28
+      },
+      {
+        "i": 5112,
+        "observed": 187.0,
+        "trend": 176.93,
+        "seasonal": 17.13,
+        "residual": -7.06
+      },
+      {
+        "i": 5130,
+        "observed": 249.0,
+        "trend": 179.07,
+        "seasonal": -60.95,
+        "residual": 130.88
+      },
+      {
+        "i": 5148,
+        "observed": 156.0,
+        "trend": 183.64,
+        "seasonal": -21.58,
+        "residual": -6.06
+      },
+      {
+        "i": 5166,
+        "observed": 188.0,
+        "trend": 237.07,
+        "seasonal": -106.67,
+        "residual": 57.6
+      },
+      {
+        "i": 5184,
+        "observed": 337.0,
+        "trend": 229.71,
+        "seasonal": 85.21,
+        "residual": 22.08
+      },
+      {
+        "i": 5202,
+        "observed": 138.0,
+        "trend": 208.62,
+        "seasonal": -78.87,
+        "residual": 8.25
+      },
+      {
+        "i": 5220,
+        "observed": 7.0,
+        "trend": 197.84,
+        "seasonal": -156.48,
+        "residual": -34.35
+      },
+      {
+        "i": 5238,
+        "observed": 179.0,
+        "trend": 200.86,
+        "seasonal": -41.82,
+        "residual": 19.96
+      },
+      {
+        "i": 5256,
+        "observed": 381.0,
+        "trend": 205.82,
+        "seasonal": 150.93,
+        "residual": 24.25
+      },
+      {
+        "i": 5274,
+        "observed": 258.0,
+        "trend": 212.99,
+        "seasonal": -75.46,
+        "residual": 120.47
+      },
+      {
+        "i": 5292,
+        "observed": 376.0,
+        "trend": 200.65,
+        "seasonal": -99.7,
+        "residual": 275.05
+      },
+      {
+        "i": 5310,
+        "observed": 308.0,
+        "trend": 138.53,
+        "seasonal": -28.69,
+        "residual": 198.16
+      },
+      {
+        "i": 5328,
+        "observed": 185.0,
+        "trend": 101.66,
+        "seasonal": 89.81,
+        "residual": -6.48
+      },
+      {
+        "i": 5346,
+        "observed": 16.0,
+        "trend": 85.05,
+        "seasonal": -60.01,
+        "residual": -9.04
+      },
+      {
+        "i": 5364,
+        "observed": 24.0,
+        "trend": 82.54,
+        "seasonal": -34.22,
+        "residual": -24.33
+      },
+      {
+        "i": 5382,
+        "observed": 70.0,
+        "trend": 97.02,
+        "seasonal": -30.82,
+        "residual": 3.8
+      },
+      {
+        "i": 5400,
+        "observed": 410.0,
+        "trend": 139.98,
+        "seasonal": 63.05,
+        "residual": 206.97
+      },
+      {
+        "i": 5418,
+        "observed": 370.0,
+        "trend": 174.37,
+        "seasonal": 105.25,
+        "residual": 90.38
+      },
+      {
+        "i": 5436,
+        "observed": 37.0,
+        "trend": 176.88,
+        "seasonal": -57.22,
+        "residual": -82.66
+      },
+      {
+        "i": 5454,
+        "observed": 12.0,
+        "trend": 198.25,
+        "seasonal": -48.09,
+        "residual": -138.16
+      },
+      {
+        "i": 5472,
+        "observed": 69.0,
+        "trend": 217.87,
+        "seasonal": -161.22,
+        "residual": 12.35
+      },
+      {
+        "i": 5490,
+        "observed": 272.0,
+        "trend": 200.25,
+        "seasonal": 72.68,
+        "residual": -0.93
+      },
+      {
+        "i": 5508,
+        "observed": 176.0,
+        "trend": 177.78,
+        "seasonal": 14.04,
+        "residual": -15.82
+      },
+      {
+        "i": 5526,
+        "observed": 121.0,
+        "trend": 152.09,
+        "seasonal": -11.55,
+        "residual": -19.53
+      },
+      {
+        "i": 5544,
+        "observed": 4.0,
+        "trend": 152.56,
+        "seasonal": -164.98,
+        "residual": 16.42
+      },
+      {
+        "i": 5562,
+        "observed": 167.0,
+        "trend": 176.82,
+        "seasonal": -23.42,
+        "residual": 13.6
+      },
+      {
+        "i": 5580,
+        "observed": 305.0,
+        "trend": 184.49,
+        "seasonal": 145.74,
+        "residual": -25.23
+      },
+      {
+        "i": 5598,
+        "observed": 260.0,
+        "trend": 168.9,
+        "seasonal": -9.71,
+        "residual": 100.81
+      },
+      {
+        "i": 5616,
+        "observed": 28.0,
+        "trend": 156.39,
+        "seasonal": -150.08,
+        "residual": 21.69
+      },
+      {
+        "i": 5634,
+        "observed": 68.0,
+        "trend": 157.61,
+        "seasonal": -78.61,
+        "residual": -10.99
+      },
+      {
+        "i": 5652,
+        "observed": 511.0,
+        "trend": 167.04,
+        "seasonal": 327.02,
+        "residual": 16.95
+      },
+      {
+        "i": 5670,
+        "observed": 180.0,
+        "trend": 168.13,
+        "seasonal": 2.2,
+        "residual": 9.67
+      },
+      {
+        "i": 5688,
+        "observed": 30.0,
+        "trend": 165.54,
+        "seasonal": -149.2,
+        "residual": 13.65
+      },
+      {
+        "i": 5706,
+        "observed": 113.0,
+        "trend": 176.44,
+        "seasonal": -67.91,
+        "residual": 4.47
+      },
+      {
+        "i": 5724,
+        "observed": 99.0,
+        "trend": 196.93,
+        "seasonal": 265.59,
+        "residual": -363.52
+      },
+      {
+        "i": 5742,
+        "observed": 386.0,
+        "trend": 229.01,
+        "seasonal": 118.25,
+        "residual": 38.74
+      },
+      {
+        "i": 5760,
+        "observed": 3.0,
+        "trend": 228.33,
+        "seasonal": -197.07,
+        "residual": -28.25
+      },
+      {
+        "i": 5778,
+        "observed": 79.0,
+        "trend": 196.94,
+        "seasonal": -104.47,
+        "residual": -13.46
+      },
+      {
+        "i": 5796,
+        "observed": 570.0,
+        "trend": 193.32,
+        "seasonal": 284.6,
+        "residual": 92.08
+      },
+      {
+        "i": 5814,
+        "observed": 123.0,
+        "trend": 184.86,
+        "seasonal": 33.94,
+        "residual": -95.8
+      },
+      {
+        "i": 5832,
+        "observed": 22.0,
+        "trend": 181.33,
+        "seasonal": -165.52,
+        "residual": 6.2
+      },
+      {
+        "i": 5850,
+        "observed": 71.0,
+        "trend": 188.36,
+        "seasonal": -107.36,
+        "residual": -10.0
+      },
+      {
+        "i": 5868,
+        "observed": 589.0,
+        "trend": 201.66,
+        "seasonal": 385.29,
+        "residual": 2.05
+      },
+      {
+        "i": 5886,
+        "observed": 217.0,
+        "trend": 212.17,
+        "seasonal": -28.01,
+        "residual": 32.84
+      },
+      {
+        "i": 5904,
+        "observed": 5.0,
+        "trend": 188.59,
+        "seasonal": -166.91,
+        "residual": -16.69
+      },
+      {
+        "i": 5922,
+        "observed": 65.0,
+        "trend": 158.32,
+        "seasonal": -99.18,
+        "residual": 5.85
+      },
+      {
+        "i": 5940,
+        "observed": 167.0,
+        "trend": 148.94,
+        "seasonal": 362.58,
+        "residual": -344.52
+      },
+      {
+        "i": 5958,
+        "observed": 126.0,
+        "trend": 153.69,
+        "seasonal": -36.18,
+        "residual": 8.48
+      },
+      {
+        "i": 5976,
+        "observed": 27.0,
+        "trend": 174.4,
+        "seasonal": -147.94,
+        "residual": 0.54
+      },
+      {
+        "i": 5994,
+        "observed": 66.0,
+        "trend": 191.35,
+        "seasonal": -119.71,
+        "residual": -5.64
+      },
+      {
+        "i": 6012,
+        "observed": 591.0,
+        "trend": 199.48,
+        "seasonal": 376.15,
+        "residual": 15.36
+      },
+      {
+        "i": 6030,
+        "observed": 144.0,
+        "trend": 200.52,
+        "seasonal": -17.36,
+        "residual": -39.16
+      },
+      {
+        "i": 6048,
+        "observed": 27.0,
+        "trend": 207.46,
+        "seasonal": -185.37,
+        "residual": 4.9
+      },
+      {
+        "i": 6066,
+        "observed": 136.0,
+        "trend": 209.14,
+        "seasonal": -88.45,
+        "residual": 15.32
+      },
+      {
+        "i": 6084,
+        "observed": 393.0,
+        "trend": 213.68,
+        "seasonal": 301.61,
+        "residual": -122.29
+      },
+      {
+        "i": 6102,
+        "observed": 423.0,
+        "trend": 206.73,
+        "seasonal": 89.07,
+        "residual": 127.19
+      },
+      {
+        "i": 6120,
+        "observed": 21.0,
+        "trend": 198.72,
+        "seasonal": -180.79,
+        "residual": 3.07
+      },
+      {
+        "i": 6138,
+        "observed": 75.0,
+        "trend": 190.2,
+        "seasonal": -97.35,
+        "residual": -17.85
+      },
+      {
+        "i": 6156,
+        "observed": 604.0,
+        "trend": 172.66,
+        "seasonal": 294.21,
+        "residual": 137.13
+      },
+      {
+        "i": 6174,
+        "observed": 120.0,
+        "trend": 147.9,
+        "seasonal": 3.22,
+        "residual": -31.12
+      },
+      {
+        "i": 6192,
+        "observed": 17.0,
+        "trend": 122.71,
+        "seasonal": -127.88,
+        "residual": 22.17
+      },
+      {
+        "i": 6210,
+        "observed": 47.0,
+        "trend": 131.31,
+        "seasonal": -70.63,
+        "residual": -13.68
+      },
+      {
+        "i": 6228,
+        "observed": 481.0,
+        "trend": 154.36,
+        "seasonal": 320.11,
+        "residual": 6.53
+      },
+      {
+        "i": 6246,
+        "observed": 374.0,
+        "trend": 168.34,
+        "seasonal": -25.89,
+        "residual": 231.54
+      },
+      {
+        "i": 6264,
+        "observed": 7.0,
+        "trend": 170.2,
+        "seasonal": -140.93,
+        "residual": -22.27
+      },
+      {
+        "i": 6282,
+        "observed": 62.0,
+        "trend": 146.55,
+        "seasonal": -68.66,
+        "residual": -15.88
+      },
+      {
+        "i": 6300,
+        "observed": 620.0,
+        "trend": 134.62,
+        "seasonal": 146.3,
+        "residual": 339.07
+      },
+      {
+        "i": 6318,
+        "observed": 147.0,
+        "trend": 121.49,
+        "seasonal": 19.82,
+        "residual": 5.69
+      },
+      {
+        "i": 6336,
+        "observed": 202.0,
+        "trend": 110.9,
+        "seasonal": -39.14,
+        "residual": 130.24
+      },
+      {
+        "i": 6354,
+        "observed": 26.0,
+        "trend": 113.05,
+        "seasonal": -71.62,
+        "residual": -15.43
+      },
+      {
+        "i": 6372,
+        "observed": 90.0,
+        "trend": 129.96,
+        "seasonal": -38.77,
+        "residual": -1.19
+      },
+      {
+        "i": 6390,
+        "observed": 397.0,
+        "trend": 143.29,
+        "seasonal": 118.25,
+        "residual": 135.46
+      },
+      {
+        "i": 6408,
+        "observed": 343.0,
+        "trend": 156.89,
+        "seasonal": 38.69,
+        "residual": 147.42
+      },
+      {
+        "i": 6426,
+        "observed": 12.0,
+        "trend": 157.83,
+        "seasonal": -106.26,
+        "residual": -39.57
+      },
+      {
+        "i": 6444,
+        "observed": 32.0,
+        "trend": 149.35,
+        "seasonal": -105.23,
+        "residual": -12.12
+      },
+      {
+        "i": 6462,
+        "observed": 486.0,
+        "trend": 157.69,
+        "seasonal": 182.44,
+        "residual": 145.86
+      },
+      {
+        "i": 6480,
+        "observed": 200.0,
+        "trend": 167.12,
+        "seasonal": 15.48,
+        "residual": 17.4
+      },
+      {
+        "i": 6498,
+        "observed": 299.0,
+        "trend": 157.95,
+        "seasonal": -23.28,
+        "residual": 164.33
+      },
+      {
+        "i": 6516,
+        "observed": 11.0,
+        "trend": 131.7,
+        "seasonal": -123.1,
+        "residual": 2.4
+      },
+      {
+        "i": 6534,
+        "observed": 219.0,
+        "trend": 125.3,
+        "seasonal": 127.33,
+        "residual": -33.63
+      },
+      {
+        "i": 6552,
+        "observed": 228.0,
+        "trend": 122.29,
+        "seasonal": -57.45,
+        "residual": 163.16
+      },
+      {
+        "i": 6570,
+        "observed": 7.0,
+        "trend": 95.39,
+        "seasonal": 71.72,
+        "residual": -160.11
+      },
+      {
+        "i": 6588,
+        "observed": 43.0,
+        "trend": 102.05,
+        "seasonal": -95.07,
+        "residual": 36.02
+      },
+      {
+        "i": 6606,
+        "observed": 153.0,
+        "trend": 124.36,
+        "seasonal": 80.91,
+        "residual": -52.27
+      },
+      {
+        "i": 6624,
+        "observed": 152.0,
+        "trend": 144.96,
+        "seasonal": -10.52,
+        "residual": 17.56
+      },
+      {
+        "i": 6642,
+        "observed": 254.0,
+        "trend": 160.64,
+        "seasonal": 89.11,
+        "residual": 4.25
+      },
+      {
+        "i": 6660,
+        "observed": 10.0,
+        "trend": 170.89,
+        "seasonal": -151.11,
+        "residual": -9.78
+      },
+      {
+        "i": 6678,
+        "observed": 282.0,
+        "trend": 171.65,
+        "seasonal": 98.06,
+        "residual": 12.29
+      },
+      {
+        "i": 6696,
+        "observed": 169.0,
+        "trend": 165.92,
+        "seasonal": 7.77,
+        "residual": -4.69
+      },
+      {
+        "i": 6714,
+        "observed": 245.0,
+        "trend": 167.77,
+        "seasonal": 84.99,
+        "residual": -7.77
+      },
+      {
+        "i": 6732,
+        "observed": 62.0,
+        "trend": 164.57,
+        "seasonal": -134.03,
+        "residual": 31.47
+      },
+      {
+        "i": 6750,
+        "observed": 204.0,
+        "trend": 162.76,
+        "seasonal": 60.79,
+        "residual": -19.55
+      },
+      {
+        "i": 6768,
+        "observed": 314.0,
+        "trend": 157.49,
+        "seasonal": 24.68,
+        "residual": 131.84
+      },
+      {
+        "i": 6786,
+        "observed": 311.0,
+        "trend": 162.16,
+        "seasonal": 150.56,
+        "residual": -1.72
+      },
+      {
+        "i": 6804,
+        "observed": 11.0,
+        "trend": 172.12,
+        "seasonal": -158.01,
+        "residual": -3.11
+      },
+      {
+        "i": 6822,
+        "observed": 278.0,
+        "trend": 173.0,
+        "seasonal": 115.11,
+        "residual": -10.12
+      },
+      {
+        "i": 6840,
+        "observed": 167.0,
+        "trend": 169.26,
+        "seasonal": 30.68,
+        "residual": -32.94
+      },
+      {
+        "i": 6858,
+        "observed": 272.0,
+        "trend": 159.03,
+        "seasonal": 58.38,
+        "residual": 54.59
+      },
+      {
+        "i": 6876,
+        "observed": 19.0,
+        "trend": 146.38,
+        "seasonal": -121.74,
+        "residual": -5.64
+      },
+      {
+        "i": 6894,
+        "observed": 199.0,
+        "trend": 143.55,
+        "seasonal": 48.94,
+        "residual": 6.5
+      },
+      {
+        "i": 6912,
+        "observed": 353.0,
+        "trend": 150.12,
+        "seasonal": 74.78,
+        "residual": 128.1
+      },
+      {
+        "i": 6930,
+        "observed": 43.0,
+        "trend": 153.64,
+        "seasonal": 90.79,
+        "residual": -201.44
+      },
+      {
+        "i": 6948,
+        "observed": 11.0,
+        "trend": 156.9,
+        "seasonal": -128.54,
+        "residual": -17.36
+      },
+      {
+        "i": 6966,
+        "observed": 302.0,
+        "trend": 168.66,
+        "seasonal": 104.49,
+        "residual": 28.85
+      },
+      {
+        "i": 6984,
+        "observed": 153.0,
+        "trend": 164.28,
+        "seasonal": 1.55,
+        "residual": -12.83
+      },
+      {
+        "i": 7002,
+        "observed": 137.0,
+        "trend": 141.08,
+        "seasonal": 91.41,
+        "residual": -95.49
+      },
+      {
+        "i": 7020,
+        "observed": 5.0,
+        "trend": 121.73,
+        "seasonal": -128.19,
+        "residual": 11.45
+      },
+      {
+        "i": 7038,
+        "observed": 217.0,
+        "trend": 126.33,
+        "seasonal": 88.86,
+        "residual": 1.81
+      },
+      {
+        "i": 7056,
+        "observed": 177.0,
+        "trend": 131.68,
+        "seasonal": 19.49,
+        "residual": 25.83
+      },
+      {
+        "i": 7074,
+        "observed": 41.0,
+        "trend": 114.01,
+        "seasonal": -51.19,
+        "residual": -21.81
+      },
+      {
+        "i": 7092,
+        "observed": 84.0,
+        "trend": 106.27,
+        "seasonal": -74.41,
+        "residual": 52.14
+      },
+      {
+        "i": 7110,
+        "observed": 157.0,
+        "trend": 86.0,
+        "seasonal": 61.18,
+        "residual": 9.82
+      },
+      {
+        "i": 7128,
+        "observed": 134.0,
+        "trend": 90.16,
+        "seasonal": 45.65,
+        "residual": -1.81
+      },
+      {
+        "i": 7146,
+        "observed": 121.0,
+        "trend": 89.25,
+        "seasonal": 4.4,
+        "residual": 27.35
+      },
+      {
+        "i": 7164,
+        "observed": 8.0,
+        "trend": 92.79,
+        "seasonal": -77.28,
+        "residual": -7.51
+      },
+      {
+        "i": 7182,
+        "observed": 122.0,
+        "trend": 92.19,
+        "seasonal": 23.82,
+        "residual": 5.99
+      },
+      {
+        "i": 7200,
+        "observed": 175.0,
+        "trend": 79.97,
+        "seasonal": 114.91,
+        "residual": -19.88
+      },
+      {
+        "i": 7218,
+        "observed": 35.0,
+        "trend": 106.69,
+        "seasonal": -66.07,
+        "residual": -5.63
+      },
+      {
+        "i": 7236,
+        "observed": 29.0,
+        "trend": 121.23,
+        "seasonal": -90.6,
+        "residual": -1.64
+      },
+      {
+        "i": 7254,
+        "observed": 146.0,
+        "trend": 129.42,
+        "seasonal": 3.3,
+        "residual": 13.28
+      },
+      {
+        "i": 7272,
+        "observed": 313.0,
+        "trend": 138.39,
+        "seasonal": 171.18,
+        "residual": 3.43
+      },
+      {
+        "i": 7290,
+        "observed": 118.0,
+        "trend": 148.47,
+        "seasonal": -82.34,
+        "residual": 51.86
+      },
+      {
+        "i": 7308,
+        "observed": 342.0,
+        "trend": 122.06,
+        "seasonal": 218.9,
+        "residual": 1.04
+      },
+      {
+        "i": 7326,
+        "observed": 8.0,
+        "trend": 130.77,
+        "seasonal": -109.23,
+        "residual": -13.54
+      },
+      {
+        "i": 7344,
+        "observed": 190.0,
+        "trend": 144.57,
+        "seasonal": 70.11,
+        "residual": -24.68
+      },
+      {
+        "i": 7362,
+        "observed": 150.0,
+        "trend": 150.5,
+        "seasonal": -12.78,
+        "residual": 12.27
+      },
+      {
+        "i": 7380,
+        "observed": 445.0,
+        "trend": 161.22,
+        "seasonal": 297.67,
+        "residual": -13.9
+      },
+      {
+        "i": 7398,
+        "observed": 50.0,
+        "trend": 165.15,
+        "seasonal": -124.55,
+        "residual": 9.41
+      },
+      {
+        "i": 7416,
+        "observed": 127.0,
+        "trend": 164.02,
+        "seasonal": -1.18,
+        "residual": -35.83
+      },
+      {
+        "i": 7434,
+        "observed": 323.0,
+        "trend": 150.63,
+        "seasonal": -5.1,
+        "residual": 177.47
+      },
+      {
+        "i": 7452,
+        "observed": 190.0,
+        "trend": 145.14,
+        "seasonal": 62.73,
+        "residual": -17.87
+      },
+      {
+        "i": 7470,
+        "observed": 3.0,
+        "trend": 131.1,
+        "seasonal": -123.29,
+        "residual": -4.82
+      },
+      {
+        "i": 7488,
+        "observed": 114.0,
+        "trend": 109.06,
+        "seasonal": 8.89,
+        "residual": -3.95
+      },
+      {
+        "i": 7506,
+        "observed": 30.0,
+        "trend": 106.76,
+        "seasonal": -37.48,
+        "residual": -39.28
+      },
+      {
+        "i": 7524,
+        "observed": 225.0,
+        "trend": 135.33,
+        "seasonal": 98.42,
+        "residual": -8.75
+      },
+      {
+        "i": 7542,
+        "observed": 6.0,
+        "trend": 144.63,
+        "seasonal": -129.35,
+        "residual": -9.28
+      },
+      {
+        "i": 7560,
+        "observed": 140.0,
+        "trend": 158.52,
+        "seasonal": -26.0,
+        "residual": 7.48
+      },
+      {
+        "i": 7578,
+        "observed": 299.0,
+        "trend": 152.52,
+        "seasonal": 7.04,
+        "residual": 139.44
+      },
+      {
+        "i": 7596,
+        "observed": 107.0,
+        "trend": 142.05,
+        "seasonal": 97.41,
+        "residual": -132.47
+      },
+      {
+        "i": 7614,
+        "observed": 2.0,
+        "trend": 130.88,
+        "seasonal": -134.17,
+        "residual": 5.28
+      },
+      {
+        "i": 7632,
+        "observed": 121.0,
+        "trend": 139.07,
+        "seasonal": -31.87,
+        "residual": 13.8
+      },
+      {
+        "i": 7650,
+        "observed": 151.0,
+        "trend": 146.74,
+        "seasonal": 2.88,
+        "residual": 1.38
+      },
+      {
+        "i": 7668,
+        "observed": 239.0,
+        "trend": 155.58,
+        "seasonal": 93.72,
+        "residual": -10.3
+      },
+      {
+        "i": 7686,
+        "observed": 3.0,
+        "trend": 159.04,
+        "seasonal": -150.32,
+        "residual": -5.72
+      },
+      {
+        "i": 7704,
+        "observed": 155.0,
+        "trend": 162.3,
+        "seasonal": -24.41,
+        "residual": 17.12
+      },
+      {
+        "i": 7722,
+        "observed": 153.0,
+        "trend": 153.01,
+        "seasonal": 26.72,
+        "residual": -26.73
+      },
+      {
+        "i": 7740,
+        "observed": 100.0,
+        "trend": 164.78,
+        "seasonal": 77.03,
+        "residual": -141.82
+      },
+      {
+        "i": 7758,
+        "observed": 18.0,
+        "trend": 161.64,
+        "seasonal": -140.1,
+        "residual": -3.54
+      },
+      {
+        "i": 7776,
+        "observed": 89.0,
+        "trend": 144.33,
+        "seasonal": -42.7,
+        "residual": -12.64
+      },
+      {
+        "i": 7794,
+        "observed": 159.0,
+        "trend": 138.94,
+        "seasonal": 25.25,
+        "residual": -5.19
+      },
+      {
+        "i": 7812,
+        "observed": 259.0,
+        "trend": 147.5,
+        "seasonal": 77.72,
+        "residual": 33.78
+      },
+      {
+        "i": 7830,
+        "observed": 2.0,
+        "trend": 144.19,
+        "seasonal": -135.39,
+        "residual": -6.79
+      },
+      {
+        "i": 7848,
+        "observed": 123.0,
+        "trend": 138.81,
+        "seasonal": -27.5,
+        "residual": 11.69
+      },
+      {
+        "i": 7866,
+        "observed": 214.0,
+        "trend": 119.95,
+        "seasonal": 75.57,
+        "residual": 18.47
+      },
+      {
+        "i": 7884,
+        "observed": 156.0,
+        "trend": 91.37,
+        "seasonal": 61.03,
+        "residual": 3.59
+      },
+      {
+        "i": 7902,
+        "observed": 5.0,
+        "trend": 68.21,
+        "seasonal": -66.55,
+        "residual": 3.33
+      },
+      {
+        "i": 7920,
+        "observed": 19.0,
+        "trend": 45.92,
+        "seasonal": -29.62,
+        "residual": 2.7
+      },
+      {
+        "i": 7938,
+        "observed": 16.0,
+        "trend": 36.84,
+        "seasonal": 10.68,
+        "residual": -31.51
+      },
+      {
+        "i": 7956,
+        "observed": 97.0,
+        "trend": 42.97,
+        "seasonal": 33.81,
+        "residual": 20.22
+      },
+      {
+        "i": 7974,
+        "observed": 20.0,
+        "trend": 49.14,
+        "seasonal": -22.96,
+        "residual": -6.18
+      },
+      {
+        "i": 7992,
+        "observed": 140.0,
+        "trend": 65.2,
+        "seasonal": 51.98,
+        "residual": 22.82
+      },
+      {
+        "i": 8010,
+        "observed": 210.0,
+        "trend": 74.91,
+        "seasonal": -29.25,
+        "residual": 164.33
+      },
+      {
+        "i": 8028,
+        "observed": 12.0,
+        "trend": 93.51,
+        "seasonal": -58.0,
+        "residual": -23.51
+      },
+      {
+        "i": 8046,
+        "observed": 95.0,
+        "trend": 99.11,
+        "seasonal": -10.24,
+        "residual": 6.13
+      },
+      {
+        "i": 8064,
+        "observed": 253.0,
+        "trend": 88.36,
+        "seasonal": 93.08,
+        "residual": 71.55
+      },
+      {
+        "i": 8082,
+        "observed": 70.0,
+        "trend": 88.59,
+        "seasonal": 15.7,
+        "residual": -34.3
+      },
+      {
+        "i": 8100,
+        "observed": 53.0,
+        "trend": 91.69,
+        "seasonal": -39.59,
+        "residual": 0.9
+      },
+      {
+        "i": 8118,
+        "observed": 3.0,
+        "trend": 88.51,
+        "seasonal": -47.73,
+        "residual": -37.78
+      },
+      {
+        "i": 8136,
+        "observed": 33.0,
+        "trend": 100.85,
+        "seasonal": -44.63,
+        "residual": -23.22
+      },
+      {
+        "i": 8154,
+        "observed": 289.0,
+        "trend": 103.29,
+        "seasonal": 178.54,
+        "residual": 7.17
+      },
+      {
+        "i": 8172,
+        "observed": 120.0,
+        "trend": 117.42,
+        "seasonal": 8.34,
+        "residual": -5.75
+      },
+      {
+        "i": 8190,
+        "observed": 70.0,
+        "trend": 132.41,
+        "seasonal": -85.85,
+        "residual": 23.44
+      },
+      {
+        "i": 8208,
+        "observed": 79.0,
+        "trend": 148.3,
+        "seasonal": -75.43,
+        "residual": 6.13
+      },
+      {
+        "i": 8226,
+        "observed": 297.0,
+        "trend": 148.82,
+        "seasonal": 54.08,
+        "residual": 94.09
+      },
+      {
+        "i": 8244,
+        "observed": 351.0,
+        "trend": 137.15,
+        "seasonal": 212.89,
+        "residual": 0.96
+      },
+      {
+        "i": 8262,
+        "observed": 240.0,
+        "trend": 126.8,
+        "seasonal": -84.33,
+        "residual": 197.52
+      },
+      {
+        "i": 8280,
+        "observed": 5.0,
+        "trend": 130.23,
+        "seasonal": 80.31,
+        "residual": -205.54
+      },
+      {
+        "i": 8298,
+        "observed": 41.0,
+        "trend": 109.57,
+        "seasonal": -46.15,
+        "residual": -22.42
+      },
+      {
+        "i": 8316,
+        "observed": 93.0,
+        "trend": 96.73,
+        "seasonal": -5.4,
+        "residual": 1.67
+      },
+      {
+        "i": 8334,
+        "observed": 156.0,
+        "trend": 107.34,
+        "seasonal": 17.89,
+        "residual": 30.77
+      },
+      {
+        "i": 8352,
+        "observed": 419.0,
+        "trend": 100.63,
+        "seasonal": 39.41,
+        "residual": 278.95
+      },
+      {
+        "i": 8370,
+        "observed": 38.0,
+        "trend": 107.19,
+        "seasonal": -75.46,
+        "residual": 6.28
+      },
+      {
+        "i": 8388,
+        "observed": 103.0,
+        "trend": 105.01,
+        "seasonal": 10.39,
+        "residual": -12.4
+      },
+      {
+        "i": 8406,
+        "observed": 188.0,
+        "trend": 98.27,
+        "seasonal": 83.63,
+        "residual": 6.1
+      },
+      {
+        "i": 8424,
+        "observed": 78.0,
+        "trend": 99.32,
+        "seasonal": -31.19,
+        "residual": 9.87
+      },
+      {
+        "i": 8442,
+        "observed": 12.0,
+        "trend": 112.66,
+        "seasonal": -101.68,
+        "residual": 1.02
+      },
+      {
+        "i": 8460,
+        "observed": 17.0,
+        "trend": 117.89,
+        "seasonal": -74.09,
+        "residual": -26.8
+      },
+      {
+        "i": 8478,
+        "observed": 165.0,
+        "trend": 113.97,
+        "seasonal": 41.37,
+        "residual": 9.67
+      },
+      {
+        "i": 8496,
+        "observed": 127.0,
+        "trend": 104.84,
+        "seasonal": 19.39,
+        "residual": 2.77
+      },
+      {
+        "i": 8514,
+        "observed": 263.0,
+        "trend": 98.96,
+        "seasonal": -26.47,
+        "residual": 190.51
+      },
+      {
+        "i": 8532,
+        "observed": 13.0,
+        "trend": 76.86,
+        "seasonal": -75.42,
+        "residual": 11.56
+      },
+      {
+        "i": 8550,
+        "observed": 69.0,
+        "trend": 70.92,
+        "seasonal": -2.57,
+        "residual": 0.65
+      },
+      {
+        "i": 8568,
+        "observed": 176.0,
+        "trend": 87.93,
+        "seasonal": 85.78,
+        "residual": 2.3
+      },
+      {
+        "i": 8586,
+        "observed": 211.0,
+        "trend": 109.02,
+        "seasonal": -27.58,
+        "residual": 129.56
+      },
+      {
+        "i": 8604,
+        "observed": 2.0,
+        "trend": 148.08,
+        "seasonal": -128.8,
+        "residual": -17.28
+      },
+      {
+        "i": 8622,
+        "observed": 125.0,
+        "trend": 162.02,
+        "seasonal": -35.7,
+        "residual": -1.32
+      },
+      {
+        "i": 8640,
+        "observed": 246.0,
+        "trend": 162.47,
+        "seasonal": 92.24,
+        "residual": -8.71
+      },
+      {
+        "i": 8658,
+        "observed": 108.0,
+        "trend": 153.74,
+        "seasonal": -26.82,
+        "residual": -18.92
+      },
+      {
+        "i": 8676,
+        "observed": 4.0,
+        "trend": 151.5,
+        "seasonal": -147.7,
+        "residual": 0.2
+      },
+      {
+        "i": 8694,
+        "observed": 119.0,
+        "trend": 151.7,
+        "seasonal": -36.85,
+        "residual": 4.15
+      },
+      {
+        "i": 8712,
+        "observed": 407.0,
+        "trend": 156.13,
+        "seasonal": 146.09,
+        "residual": 104.77
+      },
+      {
+        "i": 8730,
+        "observed": 191.0,
+        "trend": 150.48,
+        "seasonal": 2.84,
+        "residual": 37.69
+      },
+      {
+        "i": 8748,
+        "observed": 5.0,
+        "trend": 147.67,
+        "seasonal": -157.09,
+        "residual": 14.42
+      },
+      {
+        "i": 8766,
+        "observed": 94.0,
+        "trend": 166.04,
+        "seasonal": -64.33,
+        "residual": -7.71
+      },
+      {
+        "i": 8784,
+        "observed": 307.0,
+        "trend": 182.56,
+        "seasonal": 123.38,
+        "residual": 1.05
+      },
+      {
+        "i": 8802,
+        "observed": 133.0,
+        "trend": 184.56,
+        "seasonal": -54.2,
+        "residual": 2.65
+      },
+      {
+        "i": 8820,
+        "observed": 1.0,
+        "trend": 170.05,
+        "seasonal": -171.21,
+        "residual": 2.16
+      },
+      {
+        "i": 8838,
+        "observed": 109.0,
+        "trend": 157.38,
+        "seasonal": -46.67,
+        "residual": -1.7
+      },
+      {
+        "i": 8856,
+        "observed": 311.0,
+        "trend": 162.63,
+        "seasonal": 33.67,
+        "residual": 114.7
+      },
+      {
+        "i": 8874,
+        "observed": 224.0,
+        "trend": 155.64,
+        "seasonal": -9.37,
+        "residual": 77.74
+      },
+      {
+        "i": 8892,
+        "observed": 9.0,
+        "trend": 133.05,
+        "seasonal": -111.79,
+        "residual": -12.26
+      },
+      {
+        "i": 8910,
+        "observed": 191.0,
+        "trend": 128.02,
+        "seasonal": -82.07,
+        "residual": 145.04
+      },
+      {
+        "i": 8928,
+        "observed": 201.0,
+        "trend": 129.78,
+        "seasonal": -17.44,
+        "residual": 88.65
+      },
+      {
+        "i": 8946,
+        "observed": 276.0,
+        "trend": 139.0,
+        "seasonal": 126.11,
+        "residual": 10.9
+      },
+      {
+        "i": 8964,
+        "observed": 102.0,
+        "trend": 125.28,
+        "seasonal": -28.4,
+        "residual": 5.12
+      },
+      {
+        "i": 8982,
+        "observed": 18.0,
+        "trend": 135.4,
+        "seasonal": -127.47,
+        "residual": 10.07
+      },
+      {
+        "i": 9000,
+        "observed": 84.0,
+        "trend": 154.97,
+        "seasonal": -76.43,
+        "residual": 5.45
+      },
+      {
+        "i": 9018,
+        "observed": 396.0,
+        "trend": 157.19,
+        "seasonal": 240.98,
+        "residual": -2.16
+      },
+      {
+        "i": 9036,
+        "observed": 183.0,
+        "trend": 145.6,
+        "seasonal": -0.94,
+        "residual": 38.33
+      },
+      {
+        "i": 9054,
+        "observed": 3.0,
+        "trend": 126.73,
+        "seasonal": -111.49,
+        "residual": -12.24
+      },
+      {
+        "i": 9072,
+        "observed": 23.0,
+        "trend": 130.47,
+        "seasonal": -118.49,
+        "residual": 11.02
+      },
+      {
+        "i": 9090,
+        "observed": 405.0,
+        "trend": 148.19,
+        "seasonal": 250.8,
+        "residual": 6.01
+      },
+      {
+        "i": 9108,
+        "observed": 172.0,
+        "trend": 160.89,
+        "seasonal": -3.56,
+        "residual": 14.68
+      },
+      {
+        "i": 9126,
+        "observed": 95.0,
+        "trend": 165.3,
+        "seasonal": -75.3,
+        "residual": 5.0
+      },
+      {
+        "i": 9144,
+        "observed": 23.0,
+        "trend": 167.21,
+        "seasonal": -136.03,
+        "residual": -8.18
+      },
+      {
+        "i": 9162,
+        "observed": 353.0,
+        "trend": 162.27,
+        "seasonal": 184.46,
+        "residual": 6.26
+      },
+      {
+        "i": 9180,
+        "observed": 198.0,
+        "trend": 165.66,
+        "seasonal": 39.57,
+        "residual": -7.24
+      },
+      {
+        "i": 9198,
+        "observed": 9.0,
+        "trend": 167.82,
+        "seasonal": -59.89,
+        "residual": -98.92
+      },
+      {
+        "i": 9216,
+        "observed": 74.0,
+        "trend": 154.55,
+        "seasonal": -87.39,
+        "residual": 6.84
+      },
+      {
+        "i": 9234,
+        "observed": 167.0,
+        "trend": 148.77,
+        "seasonal": 13.57,
+        "residual": 4.67
+      },
+      {
+        "i": 9252,
+        "observed": 280.0,
+        "trend": 157.3,
+        "seasonal": 95.61,
+        "residual": 27.09
+      },
+      {
+        "i": 9270,
+        "observed": 124.0,
+        "trend": 141.66,
+        "seasonal": -19.58,
+        "residual": 1.92
+      },
+      {
+        "i": 9288,
+        "observed": 139.0,
+        "trend": 146.44,
+        "seasonal": -19.35,
+        "residual": 11.91
+      },
+      {
+        "i": 9306,
+        "observed": 32.0,
+        "trend": 156.36,
+        "seasonal": -126.97,
+        "residual": 2.61
+      },
+      {
+        "i": 9324,
+        "observed": 85.0,
+        "trend": 143.26,
+        "seasonal": -31.26,
+        "residual": -27.0
+      },
+      {
+        "i": 9342,
+        "observed": 256.0,
+        "trend": 135.17,
+        "seasonal": 117.62,
+        "residual": 3.21
+      },
+      {
+        "i": 9360,
+        "observed": 210.0,
+        "trend": 136.73,
+        "seasonal": 60.61,
+        "residual": 12.66
+      },
+      {
+        "i": 9378,
+        "observed": 5.0,
+        "trend": 131.12,
+        "seasonal": -90.29,
+        "residual": -35.83
+      },
+      {
+        "i": 9396,
+        "observed": 64.0,
+        "trend": 119.94,
+        "seasonal": -56.79,
+        "residual": 0.84
+      },
+      {
+        "i": 9414,
+        "observed": 527.0,
+        "trend": 114.08,
+        "seasonal": 84.03,
+        "residual": 328.89
+      },
+      {
+        "i": 9432,
+        "observed": 190.0,
+        "trend": 118.94,
+        "seasonal": 72.04,
+        "residual": -0.97
+      },
+      {
+        "i": 9450,
+        "observed": 10.0,
+        "trend": 104.53,
+        "seasonal": 42.89,
+        "residual": -137.42
+      },
+      {
+        "i": 9468,
+        "observed": 304.0,
+        "trend": 115.0,
+        "seasonal": 188.59,
+        "residual": 0.42
+      },
+      {
+        "i": 9486,
+        "observed": 20.0,
+        "trend": 135.91,
+        "seasonal": -97.97,
+        "residual": -17.95
+      },
+      {
+        "i": 9504,
+        "observed": 100.0,
+        "trend": 135.82,
+        "seasonal": -36.83,
+        "residual": 1.0
+      },
+      {
+        "i": 9522,
+        "observed": 430.0,
+        "trend": 167.57,
+        "seasonal": 37.18,
+        "residual": 225.25
+      },
+      {
+        "i": 9540,
+        "observed": 66.0,
+        "trend": 166.55,
+        "seasonal": 281.49,
+        "residual": -382.04
+      },
+      {
+        "i": 9558,
+        "observed": 4.0,
+        "trend": 140.86,
+        "seasonal": -131.84,
+        "residual": -5.02
+      },
+      {
+        "i": 9576,
+        "observed": 179.0,
+        "trend": 151.38,
+        "seasonal": -2.39,
+        "residual": 30.01
+      },
+      {
+        "i": 9594,
+        "observed": 136.0,
+        "trend": 168.31,
+        "seasonal": -14.0,
+        "residual": -18.31
+      },
+      {
+        "i": 9612,
+        "observed": 264.0,
+        "trend": 188.87,
+        "seasonal": 167.2,
+        "residual": -92.07
+      },
+      {
+        "i": 9630,
+        "observed": 3.0,
+        "trend": 196.22,
+        "seasonal": -186.63,
+        "residual": -6.58
+      },
+      {
+        "i": 9648,
+        "observed": 233.0,
+        "trend": 196.09,
+        "seasonal": -32.53,
+        "residual": 69.43
+      },
+      {
+        "i": 9666,
+        "observed": 238.0,
+        "trend": 191.49,
+        "seasonal": 32.93,
+        "residual": 13.58
+      },
+      {
+        "i": 9684,
+        "observed": 148.0,
+        "trend": 207.04,
+        "seasonal": 67.68,
+        "residual": -126.72
+      },
+      {
+        "i": 9702,
+        "observed": 17.0,
+        "trend": 216.76,
+        "seasonal": -173.1,
+        "residual": -26.65
+      },
+      {
+        "i": 9720,
+        "observed": 10.0,
+        "trend": 199.63,
+        "seasonal": -173.14,
+        "residual": -16.49
+      },
+      {
+        "i": 9738,
+        "observed": 205.0,
+        "trend": 219.74,
+        "seasonal": -12.93,
+        "residual": -1.81
+      },
+      {
+        "i": 9756,
+        "observed": 365.0,
+        "trend": 236.86,
+        "seasonal": 65.68,
+        "residual": 62.46
+      },
+      {
+        "i": 9774,
+        "observed": 188.0,
+        "trend": 250.88,
+        "seasonal": -83.21,
+        "residual": 20.34
+      },
+      {
+        "i": 9792,
+        "observed": 14.0,
+        "trend": 257.71,
+        "seasonal": -243.84,
+        "residual": 0.13
+      },
+      {
+        "i": 9810,
+        "observed": 169.0,
+        "trend": 251.98,
+        "seasonal": -81.75,
+        "residual": -1.22
+      },
+      {
+        "i": 9828,
+        "observed": 129.0,
+        "trend": 249.52,
+        "seasonal": 213.95,
+        "residual": -334.47
+      },
+      {
+        "i": 9846,
+        "observed": 443.0,
+        "trend": 259.64,
+        "seasonal": -60.12,
+        "residual": 243.48
+      },
+      {
+        "i": 9864,
+        "observed": 6.0,
+        "trend": 248.54,
+        "seasonal": -237.94,
+        "residual": -4.6
+      },
+      {
+        "i": 9882,
+        "observed": 46.0,
+        "trend": 234.64,
+        "seasonal": -173.5,
+        "residual": -15.14
+      },
+      {
+        "i": 9900,
+        "observed": 721.0,
+        "trend": 243.08,
+        "seasonal": 363.36,
+        "residual": 114.56
+      },
+      {
+        "i": 9918,
+        "observed": 230.0,
+        "trend": 250.08,
+        "seasonal": -40.98,
+        "residual": 20.9
+      },
+      {
+        "i": 9936,
+        "observed": 39.0,
+        "trend": 252.92,
+        "seasonal": -228.68,
+        "residual": 14.76
+      },
+      {
+        "i": 9954,
+        "observed": 125.0,
+        "trend": 262.15,
+        "seasonal": -153.06,
+        "residual": 15.91
+      },
+      {
+        "i": 9972,
+        "observed": 810.0,
+        "trend": 287.76,
+        "seasonal": 493.84,
+        "residual": 28.39
+      },
+      {
+        "i": 9990,
+        "observed": 318.0,
+        "trend": 307.91,
+        "seasonal": -32.62,
+        "residual": 42.71
+      },
+      {
+        "i": 10008,
+        "observed": 4.0,
+        "trend": 312.41,
+        "seasonal": -258.69,
+        "residual": -49.73
+      },
+      {
+        "i": 10026,
+        "observed": 105.0,
+        "trend": 268.59,
+        "seasonal": -154.23,
+        "residual": -9.36
+      },
+      {
+        "i": 10044,
+        "observed": 419.0,
+        "trend": 234.18,
+        "seasonal": 188.27,
+        "residual": -3.45
+      },
+      {
+        "i": 10062,
+        "observed": 178.0,
+        "trend": 219.42,
+        "seasonal": -33.25,
+        "residual": -8.17
+      },
+      {
+        "i": 10080,
+        "observed": 17.0,
+        "trend": 208.35,
+        "seasonal": -199.27,
+        "residual": 7.92
+      },
+      {
+        "i": 10098,
+        "observed": 64.0,
+        "trend": 223.87,
+        "seasonal": -158.41,
+        "residual": -1.47
+      },
+      {
+        "i": 10116,
+        "observed": 604.0,
+        "trend": 244.46,
+        "seasonal": 357.56,
+        "residual": 1.98
+      },
+      {
+        "i": 10134,
+        "observed": 220.0,
+        "trend": 246.73,
+        "seasonal": 49.29,
+        "residual": -76.02
+      },
+      {
+        "i": 10152,
+        "observed": 26.0,
+        "trend": 238.7,
+        "seasonal": -218.89,
+        "residual": 6.19
+      },
+      {
+        "i": 10170,
+        "observed": 123.0,
+        "trend": 246.35,
+        "seasonal": -134.68,
+        "residual": 11.33
+      },
+      {
+        "i": 10188,
+        "observed": 543.0,
+        "trend": 243.4,
+        "seasonal": 271.47,
+        "residual": 28.13
+      },
+      {
+        "i": 10206,
+        "observed": 451.0,
+        "trend": 232.01,
+        "seasonal": 217.77,
+        "residual": 1.21
+      },
+      {
+        "i": 10224,
+        "observed": 317.0,
+        "trend": 229.31,
+        "seasonal": -102.2,
+        "residual": 189.88
+      },
+      {
+        "i": 10242,
+        "observed": 27.0,
+        "trend": 225.18,
+        "seasonal": -161.29,
+        "residual": -36.89
+      },
+      {
+        "i": 10260,
+        "observed": 79.0,
+        "trend": 242.55,
+        "seasonal": -67.67,
+        "residual": -95.87
+      },
+      {
+        "i": 10278,
+        "observed": 759.0,
+        "trend": 252.35,
+        "seasonal": 457.66,
+        "residual": 48.99
+      },
+      {
+        "i": 10296,
+        "observed": 276.0,
+        "trend": 254.87,
+        "seasonal": 43.99,
+        "residual": -22.86
+      },
+      {
+        "i": 10314,
+        "observed": 80.0,
+        "trend": 258.53,
+        "seasonal": -181.56,
+        "residual": 3.03
+      },
+      {
+        "i": 10332,
+        "observed": 94.0,
+        "trend": 254.37,
+        "seasonal": -179.66,
+        "residual": 19.3
+      },
+      {
+        "i": 10350,
+        "observed": 517.0,
+        "trend": 249.01,
+        "seasonal": 265.57,
+        "residual": 2.42
+      },
+      {
+        "i": 10368,
+        "observed": 457.0,
+        "trend": 227.15,
+        "seasonal": 89.25,
+        "residual": 140.6
+      },
+      {
+        "i": 10386,
+        "observed": 331.0,
+        "trend": 190.9,
+        "seasonal": -129.19,
+        "residual": 269.28
+      },
+      {
+        "i": 10404,
+        "observed": 9.0,
+        "trend": 160.47,
+        "seasonal": -45.35,
+        "residual": -106.12
+      },
+      {
+        "i": 10422,
+        "observed": 479.0,
+        "trend": 149.88,
+        "seasonal": -115.83,
+        "residual": 444.95
+      },
+      {
+        "i": 10440,
+        "observed": 579.0,
+        "trend": 162.34,
+        "seasonal": 97.88,
+        "residual": 318.77
+      },
+      {
+        "i": 10458,
+        "observed": 203.0,
+        "trend": 178.99,
+        "seasonal": 50.64,
+        "residual": -26.63
+      },
+      {
+        "i": 10476,
+        "observed": 563.0,
+        "trend": 223.14,
+        "seasonal": 22.13,
+        "residual": 317.72
+      },
+      {
+        "i": 10494,
+        "observed": 56.0,
+        "trend": 241.1,
+        "seasonal": -184.2,
+        "residual": -0.89
+      },
+      {
+        "i": 10512,
+        "observed": 321.0,
+        "trend": 259.89,
+        "seasonal": 55.38,
+        "residual": 5.72
+      },
+      {
+        "i": 10530,
+        "observed": 628.0,
+        "trend": 244.86,
+        "seasonal": 55.39,
+        "residual": 327.75
+      },
+      {
+        "i": 10548,
+        "observed": 597.0,
+        "trend": 251.33,
+        "seasonal": -83.94,
+        "residual": 429.61
+      },
+      {
+        "i": 10566,
+        "observed": 4.0,
+        "trend": 256.04,
+        "seasonal": -242.33,
+        "residual": -9.71
+      },
+      {
+        "i": 10584,
+        "observed": 402.0,
+        "trend": 263.51,
+        "seasonal": 85.32,
+        "residual": 53.17
+      },
+      {
+        "i": 10602,
+        "observed": 98.0,
+        "trend": 264.1,
+        "seasonal": 3.64,
+        "residual": -169.75
+      },
+      {
+        "i": 10620,
+        "observed": 301.0,
+        "trend": 254.5,
+        "seasonal": 40.77,
+        "residual": 5.73
+      },
+      {
+        "i": 10638,
+        "observed": 10.0,
+        "trend": 251.55,
+        "seasonal": -232.33,
+        "residual": -9.22
+      },
+      {
+        "i": 10656,
+        "observed": 287.0,
+        "trend": 244.6,
+        "seasonal": 30.46,
+        "residual": 11.94
+      },
+      {
+        "i": 10674,
+        "observed": 628.0,
+        "trend": 203.1,
+        "seasonal": -40.62,
+        "residual": 465.52
+      },
+      {
+        "i": 10692,
+        "observed": 79.0,
+        "trend": 147.25,
+        "seasonal": 115.4,
+        "residual": -183.66
+      },
+      {
+        "i": 10710,
+        "observed": 1.0,
+        "trend": 148.51,
+        "seasonal": -166.21,
+        "residual": 18.7
+      },
+      {
+        "i": 10728,
+        "observed": 152.0,
+        "trend": 174.74,
+        "seasonal": -15.77,
+        "residual": -6.97
+      },
+      {
+        "i": 10746,
+        "observed": 236.0,
+        "trend": 211.42,
+        "seasonal": -21.55,
+        "residual": 46.13
+      },
+      {
+        "i": 10764,
+        "observed": 321.0,
+        "trend": 226.79,
+        "seasonal": 76.03,
+        "residual": 18.18
+      },
+      {
+        "i": 10782,
+        "observed": 6.0,
+        "trend": 228.21,
+        "seasonal": -220.8,
+        "residual": -1.42
+      },
+      {
+        "i": 10800,
+        "observed": 250.0,
+        "trend": 229.31,
+        "seasonal": -1.31,
+        "residual": 22.0
+      },
+      {
+        "i": 10818,
+        "observed": 324.0,
+        "trend": 231.05,
+        "seasonal": 82.9,
+        "residual": 10.05
+      },
+      {
+        "i": 10836,
+        "observed": 214.0,
+        "trend": 214.07,
+        "seasonal": 3.06,
+        "residual": -3.14
+      },
+      {
+        "i": 10854,
+        "observed": 16.0,
+        "trend": 189.65,
+        "seasonal": -192.18,
+        "residual": 18.53
+      },
+      {
+        "i": 10872,
+        "observed": 204.0,
+        "trend": 198.25,
+        "seasonal": 4.91,
+        "residual": 0.84
+      },
+      {
+        "i": 10890,
+        "observed": 231.0,
+        "trend": 212.68,
+        "seasonal": 15.56,
+        "residual": 2.76
+      },
+      {
+        "i": 10908,
+        "observed": 349.0,
+        "trend": 230.61,
+        "seasonal": 59.27,
+        "residual": 59.12
+      },
+      {
+        "i": 10926,
+        "observed": 6.0,
+        "trend": 244.94,
+        "seasonal": -234.77,
+        "residual": -4.18
+      },
+      {
+        "i": 10944,
+        "observed": 239.0,
+        "trend": 249.73,
+        "seasonal": 8.2,
+        "residual": -18.93
+      },
+      {
+        "i": 10962,
+        "observed": 283.0,
+        "trend": 259.76,
+        "seasonal": 34.93,
+        "residual": -11.69
+      },
+      {
+        "i": 10980,
+        "observed": 294.0,
+        "trend": 267.97,
+        "seasonal": 24.29,
+        "residual": 1.74
+      },
+      {
+        "i": 10998,
+        "observed": 32.0,
+        "trend": 273.35,
+        "seasonal": -248.61,
+        "residual": 7.26
+      },
+      {
+        "i": 11016,
+        "observed": 269.0,
+        "trend": 280.58,
+        "seasonal": -21.77,
+        "residual": 10.2
+      },
+      {
+        "i": 11034,
+        "observed": 571.0,
+        "trend": 250.8,
+        "seasonal": 28.75,
+        "residual": 291.45
+      },
+      {
+        "i": 11052,
+        "observed": 350.0,
+        "trend": 251.26,
+        "seasonal": 53.51,
+        "residual": 45.23
+      },
+      {
+        "i": 11070,
+        "observed": 6.0,
+        "trend": 255.49,
+        "seasonal": -248.42,
+        "residual": -1.07
+      },
+      {
+        "i": 11088,
+        "observed": 223.0,
+        "trend": 248.93,
+        "seasonal": -27.41,
+        "residual": 1.48
+      },
+      {
+        "i": 11106,
+        "observed": 259.0,
+        "trend": 248.2,
+        "seasonal": 35.03,
+        "residual": -24.23
+      },
+      {
+        "i": 11124,
+        "observed": 361.0,
+        "trend": 262.16,
+        "seasonal": 64.91,
+        "residual": 33.93
+      },
+      {
+        "i": 11142,
+        "observed": 13.0,
+        "trend": 277.07,
+        "seasonal": -251.05,
+        "residual": -13.02
+      },
+      {
+        "i": 11160,
+        "observed": 270.0,
+        "trend": 282.12,
+        "seasonal": -22.24,
+        "residual": 10.12
+      },
+      {
+        "i": 11178,
+        "observed": 590.0,
+        "trend": 246.91,
+        "seasonal": 110.94,
+        "residual": 232.15
+      },
+      {
+        "i": 11196,
+        "observed": 222.0,
+        "trend": 216.27,
+        "seasonal": 30.15,
+        "residual": -24.42
+      },
+      {
+        "i": 11214,
+        "observed": 2.0,
+        "trend": 177.58,
+        "seasonal": -191.79,
+        "residual": 16.21
+      },
+      {
+        "i": 11232,
+        "observed": 152.0,
+        "trend": 193.49,
+        "seasonal": -31.62,
+        "residual": -9.87
+      },
+      {
+        "i": 11250,
+        "observed": 256.0,
+        "trend": 229.71,
+        "seasonal": 14.07,
+        "residual": 12.22
+      },
+      {
+        "i": 11268,
+        "observed": 347.0,
+        "trend": 266.02,
+        "seasonal": 76.16,
+        "residual": 4.83
+      },
+      {
+        "i": 11286,
+        "observed": 3.0,
+        "trend": 288.45,
+        "seasonal": -275.16,
+        "residual": -10.29
+      },
+      {
+        "i": 11304,
+        "observed": 299.0,
+        "trend": 301.51,
+        "seasonal": -20.06,
+        "residual": 17.55
+      },
+      {
+        "i": 11322,
+        "observed": 391.0,
+        "trend": 316.91,
+        "seasonal": 63.4,
+        "residual": 10.69
+      },
+      {
+        "i": 11340,
+        "observed": 292.0,
+        "trend": 301.04,
+        "seasonal": 39.19,
+        "residual": -48.24
+      },
+      {
+        "i": 11358,
+        "observed": 66.0,
+        "trend": 274.02,
+        "seasonal": -237.75,
+        "residual": 29.73
+      },
+      {
+        "i": 11376,
+        "observed": 233.0,
+        "trend": 218.3,
+        "seasonal": 4.5,
+        "residual": 10.21
+      },
+      {
+        "i": 11394,
+        "observed": 225.0,
+        "trend": 213.21,
+        "seasonal": 18.02,
+        "residual": -6.23
+      },
+      {
+        "i": 11412,
+        "observed": 333.0,
+        "trend": 228.24,
+        "seasonal": 81.31,
+        "residual": 23.45
+      },
+      {
+        "i": 11430,
+        "observed": 5.0,
+        "trend": 233.74,
+        "seasonal": -227.03,
+        "residual": -1.72
+      },
+      {
+        "i": 11448,
+        "observed": 245.0,
+        "trend": 235.04,
+        "seasonal": 14.58,
+        "residual": -4.62
+      },
+      {
+        "i": 11466,
+        "observed": 291.0,
+        "trend": 254.18,
+        "seasonal": 103.54,
+        "residual": -66.72
+      },
+      {
+        "i": 11484,
+        "observed": 340.0,
+        "trend": 276.82,
+        "seasonal": 35.97,
+        "residual": 27.21
+      },
+      {
+        "i": 11502,
+        "observed": 31.0,
+        "trend": 278.74,
+        "seasonal": -249.03,
+        "residual": 1.29
+      },
+      {
+        "i": 11520,
+        "observed": 251.0,
+        "trend": 280.15,
+        "seasonal": -18.8,
+        "residual": -10.35
+      },
+      {
+        "i": 11538,
+        "observed": 535.0,
+        "trend": 283.42,
+        "seasonal": 215.27,
+        "residual": 36.31
+      },
+      {
+        "i": 11556,
+        "observed": 263.0,
+        "trend": 286.89,
+        "seasonal": -19.33,
+        "residual": -4.55
+      },
+      {
+        "i": 11574,
+        "observed": 3.0,
+        "trend": 283.24,
+        "seasonal": -281.57,
+        "residual": 1.33
+      },
+      {
+        "i": 11592,
+        "observed": 71.0,
+        "trend": 285.73,
+        "seasonal": -17.83,
+        "residual": -196.9
+      },
+      {
+        "i": 11610,
+        "observed": 275.0,
+        "trend": 294.99,
+        "seasonal": 37.33,
+        "residual": -57.32
+      },
+      {
+        "i": 11628,
+        "observed": 311.0,
+        "trend": 300.15,
+        "seasonal": 12.56,
+        "residual": -1.72
+      },
+      {
+        "i": 11646,
+        "observed": 4.0,
+        "trend": 293.51,
+        "seasonal": -272.11,
+        "residual": -17.41
+      },
+      {
+        "i": 11664,
+        "observed": 85.0,
+        "trend": 284.4,
+        "seasonal": 34.3,
+        "residual": -233.69
+      },
+      {
+        "i": 11682,
+        "observed": 702.0,
+        "trend": 286.97,
+        "seasonal": 0.17,
+        "residual": 414.86
+      },
+      {
+        "i": 11700,
+        "observed": 300.0,
+        "trend": 270.29,
+        "seasonal": 37.49,
+        "residual": -7.77
+      },
+      {
+        "i": 11718,
+        "observed": 5.0,
+        "trend": 257.78,
+        "seasonal": -252.05,
+        "residual": -0.73
+      },
+      {
+        "i": 11736,
+        "observed": 265.0,
+        "trend": 267.54,
+        "seasonal": -0.72,
+        "residual": -1.83
+      },
+      {
+        "i": 11754,
+        "observed": 272.0,
+        "trend": 279.6,
+        "seasonal": 12.13,
+        "residual": -19.72
+      },
+      {
+        "i": 11772,
+        "observed": 303.0,
+        "trend": 288.91,
+        "seasonal": 34.34,
+        "residual": -20.25
+      },
+      {
+        "i": 11790,
+        "observed": 5.0,
+        "trend": 296.94,
+        "seasonal": -291.24,
+        "residual": -0.7
+      },
+      {
+        "i": 11808,
+        "observed": 313.0,
+        "trend": 307.36,
+        "seasonal": 4.29,
+        "residual": 1.36
+      },
+      {
+        "i": 11826,
+        "observed": 397.0,
+        "trend": 325.9,
+        "seasonal": 67.0,
+        "residual": 4.09
+      },
+      {
+        "i": 11844,
+        "observed": 340.0,
+        "trend": 326.59,
+        "seasonal": 25.3,
+        "residual": -11.89
+      },
+      {
+        "i": 11862,
+        "observed": 29.0,
+        "trend": 306.11,
+        "seasonal": -274.19,
+        "residual": -2.92
+      },
+      {
+        "i": 11880,
+        "observed": 253.0,
+        "trend": 263.42,
+        "seasonal": -0.19,
+        "residual": -10.23
+      },
+      {
+        "i": 11898,
+        "observed": 259.0,
+        "trend": 257.58,
+        "seasonal": 4.72,
+        "residual": -3.3
+      },
+      {
+        "i": 11916,
+        "observed": 285.0,
+        "trend": 253.79,
+        "seasonal": 48.62,
+        "residual": -17.4
+      },
+      {
+        "i": 11934,
+        "observed": 8.0,
+        "trend": 279.12,
+        "seasonal": -269.1,
+        "residual": -2.02
+      },
+      {
+        "i": 11952,
+        "observed": 396.0,
+        "trend": 293.06,
+        "seasonal": 14.16,
+        "residual": 88.77
+      },
+      {
+        "i": 11970,
+        "observed": 324.0,
+        "trend": 298.63,
+        "seasonal": 23.34,
+        "residual": 2.03
+      },
+      {
+        "i": 11988,
+        "observed": 366.0,
+        "trend": 315.93,
+        "seasonal": 48.59,
+        "residual": 1.48
+      },
+      {
+        "i": 12006,
+        "observed": 27.0,
+        "trend": 318.74,
+        "seasonal": -278.53,
+        "residual": -13.21
+      },
+      {
+        "i": 12024,
+        "observed": 290.0,
+        "trend": 290.41,
+        "seasonal": 20.64,
+        "residual": -21.05
+      },
+      {
+        "i": 12042,
+        "observed": 463.0,
+        "trend": 234.31,
+        "seasonal": 35.5,
+        "residual": 193.19
+      },
+      {
+        "i": 12060,
+        "observed": 250.0,
+        "trend": 213.88,
+        "seasonal": 53.17,
+        "residual": -17.05
+      },
+      {
+        "i": 12078,
+        "observed": 8.0,
+        "trend": 234.93,
+        "seasonal": -229.19,
+        "residual": 2.26
+      },
+      {
+        "i": 12096,
+        "observed": 276.0,
+        "trend": 256.46,
+        "seasonal": 49.0,
+        "residual": -29.47
+      },
+      {
+        "i": 12114,
+        "observed": 179.0,
+        "trend": 254.15,
+        "seasonal": -32.24,
+        "residual": -42.91
+      },
+      {
+        "i": 12132,
+        "observed": 256.0,
+        "trend": 251.72,
+        "seasonal": 46.2,
+        "residual": -41.92
+      },
+      {
+        "i": 12150,
+        "observed": 7.0,
+        "trend": 263.13,
+        "seasonal": -248.46,
+        "residual": -7.68
+      },
+      {
+        "i": 12168,
+        "observed": 217.0,
+        "trend": 283.23,
+        "seasonal": 36.79,
+        "residual": -103.03
+      },
+      {
+        "i": 12186,
+        "observed": 483.0,
+        "trend": 304.01,
+        "seasonal": -21.28,
+        "residual": 200.27
+      },
+      {
+        "i": 12204,
+        "observed": 232.0,
+        "trend": 285.59,
+        "seasonal": 31.26,
+        "residual": -84.85
+      },
+      {
+        "i": 12222,
+        "observed": 5.0,
+        "trend": 257.09,
+        "seasonal": -258.73,
+        "residual": 6.64
+      },
+      {
+        "i": 12240,
+        "observed": 331.0,
+        "trend": 277.45,
+        "seasonal": 26.94,
+        "residual": 26.61
+      },
+      {
+        "i": 12258,
+        "observed": 317.0,
+        "trend": 300.0,
+        "seasonal": -35.53,
+        "residual": 52.53
+      },
+      {
+        "i": 12276,
+        "observed": 282.0,
+        "trend": 301.59,
+        "seasonal": 20.73,
+        "residual": -40.33
+      },
+      {
+        "i": 12294,
+        "observed": 7.0,
+        "trend": 296.15,
+        "seasonal": -279.25,
+        "residual": -9.91
+      },
+      {
+        "i": 12312,
+        "observed": 398.0,
+        "trend": 278.03,
+        "seasonal": 17.84,
+        "residual": 102.13
+      },
+      {
+        "i": 12330,
+        "observed": 230.0,
+        "trend": 252.48,
+        "seasonal": -4.88,
+        "residual": -17.6
+      },
+      {
+        "i": 12348,
+        "observed": 275.0,
+        "trend": 236.07,
+        "seasonal": 37.47,
+        "residual": 1.46
+      },
+      {
+        "i": 12366,
+        "observed": 33.0,
+        "trend": 226.38,
+        "seasonal": -219.07,
+        "residual": 25.7
+      },
+      {
+        "i": 12384,
+        "observed": 258.0,
+        "trend": 234.6,
+        "seasonal": 7.06,
+        "residual": 16.34
+      },
+      {
+        "i": 12402,
+        "observed": 234.0,
+        "trend": 247.15,
+        "seasonal": 119.42,
+        "residual": -132.56
+      },
+      {
+        "i": 12420,
+        "observed": 272.0,
+        "trend": 268.21,
+        "seasonal": 19.43,
+        "residual": -15.64
+      },
+      {
+        "i": 12438,
+        "observed": 32.0,
+        "trend": 281.64,
+        "seasonal": -252.89,
+        "residual": 3.25
+      },
+      {
+        "i": 12456,
+        "observed": 584.0,
+        "trend": 259.46,
+        "seasonal": 36.31,
+        "residual": 288.23
+      },
+      {
+        "i": 12474,
+        "observed": 254.0,
+        "trend": 256.79,
+        "seasonal": 40.12,
+        "residual": -42.91
+      },
+      {
+        "i": 12492,
+        "observed": 304.0,
+        "trend": 262.48,
+        "seasonal": 18.23,
+        "residual": 23.29
+      },
+      {
+        "i": 12510,
+        "observed": 31.0,
+        "trend": 270.72,
+        "seasonal": -239.01,
+        "residual": -0.7
+      },
+      {
+        "i": 12528,
+        "observed": 201.0,
+        "trend": 266.97,
+        "seasonal": 52.01,
+        "residual": -117.98
+      },
+      {
+        "i": 12546,
+        "observed": 298.0,
+        "trend": 256.0,
+        "seasonal": 31.96,
+        "residual": 10.05
+      },
+      {
+        "i": 12564,
+        "observed": 363.0,
+        "trend": 249.8,
+        "seasonal": 18.93,
+        "residual": 94.27
+      },
+      {
+        "i": 12582,
+        "observed": 3.0,
+        "trend": 272.42,
+        "seasonal": -263.53,
+        "residual": -5.89
+      },
+      {
+        "i": 12600,
+        "observed": 90.0,
+        "trend": 285.03,
+        "seasonal": 74.72,
+        "residual": -269.75
+      },
+      {
+        "i": 12618,
+        "observed": 276.0,
+        "trend": 292.79,
+        "seasonal": -13.92,
+        "residual": -2.87
+      },
+      {
+        "i": 12636,
+        "observed": 327.0,
+        "trend": 296.78,
+        "seasonal": 18.28,
+        "residual": 11.94
+      },
+      {
+        "i": 12654,
+        "observed": 9.0,
+        "trend": 311.7,
+        "seasonal": -285.93,
+        "residual": -16.77
+      },
+      {
+        "i": 12672,
+        "observed": 299.0,
+        "trend": 318.03,
+        "seasonal": 12.16,
+        "residual": -31.19
+      },
+      {
+        "i": 12690,
+        "observed": 560.0,
+        "trend": 295.09,
+        "seasonal": 2.78,
+        "residual": 262.14
+      },
+      {
+        "i": 12708,
+        "observed": 221.0,
+        "trend": 272.65,
+        "seasonal": -18.28,
+        "residual": -33.38
+      },
+      {
+        "i": 12726,
+        "observed": 6.0,
+        "trend": 264.46,
+        "seasonal": -257.48,
+        "residual": -0.98
+      },
+      {
+        "i": 12744,
+        "observed": 328.0,
+        "trend": 276.72,
+        "seasonal": 26.69,
+        "residual": 24.6
+      },
+      {
+        "i": 12762,
+        "observed": 244.0,
+        "trend": 279.9,
+        "seasonal": -35.26,
+        "residual": -0.64
+      },
+      {
+        "i": 12780,
+        "observed": 297.0,
+        "trend": 263.68,
+        "seasonal": 39.61,
+        "residual": -6.3
+      },
+      {
+        "i": 12798,
+        "observed": 5.0,
+        "trend": 264.5,
+        "seasonal": -257.92,
+        "residual": -1.57
+      },
+      {
+        "i": 12816,
+        "observed": 332.0,
+        "trend": 269.1,
+        "seasonal": 64.62,
+        "residual": -1.72
+      },
+      {
+        "i": 12834,
+        "observed": 216.0,
+        "trend": 278.66,
+        "seasonal": 43.02,
+        "residual": -105.68
+      },
+      {
+        "i": 12852,
+        "observed": 207.0,
+        "trend": 309.63,
+        "seasonal": -0.57,
+        "residual": -102.06
+      },
+      {
+        "i": 12870,
+        "observed": 43.0,
+        "trend": 314.9,
+        "seasonal": -271.84,
+        "residual": -0.06
+      },
+      {
+        "i": 12888,
+        "observed": 345.0,
+        "trend": 286.71,
+        "seasonal": 49.62,
+        "residual": 8.67
+      },
+      {
+        "i": 12906,
+        "observed": 281.0,
+        "trend": 290.04,
+        "seasonal": 1.25,
+        "residual": -10.29
+      },
+      {
+        "i": 12924,
+        "observed": 339.0,
+        "trend": 303.44,
+        "seasonal": 22.0,
+        "residual": 13.56
+      },
+      {
+        "i": 12942,
+        "observed": 12.0,
+        "trend": 315.81,
+        "seasonal": -295.91,
+        "residual": -7.9
+      },
+      {
+        "i": 12960,
+        "observed": 397.0,
+        "trend": 311.44,
+        "seasonal": 19.19,
+        "residual": 66.37
+      },
+      {
+        "i": 12978,
+        "observed": 238.0,
+        "trend": 294.94,
+        "seasonal": 9.37,
+        "residual": -66.31
+      },
+      {
+        "i": 12996,
+        "observed": 363.0,
+        "trend": 291.39,
+        "seasonal": 46.55,
+        "residual": 25.07
+      },
+      {
+        "i": 13014,
+        "observed": 43.0,
+        "trend": 295.55,
+        "seasonal": -272.23,
+        "residual": 19.68
+      },
+      {
+        "i": 13032,
+        "observed": 300.0,
+        "trend": 324.89,
+        "seasonal": -18.87,
+        "residual": -6.01
+      },
+      {
+        "i": 13050,
+        "observed": 501.0,
+        "trend": 292.31,
+        "seasonal": -28.18,
+        "residual": 236.87
+      },
+      {
+        "i": 13068,
+        "observed": 293.0,
+        "trend": 289.9,
+        "seasonal": 19.83,
+        "residual": -16.73
+      },
+      {
+        "i": 13086,
+        "observed": 6.0,
+        "trend": 302.45,
+        "seasonal": -293.14,
+        "residual": -3.31
+      },
+      {
+        "i": 13104,
+        "observed": 352.0,
+        "trend": 305.99,
+        "seasonal": 22.69,
+        "residual": 23.33
+      },
+      {
+        "i": 13122,
+        "observed": 295.0,
+        "trend": 309.57,
+        "seasonal": -16.61,
+        "residual": 2.04
+      },
+      {
+        "i": 13140,
+        "observed": 343.0,
+        "trend": 303.37,
+        "seasonal": 24.65,
+        "residual": 14.99
+      },
+      {
+        "i": 13158,
+        "observed": 6.0,
+        "trend": 299.52,
+        "seasonal": -287.24,
+        "residual": -6.29
+      },
+      {
+        "i": 13176,
+        "observed": 278.0,
+        "trend": 302.7,
+        "seasonal": -0.97,
+        "residual": -23.73
+      },
+      {
+        "i": 13194,
+        "observed": 489.0,
+        "trend": 303.89,
+        "seasonal": 43.31,
+        "residual": 141.8
+      },
+      {
+        "i": 13212,
+        "observed": 229.0,
+        "trend": 288.78,
+        "seasonal": -19.59,
+        "residual": -40.18
+      },
+      {
+        "i": 13230,
+        "observed": 5.0,
+        "trend": 273.63,
+        "seasonal": -273.79,
+        "residual": 5.15
+      },
+      {
+        "i": 13248,
+        "observed": 317.0,
+        "trend": 293.89,
+        "seasonal": 6.04,
+        "residual": 17.06
+      },
+      {
+        "i": 13266,
+        "observed": 306.0,
+        "trend": 299.84,
+        "seasonal": -14.89,
+        "residual": 21.05
+      },
+      {
+        "i": 13284,
+        "observed": 341.0,
+        "trend": 297.89,
+        "seasonal": 37.23,
+        "residual": 5.88
+      },
+      {
+        "i": 13302,
+        "observed": 6.0,
+        "trend": 288.24,
+        "seasonal": -275.97,
+        "residual": -6.27
+      },
+      {
+        "i": 13320,
+        "observed": 336.0,
+        "trend": 270.27,
+        "seasonal": 53.28,
+        "residual": 12.46
+      },
+      {
+        "i": 13338,
+        "observed": 324.0,
+        "trend": 253.89,
+        "seasonal": 67.38,
+        "residual": 2.73
+      },
+      {
+        "i": 13356,
+        "observed": 271.0,
+        "trend": 250.81,
+        "seasonal": 38.97,
+        "residual": -18.79
+      },
+      {
+        "i": 13374,
+        "observed": 48.0,
+        "trend": 256.32,
+        "seasonal": -225.76,
+        "residual": 17.44
+      },
+      {
+        "i": 13392,
+        "observed": 220.0,
+        "trend": 245.83,
+        "seasonal": 11.48,
+        "residual": -37.31
+      },
+      {
+        "i": 13410,
+        "observed": 274.0,
+        "trend": 266.19,
+        "seasonal": 8.57,
+        "residual": -0.75
+      },
+      {
+        "i": 13428,
+        "observed": 402.0,
+        "trend": 284.19,
+        "seasonal": 50.69,
+        "residual": 67.12
+      },
+      {
+        "i": 13446,
+        "observed": 11.0,
+        "trend": 300.04,
+        "seasonal": -288.83,
+        "residual": -0.21
+      },
+      {
+        "i": 13464,
+        "observed": 315.0,
+        "trend": 301.63,
+        "seasonal": 2.2,
+        "residual": 11.18
+      },
+      {
+        "i": 13482,
+        "observed": 260.0,
+        "trend": 294.93,
+        "seasonal": -39.05,
+        "residual": 4.12
+      },
+      {
+        "i": 13500,
+        "observed": 378.0,
+        "trend": 297.68,
+        "seasonal": 35.35,
+        "residual": 44.97
+      },
+      {
+        "i": 13518,
+        "observed": 30.0,
+        "trend": 293.56,
+        "seasonal": -263.93,
+        "residual": 0.37
+      },
+      {
+        "i": 13536,
+        "observed": 338.0,
+        "trend": 287.64,
+        "seasonal": -46.56,
+        "residual": 96.91
+      },
+      {
+        "i": 13554,
+        "observed": 276.0,
+        "trend": 264.32,
+        "seasonal": 17.46,
+        "residual": -5.78
+      },
+      {
+        "i": 13572,
+        "observed": 357.0,
+        "trend": 267.63,
+        "seasonal": 30.83,
+        "residual": 58.55
+      },
+      {
+        "i": 13590,
+        "observed": 3.0,
+        "trend": 283.69,
+        "seasonal": -275.37,
+        "residual": -5.32
+      },
+      {
+        "i": 13608,
+        "observed": 280.0,
+        "trend": 294.89,
+        "seasonal": -7.48,
+        "residual": -7.4
+      },
+      {
+        "i": 13626,
+        "observed": 316.0,
+        "trend": 300.31,
+        "seasonal": 15.27,
+        "residual": 0.42
+      },
+      {
+        "i": 13644,
+        "observed": 412.0,
+        "trend": 300.61,
+        "seasonal": 86.84,
+        "residual": 24.55
+      },
+      {
+        "i": 13662,
+        "observed": 8.0,
+        "trend": 301.31,
+        "seasonal": -282.48,
+        "residual": -10.83
+      },
+      {
+        "i": 13680,
+        "observed": 306.0,
+        "trend": 310.97,
+        "seasonal": 15.58,
+        "residual": -20.55
+      },
+      {
+        "i": 13698,
+        "observed": 233.0,
+        "trend": 297.66,
+        "seasonal": 30.62,
+        "residual": -95.28
+      },
+      {
+        "i": 13716,
+        "observed": 263.0,
+        "trend": 280.78,
+        "seasonal": 86.18,
+        "residual": -103.96
+      },
+      {
+        "i": 13734,
+        "observed": 4.0,
+        "trend": 266.48,
+        "seasonal": -259.75,
+        "residual": -2.72
+      },
+      {
+        "i": 13752,
+        "observed": 278.0,
+        "trend": 279.34,
+        "seasonal": 1.38,
+        "residual": -2.72
+      },
+      {
+        "i": 13770,
+        "observed": 317.0,
+        "trend": 291.57,
+        "seasonal": 16.84,
+        "residual": 8.59
+      },
+      {
+        "i": 13788,
+        "observed": 348.0,
+        "trend": 298.99,
+        "seasonal": 78.19,
+        "residual": -29.18
+      },
+      {
+        "i": 13806,
+        "observed": 5.0,
+        "trend": 302.47,
+        "seasonal": -292.84,
+        "residual": -4.63
+      },
+      {
+        "i": 13824,
+        "observed": 307.0,
+        "trend": 296.45,
+        "seasonal": 4.75,
+        "residual": 5.81
+      },
+      {
+        "i": 13842,
+        "observed": 526.0,
+        "trend": 296.34,
+        "seasonal": 64.91,
+        "residual": 164.75
+      },
+      {
+        "i": 13860,
+        "observed": 237.0,
+        "trend": 286.43,
+        "seasonal": 52.0,
+        "residual": -101.43
+      },
+      {
+        "i": 13878,
+        "observed": 42.0,
+        "trend": 251.4,
+        "seasonal": -221.64,
+        "residual": 12.24
+      },
+      {
+        "i": 13896,
+        "observed": 171.0,
+        "trend": 242.09,
+        "seasonal": -32.63,
+        "residual": -38.47
+      },
+      {
+        "i": 13914,
+        "observed": 449.0,
+        "trend": 242.14,
+        "seasonal": 67.42,
+        "residual": 139.44
+      },
+      {
+        "i": 13932,
+        "observed": 323.0,
+        "trend": 266.25,
+        "seasonal": 10.53,
+        "residual": 46.22
+      },
+      {
+        "i": 13950,
+        "observed": 4.0,
+        "trend": 284.55,
+        "seasonal": -275.85,
+        "residual": -4.7
+      },
+      {
+        "i": 13968,
+        "observed": 296.0,
+        "trend": 293.79,
+        "seasonal": -27.64,
+        "residual": 29.86
+      },
+      {
+        "i": 13986,
+        "observed": 270.0,
+        "trend": 298.07,
+        "seasonal": -12.75,
+        "residual": -15.32
+      },
+      {
+        "i": 14004,
+        "observed": 344.0,
+        "trend": 307.65,
+        "seasonal": 24.8,
+        "residual": 11.55
+      },
+      {
+        "i": 14022,
+        "observed": 43.0,
+        "trend": 318.38,
+        "seasonal": -281.42,
+        "residual": 6.04
+      },
+      {
+        "i": 14040,
+        "observed": 181.0,
+        "trend": 326.13,
+        "seasonal": -31.48,
+        "residual": -113.64
+      },
+      {
+        "i": 14058,
+        "observed": 696.0,
+        "trend": 301.69,
+        "seasonal": 29.76,
+        "residual": 364.55
+      },
+      {
+        "i": 14076,
+        "observed": 361.0,
+        "trend": 300.81,
+        "seasonal": 30.04,
+        "residual": 30.15
+      },
+      {
+        "i": 14094,
+        "observed": 8.0,
+        "trend": 309.25,
+        "seasonal": -301.09,
+        "residual": -0.16
+      },
+      {
+        "i": 14112,
+        "observed": 310.0,
+        "trend": 319.96,
+        "seasonal": -20.57,
+        "residual": 10.61
+      },
+      {
+        "i": 14130,
+        "observed": 318.0,
+        "trend": 322.43,
+        "seasonal": 13.86,
+        "residual": -18.29
+      },
+      {
+        "i": 14148,
+        "observed": 338.0,
+        "trend": 326.42,
+        "seasonal": 12.18,
+        "residual": -0.6
+      },
+      {
+        "i": 14166,
+        "observed": 14.0,
+        "trend": 332.94,
+        "seasonal": -308.13,
+        "residual": -10.81
+      },
+      {
+        "i": 14184,
+        "observed": 312.0,
+        "trend": 339.8,
+        "seasonal": -29.0,
+        "residual": 1.2
+      },
+      {
+        "i": 14202,
+        "observed": 654.0,
+        "trend": 328.19,
+        "seasonal": 37.0,
+        "residual": 288.81
+      },
+      {
+        "i": 14220,
+        "observed": 296.0,
+        "trend": 301.77,
+        "seasonal": 5.92,
+        "residual": -11.69
+      },
+      {
+        "i": 14238,
+        "observed": 7.0,
+        "trend": 283.02,
+        "seasonal": -279.22,
+        "residual": 3.19
+      },
+      {
+        "i": 14256,
+        "observed": 233.0,
+        "trend": 282.76,
+        "seasonal": -68.78,
+        "residual": 19.02
+      },
+      {
+        "i": 14274,
+        "observed": 36.0,
+        "trend": 283.35,
+        "seasonal": 27.92,
+        "residual": -275.27
+      },
+      {
+        "i": 14292,
+        "observed": 362.0,
+        "trend": 304.72,
+        "seasonal": 35.99,
+        "residual": 21.29
+      },
+      {
+        "i": 14310,
+        "observed": 6.0,
+        "trend": 313.46,
+        "seasonal": -303.69,
+        "residual": -3.77
+      },
+      {
+        "i": 14328,
+        "observed": 274.0,
+        "trend": 324.22,
+        "seasonal": -57.57,
+        "residual": 7.35
+      },
+      {
+        "i": 14346,
+        "observed": 423.0,
+        "trend": 347.4,
+        "seasonal": 67.46,
+        "residual": 8.14
+      },
+      {
+        "i": 14364,
+        "observed": 377.0,
+        "trend": 355.34,
+        "seasonal": 28.73,
+        "residual": -7.07
+      },
+      {
+        "i": 14382,
+        "observed": 54.0,
+        "trend": 350.87,
+        "seasonal": -303.86,
+        "residual": 6.99
+      },
+      {
+        "i": 14400,
+        "observed": 196.0,
+        "trend": 301.22,
+        "seasonal": -72.66,
+        "residual": -32.56
+      },
+      {
+        "i": 14418,
+        "observed": 300.0,
+        "trend": 309.78,
+        "seasonal": -10.54,
+        "residual": 0.76
+      },
+      {
+        "i": 14436,
+        "observed": 409.0,
+        "trend": 310.22,
+        "seasonal": 23.38,
+        "residual": 75.41
+      },
+      {
+        "i": 14454,
+        "observed": 10.0,
+        "trend": 309.66,
+        "seasonal": -303.27,
+        "residual": 3.61
+      },
+      {
+        "i": 14472,
+        "observed": 360.0,
+        "trend": 309.15,
+        "seasonal": -45.25,
+        "residual": 96.09
+      },
+      {
+        "i": 14490,
+        "observed": 296.0,
+        "trend": 305.94,
+        "seasonal": 23.13,
+        "residual": -33.07
+      },
+      {
+        "i": 14508,
+        "observed": 426.0,
+        "trend": 315.63,
+        "seasonal": 16.44,
+        "residual": 93.92
+      },
+      {
+        "i": 14526,
+        "observed": 29.0,
+        "trend": 320.39,
+        "seasonal": -284.02,
+        "residual": -7.37
+      },
+      {
+        "i": 14544,
+        "observed": 292.0,
+        "trend": 316.66,
+        "seasonal": -49.74,
+        "residual": 25.08
+      },
+      {
+        "i": 14562,
+        "observed": 649.0,
+        "trend": 284.24,
+        "seasonal": 66.36,
+        "residual": 298.41
+      },
+      {
+        "i": 14580,
+        "observed": 340.0,
+        "trend": 264.54,
+        "seasonal": 51.11,
+        "residual": 24.36
+      },
+      {
+        "i": 14598,
+        "observed": 5.0,
+        "trend": 267.75,
+        "seasonal": -263.07,
+        "residual": 0.32
+      },
+      {
+        "i": 14616,
+        "observed": 289.0,
+        "trend": 282.53,
+        "seasonal": -44.61,
+        "residual": 51.08
+      },
+      {
+        "i": 14634,
+        "observed": 319.0,
+        "trend": 280.26,
+        "seasonal": 42.13,
+        "residual": -3.39
+      },
+      {
+        "i": 14652,
+        "observed": 359.0,
+        "trend": 283.64,
+        "seasonal": 76.48,
+        "residual": -1.13
+      },
+      {
+        "i": 14670,
+        "observed": 16.0,
+        "trend": 303.16,
+        "seasonal": -273.4,
+        "residual": -13.76
+      },
+      {
+        "i": 14688,
+        "observed": 267.0,
+        "trend": 322.39,
+        "seasonal": -65.62,
+        "residual": 10.23
+      },
+      {
+        "i": 14706,
+        "observed": 620.0,
+        "trend": 295.8,
+        "seasonal": 76.37,
+        "residual": 247.83
+      },
+      {
+        "i": 14724,
+        "observed": 86.0,
+        "trend": 264.7,
+        "seasonal": 97.2,
+        "residual": -275.9
+      },
+      {
+        "i": 14742,
+        "observed": 10.0,
+        "trend": 234.83,
+        "seasonal": -238.97,
+        "residual": 14.15
+      },
+      {
+        "i": 14760,
+        "observed": 151.0,
+        "trend": 239.24,
+        "seasonal": -68.51,
+        "residual": -19.73
+      },
+      {
+        "i": 14778,
+        "observed": 254.0,
+        "trend": 261.89,
+        "seasonal": 140.14,
+        "residual": -148.03
+      },
+      {
+        "i": 14796,
+        "observed": 366.0,
+        "trend": 286.44,
+        "seasonal": 87.27,
+        "residual": -7.71
+      },
+      {
+        "i": 14814,
+        "observed": 3.0,
+        "trend": 297.34,
+        "seasonal": -287.87,
+        "residual": -6.48
+      },
+      {
+        "i": 14832,
+        "observed": 260.0,
+        "trend": 304.68,
+        "seasonal": -70.04,
+        "residual": 25.37
+      },
+      {
+        "i": 14850,
+        "observed": 455.0,
+        "trend": 311.19,
+        "seasonal": 146.77,
+        "residual": -2.96
+      },
+      {
+        "i": 14868,
+        "observed": 266.0,
+        "trend": 309.97,
+        "seasonal": 77.46,
+        "residual": -121.43
+      },
+      {
+        "i": 14886,
+        "observed": 28.0,
+        "trend": 314.56,
+        "seasonal": -288.26,
+        "residual": 1.71
+      },
+      {
+        "i": 14904,
+        "observed": 196.0,
+        "trend": 278.12,
+        "seasonal": -92.98,
+        "residual": 10.86
+      },
+      {
+        "i": 14922,
+        "observed": 260.0,
+        "trend": 275.11,
+        "seasonal": -3.96,
+        "residual": -11.15
+      },
+      {
+        "i": 14940,
+        "observed": 355.0,
+        "trend": 285.33,
+        "seasonal": 82.37,
+        "residual": -12.71
+      },
+      {
+        "i": 14958,
+        "observed": 7.0,
+        "trend": 286.05,
+        "seasonal": -279.92,
+        "residual": 0.87
+      },
+      {
+        "i": 14976,
+        "observed": 329.0,
+        "trend": 286.56,
+        "seasonal": -65.08,
+        "residual": 107.52
+      },
+      {
+        "i": 14994,
+        "observed": 353.0,
+        "trend": 287.41,
+        "seasonal": 67.79,
+        "residual": -2.2
+      },
+      {
+        "i": 15012,
+        "observed": 389.0,
+        "trend": 286.64,
+        "seasonal": 89.46,
+        "residual": 12.9
+      },
+      {
+        "i": 15030,
+        "observed": 29.0,
+        "trend": 294.68,
+        "seasonal": -270.56,
+        "residual": 4.88
+      },
+      {
+        "i": 15048,
+        "observed": 296.0,
+        "trend": 313.8,
+        "seasonal": -68.94,
+        "residual": 51.14
+      },
+      {
+        "i": 15066,
+        "observed": 623.0,
+        "trend": 281.59,
+        "seasonal": 51.33,
+        "residual": 290.08
+      },
+      {
+        "i": 15084,
+        "observed": 360.0,
+        "trend": 278.82,
+        "seasonal": 59.71,
+        "residual": 21.46
+      },
+      {
+        "i": 15102,
+        "observed": 1.0,
+        "trend": 297.98,
+        "seasonal": -292.24,
+        "residual": -4.74
+      },
+      {
+        "i": 15120,
+        "observed": 295.0,
+        "trend": 310.26,
+        "seasonal": -46.69,
+        "residual": 31.42
+      },
+      {
+        "i": 15138,
+        "observed": 308.0,
+        "trend": 313.86,
+        "seasonal": 5.44,
+        "residual": -11.3
+      },
+      {
+        "i": 15156,
+        "observed": 343.0,
+        "trend": 306.06,
+        "seasonal": 54.08,
+        "residual": -17.14
+      },
+      {
+        "i": 15174,
+        "observed": 13.0,
+        "trend": 296.84,
+        "seasonal": -273.63,
+        "residual": -10.21
+      },
+      {
+        "i": 15192,
+        "observed": 292.0,
+        "trend": 293.59,
+        "seasonal": -20.25,
+        "residual": 18.66
+      },
+      {
+        "i": 15210,
+        "observed": 711.0,
+        "trend": 244.66,
+        "seasonal": 43.44,
+        "residual": 422.91
+      },
+      {
+        "i": 15228,
+        "observed": 330.0,
+        "trend": 234.98,
+        "seasonal": 55.91,
+        "residual": 39.11
+      },
+      {
+        "i": 15246,
+        "observed": 214.0,
+        "trend": 236.44,
+        "seasonal": -27.27,
+        "residual": 4.83
+      },
+      {
+        "i": 15264,
+        "observed": 382.0,
+        "trend": 218.64,
+        "seasonal": 8.14,
+        "residual": 155.22
+      },
+      {
+        "i": 15282,
+        "observed": 28.0,
+        "trend": 201.4,
+        "seasonal": -93.89,
+        "residual": -79.52
+      },
+      {
+        "i": 15300,
+        "observed": 166.0,
+        "trend": 180.62,
+        "seasonal": -19.21,
+        "residual": 4.59
+      },
+      {
+        "i": 15318,
+        "observed": 449.0,
+        "trend": 172.87,
+        "seasonal": 241.53,
+        "residual": 34.6
+      },
+      {
+        "i": 15336,
+        "observed": 151.0,
+        "trend": 171.34,
+        "seasonal": -27.41,
+        "residual": 7.07
+      },
+      {
+        "i": 15354,
+        "observed": 198.0,
+        "trend": 181.87,
+        "seasonal": -94.04,
+        "residual": 110.17
+      },
+      {
+        "i": 15372,
+        "observed": 228.0,
+        "trend": 205.31,
+        "seasonal": 17.62,
+        "residual": 5.07
+      },
+      {
+        "i": 15390,
+        "observed": 327.0,
+        "trend": 207.34,
+        "seasonal": 154.46,
+        "residual": -34.8
+      },
+      {
+        "i": 15408,
+        "observed": 6.0,
+        "trend": 221.76,
+        "seasonal": -196.44,
+        "residual": -19.32
+      },
+      {
+        "i": 15426,
+        "observed": 193.0,
+        "trend": 234.1,
+        "seasonal": -52.37,
+        "residual": 11.27
+      },
+      {
+        "i": 15444,
+        "observed": 653.0,
+        "trend": 222.26,
+        "seasonal": 173.84,
+        "residual": 256.9
+      },
+      {
+        "i": 15462,
+        "observed": 266.0,
+        "trend": 231.95,
+        "seasonal": 28.07,
+        "residual": 5.98
+      },
+      {
+        "i": 15480,
+        "observed": 9.0,
+        "trend": 221.72,
+        "seasonal": -216.63,
+        "residual": 3.91
+      },
+      {
+        "i": 15498,
+        "observed": 135.0,
+        "trend": 209.27,
+        "seasonal": -81.69,
+        "residual": 7.41
+      },
+      {
+        "i": 15516,
+        "observed": 321.0,
+        "trend": 214.47,
+        "seasonal": 97.28,
+        "residual": 9.25
+      },
+      {
+        "i": 15534,
+        "observed": 166.0,
+        "trend": 210.81,
+        "seasonal": -27.71,
+        "residual": -17.1
+      },
+      {
+        "i": 15552,
+        "observed": 36.0,
+        "trend": 217.58,
+        "seasonal": -192.0,
+        "residual": 10.41
+      },
+      {
+        "i": 15570,
+        "observed": 128.0,
+        "trend": 228.64,
+        "seasonal": -95.92,
+        "residual": -4.72
+      },
+      {
+        "i": 15588,
+        "observed": 403.0,
+        "trend": 229.71,
+        "seasonal": 168.71,
+        "residual": 4.58
+      },
+      {
+        "i": 15606,
+        "observed": 359.0,
+        "trend": 213.2,
+        "seasonal": -2.42,
+        "residual": 148.22
+      },
+      {
+        "i": 15624,
+        "observed": 39.0,
+        "trend": 191.94,
+        "seasonal": -182.93,
+        "residual": 29.99
+      },
+      {
+        "i": 15642,
+        "observed": 74.0,
+        "trend": 195.97,
+        "seasonal": -119.95,
+        "residual": -2.02
+      },
+      {
+        "i": 15660,
+        "observed": 590.0,
+        "trend": 196.61,
+        "seasonal": 194.46,
+        "residual": 198.94
+      },
+      {
+        "i": 15678,
+        "observed": 241.0,
+        "trend": 183.94,
+        "seasonal": 47.14,
+        "residual": 9.92
+      },
+      {
+        "i": 15696,
+        "observed": 8.0,
+        "trend": 163.4,
+        "seasonal": -146.24,
+        "residual": -9.16
+      },
+      {
+        "i": 15714,
+        "observed": 36.0,
+        "trend": 136.98,
+        "seasonal": -88.47,
+        "residual": -12.51
+      },
+      {
+        "i": 15732,
+        "observed": 300.0,
+        "trend": 131.52,
+        "seasonal": 174.44,
+        "residual": -5.96
+      },
+      {
+        "i": 15750,
+        "observed": 186.0,
+        "trend": 116.82,
+        "seasonal": 81.05,
+        "residual": -11.87
+      },
+      {
+        "i": 15768,
+        "observed": 3.0,
+        "trend": 125.16,
+        "seasonal": -117.07,
+        "residual": -5.09
+      },
+      {
+        "i": 15786,
+        "observed": 41.0,
+        "trend": 145.25,
+        "seasonal": -91.01,
+        "residual": -13.24
+      },
+      {
+        "i": 15804,
+        "observed": 553.0,
+        "trend": 168.06,
+        "seasonal": 375.67,
+        "residual": 9.27
+      },
+      {
+        "i": 15822,
+        "observed": 65.0,
+        "trend": 170.21,
+        "seasonal": -5.07,
+        "residual": -100.14
+      },
+      {
+        "i": 15840,
+        "observed": 39.0,
+        "trend": 158.75,
+        "seasonal": -91.86,
+        "residual": -27.9
+      },
+      {
+        "i": 15858,
+        "observed": 78.0,
+        "trend": 146.53,
+        "seasonal": -102.24,
+        "residual": 33.71
+      },
+      {
+        "i": 15876,
+        "observed": 208.0,
+        "trend": 152.82,
+        "seasonal": 43.79,
+        "residual": 11.39
+      },
+      {
+        "i": 15894,
+        "observed": 582.0,
+        "trend": 161.8,
+        "seasonal": 85.89,
+        "residual": 334.31
+      },
+      {
+        "i": 15912,
+        "observed": 446.0,
+        "trend": 177.14,
+        "seasonal": 44.0,
+        "residual": 224.86
+      },
+      {
+        "i": 15930,
+        "observed": 16.0,
+        "trend": 183.8,
+        "seasonal": -117.5,
+        "residual": -50.3
+      },
+      {
+        "i": 15948,
+        "observed": 21.0,
+        "trend": 206.01,
+        "seasonal": -136.66,
+        "residual": -48.35
+      },
+      {
+        "i": 15966,
+        "observed": 692.0,
+        "trend": 232.76,
+        "seasonal": 242.83,
+        "residual": 216.42
+      },
+      {
+        "i": 15984,
+        "observed": 312.0,
+        "trend": 246.47,
+        "seasonal": 29.25,
+        "residual": 36.28
+      },
+      {
+        "i": 16002,
+        "observed": 124.0,
+        "trend": 232.86,
+        "seasonal": -84.09,
+        "residual": -24.76
+      },
+      {
+        "i": 16020,
+        "observed": 44.0,
+        "trend": 229.2,
+        "seasonal": -189.54,
+        "residual": 4.35
+      },
+      {
+        "i": 16038,
+        "observed": 373.0,
+        "trend": 215.08,
+        "seasonal": 256.57,
+        "residual": -98.65
+      },
+      {
+        "i": 16056,
+        "observed": 220.0,
+        "trend": 215.14,
+        "seasonal": 24.16,
+        "residual": -19.3
+      },
+      {
+        "i": 16074,
+        "observed": 39.0,
+        "trend": 228.88,
+        "seasonal": 33.33,
+        "residual": -223.21
+      },
+      {
+        "i": 16092,
+        "observed": 102.0,
+        "trend": 251.04,
+        "seasonal": -167.91,
+        "residual": 18.87
+      },
+      {
+        "i": 16110,
+        "observed": 122.0,
+        "trend": 216.96,
+        "seasonal": 178.86,
+        "residual": -273.81
+      },
+      {
+        "i": 16128,
+        "observed": 220.0,
+        "trend": 215.01,
+        "seasonal": 26.89,
+        "residual": -21.9
+      },
+      {
+        "i": 16146,
+        "observed": 380.0,
+        "trend": 227.61,
+        "seasonal": 123.3,
+        "residual": 29.09
+      },
+      {
+        "i": 16164,
+        "observed": 21.0,
+        "trend": 224.23,
+        "seasonal": -207.93,
+        "residual": 4.7
+      },
+      {
+        "i": 16182,
+        "observed": 402.0,
+        "trend": 223.91,
+        "seasonal": 161.87,
+        "residual": 16.21
+      },
+      {
+        "i": 16200,
+        "observed": 271.0,
+        "trend": 230.39,
+        "seasonal": 46.47,
+        "residual": -5.86
+      },
+      {
+        "i": 16218,
+        "observed": 308.0,
+        "trend": 235.08,
+        "seasonal": 82.58,
+        "residual": -9.66
+      },
+      {
+        "i": 16236,
+        "observed": 95.0,
+        "trend": 246.48,
+        "seasonal": -178.43,
+        "residual": 26.96
+      },
+      {
+        "i": 16254,
+        "observed": 257.0,
+        "trend": 258.87,
+        "seasonal": 105.59,
+        "residual": -107.47
+      },
+      {
+        "i": 16272,
+        "observed": 356.0,
+        "trend": 240.57,
+        "seasonal": 69.12,
+        "residual": 46.31
+      },
+      {
+        "i": 16290,
+        "observed": 319.0,
+        "trend": 194.76,
+        "seasonal": 121.69,
+        "residual": 2.55
+      },
+      {
+        "i": 16308,
+        "observed": 15.0,
+        "trend": 209.09,
+        "seasonal": -195.32,
+        "residual": 1.23
+      },
+      {
+        "i": 16326,
+        "observed": 353.0,
+        "trend": 227.53,
+        "seasonal": 128.46,
+        "residual": -2.99
+      },
+      {
+        "i": 16344,
+        "observed": 213.0,
+        "trend": 214.03,
+        "seasonal": 30.11,
+        "residual": -31.15
+      },
+      {
+        "i": 16362,
+        "observed": 350.0,
+        "trend": 201.46,
+        "seasonal": 99.07,
+        "residual": 49.47
+      },
+      {
+        "i": 16380,
+        "observed": 9.0,
+        "trend": 173.2,
+        "seasonal": -149.37,
+        "residual": -14.83
+      },
+      {
+        "i": 16398,
+        "observed": 153.0,
+        "trend": 144.27,
+        "seasonal": 18.92,
+        "residual": -10.19
+      },
+      {
+        "i": 16416,
+        "observed": 158.0,
+        "trend": 105.65,
+        "seasonal": 44.98,
+        "residual": 7.38
+      },
+      {
+        "i": 16434,
+        "observed": 19.0,
+        "trend": 80.89,
+        "seasonal": 66.79,
+        "residual": -128.68
+      },
+      {
+        "i": 16452,
+        "observed": 11.0,
+        "trend": 58.64,
+        "seasonal": -42.43,
+        "residual": -5.2
+      },
+      {
+        "i": 16470,
+        "observed": 11.0,
+        "trend": 37.43,
+        "seasonal": -19.9,
+        "residual": -6.53
+      },
+      {
+        "i": 16488,
+        "observed": 34.0,
+        "trend": 38.32,
+        "seasonal": -20.69,
+        "residual": 16.37
+      },
+      {
+        "i": 16506,
+        "observed": 53.0,
+        "trend": 40.06,
+        "seasonal": 90.56,
+        "residual": -77.62
+      },
+      {
+        "i": 16524,
+        "observed": 109.0,
+        "trend": 75.45,
+        "seasonal": 21.15,
+        "residual": 12.39
+      },
+      {
+        "i": 16542,
+        "observed": 51.0,
+        "trend": 90.63,
+        "seasonal": -45.1,
+        "residual": 5.47
+      },
+      {
+        "i": 16560,
+        "observed": 26.0,
+        "trend": 84.42,
+        "seasonal": -50.32,
+        "residual": -8.1
+      },
+      {
+        "i": 16578,
+        "observed": 110.0,
+        "trend": 69.84,
+        "seasonal": 65.67,
+        "residual": -25.52
+      },
+      {
+        "i": 16596,
+        "observed": 144.0,
+        "trend": 76.84,
+        "seasonal": 76.37,
+        "residual": -9.21
+      },
+      {
+        "i": 16614,
+        "observed": 85.0,
+        "trend": 93.03,
+        "seasonal": -45.75,
+        "residual": 37.72
+      }
+    ],
+    "variance_share": {
+      "trend": 0.1703,
+      "seasonal": 0.6976,
+      "residual": 0.283
+    },
+    "note": "STL with a 24-hour period. The seasonal share tells you how much of demand is pure daily rhythm -- and therefore how much a model can possibly add beyond knowing the hour."
+  },
+  "correlogram": {
+    "nlags": 72,
+    "confidence_band": 0.0152,
+    "acf": [
+      {
+        "lag": 0,
+        "value": 1.0,
+        "significant": true
+      },
+      {
+        "lag": 1,
+        "value": 0.8386,
+        "significant": true
+      },
+      {
+        "lag": 2,
+        "value": 0.5825,
+        "significant": true
+      },
+      {
+        "lag": 3,
+        "value": 0.3884,
+        "significant": true
+      },
+      {
+        "lag": 4,
+        "value": 0.2532,
+        "significant": true
+      },
+      {
+        "lag": 5,
+        "value": 0.1239,
+        "significant": true
+      },
+      {
+        "lag": 6,
+        "value": -0.013,
+        "significant": false
+      },
+      {
+        "lag": 7,
+        "value": -0.1163,
+        "significant": true
+      },
+      {
+        "lag": 8,
+        "value": -0.1336,
+        "significant": true
+      },
+      {
+        "lag": 9,
+        "value": -0.0743,
+        "significant": true
+      },
+      {
+        "lag": 10,
+        "value": -0.0657,
+        "significant": true
+      },
+      {
+        "lag": 11,
+        "value": -0.1171,
+        "significant": true
+      },
+      {
+        "lag": 12,
+        "value": -0.1499,
+        "significant": true
+      },
+      {
+        "lag": 13,
+        "value": -0.1268,
+        "significant": true
+      },
+      {
+        "lag": 14,
+        "value": -0.0826,
+        "significant": true
+      },
+      {
+        "lag": 15,
+        "value": -0.0803,
+        "significant": true
+      },
+      {
+        "lag": 16,
+        "value": -0.1079,
+        "significant": true
+      },
+      {
+        "lag": 17,
+        "value": -0.0718,
+        "significant": true
+      },
+      {
+        "lag": 18,
+        "value": 0.0308,
+        "significant": true
+      },
+      {
+        "lag": 19,
+        "value": 0.1544,
+        "significant": true
+      },
+      {
+        "lag": 20,
+        "value": 0.2662,
+        "significant": true
+      },
+      {
+        "lag": 21,
+        "value": 0.3764,
+        "significant": true
+      },
+      {
+        "lag": 22,
+        "value": 0.5223,
+        "significant": true
+      },
+      {
+        "lag": 23,
+        "value": 0.6934,
+        "significant": true
+      },
+      {
+        "lag": 24,
+        "value": 0.7803,
+        "significant": true
+      },
+      {
+        "lag": 25,
+        "value": 0.6662,
+        "significant": true
+      },
+      {
+        "lag": 26,
+        "value": 0.4829,
+        "significant": true
+      },
+      {
+        "lag": 27,
+        "value": 0.3415,
+        "significant": true
+      },
+      {
+        "lag": 28,
+        "value": 0.2402,
+        "significant": true
+      },
+      {
+        "lag": 29,
+        "value": 0.1373,
+        "significant": true
+      },
+      {
+        "lag": 30,
+        "value": 0.0218,
+        "significant": true
+      },
+      {
+        "lag": 31,
+        "value": -0.0739,
+        "significant": true
+      },
+      {
+        "lag": 32,
+        "value": -0.1151,
+        "significant": true
+      },
+      {
+        "lag": 33,
+        "value": -0.1076,
+        "significant": true
+      },
+      {
+        "lag": 34,
+        "value": -0.1307,
+        "significant": true
+      },
+      {
+        "lag": 35,
+        "value": -0.1833,
+        "significant": true
+      },
+      {
+        "lag": 36,
+        "value": -0.2064,
+        "significant": true
+      },
+      {
+        "lag": 37,
+        "value": -0.173,
+        "significant": true
+      },
+      {
+        "lag": 38,
+        "value": -0.1112,
+        "significant": true
+      },
+      {
+        "lag": 39,
+        "value": -0.0715,
+        "significant": true
+      },
+      {
+        "lag": 40,
+        "value": -0.0509,
+        "significant": true
+      },
+      {
+        "lag": 41,
+        "value": 0.0105,
+        "significant": false
+      },
+      {
+        "lag": 42,
+        "value": 0.11,
+        "significant": true
+      },
+      {
+        "lag": 43,
+        "value": 0.2109,
+        "significant": true
+      },
+      {
+        "lag": 44,
+        "value": 0.2927,
+        "significant": true
+      },
+      {
+        "lag": 45,
+        "value": 0.3661,
+        "significant": true
+      },
+      {
+        "lag": 46,
+        "value": 0.4608,
+        "significant": true
+      },
+      {
+        "lag": 47,
+        "value": 0.5741,
+        "significant": true
+      },
+      {
+        "lag": 48,
+        "value": 0.6315,
+        "significant": true
+      },
+      {
+        "lag": 49,
+        "value": 0.5524,
+        "significant": true
+      },
+      {
+        "lag": 50,
+        "value": 0.4289,
+        "significant": true
+      },
+      {
+        "lag": 51,
+        "value": 0.3328,
+        "significant": true
+      },
+      {
+        "lag": 52,
+        "value": 0.2589,
+        "significant": true
+      },
+      {
+        "lag": 53,
+        "value": 0.1754,
+        "significant": true
+      },
+      {
+        "lag": 54,
+        "value": 0.0743,
+        "significant": true
+      },
+      {
+        "lag": 55,
+        "value": -0.0203,
+        "significant": true
+      },
+      {
+        "lag": 56,
+        "value": -0.0819,
+        "significant": true
+      },
+      {
+        "lag": 57,
+        "value": -0.1127,
+        "significant": true
+      },
+      {
+        "lag": 58,
+        "value": -0.1597,
+        "significant": true
+      },
+      {
+        "lag": 59,
+        "value": -0.2126,
+        "significant": true
+      },
+      {
+        "lag": 60,
+        "value": -0.2292,
+        "significant": true
+      },
+      {
+        "lag": 61,
+        "value": -0.191,
+        "significant": true
+      },
+      {
+        "lag": 62,
+        "value": -0.1218,
+        "significant": true
+      },
+      {
+        "lag": 63,
+        "value": -0.0655,
+        "significant": true
+      },
+      {
+        "lag": 64,
+        "value": -0.0251,
+        "significant": true
+      },
+      {
+        "lag": 65,
+        "value": 0.0435,
+        "significant": true
+      },
+      {
+        "lag": 66,
+        "value": 0.137,
+        "significant": true
+      },
+      {
+        "lag": 67,
+        "value": 0.2272,
+        "significant": true
+      },
+      {
+        "lag": 68,
+        "value": 0.2969,
+        "significant": true
+      },
+      {
+        "lag": 69,
+        "value": 0.3587,
+        "significant": true
+      },
+      {
+        "lag": 70,
+        "value": 0.4385,
+        "significant": true
+      },
+      {
+        "lag": 71,
+        "value": 0.531,
+        "significant": true
+      },
+      {
+        "lag": 72,
+        "value": 0.5719,
+        "significant": true
+      }
+    ],
+    "pacf": [
+      {
+        "lag": 0,
+        "value": 1.0,
+        "significant": true
+      },
+      {
+        "lag": 1,
+        "value": 0.8386,
+        "significant": true
+      },
+      {
+        "lag": 2,
+        "value": -0.407,
+        "significant": true
+      },
+      {
+        "lag": 3,
+        "value": 0.1713,
+        "significant": true
+      },
+      {
+        "lag": 4,
+        "value": -0.0872,
+        "significant": true
+      },
+      {
+        "lag": 5,
+        "value": -0.1225,
+        "significant": true
+      },
+      {
+        "lag": 6,
+        "value": -0.0998,
+        "significant": true
+      },
+      {
+        "lag": 7,
+        "value": 0.0069,
+        "significant": false
+      },
+      {
+        "lag": 8,
+        "value": 0.1265,
+        "significant": true
+      },
+      {
+        "lag": 9,
+        "value": 0.0946,
+        "significant": true
+      },
+      {
+        "lag": 10,
+        "value": -0.2689,
+        "significant": true
+      },
+      {
+        "lag": 11,
+        "value": -0.0143,
+        "significant": false
+      },
+      {
+        "lag": 12,
+        "value": 0.0258,
+        "significant": true
+      },
+      {
+        "lag": 13,
+        "value": 0.0297,
+        "significant": true
+      },
+      {
+        "lag": 14,
+        "value": 0.0013,
+        "significant": false
+      },
+      {
+        "lag": 15,
+        "value": -0.0973,
+        "significant": true
+      },
+      {
+        "lag": 16,
+        "value": 0.0183,
+        "significant": true
+      },
+      {
+        "lag": 17,
+        "value": 0.2129,
+        "significant": true
+      },
+      {
+        "lag": 18,
+        "value": -0.0239,
+        "significant": true
+      },
+      {
+        "lag": 19,
+        "value": 0.1881,
+        "significant": true
+      },
+      {
+        "lag": 20,
+        "value": 0.177,
+        "significant": true
+      },
+      {
+        "lag": 21,
+        "value": 0.1918,
+        "significant": true
+      },
+      {
+        "lag": 22,
+        "value": 0.3135,
+        "significant": true
+      },
+      {
+        "lag": 23,
+        "value": 0.2998,
+        "significant": true
+      },
+      {
+        "lag": 24,
+        "value": 0.0937,
+        "significant": true
+      },
+      {
+        "lag": 25,
+        "value": -0.2515,
+        "significant": true
+      },
+      {
+        "lag": 26,
+        "value": 0.1167,
+        "significant": true
+      },
+      {
+        "lag": 27,
+        "value": 0.0458,
+        "significant": true
+      },
+      {
+        "lag": 28,
+        "value": 0.0647,
+        "significant": true
+      },
+      {
+        "lag": 29,
+        "value": 0.0516,
+        "significant": true
+      },
+      {
+        "lag": 30,
+        "value": 0.0378,
+        "significant": true
+      },
+      {
+        "lag": 31,
+        "value": -0.0411,
+        "significant": true
+      },
+      {
+        "lag": 32,
+        "value": -0.1284,
+        "significant": true
+      },
+      {
+        "lag": 33,
+        "value": -0.0845,
+        "significant": true
+      },
+      {
+        "lag": 34,
+        "value": -0.0204,
+        "significant": true
+      },
+      {
+        "lag": 35,
+        "value": 0.0205,
+        "significant": true
+      },
+      {
+        "lag": 36,
+        "value": -0.0098,
+        "significant": false
+      },
+      {
+        "lag": 37,
+        "value": 0.0042,
+        "significant": false
+      },
+      {
+        "lag": 38,
+        "value": 0.035,
+        "significant": true
+      },
+      {
+        "lag": 39,
+        "value": 0.0127,
+        "significant": false
+      },
+      {
+        "lag": 40,
+        "value": 0.0026,
+        "significant": false
+      },
+      {
+        "lag": 41,
+        "value": 0.0556,
+        "significant": true
+      },
+      {
+        "lag": 42,
+        "value": 0.0165,
+        "significant": true
+      },
+      {
+        "lag": 43,
+        "value": 0.0232,
+        "significant": true
+      },
+      {
+        "lag": 44,
+        "value": 0.0025,
+        "significant": false
+      },
+      {
+        "lag": 45,
+        "value": -0.0176,
+        "significant": true
+      },
+      {
+        "lag": 46,
+        "value": 0.0198,
+        "significant": true
+      },
+      {
+        "lag": 47,
+        "value": 0.0512,
+        "significant": true
+      },
+      {
+        "lag": 48,
+        "value": 0.0413,
+        "significant": true
+      },
+      {
+        "lag": 49,
+        "value": -0.03,
+        "significant": true
+      },
+      {
+        "lag": 50,
+        "value": 0.0736,
+        "significant": true
+      },
+      {
+        "lag": 51,
+        "value": -0.0062,
+        "significant": false
+      },
+      {
+        "lag": 52,
+        "value": 0.0278,
+        "significant": true
+      },
+      {
+        "lag": 53,
+        "value": 0.0213,
+        "significant": true
+      },
+      {
+        "lag": 54,
+        "value": 0.0455,
+        "significant": true
+      },
+      {
+        "lag": 55,
+        "value": 0.0288,
+        "significant": true
+      },
+      {
+        "lag": 56,
+        "value": -0.0004,
+        "significant": false
+      },
+      {
+        "lag": 57,
+        "value": -0.0244,
+        "significant": true
+      },
+      {
+        "lag": 58,
+        "value": 0.0134,
+        "significant": false
+      },
+      {
+        "lag": 59,
+        "value": 0.0045,
+        "significant": false
+      },
+      {
+        "lag": 60,
+        "value": -0.0093,
+        "significant": false
+      },
+      {
+        "lag": 61,
+        "value": 0.0039,
+        "significant": false
+      },
+      {
+        "lag": 62,
+        "value": 0.0018,
+        "significant": false
+      },
+      {
+        "lag": 63,
+        "value": -0.0317,
+        "significant": true
+      },
+      {
+        "lag": 64,
+        "value": -0.0463,
+        "significant": true
+      },
+      {
+        "lag": 65,
+        "value": -0.0029,
+        "significant": false
+      },
+      {
+        "lag": 66,
+        "value": 0.01,
+        "significant": false
+      },
+      {
+        "lag": 67,
+        "value": 0.026,
+        "significant": true
+      },
+      {
+        "lag": 68,
+        "value": 0.0014,
+        "significant": false
+      },
+      {
+        "lag": 69,
+        "value": 0.0412,
+        "significant": true
+      },
+      {
+        "lag": 70,
+        "value": 0.0566,
+        "significant": true
+      },
+      {
+        "lag": 71,
+        "value": 0.0427,
+        "significant": true
+      },
+      {
+        "lag": 72,
+        "value": -0.0109,
+        "significant": false
+      }
+    ],
+    "note": "Peaks at lag 24 and 168 are what motivated those lags as features: yesterday's same hour and last week's same hour carry the most information in a commuting series."
+  },
+  "stationarity": {
+    "adf": {
+      "statistic": -6.9745,
+      "p_value": 0.0,
+      "null": "unit root (non-stationary)",
+      "reject_null": true
+    },
+    "kpss": {
+      "statistic": 3.8609,
+      "p_value": 0.01,
+      "null": "stationary",
+      "reject_null": true
+    },
+    "interpretation": "ADF and KPSS test opposite nulls, so they are only convincing when they agree. Hourly bike demand is strongly seasonal rather than trending: the level is stable but the daily cycle is enormous, which is why the models here use explicit seasonal lags rather than differencing."
+  },
+  "hourly_profile": [
+    {
+      "hour": 0,
+      "non_working_day": 91.7,
+      "working_day": 37.6
+    },
+    {
+      "hour": 1,
+      "non_working_day": 70.1,
+      "working_day": 17.0
+    },
+    {
+      "hour": 2,
+      "non_working_day": 53.7,
+      "working_day": 9.0
+    },
+    {
+      "hour": 3,
+      "non_working_day": 26.2,
+      "working_day": 5.2
+    },
+    {
+      "hour": 4,
+      "non_working_day": 8.7,
+      "working_day": 5.8
+    },
+    {
+      "hour": 5,
+      "non_working_day": 9.2,
+      "working_day": 27.1
+    },
+    {
+      "hour": 6,
+      "non_working_day": 20.0,
+      "working_day": 108.8
+    },
+    {
+      "hour": 7,
+      "non_working_day": 45.7,
+      "working_day": 305.0
+    },
+    {
+      "hour": 8,
+      "non_working_day": 110.1,
+      "working_day": 482.2
+    },
+    {
+      "hour": 9,
+      "non_working_day": 174.7,
+      "working_day": 243.5
+    },
+    {
+      "hour": 10,
+      "non_working_day": 258.6,
+      "working_day": 136.8
+    },
+    {
+      "hour": 11,
+      "non_working_day": 318.6,
+      "working_day": 160.2
+    },
+    {
+      "hour": 12,
+      "non_working_day": 370.0,
+      "working_day": 203.1
+    },
+    {
+      "hour": 13,
+      "non_working_day": 376.6,
+      "working_day": 200.8
+    },
+    {
+      "hour": 14,
+      "non_working_day": 368.3,
+      "working_day": 185.7
+    },
+    {
+      "hour": 15,
+      "non_working_day": 362.2,
+      "working_day": 203.4
+    },
+    {
+      "hour": 16,
+      "non_working_day": 355.1,
+      "working_day": 296.2
+    },
+    {
+      "hour": 17,
+      "non_working_day": 325.8,
+      "working_day": 529.9
+    },
+    {
+      "hour": 18,
+      "non_working_day": 282.4,
+      "working_day": 498.2
+    },
+    {
+      "hour": 19,
+      "non_working_day": 232.5,
+      "working_day": 352.7
+    },
+    {
+      "hour": 20,
+      "non_working_day": 175.7,
+      "working_day": 253.0
+    },
+    {
+      "hour": 21,
+      "non_working_day": 142.7,
+      "working_day": 188.8
+    },
+    {
+      "hour": 22,
+      "non_working_day": 116.8,
+      "working_day": 140.2
+    },
+    {
+      "hour": 23,
+      "non_working_day": 86.4,
+      "working_day": 90.0
+    }
+  ],
+  "weather_effect": [
+    {
+      "weathersit": 1,
+      "label": "Clear",
+      "mean_demand": 211.3,
+      "median_demand": 168.0,
+      "hours": 10938,
+      "vs_clear": 1.0
+    },
+    {
+      "weathersit": 2,
+      "label": "Mist/cloudy",
+      "mean_demand": 180.3,
+      "median_demand": 141.0,
+      "hours": 4344,
+      "vs_clear": 0.854
+    },
+    {
+      "weathersit": 3,
+      "label": "Light rain/snow",
+      "mean_demand": 115.6,
+      "median_demand": 67.0,
+      "hours": 1346,
+      "vs_clear": 0.547
+    },
+    {
+      "weathersit": 4,
+      "label": "Heavy rain/ice",
+      "mean_demand": 74.3,
+      "median_demand": 36.0,
+      "hours": 3,
+      "vs_clear": 0.352
+    }
+  ],
+  "temporal_heatmap": {
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "hours": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "matrix": [
+      [
+        34.291262,
+        17.524752,
+        10.652174,
+        5.457831,
+        6.240964,
+        24.277108,
+        94.458824,
+        261.542553,
+        412.411765,
+        219.343137,
+        139.931373,
+        164.931373,
+        208.588235,
+        206.872549,
+        193.803922,
+        203.362745,
+        285.754902,
+        504.45098,
+        483.306931,
+        346.405941,
+        243.623762,
+        175.70297,
+        116.455446,
+        65.960396
+      ],
+      [
+        28.364583,
+        12.904255,
+        7.208791,
+        4.355263,
+        5.679487,
+        26.8,
+        114.303371,
+        310.302083,
+        479.622449,
+        237.484848,
+        129.838384,
+        147.373737,
+        184.97,
+        186.09901,
+        171.217822,
+        188.715686,
+        290.54902,
+        551.656863,
+        524.529412,
+        358.637255,
+        256.833333,
+        188.784314,
+        133.882353,
+        77.176471
+      ],
+      [
+        35.63,
+        15.808081,
+        8.228261,
+        5.277108,
+        5.5125,
+        28.47191,
+        115.217391,
+        322.774194,
+        492.80198,
+        240.455446,
+        133.118812,
+        153.881188,
+        195.80198,
+        186.686275,
+        171.088235,
+        181.980392,
+        273.284314,
+        514.254902,
+        499.5,
+        361.9,
+        260.04,
+        197.53,
+        145.53,
+        84.73
+      ],
+      [
+        40.183673,
+        17.721649,
+        9.414894,
+        5.39759,
+        5.517647,
+        27.863636,
+        111.351064,
+        314.886598,
+        494.818182,
+        243.242424,
+        134.888889,
+        161.606061,
+        201.76,
+        199.158416,
+        179.920792,
+        199.158416,
+        290.833333,
+        535.176471,
+        509.323529,
+        363.607843,
+        272.931373,
+        200.921569,
+        149.352941,
+        98.264706
+      ],
+      [
+        53.205882,
+        25.107843,
+        13.060606,
+        6.860215,
+        6.367816,
+        25.364583,
+        95.46875,
+        268.78125,
+        467.745098,
+        261.764706,
+        159.72549,
+        190.852941,
+        241.441176,
+        245.186275,
+        233.0,
+        256.303922,
+        335.843137,
+        495.378641,
+        426.970588,
+        306.186275,
+        216.401961,
+        172.254902,
+        149.343137,
+        117.098039
+      ],
+      [
+        95.708738,
+        68.514563,
+        50.892157,
+        23.704082,
+        8.083333,
+        8.625,
+        21.558824,
+        47.156863,
+        117.166667,
+        189.951456,
+        267.961165,
+        333.825243,
+        381.097087,
+        391.31068,
+        386.747573,
+        387.621359,
+        368.769231,
+        336.980769,
+        294.107843,
+        241.382353,
+        181.911765,
+        157.117647,
+        140.539216,
+        116.539216
+      ],
+      [
+        94.598039,
+        78.04902,
+        62.561224,
+        31.479592,
+        9.824176,
+        9.144444,
+        15.817204,
+        36.147368,
+        89.515464,
+        160.058824,
+        260.557692,
+        317.740385,
+        375.653846,
+        377.817308,
+        366.557692,
+        356.625,
+        358.086538,
+        321.211538,
+        273.504854,
+        225.805825,
+        169.0,
+        128.019417,
+        94.912621,
+        62.398058
+      ]
+    ],
+    "aggregation": "mean",
+    "max": 551.656863,
+    "peak_cell": {
+      "day": "Tue",
+      "hour": 17,
+      "value": 551.656863
+    }
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

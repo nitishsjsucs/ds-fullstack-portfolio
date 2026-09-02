@@ -1,0 +1,68 @@
+{
+  "model": "Gradient boosting on lags",
+  "version": "1.0.0",
+  "task": "Time series forecasting",
+  "intended_use": "Forecast next-hour bike-share demand with an 80% interval, to support fleet rebalancing and staffing decisions.",
+  "out_of_scope": [
+    "Long-horizon planning beyond about a week, where the model has only calendar information and degrades to climatology.",
+    "Other cities: demand rhythm is a function of local geography, transit and climate that this model has no access to.",
+    "Individual station-level forecasting -- this is a system-wide total."
+  ],
+  "training_data": {
+    "source": "UCI Bike Sharing (hourly, 2011-2012)",
+    "rows": 13304,
+    "period": "2011-01 to roughly 2012-08",
+    "licence": "CC BY 4.0"
+  },
+  "evaluation_data": {
+    "rows": 3327,
+    "protocol": "chronological hold-out",
+    "backtest": "purged & embargoed expanding-window CV"
+  },
+  "features": {
+    "count": 33,
+    "excluded_by_design": [
+      "casual",
+      "registered"
+    ],
+    "exclusion_reason": "casual + registered == cnt exactly. Either would give a perfect score and neither is known before the hour happens.",
+    "max_lookback_hours": 168
+  },
+  "metrics": {
+    "mase": 0.334653,
+    "mae": 28.79689,
+    "rmse": 45.654637,
+    "r2": 0.957121,
+    "smape_pct": 19.028764,
+    "interval_nominal": 0.8,
+    "interval_empirical": 0.792005
+  },
+  "ethical_considerations": [
+    "Demand forecasts drive where bikes are physically placed. Systematically under-forecasting low-income or peripheral areas would entrench unequal service; a station-level deployment would need a per-area equity audit that a system-wide total cannot provide."
+  ],
+  "limitations": [
+    "Two years of history only; no multi-year trend can be learned.",
+    "Weather features are observations, not forecasts. In deployment they would be replaced by predicted weather, adding error this evaluation does not capture.",
+    "Requires 168 hours of contiguous history; gaps degrade it to calendar-only accuracy.",
+    "System-wide totals only -- no spatial resolution."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Monthly, or when rolling MASE exceeds 0.9 for two consecutive weeks.",
+    "monitored_signals": [
+      "rolling MASE against seasonal naive",
+      "interval coverage",
+      "input gap rate",
+      "weather-feature drift"
+    ]
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

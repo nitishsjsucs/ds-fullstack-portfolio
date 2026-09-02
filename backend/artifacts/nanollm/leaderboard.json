@@ -1,0 +1,35 @@
+{
+  "scoring": "validation bits per character (lower is better)",
+  "leaderboard": [
+    {
+      "model": "Uniform random",
+      "val_bpc": 6.0224,
+      "parameters": 0,
+      "note": "Guess among 65 characters with equal probability."
+    },
+    {
+      "model": "Unigram frequency",
+      "val_bpc": 4.7794,
+      "parameters": 65,
+      "note": "Marginal character distribution, no context."
+    },
+    {
+      "model": "NanoGPT (4L/4H/128D)",
+      "val_bpc": 2.1714,
+      "parameters": 812288,
+      "note": "Causal transformer with RoPE, RMSNorm and SwiGLU."
+    }
+  ],
+  "protocol": "All three scored on the identical held-out final 10% of the corpus, which was never shuffled into training.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

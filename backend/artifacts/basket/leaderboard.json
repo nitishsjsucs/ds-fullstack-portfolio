@@ -1,0 +1,60 @@
+{
+  "scoring": "seconds to mine all frequent itemsets (lower is better)",
+  "leaderboard": [
+    {
+      "model": "Apriori",
+      "family": "frequent itemset mining",
+      "hypothesis": "Breadth-first candidate generation: one database scan per itemset size, pruned by the downward-closure property.",
+      "seconds": 7.209,
+      "itemsets": 1497,
+      "wins_when": "Support is high and the lattice stays small, so few scans are needed and no tree has to be built.",
+      "cost": "Candidate explosion at low support; a scan per level."
+    },
+    {
+      "model": "FP-Growth",
+      "family": "frequent itemset mining",
+      "hypothesis": "Builds a compressed FP-tree in two scans, then mines it recursively via conditional pattern bases -- no candidates.",
+      "seconds": 23.218,
+      "itemsets": 1497,
+      "wins_when": "Support is low and data is sparse, where avoiding candidate generation dominates the tree-construction overhead.",
+      "cost": "Tree construction is paid up front and must fit in memory."
+    }
+  ],
+  "protocol": "Both algorithms return identical itemsets -- they must, because both are exact; only the search strategy differs. On this configuration (480 items at min_support=0.012, 3.2% density) Apriori is 3.2x faster. That is the opposite of the usual textbook ordering when Apriori is Apriori: FP-Growth's advantage comes from avoiding candidate generation, which only pays off once the support floor is low enough for candidates to explode. Here the floor is high, the lattice is small, and building the tree costs more than it saves.",
+  "min_support": 0.012,
+  "n_items": 480,
+  "n_baskets": 16785,
+  "density": 0.03181,
+  "results": [
+    {
+      "algorithm": "Apriori",
+      "itemsets": 1497,
+      "seconds": 7.209,
+      "strategy": "Breadth-first candidate generation: one database scan per itemset size, pruned by the downward-closure property.",
+      "wins_when": "Support is high and the lattice stays small, so few scans are needed and no tree has to be built.",
+      "cost": "Candidate explosion at low support; a scan per level."
+    },
+    {
+      "algorithm": "FP-Growth",
+      "itemsets": 1497,
+      "seconds": 23.218,
+      "strategy": "Builds a compressed FP-tree in two scans, then mines it recursively via conditional pattern bases -- no candidates.",
+      "wins_when": "Support is low and data is sparse, where avoiding candidate generation dominates the tree-construction overhead.",
+      "cost": "Tree construction is paid up front and must fit in memory."
+    }
+  ],
+  "identical_output": true,
+  "faster_algorithm": "Apriori",
+  "speedup": 3.22,
+  "conclusion": "Both algorithms return identical itemsets -- they must, because both are exact; only the search strategy differs. On this configuration (480 items at min_support=0.012, 3.2% density) Apriori is 3.2x faster. That is the opposite of the usual textbook ordering when Apriori is Apriori: FP-Growth's advantage comes from avoiding candidate generation, which only pays off once the support floor is low enough for candidates to explode. Here the floor is high, the lattice is small, and building the tree costs more than it saves.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

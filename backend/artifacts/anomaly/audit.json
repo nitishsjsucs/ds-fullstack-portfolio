@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "check": "Labels never used for fitting",
+      "status": "pass",
+      "evidence": "prepare() asserts the label columns are absent from X; all five detectors receive the transformed feature matrix only."
+    },
+    {
+      "check": "Contamination not set from observed rate",
+      "status": "pass",
+      "evidence": "Set to the assumed 2%, not the true 3.37% -- passing the truth would be leakage through a hyperparameter."
+    },
+    {
+      "check": "Metric appropriate to extreme imbalance",
+      "status": "pass",
+      "evidence": "PR-AUC and precision@k are the headline; accuracy is flagged as misleading at a 3.4% base rate."
+    },
+    {
+      "check": "Scaler robust to the signal",
+      "status": "pass",
+      "evidence": "RobustScaler(5-95) used so outlier-inflated variance does not shrink the deviations being detected."
+    },
+    {
+      "check": "Multiple detector assumptions compared",
+      "status": "pass",
+      "evidence": "4 detectors with distinct definitions of anomaly, each with its blind spot documented."
+    },
+    {
+      "check": "Fusion evaluated, not assumed",
+      "status": "pass",
+      "evidence": "Rank fusion did not improve on the best single detector and was deployed accordingly."
+    },
+    {
+      "check": "Per-class performance reported",
+      "status": "pass",
+      "evidence": "Per-family recall published, including families with zero recall."
+    },
+    {
+      "check": "Baselines published",
+      "status": "pass",
+      "evidence": "Random ranking and hand-written signature rules both reported."
+    },
+    {
+      "check": "Dataset limitations disclosed",
+      "status": "pass",
+      "evidence": "Model card states prominently that KDD-99 is a 1999 simulation and that results are a methodology demonstration."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "All detectors and samplers seeded at 42."
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "grade": "A",
+  "scope": "Review for the failure modes specific to unsupervised detection: label leakage through hyperparameters, accuracy theatre under extreme imbalance, and aggregate metrics concealing blind classes.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:29:36+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "kdd99_intrusion",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Isolation Forest"
+  }
+}

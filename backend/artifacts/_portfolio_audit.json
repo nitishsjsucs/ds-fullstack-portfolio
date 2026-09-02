@@ -1,0 +1,842 @@
+{
+  "static_scan": {
+    "files_scanned": 25,
+    "rules_run": 5,
+    "rules": [
+      {
+        "id": "R1-rolling-without-shift",
+        "severity": "critical",
+        "detects": "A rolling or expanding window not preceded by .shift(), which includes the current row in its own predictor."
+      },
+      {
+        "id": "R2-shuffled-temporal-split",
+        "severity": "critical",
+        "detects": "train_test_split(shuffle=True) in a time-ordered project."
+      },
+      {
+        "id": "R3-fit-transform-on-full-frame",
+        "severity": "warning",
+        "detects": "fit_transform outside a Pipeline, which learns from every row it is shown."
+      },
+      {
+        "id": "R4-resample-before-split",
+        "severity": "warning",
+        "detects": "Oversampling applied outside the cross-validation loop."
+      },
+      {
+        "id": "R5-target-in-feature-list",
+        "severity": "critical",
+        "detects": "A declared feature list containing the target column."
+      }
+    ],
+    "critical": 0,
+    "warnings": 0,
+    "issues": []
+  },
+  "projects": [
+    {
+      "slug": "taxi",
+      "trained": true,
+      "own_audit": {
+        "passed": 10,
+        "total": 10,
+        "grade": "A",
+        "scope": "Static review of the training path for target leakage, temporal leakage, preprocessing leakage, selection leakage and metric gaming."
+      },
+      "checks": [
+        {
+          "check": "Temporal ordering preserved",
+          "status": "pass",
+          "evidence": "assert_chronological() enforced at the split boundary 2024-01-26 01:45:58; no shuffle anywhere in the path."
+        },
+        {
+          "check": "Post-outcome columns excluded",
+          "status": "pass",
+          "evidence": "tip_amount, tolls_amount, total_amount, congestion_surcharge and dropoff_datetime are absent from ALL_FEATURES."
+        },
+        {
+          "check": "Preprocessing fitted per fold",
+          "status": "pass",
+          "evidence": "Imputers, one-hot vocabulary and the zone frequency table are ColumnTransformer steps inside the Pipeline that CV clones."
+        },
+        {
+          "check": "Row filters independent of the target distribution",
+          "status": "pass",
+          "evidence": "All 8 rules are physical bounds; none references a mean, standard deviation or quantile of the target."
+        },
+        {
+          "check": "Hold-out used once",
+          "status": "pass",
+          "evidence": "Hyperparameter search scored only cross-validated folds; the test half was predicted after the search closed."
+        },
+        {
+          "check": "Search overfitting",
+          "status": "pass",
+          "evidence": "No family's CV score exceeds its hold-out score by more than 0.5 min."
+        },
+        {
+          "check": "Metric appropriate to the task",
+          "status": "pass",
+          "evidence": "MAE reported as headline with RMSE, R^2, bias and p90 error alongside; no accuracy-style metric is claimed for a regression."
+        },
+        {
+          "check": "Baselines published",
+          "status": "pass",
+          "evidence": "Three heuristics reported; champion MAE 2.93 min beats the best of them."
+        },
+        {
+          "check": "Importance cross-validated across methods",
+          "status": "pass",
+          "evidence": "14 features exceed twice their permutation noise; impurity importance shown alongside for contrast."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "Every estimator and sampler seeded (seed=42); ingestion seeded separately at 20240115."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [
+        {
+          "name": "Predict training mean",
+          "score": 8.036487
+        },
+        {
+          "name": "Distance / median hourly speed",
+          "score": 7.731088
+        },
+        {
+          "name": "Borough-pair historical mean",
+          "score": 6.290915
+        }
+      ],
+      "headline": {
+        "mae_minutes": 2.928357,
+        "rmse_minutes": 4.607179,
+        "r2": 0.835585,
+        "fare_mae_usd": 1.736978,
+        "interval_coverage": 0.77267
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T18:06:42+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "nyc_taxi_trips",
+        "seed": 42,
+        "quick_mode": false,
+        "train_seconds": 431.3
+      },
+      "findings": []
+    },
+    {
+      "slug": "churn",
+      "trained": true,
+      "own_audit": {
+        "passed": 11,
+        "total": 11,
+        "grade": "A",
+        "scope": "Static review for identifier leakage, preprocessing leakage, calibration leakage, metric gaming and unmeasured disparity."
+      },
+      "checks": [
+        {
+          "check": "Identifier excluded from features",
+          "status": "pass",
+          "evidence": "customerID is absent from ALL_FEATURES; it is unique per row."
+        },
+        {
+          "check": "Sensitive attributes not modelled",
+          "status": "pass",
+          "evidence": "gender, SeniorCitizen, Partner routed to the fairness audit only."
+        },
+        {
+          "check": "Imputation fitted per fold",
+          "status": "pass",
+          "evidence": "SimpleImputer sits inside the ColumnTransformer that CV clones; the 11 blank TotalCharges are never filled at load time."
+        },
+        {
+          "check": "Split stratified and disjoint",
+          "status": "pass",
+          "evidence": "assert_disjoint() enforced; prevalence held at 0.2654 across folds."
+        },
+        {
+          "check": "Calibrator fitted without seeing its own evaluation data",
+          "status": "pass",
+          "evidence": "CalibratedClassifierCV(cv=3) refits the base estimator on inner folds; the hold-out is untouched by calibration."
+        },
+        {
+          "check": "Metric appropriate to prevalence",
+          "status": "pass",
+          "evidence": "PR-AUC is the headline at 26.5% prevalence; accuracy is reported but flagged as misleading."
+        },
+        {
+          "check": "Threshold justified",
+          "status": "pass",
+          "evidence": "Deployed at 0.27 from an explicit cost matrix, not the 0.5 default."
+        },
+        {
+          "check": "Search overfitting",
+          "status": "pass",
+          "evidence": "No family exceeds a 0.03 CV-to-hold-out gap."
+        },
+        {
+          "check": "Fairness measured, not assumed",
+          "status": "pass",
+          "evidence": "3 attributes audited on four criteria; failures: ['SeniorCitizen', 'Partner']."
+        },
+        {
+          "check": "Baselines published",
+          "status": "pass",
+          "evidence": "Prevalence floor and an analyst heuristic both reported."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "All estimators, splits and CV folds seeded at 42."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [
+        {
+          "name": "Predict base rate for everyone",
+          "score": 0.265436
+        },
+        {
+          "name": "Analyst heuristic (contract + tenure + fibre)",
+          "score": 0.539313
+        }
+      ],
+      "headline": {
+        "pr_auc": 0.660406,
+        "roc_auc": 0.848044,
+        "recall_at_deployed": 0.820856,
+        "precision_at_deployed": 0.514238,
+        "deployed_threshold": 0.2746,
+        "calibration": "isotonic",
+        "worst_disparate_impact": 0.5083,
+        "campaign_net_value": 11597.29
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T18:14:10+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "telco_churn",
+        "seed": 42,
+        "quick_mode": false,
+        "calibration": "isotonic",
+        "threshold": 0.2746
+      },
+      "findings": []
+    },
+    {
+      "slug": "segments",
+      "trained": true,
+      "own_audit": {
+        "passed": 9,
+        "total": 9,
+        "grade": "A",
+        "scope": "Review for the failure modes specific to unsupervised work: imposing structure on noise, unstable partitions, and selecting k by an index that cannot fail."
+      },
+      "checks": [
+        {
+          "check": "No target leakage possible",
+          "status": "pass",
+          "evidence": "Unsupervised task; there is no label anywhere in the pipeline."
+        },
+        {
+          "check": "Transform fitted as part of the model",
+          "status": "pass",
+          "evidence": "log1p and StandardScaler are Pipeline steps pickled with the centroids, so inference reproduces training exactly."
+        },
+        {
+          "check": "Cluster count justified, not assumed",
+          "status": "pass",
+          "evidence": "k swept 2-10 on silhouette, Davies-Bouldin, Calinski-Harabasz and the elbow; disagreement reported openly."
+        },
+        {
+          "check": "Null hypothesis tested",
+          "status": "pass",
+          "evidence": "Maximum gap over a uniform null is 1.924. A positive gap means the data is genuinely more clustered than featureless noise spanning the same range; a gap near zero at every k would mean there is no segment structure to find."
+        },
+        {
+          "check": "Stability verified",
+          "status": "pass",
+          "evidence": "Bootstrap ARI 0.9273 over resampled subsets; a partition that dissolved would be rejected."
+        },
+        {
+          "check": "Multiple algorithms cross-checked",
+          "status": "pass",
+          "evidence": "Four algorithms with different cluster definitions; best pairwise ARI 0.4817."
+        },
+        {
+          "check": "Exclusions counted",
+          "status": "pass",
+          "evidence": "1 customers removed by the stated rule 'monetary > 0 and frequency > 0'."
+        },
+        {
+          "check": "Per-customer confidence published",
+          "status": "pass",
+          "evidence": "Individual silhouette values reported; boundary members flagged rather than presented as confident assignments."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "All algorithms seeded at 42; n_init pinned."
+        }
+      ],
+      "gates": {
+        "passed": 5,
+        "total": 6
+      },
+      "baselines": [],
+      "headline": {
+        "k": 4,
+        "silhouette": 0.238943,
+        "davies_bouldin": 1.292298,
+        "stability_ari": 0.9273,
+        "segments": 4,
+        "gap_supports_clustering": true
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T19:47:28+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "online_retail_rfm",
+        "seed": 42,
+        "quick_mode": false,
+        "k": 4
+      },
+      "findings": [
+        "1 CRISP-DM gate(s) failed."
+      ]
+    },
+    {
+      "slug": "basket",
+      "trained": true,
+      "own_audit": {
+        "passed": 9,
+        "total": 9,
+        "grade": "A",
+        "scope": "Review for the failure modes specific to pattern mining: rules that restate base rates, seasonal artefacts presented as durable, and undisclosed thresholds that manufacture the result."
+      },
+      "checks": [
+        {
+          "check": "Exact algorithms cross-validated",
+          "status": "pass",
+          "evidence": "Apriori and FP-Growth itemsets identical: True."
+        },
+        {
+          "check": "Rules validated out of sample",
+          "status": "pass",
+          "evidence": "Rules mined on the first 80% of invoices by date; lift recomputed on the final 20%. A rule is 'confirmed' if its out-of-sample lift still exceeds 1.2."
+        },
+        {
+          "check": "Hold-out split is temporal, not random",
+          "status": "pass",
+          "evidence": "Invoices ordered by date; the final 20% form the hold-out, so seasonal patterns cannot appear on both sides."
+        },
+        {
+          "check": "Ranking metric corrects for base rates",
+          "status": "pass",
+          "evidence": "Rules ranked by lift; confidence retained only as a filter. Leverage, conviction and Zhang's metric reported alongside."
+        },
+        {
+          "check": "Support floor and vocabulary cut disclosed",
+          "status": "pass",
+          "evidence": "The vocabulary is capped at 480 items covering 49.6% of all line items. The excluded tail appears in too few baskets for a support estimate to be stable, and including it would inf"
+        },
+        {
+          "check": "No silent truncation",
+          "status": "pass",
+          "evidence": "3,351 singleton baskets and the item tail are both counted and reported in the EDA payload."
+        },
+        {
+          "check": "Failed rules reported",
+          "status": "pass",
+          "evidence": "0 degraded and 189 unmeasurable rules retained in the payload with their status, not dropped."
+        },
+        {
+          "check": "Causal language avoided",
+          "status": "pass",
+          "evidence": "Model card states explicitly that co-occurrence is not causation."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "Both miners are deterministic; the vocabulary cut is by rank with a stable sort."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [],
+      "headline": {
+        "baskets": 16785,
+        "items": 480,
+        "frequent_itemsets": 1497,
+        "rules": 1861,
+        "max_lift": 43.99,
+        "faster_algorithm": "Apriori",
+        "speedup": 3.22,
+        "rules_holding_out_of_sample": 1672,
+        "rule_survival_rate": 1.0
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T20:39:49+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "online_retail_transactions",
+        "seed": 42,
+        "quick_mode": false,
+        "min_support": 0.012
+      },
+      "findings": []
+    },
+    {
+      "slug": "anomaly",
+      "trained": true,
+      "own_audit": {
+        "passed": 10,
+        "total": 10,
+        "grade": "A",
+        "scope": "Review for the failure modes specific to unsupervised detection: label leakage through hyperparameters, accuracy theatre under extreme imbalance, and aggregate metrics concealing blind classes."
+      },
+      "checks": [
+        {
+          "check": "Labels never used for fitting",
+          "status": "pass",
+          "evidence": "prepare() asserts the label columns are absent from X; all five detectors receive the transformed feature matrix only."
+        },
+        {
+          "check": "Contamination not set from observed rate",
+          "status": "pass",
+          "evidence": "Set to the assumed 2%, not the true 3.37% -- passing the truth would be leakage through a hyperparameter."
+        },
+        {
+          "check": "Metric appropriate to extreme imbalance",
+          "status": "pass",
+          "evidence": "PR-AUC and precision@k are the headline; accuracy is flagged as misleading at a 3.4% base rate."
+        },
+        {
+          "check": "Scaler robust to the signal",
+          "status": "pass",
+          "evidence": "RobustScaler(5-95) used so outlier-inflated variance does not shrink the deviations being detected."
+        },
+        {
+          "check": "Multiple detector assumptions compared",
+          "status": "pass",
+          "evidence": "4 detectors with distinct definitions of anomaly, each with its blind spot documented."
+        },
+        {
+          "check": "Fusion evaluated, not assumed",
+          "status": "pass",
+          "evidence": "Rank fusion did not improve on the best single detector and was deployed accordingly."
+        },
+        {
+          "check": "Per-class performance reported",
+          "status": "pass",
+          "evidence": "Per-family recall published, including families with zero recall."
+        },
+        {
+          "check": "Baselines published",
+          "status": "pass",
+          "evidence": "Random ranking and hand-written signature rules both reported."
+        },
+        {
+          "check": "Dataset limitations disclosed",
+          "status": "pass",
+          "evidence": "Model card states prominently that KDD-99 is a 1999 simulation and that results are a methodology demonstration."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "All detectors and samplers seeded at 42."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [
+        {
+          "name": "Random ranking",
+          "score": 0.0337
+        },
+        {
+          "name": "Rule: high SYN error rate",
+          "score": 0.2538
+        },
+        {
+          "name": "Rule: unusual payload size",
+          "score": 0.0681
+        }
+      ],
+      "headline": {
+        "pr_auc": 0.473889,
+        "roc_auc": 0.965933,
+        "attack_rate": 0.033675,
+        "lift_over_random": 14.1,
+        "precision_at_100": 0.56,
+        "detectors_compared": 4
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T21:29:36+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "kdd99_intrusion",
+        "seed": 42,
+        "quick_mode": false,
+        "deployed": "Isolation Forest"
+      },
+      "findings": []
+    },
+    {
+      "slug": "forecast",
+      "trained": true,
+      "own_audit": {
+        "passed": 13,
+        "total": 13,
+        "grade": "A",
+        "scope": "Review for the failure modes specific to time series: lookahead in rolling windows, unshuffled-but-unpurged CV, uneven spacing treated as even, and one-step accuracy quoted for multi-step use."
+      },
+      "checks": [
+        {
+          "check": "No shuffling anywhere",
+          "status": "pass",
+          "evidence": "temporal_split asserts monotonic timestamps; every CV fold is an expanding window in time order."
+        },
+        {
+          "check": "Rolling features shifted before aggregation",
+          "status": "pass",
+          "evidence": "engineer() computes past = target.shift(1) and derives every rolling statistic from it, so no window contains its own target."
+        },
+        {
+          "check": "Target-summing columns excluded",
+          "status": "pass",
+          "evidence": "casual + registered == cnt exactly. Either would give a perfect score and neither is known before the hour happens."
+        },
+        {
+          "check": "CV purged by the maximum look-back",
+          "status": "pass",
+          "evidence": "PurgedTimeSeriesSplit(window=168, embargo=24) -- training rows whose feature window reaches into validation are dropped."
+        },
+        {
+          "check": "Gaps made explicit, not silently skipped",
+          "status": "pass",
+          "evidence": "The archive omits 165 hours. They are reindexed in as explicit NaNs rather than left as absent rows, so a 24-lag is genuinely 24 hours back. Rows whose target is missing are exclud"
+        },
+        {
+          "check": "Missing targets never imputed",
+          "status": "pass",
+          "evidence": "165 hours with no observed demand are excluded from both training and scoring."
+        },
+        {
+          "check": "Baseline scored under the identical protocol",
+          "status": "pass",
+          "evidence": "Seasonal naive is an estimator inside the same backtest loop, not a separately-computed number."
+        },
+        {
+          "check": "Skill measured head-to-head, not inferred from MASE",
+          "status": "pass",
+          "evidence": "MASE 0.3346532242437272 is reported, but the deciding comparison is the skill score 0.5516 = 1 - MAE_model/MAE_naive, both on the same hold-out. MASE's denominator is in-sample error, so MASE < 1 alone would not establish skill."
+        },
+        {
+          "check": "Multi-horizon evaluated honestly",
+          "status": "pass",
+          "evidence": "At horizon h, every lag shorter than h is removed, because it would not have been observed yet. This is the difference between a real multi-step forecast and a "
+        },
+        {
+          "check": "Intervals conformally calibrated and coverage-tested",
+          "status": "pass",
+          "evidence": "Quantile models fitted on the first 85% of training and calibrated on the most recent 15% they never saw. Coverage went 67.1% -> 79.2% against 80% nominal."
+        },
+        {
+          "check": "Conformal calibration set disjoint from quantile fitting",
+          "status": "pass",
+          "evidence": "The calibration block is the last 15% of the training span and is excluded from the quantile models' fit, so conformity scores are genuinely out-of-sample."
+        },
+        {
+          "check": "Search overfitting",
+          "status": "pass",
+          "evidence": "No model's hold-out MASE exceeds its CV MASE by more than 0.15."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "All estimators seeded at 42; folds are deterministic by position."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [
+        {
+          "name": "Overall mean",
+          "score": 174.853
+        },
+        {
+          "name": "Persistence (t-1)",
+          "score": 85.319
+        },
+        {
+          "name": "Seasonal naive (t-168)",
+          "score": 64.217
+        },
+        {
+          "name": "Hour-of-day climatology",
+          "score": 113.689
+        }
+      ],
+      "headline": {
+        "mase": 0.334653,
+        "mae": 28.79689,
+        "rmse": 45.654637,
+        "r2": 0.957121,
+        "skill_vs_seasonal_naive": 0.5516,
+        "beats_seasonal_naive": true,
+        "interval_coverage": 0.792005,
+        "folds": 5
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T18:16:32+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "bike_sharing_hourly",
+        "seed": 42,
+        "quick_mode": false,
+        "champion": "Gradient boosting on lags"
+      },
+      "findings": []
+    },
+    {
+      "slug": "automl",
+      "trained": true,
+      "own_audit": {
+        "passed": 11,
+        "total": 11,
+        "grade": "A",
+        "scope": "Review for the failure modes specific to automated search: hold-out contamination through repeated selection, stacking on in-fold predictions, artefact features that inflate CV, and unnecessary complexity presented as necessary."
+      },
+      "checks": [
+        {
+          "check": "Survey-design artefact excluded",
+          "status": "pass",
+          "evidence": "Census sampling weight -- a survey-design artefact describing how many people the row represents, not a property of the person. Correlates with geogra"
+        },
+        {
+          "check": "Redundant duplicate column removed",
+          "status": "pass",
+          "evidence": "education dropped in favour of the equivalent ordinal education_num."
+        },
+        {
+          "check": "Sensitive attributes not modelled",
+          "status": "pass",
+          "evidence": "sex, race and age band are excluded from the feature matrix and used only to measure disparity. Exclusion does not make the model fair -- occupation, "
+        },
+        {
+          "check": "Preprocessing fitted per fold",
+          "status": "pass",
+          "evidence": "Imputation, rare-level grouping and one-hot encoding are all ColumnTransformer steps inside the cloned Pipeline."
+        },
+        {
+          "check": "Stacking uses out-of-fold predictions only",
+          "status": "pass",
+          "evidence": "The meta-learner is trained exclusively on out-of-fold predictions: every base-model probability it sees was produced by a model that did not train on that row. Fitting i"
+        },
+        {
+          "check": "Hold-out scored once per family",
+          "status": "pass",
+          "evidence": "Hyperparameter search ran on CV folds; the hold-out was predicted after the search closed."
+        },
+        {
+          "check": "Search overfitting quantified",
+          "status": "pass",
+          "evidence": "No family overfitted the search. All 6 score at least as well on the untouched hold-out as on cross-validation (mean gap -0.0032), so the hill climbing did not fit its ow"
+        },
+        {
+          "check": "Necessity of complexity tested",
+          "status": "pass",
+          "evidence": "Depth-4 distilled tree retains 93.1% of AUC at 92.5% fidelity; reported rather than hidden."
+        },
+        {
+          "check": "Fairness measured on multiple criteria",
+          "status": "pass",
+          "evidence": "3 attributes on four criteria; failures: ['sex', 'race', 'age_band']."
+        },
+        {
+          "check": "Baselines published",
+          "status": "pass",
+          "evidence": "Random and an analyst heuristic both reported."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "All estimators, splits and folds seeded at 42."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [
+        {
+          "name": "Predict base rate",
+          "score": 0.5
+        },
+        {
+          "name": "Analyst heuristic (education + hours + capital)",
+          "score": 0.7543
+        }
+      ],
+      "headline": {
+        "roc_auc": 0.931425,
+        "pr_auc": 0.836278,
+        "trials": 101,
+        "families": 6,
+        "ensemble_gain": 0.0001,
+        "distillation_fidelity": 0.9249,
+        "worst_disparate_impact": 0.0203,
+        "families_overfitting_search": 0
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T21:16:26+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "adult_census_income",
+        "seed": 42,
+        "quick_mode": false,
+        "deployed": "Caruana greedy ensemble"
+      },
+      "findings": []
+    },
+    {
+      "slug": "nanollm",
+      "trained": true,
+      "own_audit": {
+        "passed": 10,
+        "total": 10,
+        "grade": "A",
+        "scope": "Review for the failure modes specific to generative modelling: lookahead through a missing causal mask, shuffled text splits, and sample quality substituted for measurement."
+      },
+      "checks": [
+        {
+          "check": "Validation block contiguous and unshuffled",
+          "status": "pass",
+          "evidence": "The final 10% of the text, as one contiguous block, is held out. Never shuffled: a random split would place a line in training and the next line in validation, so the mod"
+        },
+        {
+          "check": "Causal masking enforced",
+          "status": "pass",
+          "evidence": "Lower-triangular mask registered as a buffer inside attention; the published attention maps are exactly zero above the diagonal."
+        },
+        {
+          "check": "No batch spans the train/validation boundary",
+          "status": "pass",
+          "evidence": "get_batch samples windows from one split tensor at a time, and the two tensors are disjoint slices of the corpus."
+        },
+        {
+          "check": "Metric compared against explicit baselines",
+          "status": "pass",
+          "evidence": "Validation 2.1714 bits/char against a 4.7794 unigram floor and 6.0224 uniform."
+        },
+        {
+          "check": "Sample output not presented as evidence",
+          "status": "pass",
+          "evidence": "Samples are labelled illustrative; every claim rests on held-out cross-entropy."
+        },
+        {
+          "check": "Overfitting reported, not cropped",
+          "status": "pass",
+          "evidence": "Train and validation loss first separate by more than 0.05 nats at step 125. Beyond that the model is spending capacity memorising rather than general"
+        },
+        {
+          "check": "Best checkpoint selected on validation, not training",
+          "status": "pass",
+          "evidence": "State dict snapshotted whenever validation loss improves."
+        },
+        {
+          "check": "Evaluation windows fixed across steps",
+          "status": "pass",
+          "evidence": "The loss estimator re-seeds its generator each call, so successive measurements are on identical windows and the curve is comparable."
+        },
+        {
+          "check": "Capability limits stated",
+          "status": "pass",
+          "evidence": "Model card states the model has no knowledge and cannot answer questions."
+        },
+        {
+          "check": "Determinism",
+          "status": "pass",
+          "evidence": "torch, numpy and the batch generator all seeded at 42."
+        }
+      ],
+      "gates": {
+        "passed": 6,
+        "total": 6
+      },
+      "baselines": [
+        {
+          "name": "uniform_random",
+          "score": 6.0224
+        },
+        {
+          "name": "unigram_frequency",
+          "score": 4.7794
+        }
+      ],
+      "headline": {
+        "parameters": 812288,
+        "val_bits_per_char": 2.1714,
+        "perplexity": 4.505,
+        "beats_unigram_baseline": true,
+        "improvement_over_unigram_bits": 2.608,
+        "layers": 4,
+        "heads": 4,
+        "context": 128,
+        "training_seconds": 249.4
+      },
+      "provenance": {
+        "trained_at": "2026-09-02T20:21:34+00:00",
+        "git_commit": null,
+        "python": "3.12.13",
+        "platform": "Darwin arm64",
+        "dataset": "tiny_shakespeare",
+        "seed": 42,
+        "quick_mode": false,
+        "device": "mps",
+        "steps": 2500
+      },
+      "findings": []
+    }
+  ],
+  "summary": {
+    "projects": 8,
+    "trained": 8,
+    "checks_passed": 83,
+    "checks_total": 83,
+    "gates_passed": 47,
+    "gates_total": 48,
+    "static_critical": 0,
+    "static_warnings": 0,
+    "open_findings": 1
+  },
+  "limits_of_this_audit": [
+    "A static scan matches syntax, not semantics. It cannot detect leakage expressed through a variable it did not follow, nor a feature that is legitimate in form but computed from the future in substance.",
+    "It does not verify that the numbers in the artifacts were produced by the code as committed; that is what the pinned seeds, the git commit stamped into every artifact and the reproduction instructions are for.",
+    "Passing every check means the known failure modes were checked for. It does not mean the analysis is correct."
+  ]
+}

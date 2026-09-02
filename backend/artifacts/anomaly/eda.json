@@ -1,0 +1,2500 @@
+{
+  "shape": {
+    "rows": 80000,
+    "columns": 13
+  },
+  "memory_mb": 18.95,
+  "dtypes": {
+    "duration": "int64",
+    "src_bytes": "int64",
+    "dst_bytes": "int64",
+    "count": "int64",
+    "srv_count": "int64",
+    "serror_rate": "float64",
+    "same_srv_rate": "float64",
+    "dst_host_count": "int64",
+    "log_src_bytes": "float64",
+    "log_dst_bytes": "float64",
+    "protocol_type": "object",
+    "service": "object",
+    "flag": "object"
+  },
+  "numeric": [
+    {
+      "column": "duration",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 204.782312,
+      "median": 0.0,
+      "std": 1315.353012,
+      "min": 0.0,
+      "max": 58329.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 10.540855,
+      "kurtosis": 162.47349,
+      "zeros": 70744,
+      "negatives": 0,
+      "n_unique": 1972,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 9256,
+      "outlier_pct": 0.1157,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 345.933393,
+          "count": 76476
+        },
+        {
+          "bin_start": 345.933393,
+          "bin_end": 691.866786,
+          "count": 116
+        },
+        {
+          "bin_start": 691.866786,
+          "bin_end": 1037.800179,
+          "count": 82
+        },
+        {
+          "bin_start": 1037.800179,
+          "bin_end": 1383.733571,
+          "count": 124
+        },
+        {
+          "bin_start": 1383.733571,
+          "bin_end": 1729.666964,
+          "count": 125
+        },
+        {
+          "bin_start": 1729.666964,
+          "bin_end": 2075.600357,
+          "count": 151
+        },
+        {
+          "bin_start": 2075.600357,
+          "bin_end": 2421.53375,
+          "count": 192
+        },
+        {
+          "bin_start": 2421.53375,
+          "bin_end": 2767.467143,
+          "count": 1249
+        },
+        {
+          "bin_start": 2767.467143,
+          "bin_end": 3113.400536,
+          "count": 76
+        },
+        {
+          "bin_start": 3113.400536,
+          "bin_end": 3459.333929,
+          "count": 61
+        },
+        {
+          "bin_start": 3459.333929,
+          "bin_end": 3805.267321,
+          "count": 70
+        },
+        {
+          "bin_start": 3805.267321,
+          "bin_end": 4151.200714,
+          "count": 102
+        },
+        {
+          "bin_start": 4151.200714,
+          "bin_end": 4497.134107,
+          "count": 93
+        },
+        {
+          "bin_start": 4497.134107,
+          "bin_end": 4843.0675,
+          "count": 139
+        },
+        {
+          "bin_start": 4843.0675,
+          "bin_end": 5189.000893,
+          "count": 71
+        },
+        {
+          "bin_start": 5189.000893,
+          "bin_end": 5534.934286,
+          "count": 41
+        },
+        {
+          "bin_start": 5534.934286,
+          "bin_end": 5880.867679,
+          "count": 53
+        },
+        {
+          "bin_start": 5880.867679,
+          "bin_end": 6226.801071,
+          "count": 31
+        },
+        {
+          "bin_start": 6226.801071,
+          "bin_end": 6572.734464,
+          "count": 29
+        },
+        {
+          "bin_start": 6572.734464,
+          "bin_end": 6918.667857,
+          "count": 42
+        },
+        {
+          "bin_start": 6918.667857,
+          "bin_end": 7264.60125,
+          "count": 55
+        },
+        {
+          "bin_start": 7264.60125,
+          "bin_end": 7610.534643,
+          "count": 23
+        },
+        {
+          "bin_start": 7610.534643,
+          "bin_end": 7956.468036,
+          "count": 48
+        },
+        {
+          "bin_start": 7956.468036,
+          "bin_end": 8302.401429,
+          "count": 32
+        },
+        {
+          "bin_start": 8302.401429,
+          "bin_end": 8648.334821,
+          "count": 22
+        },
+        {
+          "bin_start": 8648.334821,
+          "bin_end": 8994.268214,
+          "count": 19
+        },
+        {
+          "bin_start": 8994.268214,
+          "bin_end": 9340.201607,
+          "count": 38
+        },
+        {
+          "bin_start": 9340.201607,
+          "bin_end": 9686.135,
+          "count": 40
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 9686.135,
+        "clipped_below": 0,
+        "clipped_above": 400
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 29.0,
+        "p99": 5647.09
+      }
+    },
+    {
+      "column": "src_bytes",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 1207.483162,
+      "median": 232.0,
+      "std": 38036.853609,
+      "min": 0.0,
+      "max": 5135678.0,
+      "q1": 146.0,
+      "q3": 317.0,
+      "iqr": 171.0,
+      "skew": 73.891747,
+      "kurtosis": 6618.275206,
+      "zeros": 5196,
+      "negatives": 0,
+      "n_unique": 3041,
+      "outlier_fences": {
+        "lower": -110.5,
+        "upper": 573.5
+      },
+      "outlier_count": 11352,
+      "outlier_pct": 0.1419,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 451.43125,
+          "count": 67901
+        },
+        {
+          "bin_start": 451.43125,
+          "bin_end": 902.8625,
+          "count": 3077
+        },
+        {
+          "bin_start": 902.8625,
+          "bin_end": 1354.29375,
+          "count": 4353
+        },
+        {
+          "bin_start": 1354.29375,
+          "bin_end": 1805.725,
+          "count": 1626
+        },
+        {
+          "bin_start": 1805.725,
+          "bin_end": 2257.15625,
+          "count": 766
+        },
+        {
+          "bin_start": 2257.15625,
+          "bin_end": 2708.5875,
+          "count": 350
+        },
+        {
+          "bin_start": 2708.5875,
+          "bin_end": 3160.01875,
+          "count": 221
+        },
+        {
+          "bin_start": 3160.01875,
+          "bin_end": 3611.45,
+          "count": 138
+        },
+        {
+          "bin_start": 3611.45,
+          "bin_end": 4062.88125,
+          "count": 150
+        },
+        {
+          "bin_start": 4062.88125,
+          "bin_end": 4514.3125,
+          "count": 61
+        },
+        {
+          "bin_start": 4514.3125,
+          "bin_end": 4965.74375,
+          "count": 97
+        },
+        {
+          "bin_start": 4965.74375,
+          "bin_end": 5417.175,
+          "count": 61
+        },
+        {
+          "bin_start": 5417.175,
+          "bin_end": 5868.60625,
+          "count": 26
+        },
+        {
+          "bin_start": 5868.60625,
+          "bin_end": 6320.0375,
+          "count": 77
+        },
+        {
+          "bin_start": 6320.0375,
+          "bin_end": 6771.46875,
+          "count": 31
+        },
+        {
+          "bin_start": 6771.46875,
+          "bin_end": 7222.9,
+          "count": 107
+        },
+        {
+          "bin_start": 7222.9,
+          "bin_end": 7674.33125,
+          "count": 88
+        },
+        {
+          "bin_start": 7674.33125,
+          "bin_end": 8125.7625,
+          "count": 22
+        },
+        {
+          "bin_start": 8125.7625,
+          "bin_end": 8577.19375,
+          "count": 44
+        },
+        {
+          "bin_start": 8577.19375,
+          "bin_end": 9028.625,
+          "count": 42
+        },
+        {
+          "bin_start": 9028.625,
+          "bin_end": 9480.05625,
+          "count": 54
+        },
+        {
+          "bin_start": 9480.05625,
+          "bin_end": 9931.4875,
+          "count": 3
+        },
+        {
+          "bin_start": 9931.4875,
+          "bin_end": 10382.91875,
+          "count": 73
+        },
+        {
+          "bin_start": 10382.91875,
+          "bin_end": 10834.35,
+          "count": 33
+        },
+        {
+          "bin_start": 10834.35,
+          "bin_end": 11285.78125,
+          "count": 9
+        },
+        {
+          "bin_start": 11285.78125,
+          "bin_end": 11737.2125,
+          "count": 61
+        },
+        {
+          "bin_start": 11737.2125,
+          "bin_end": 12188.64375,
+          "count": 57
+        },
+        {
+          "bin_start": 12188.64375,
+          "bin_end": 12640.075,
+          "count": 72
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 12640.075,
+        "clipped_below": 0,
+        "clipped_above": 400
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 146.0,
+        "p50": 232.0,
+        "p75": 317.0,
+        "p95": 1496.0,
+        "p99": 8737.0
+      }
+    },
+    {
+      "column": "dst_bytes",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 3243.77155,
+      "median": 390.0,
+      "std": 37589.500849,
+      "min": 0.0,
+      "max": 5134218.0,
+      "q1": 105.0,
+      "q3": 2007.0,
+      "iqr": 1902.0,
+      "skew": 79.80555,
+      "kurtosis": 8222.055555,
+      "zeros": 14016,
+      "negatives": 0,
+      "n_unique": 9670,
+      "outlier_fences": {
+        "lower": -2748.0,
+        "upper": 4860.0
+      },
+      "outlier_count": 10411,
+      "outlier_pct": 0.130137,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 1526.678571,
+          "count": 56052
+        },
+        {
+          "bin_start": 1526.678571,
+          "bin_end": 3053.357143,
+          "count": 9366
+        },
+        {
+          "bin_start": 3053.357143,
+          "bin_end": 4580.035714,
+          "count": 3709
+        },
+        {
+          "bin_start": 4580.035714,
+          "bin_end": 6106.714286,
+          "count": 2180
+        },
+        {
+          "bin_start": 6106.714286,
+          "bin_end": 7633.392857,
+          "count": 1665
+        },
+        {
+          "bin_start": 7633.392857,
+          "bin_end": 9160.071429,
+          "count": 1249
+        },
+        {
+          "bin_start": 9160.071429,
+          "bin_end": 10686.75,
+          "count": 1113
+        },
+        {
+          "bin_start": 10686.75,
+          "bin_end": 12213.428571,
+          "count": 745
+        },
+        {
+          "bin_start": 12213.428571,
+          "bin_end": 13740.107143,
+          "count": 740
+        },
+        {
+          "bin_start": 13740.107143,
+          "bin_end": 15266.785714,
+          "count": 475
+        },
+        {
+          "bin_start": 15266.785714,
+          "bin_end": 16793.464286,
+          "count": 365
+        },
+        {
+          "bin_start": 16793.464286,
+          "bin_end": 18320.142857,
+          "count": 280
+        },
+        {
+          "bin_start": 18320.142857,
+          "bin_end": 19846.821429,
+          "count": 212
+        },
+        {
+          "bin_start": 19846.821429,
+          "bin_end": 21373.5,
+          "count": 160
+        },
+        {
+          "bin_start": 21373.5,
+          "bin_end": 22900.178571,
+          "count": 175
+        },
+        {
+          "bin_start": 22900.178571,
+          "bin_end": 24426.857143,
+          "count": 103
+        },
+        {
+          "bin_start": 24426.857143,
+          "bin_end": 25953.535714,
+          "count": 211
+        },
+        {
+          "bin_start": 25953.535714,
+          "bin_end": 27480.214286,
+          "count": 121
+        },
+        {
+          "bin_start": 27480.214286,
+          "bin_end": 29006.892857,
+          "count": 114
+        },
+        {
+          "bin_start": 29006.892857,
+          "bin_end": 30533.571429,
+          "count": 93
+        },
+        {
+          "bin_start": 30533.571429,
+          "bin_end": 32060.25,
+          "count": 90
+        },
+        {
+          "bin_start": 32060.25,
+          "bin_end": 33586.928571,
+          "count": 80
+        },
+        {
+          "bin_start": 33586.928571,
+          "bin_end": 35113.607143,
+          "count": 72
+        },
+        {
+          "bin_start": 35113.607143,
+          "bin_end": 36640.285714,
+          "count": 62
+        },
+        {
+          "bin_start": 36640.285714,
+          "bin_end": 38166.964286,
+          "count": 39
+        },
+        {
+          "bin_start": 38166.964286,
+          "bin_end": 39693.642857,
+          "count": 58
+        },
+        {
+          "bin_start": 39693.642857,
+          "bin_end": 41220.321429,
+          "count": 35
+        },
+        {
+          "bin_start": 41220.321429,
+          "bin_end": 42747.0,
+          "count": 39
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 42747.0,
+        "clipped_below": 0,
+        "clipped_above": 397
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 105.0,
+        "p50": 390.0,
+        "p75": 2007.0,
+        "p95": 12013.4,
+        "p99": 31614.25
+      }
+    },
+    {
+      "column": "count",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 21.683825,
+      "median": 3.0,
+      "std": 79.705925,
+      "min": 0.0,
+      "max": 511.0,
+      "q1": 1.0,
+      "q3": 11.0,
+      "iqr": 10.0,
+      "skew": 5.546651,
+      "kurtosis": 30.253767,
+      "zeros": 1,
+      "negatives": 0,
+      "n_unique": 370,
+      "outlier_fences": {
+        "lower": -14.0,
+        "upper": 26.0
+      },
+      "outlier_count": 6646,
+      "outlier_pct": 0.083075,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 19.214286,
+          "count": 69970
+        },
+        {
+          "bin_start": 19.214286,
+          "bin_end": 37.428571,
+          "count": 5661
+        },
+        {
+          "bin_start": 37.428571,
+          "bin_end": 55.642857,
+          "count": 801
+        },
+        {
+          "bin_start": 55.642857,
+          "bin_end": 73.857143,
+          "count": 297
+        },
+        {
+          "bin_start": 73.857143,
+          "bin_end": 92.071429,
+          "count": 154
+        },
+        {
+          "bin_start": 92.071429,
+          "bin_end": 110.285714,
+          "count": 134
+        },
+        {
+          "bin_start": 110.285714,
+          "bin_end": 128.5,
+          "count": 162
+        },
+        {
+          "bin_start": 128.5,
+          "bin_end": 146.714286,
+          "count": 171
+        },
+        {
+          "bin_start": 146.714286,
+          "bin_end": 164.928571,
+          "count": 98
+        },
+        {
+          "bin_start": 164.928571,
+          "bin_end": 183.142857,
+          "count": 41
+        },
+        {
+          "bin_start": 183.142857,
+          "bin_end": 201.357143,
+          "count": 59
+        },
+        {
+          "bin_start": 201.357143,
+          "bin_end": 219.571429,
+          "count": 113
+        },
+        {
+          "bin_start": 219.571429,
+          "bin_end": 237.785714,
+          "count": 115
+        },
+        {
+          "bin_start": 237.785714,
+          "bin_end": 256.0,
+          "count": 93
+        },
+        {
+          "bin_start": 256.0,
+          "bin_end": 274.214286,
+          "count": 108
+        },
+        {
+          "bin_start": 274.214286,
+          "bin_end": 292.428571,
+          "count": 80
+        },
+        {
+          "bin_start": 292.428571,
+          "bin_end": 310.642857,
+          "count": 34
+        },
+        {
+          "bin_start": 310.642857,
+          "bin_end": 328.857143,
+          "count": 13
+        },
+        {
+          "bin_start": 328.857143,
+          "bin_end": 347.071429,
+          "count": 2
+        },
+        {
+          "bin_start": 347.071429,
+          "bin_end": 365.285714,
+          "count": 2
+        },
+        {
+          "bin_start": 365.285714,
+          "bin_end": 383.5,
+          "count": 1
+        },
+        {
+          "bin_start": 383.5,
+          "bin_end": 401.714286,
+          "count": 2
+        },
+        {
+          "bin_start": 401.714286,
+          "bin_end": 419.928571,
+          "count": 0
+        },
+        {
+          "bin_start": 419.928571,
+          "bin_end": 438.142857,
+          "count": 8
+        },
+        {
+          "bin_start": 438.142857,
+          "bin_end": 456.357143,
+          "count": 59
+        },
+        {
+          "bin_start": 456.357143,
+          "bin_end": 474.571429,
+          "count": 20
+        },
+        {
+          "bin_start": 474.571429,
+          "bin_end": 492.785714,
+          "count": 43
+        },
+        {
+          "bin_start": 492.785714,
+          "bin_end": 511.0,
+          "count": 1758
+        }
+      ],
+      "histogram_range": {
+        "lower": 1.0,
+        "upper": 511.0,
+        "clipped_below": 1,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 1.0,
+        "p5": 1.0,
+        "p25": 1.0,
+        "p50": 3.0,
+        "p75": 11.0,
+        "p95": 42.0,
+        "p99": 511.0
+      }
+    },
+    {
+      "column": "srv_count",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 22.568775,
+      "median": 5.0,
+      "std": 78.122499,
+      "min": 0.0,
+      "max": 511.0,
+      "q1": 1.0,
+      "q3": 14.0,
+      "iqr": 13.0,
+      "skew": 5.725067,
+      "kurtosis": 32.273561,
+      "zeros": 1,
+      "negatives": 0,
+      "n_unique": 352,
+      "outlier_fences": {
+        "lower": -18.5,
+        "upper": 33.5
+      },
+      "outlier_count": 6303,
+      "outlier_pct": 0.078787,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 19.214286,
+          "count": 66306
+        },
+        {
+          "bin_start": 19.214286,
+          "bin_end": 37.428571,
+          "count": 8388
+        },
+        {
+          "bin_start": 37.428571,
+          "bin_end": 55.642857,
+          "count": 1837
+        },
+        {
+          "bin_start": 55.642857,
+          "bin_end": 73.857143,
+          "count": 404
+        },
+        {
+          "bin_start": 73.857143,
+          "bin_end": 92.071429,
+          "count": 208
+        },
+        {
+          "bin_start": 92.071429,
+          "bin_end": 110.285714,
+          "count": 165
+        },
+        {
+          "bin_start": 110.285714,
+          "bin_end": 128.5,
+          "count": 175
+        },
+        {
+          "bin_start": 128.5,
+          "bin_end": 146.714286,
+          "count": 170
+        },
+        {
+          "bin_start": 146.714286,
+          "bin_end": 164.928571,
+          "count": 137
+        },
+        {
+          "bin_start": 164.928571,
+          "bin_end": 183.142857,
+          "count": 52
+        },
+        {
+          "bin_start": 183.142857,
+          "bin_end": 201.357143,
+          "count": 60
+        },
+        {
+          "bin_start": 201.357143,
+          "bin_end": 219.571429,
+          "count": 52
+        },
+        {
+          "bin_start": 219.571429,
+          "bin_end": 237.785714,
+          "count": 48
+        },
+        {
+          "bin_start": 237.785714,
+          "bin_end": 256.0,
+          "count": 30
+        },
+        {
+          "bin_start": 256.0,
+          "bin_end": 274.214286,
+          "count": 25
+        },
+        {
+          "bin_start": 274.214286,
+          "bin_end": 292.428571,
+          "count": 22
+        },
+        {
+          "bin_start": 292.428571,
+          "bin_end": 310.642857,
+          "count": 19
+        },
+        {
+          "bin_start": 310.642857,
+          "bin_end": 328.857143,
+          "count": 15
+        },
+        {
+          "bin_start": 328.857143,
+          "bin_end": 347.071429,
+          "count": 2
+        },
+        {
+          "bin_start": 347.071429,
+          "bin_end": 365.285714,
+          "count": 2
+        },
+        {
+          "bin_start": 365.285714,
+          "bin_end": 383.5,
+          "count": 1
+        },
+        {
+          "bin_start": 383.5,
+          "bin_end": 401.714286,
+          "count": 2
+        },
+        {
+          "bin_start": 401.714286,
+          "bin_end": 419.928571,
+          "count": 0
+        },
+        {
+          "bin_start": 419.928571,
+          "bin_end": 438.142857,
+          "count": 8
+        },
+        {
+          "bin_start": 438.142857,
+          "bin_end": 456.357143,
+          "count": 59
+        },
+        {
+          "bin_start": 456.357143,
+          "bin_end": 474.571429,
+          "count": 20
+        },
+        {
+          "bin_start": 474.571429,
+          "bin_end": 492.785714,
+          "count": 43
+        },
+        {
+          "bin_start": 492.785714,
+          "bin_end": 511.0,
+          "count": 1749
+        }
+      ],
+      "histogram_range": {
+        "lower": 1.0,
+        "upper": 511.0,
+        "clipped_below": 1,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 1.0,
+        "p5": 1.0,
+        "p25": 1.0,
+        "p50": 5.0,
+        "p75": 14.0,
+        "p95": 47.0,
+        "p99": 511.0
+      }
+    },
+    {
+      "column": "serror_rate",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.009523,
+      "median": 0.0,
+      "std": 0.092949,
+      "min": 0.0,
+      "max": 1.0,
+      "q1": 0.0,
+      "q3": 0.0,
+      "iqr": 0.0,
+      "skew": 10.31943,
+      "kurtosis": 106.110974,
+      "zeros": 78756,
+      "negatives": 0,
+      "n_unique": 27,
+      "outlier_fences": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "outlier_count": 1244,
+      "outlier_pct": 0.01555,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.035714,
+          "count": 78810
+        },
+        {
+          "bin_start": 0.035714,
+          "bin_end": 0.071429,
+          "count": 179
+        },
+        {
+          "bin_start": 0.071429,
+          "bin_end": 0.107143,
+          "count": 83
+        },
+        {
+          "bin_start": 0.107143,
+          "bin_end": 0.142857,
+          "count": 57
+        },
+        {
+          "bin_start": 0.142857,
+          "bin_end": 0.178571,
+          "count": 35
+        },
+        {
+          "bin_start": 0.178571,
+          "bin_end": 0.214286,
+          "count": 26
+        },
+        {
+          "bin_start": 0.214286,
+          "bin_end": 0.25,
+          "count": 2
+        },
+        {
+          "bin_start": 0.25,
+          "bin_end": 0.285714,
+          "count": 40
+        },
+        {
+          "bin_start": 0.285714,
+          "bin_end": 0.321429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.321429,
+          "bin_end": 0.357143,
+          "count": 35
+        },
+        {
+          "bin_start": 0.357143,
+          "bin_end": 0.392857,
+          "count": 1
+        },
+        {
+          "bin_start": 0.392857,
+          "bin_end": 0.428571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.428571,
+          "bin_end": 0.464286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.464286,
+          "bin_end": 0.5,
+          "count": 0
+        },
+        {
+          "bin_start": 0.5,
+          "bin_end": 0.535714,
+          "count": 58
+        },
+        {
+          "bin_start": 0.535714,
+          "bin_end": 0.571429,
+          "count": 1
+        },
+        {
+          "bin_start": 0.571429,
+          "bin_end": 0.607143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.607143,
+          "bin_end": 0.642857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.642857,
+          "bin_end": 0.678571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.678571,
+          "bin_end": 0.714286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.714286,
+          "bin_end": 0.75,
+          "count": 0
+        },
+        {
+          "bin_start": 0.75,
+          "bin_end": 0.785714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.785714,
+          "bin_end": 0.821429,
+          "count": 0
+        },
+        {
+          "bin_start": 0.821429,
+          "bin_end": 0.857143,
+          "count": 0
+        },
+        {
+          "bin_start": 0.857143,
+          "bin_end": 0.892857,
+          "count": 0
+        },
+        {
+          "bin_start": 0.892857,
+          "bin_end": 0.928571,
+          "count": 0
+        },
+        {
+          "bin_start": 0.928571,
+          "bin_end": 0.964286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.964286,
+          "bin_end": 1.0,
+          "count": 673
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 1.0,
+        "clipped_below": 0,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p95": 0.0,
+        "p99": 0.25
+      }
+    },
+    {
+      "column": "same_srv_rate",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 0.976818,
+      "median": 1.0,
+      "std": 0.128459,
+      "min": 0.0,
+      "max": 1.0,
+      "q1": 1.0,
+      "q3": 1.0,
+      "iqr": 0.0,
+      "skew": -5.850199,
+      "kurtosis": 34.365577,
+      "zeros": 27,
+      "negatives": 0,
+      "n_unique": 65,
+      "outlier_fences": {
+        "lower": 1.0,
+        "upper": 1.0
+      },
+      "outlier_count": 2994,
+      "outlier_pct": 0.037425,
+      "histogram": [
+        {
+          "bin_start": 0.05,
+          "bin_end": 0.083929,
+          "count": 283
+        },
+        {
+          "bin_start": 0.083929,
+          "bin_end": 0.117857,
+          "count": 99
+        },
+        {
+          "bin_start": 0.117857,
+          "bin_end": 0.151786,
+          "count": 129
+        },
+        {
+          "bin_start": 0.151786,
+          "bin_end": 0.185714,
+          "count": 29
+        },
+        {
+          "bin_start": 0.185714,
+          "bin_end": 0.219643,
+          "count": 178
+        },
+        {
+          "bin_start": 0.219643,
+          "bin_end": 0.253571,
+          "count": 74
+        },
+        {
+          "bin_start": 0.253571,
+          "bin_end": 0.2875,
+          "count": 3
+        },
+        {
+          "bin_start": 0.2875,
+          "bin_end": 0.321429,
+          "count": 5
+        },
+        {
+          "bin_start": 0.321429,
+          "bin_end": 0.355357,
+          "count": 386
+        },
+        {
+          "bin_start": 0.355357,
+          "bin_end": 0.389286,
+          "count": 0
+        },
+        {
+          "bin_start": 0.389286,
+          "bin_end": 0.423214,
+          "count": 58
+        },
+        {
+          "bin_start": 0.423214,
+          "bin_end": 0.457143,
+          "count": 2
+        },
+        {
+          "bin_start": 0.457143,
+          "bin_end": 0.491071,
+          "count": 0
+        },
+        {
+          "bin_start": 0.491071,
+          "bin_end": 0.525,
+          "count": 897
+        },
+        {
+          "bin_start": 0.525,
+          "bin_end": 0.558929,
+          "count": 1
+        },
+        {
+          "bin_start": 0.558929,
+          "bin_end": 0.592857,
+          "count": 1
+        },
+        {
+          "bin_start": 0.592857,
+          "bin_end": 0.626786,
+          "count": 17
+        },
+        {
+          "bin_start": 0.626786,
+          "bin_end": 0.660714,
+          "count": 0
+        },
+        {
+          "bin_start": 0.660714,
+          "bin_end": 0.694643,
+          "count": 149
+        },
+        {
+          "bin_start": 0.694643,
+          "bin_end": 0.728571,
+          "count": 5
+        },
+        {
+          "bin_start": 0.728571,
+          "bin_end": 0.7625,
+          "count": 62
+        },
+        {
+          "bin_start": 0.7625,
+          "bin_end": 0.796429,
+          "count": 2
+        },
+        {
+          "bin_start": 0.796429,
+          "bin_end": 0.830357,
+          "count": 69
+        },
+        {
+          "bin_start": 0.830357,
+          "bin_end": 0.864286,
+          "count": 34
+        },
+        {
+          "bin_start": 0.864286,
+          "bin_end": 0.898214,
+          "count": 25
+        },
+        {
+          "bin_start": 0.898214,
+          "bin_end": 0.932143,
+          "count": 20
+        },
+        {
+          "bin_start": 0.932143,
+          "bin_end": 0.966071,
+          "count": 13
+        },
+        {
+          "bin_start": 0.966071,
+          "bin_end": 1.0,
+          "count": 77133
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.05,
+        "upper": 1.0,
+        "clipped_below": 326,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 0.14,
+        "p5": 1.0,
+        "p25": 1.0,
+        "p50": 1.0,
+        "p75": 1.0,
+        "p95": 1.0,
+        "p99": 1.0
+      }
+    },
+    {
+      "column": "dst_host_count",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 152.142212,
+      "median": 174.0,
+      "std": 103.394854,
+      "min": 0.0,
+      "max": 255.0,
+      "q1": 40.0,
+      "q3": 255.0,
+      "iqr": 215.0,
+      "skew": -0.23908,
+      "kurtosis": -1.688024,
+      "zeros": 3,
+      "negatives": 0,
+      "n_unique": 256,
+      "outlier_fences": {
+        "lower": -282.5,
+        "upper": 577.5
+      },
+      "outlier_count": 0,
+      "outlier_pct": 0.0,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 10.071429,
+          "count": 8591
+        },
+        {
+          "bin_start": 10.071429,
+          "bin_end": 19.142857,
+          "count": 4368
+        },
+        {
+          "bin_start": 19.142857,
+          "bin_end": 28.214286,
+          "count": 3368
+        },
+        {
+          "bin_start": 28.214286,
+          "bin_end": 37.285714,
+          "count": 2836
+        },
+        {
+          "bin_start": 37.285714,
+          "bin_end": 46.357143,
+          "count": 2385
+        },
+        {
+          "bin_start": 46.357143,
+          "bin_end": 55.428571,
+          "count": 2067
+        },
+        {
+          "bin_start": 55.428571,
+          "bin_end": 64.5,
+          "count": 1881
+        },
+        {
+          "bin_start": 64.5,
+          "bin_end": 73.571429,
+          "count": 1710
+        },
+        {
+          "bin_start": 73.571429,
+          "bin_end": 82.642857,
+          "count": 1638
+        },
+        {
+          "bin_start": 82.642857,
+          "bin_end": 91.714286,
+          "count": 1431
+        },
+        {
+          "bin_start": 91.714286,
+          "bin_end": 100.785714,
+          "count": 1393
+        },
+        {
+          "bin_start": 100.785714,
+          "bin_end": 109.857143,
+          "count": 1249
+        },
+        {
+          "bin_start": 109.857143,
+          "bin_end": 118.928571,
+          "count": 1172
+        },
+        {
+          "bin_start": 118.928571,
+          "bin_end": 128.0,
+          "count": 1107
+        },
+        {
+          "bin_start": 128.0,
+          "bin_end": 137.071429,
+          "count": 1156
+        },
+        {
+          "bin_start": 137.071429,
+          "bin_end": 146.142857,
+          "count": 975
+        },
+        {
+          "bin_start": 146.142857,
+          "bin_end": 155.214286,
+          "count": 903
+        },
+        {
+          "bin_start": 155.214286,
+          "bin_end": 164.285714,
+          "count": 872
+        },
+        {
+          "bin_start": 164.285714,
+          "bin_end": 173.357143,
+          "count": 828
+        },
+        {
+          "bin_start": 173.357143,
+          "bin_end": 182.428571,
+          "count": 801
+        },
+        {
+          "bin_start": 182.428571,
+          "bin_end": 191.5,
+          "count": 742
+        },
+        {
+          "bin_start": 191.5,
+          "bin_end": 200.571429,
+          "count": 701
+        },
+        {
+          "bin_start": 200.571429,
+          "bin_end": 209.642857,
+          "count": 662
+        },
+        {
+          "bin_start": 209.642857,
+          "bin_end": 218.714286,
+          "count": 634
+        },
+        {
+          "bin_start": 218.714286,
+          "bin_end": 227.785714,
+          "count": 593
+        },
+        {
+          "bin_start": 227.785714,
+          "bin_end": 236.857143,
+          "count": 530
+        },
+        {
+          "bin_start": 236.857143,
+          "bin_end": 245.928571,
+          "count": 516
+        },
+        {
+          "bin_start": 245.928571,
+          "bin_end": 255.0,
+          "count": 34888
+        }
+      ],
+      "histogram_range": {
+        "lower": 1.0,
+        "upper": 255.0,
+        "clipped_below": 3,
+        "clipped_above": 0
+      },
+      "percentiles": {
+        "p1": 1.0,
+        "p5": 4.0,
+        "p25": 40.0,
+        "p50": 174.0,
+        "p75": 255.0,
+        "p95": 255.0,
+        "p99": 255.0
+      }
+    },
+    {
+      "column": "log_src_bytes",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 5.195378,
+      "median": 5.451038,
+      "std": 1.700581,
+      "min": 0.0,
+      "max": 15.451723,
+      "q1": 4.990433,
+      "q3": 5.762051,
+      "iqr": 0.771619,
+      "skew": -1.421363,
+      "kurtosis": 3.988616,
+      "zeros": 5196,
+      "negatives": 0,
+      "n_unique": 3041,
+      "outlier_fences": {
+        "lower": 3.833004,
+        "upper": 6.91948
+      },
+      "outlier_count": 18453,
+      "outlier_pct": 0.230662,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.337311,
+          "count": 5196
+        },
+        {
+          "bin_start": 0.337311,
+          "bin_end": 0.674622,
+          "count": 0
+        },
+        {
+          "bin_start": 0.674622,
+          "bin_end": 1.011933,
+          "count": 2
+        },
+        {
+          "bin_start": 1.011933,
+          "bin_end": 1.349244,
+          "count": 0
+        },
+        {
+          "bin_start": 1.349244,
+          "bin_end": 1.686555,
+          "count": 1
+        },
+        {
+          "bin_start": 1.686555,
+          "bin_end": 2.023866,
+          "count": 55
+        },
+        {
+          "bin_start": 2.023866,
+          "bin_end": 2.361177,
+          "count": 307
+        },
+        {
+          "bin_start": 2.361177,
+          "bin_end": 2.698488,
+          "count": 178
+        },
+        {
+          "bin_start": 2.698488,
+          "bin_end": 3.035799,
+          "count": 79
+        },
+        {
+          "bin_start": 3.035799,
+          "bin_end": 3.37311,
+          "count": 66
+        },
+        {
+          "bin_start": 3.37311,
+          "bin_end": 3.71042,
+          "count": 1801
+        },
+        {
+          "bin_start": 3.71042,
+          "bin_end": 4.047731,
+          "count": 3579
+        },
+        {
+          "bin_start": 4.047731,
+          "bin_end": 4.385042,
+          "count": 203
+        },
+        {
+          "bin_start": 4.385042,
+          "bin_end": 4.722353,
+          "count": 6162
+        },
+        {
+          "bin_start": 4.722353,
+          "bin_end": 5.059664,
+          "count": 5078
+        },
+        {
+          "bin_start": 5.059664,
+          "bin_end": 5.396975,
+          "count": 12124
+        },
+        {
+          "bin_start": 5.396975,
+          "bin_end": 5.734286,
+          "count": 22718
+        },
+        {
+          "bin_start": 5.734286,
+          "bin_end": 6.071597,
+          "count": 10315
+        },
+        {
+          "bin_start": 6.071597,
+          "bin_end": 6.408908,
+          "count": 901
+        },
+        {
+          "bin_start": 6.408908,
+          "bin_end": 6.746219,
+          "count": 1805
+        },
+        {
+          "bin_start": 6.746219,
+          "bin_end": 7.08353,
+          "count": 3830
+        },
+        {
+          "bin_start": 7.08353,
+          "bin_end": 7.420841,
+          "count": 2189
+        },
+        {
+          "bin_start": 7.420841,
+          "bin_end": 7.758152,
+          "count": 1211
+        },
+        {
+          "bin_start": 7.758152,
+          "bin_end": 8.095463,
+          "count": 531
+        },
+        {
+          "bin_start": 8.095463,
+          "bin_end": 8.432774,
+          "count": 333
+        },
+        {
+          "bin_start": 8.432774,
+          "bin_end": 8.770085,
+          "count": 242
+        },
+        {
+          "bin_start": 8.770085,
+          "bin_end": 9.107396,
+          "count": 332
+        },
+        {
+          "bin_start": 9.107396,
+          "bin_end": 9.444707,
+          "count": 362
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 9.444707,
+        "clipped_below": 0,
+        "clipped_above": 400
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 4.990433,
+        "p50": 5.451038,
+        "p75": 5.762051,
+        "p95": 7.311218,
+        "p99": 9.075437
+      }
+    },
+    {
+      "column": "log_dst_bytes",
+      "kind": "numeric",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "mean": 5.564729,
+      "median": 5.968708,
+      "std": 2.953255,
+      "min": 0.0,
+      "max": 15.451438,
+      "q1": 4.663439,
+      "q3": 7.604894,
+      "iqr": 2.941455,
+      "skew": -0.783116,
+      "kurtosis": -0.267179,
+      "zeros": 14016,
+      "negatives": 0,
+      "n_unique": 9670,
+      "outlier_fences": {
+        "lower": 0.251256,
+        "upper": 12.017078
+      },
+      "outlier_count": 14094,
+      "outlier_pct": 0.176175,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 0.380824,
+          "count": 14016
+        },
+        {
+          "bin_start": 0.380824,
+          "bin_end": 0.761648,
+          "count": 2
+        },
+        {
+          "bin_start": 0.761648,
+          "bin_end": 1.142473,
+          "count": 0
+        },
+        {
+          "bin_start": 1.142473,
+          "bin_end": 1.523297,
+          "count": 0
+        },
+        {
+          "bin_start": 1.523297,
+          "bin_end": 1.904121,
+          "count": 84
+        },
+        {
+          "bin_start": 1.904121,
+          "bin_end": 2.284945,
+          "count": 1
+        },
+        {
+          "bin_start": 2.284945,
+          "bin_end": 2.665769,
+          "count": 0
+        },
+        {
+          "bin_start": 2.665769,
+          "bin_end": 3.046594,
+          "count": 31
+        },
+        {
+          "bin_start": 3.046594,
+          "bin_end": 3.427418,
+          "count": 32
+        },
+        {
+          "bin_start": 3.427418,
+          "bin_end": 3.808242,
+          "count": 1359
+        },
+        {
+          "bin_start": 3.808242,
+          "bin_end": 4.189066,
+          "count": 873
+        },
+        {
+          "bin_start": 4.189066,
+          "bin_end": 4.56989,
+          "count": 617
+        },
+        {
+          "bin_start": 4.56989,
+          "bin_end": 4.950715,
+          "count": 5233
+        },
+        {
+          "bin_start": 4.950715,
+          "bin_end": 5.331539,
+          "count": 5291
+        },
+        {
+          "bin_start": 5.331539,
+          "bin_end": 5.712363,
+          "count": 2981
+        },
+        {
+          "bin_start": 5.712363,
+          "bin_end": 6.093187,
+          "count": 11395
+        },
+        {
+          "bin_start": 6.093187,
+          "bin_end": 6.474011,
+          "count": 3609
+        },
+        {
+          "bin_start": 6.474011,
+          "bin_end": 6.854836,
+          "count": 4246
+        },
+        {
+          "bin_start": 6.854836,
+          "bin_end": 7.23566,
+          "count": 4681
+        },
+        {
+          "bin_start": 7.23566,
+          "bin_end": 7.616484,
+          "count": 5652
+        },
+        {
+          "bin_start": 7.616484,
+          "bin_end": 7.997308,
+          "count": 5078
+        },
+        {
+          "bin_start": 7.997308,
+          "bin_end": 8.378132,
+          "count": 3572
+        },
+        {
+          "bin_start": 8.378132,
+          "bin_end": 8.758957,
+          "count": 2882
+        },
+        {
+          "bin_start": 8.758957,
+          "bin_end": 9.139781,
+          "count": 2736
+        },
+        {
+          "bin_start": 9.139781,
+          "bin_end": 9.520605,
+          "count": 2419
+        },
+        {
+          "bin_start": 9.520605,
+          "bin_end": 9.901429,
+          "count": 1377
+        },
+        {
+          "bin_start": 9.901429,
+          "bin_end": 10.282253,
+          "count": 887
+        },
+        {
+          "bin_start": 10.282253,
+          "bin_end": 10.663078,
+          "count": 549
+        }
+      ],
+      "histogram_range": {
+        "lower": 0.0,
+        "upper": 10.663078,
+        "clipped_below": 0,
+        "clipped_above": 397
+      },
+      "percentiles": {
+        "p1": 0.0,
+        "p5": 0.0,
+        "p25": 4.663439,
+        "p50": 5.968708,
+        "p75": 7.604894,
+        "p95": 9.393861,
+        "p99": 10.361395
+      }
+    }
+  ],
+  "categorical": [
+    {
+      "column": "protocol_type",
+      "kind": "categorical",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "cardinality_ratio": 3.7e-05,
+      "mode": "tcp",
+      "top_values": [
+        {
+          "value": "tcp",
+          "count": 61807,
+          "share": 0.772587
+        },
+        {
+          "value": "udp",
+          "count": 15301,
+          "share": 0.191263
+        },
+        {
+          "value": "icmp",
+          "count": 2892,
+          "share": 0.03615
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "service",
+      "kind": "categorical",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 44,
+      "cardinality_ratio": 0.00055,
+      "mode": "http",
+      "top_values": [
+        {
+          "value": "http",
+          "count": 49114,
+          "share": 0.613925
+        },
+        {
+          "value": "smtp",
+          "count": 7656,
+          "share": 0.0957
+        },
+        {
+          "value": "private",
+          "count": 6669,
+          "share": 0.083363
+        },
+        {
+          "value": "domain_u",
+          "count": 4698,
+          "share": 0.058725
+        },
+        {
+          "value": "other",
+          "count": 4447,
+          "share": 0.055587
+        },
+        {
+          "value": "ftp_data",
+          "count": 3040,
+          "share": 0.038
+        },
+        {
+          "value": "ecr_i",
+          "count": 2160,
+          "share": 0.027
+        },
+        {
+          "value": "urp_i",
+          "count": 413,
+          "share": 0.005163
+        },
+        {
+          "value": "finger",
+          "count": 371,
+          "share": 0.004638
+        },
+        {
+          "value": "eco_i",
+          "count": 305,
+          "share": 0.003812
+        },
+        {
+          "value": "ftp",
+          "count": 301,
+          "share": 0.003762
+        },
+        {
+          "value": "ntp_u",
+          "count": 291,
+          "share": 0.003638
+        }
+      ],
+      "tail_share": 0.006687,
+      "is_high_cardinality": false
+    },
+    {
+      "column": "flag",
+      "kind": "categorical",
+      "count": 80000,
+      "missing": 0,
+      "missing_pct": 0.0,
+      "n_unique": 9,
+      "cardinality_ratio": 0.000112,
+      "mode": "SF",
+      "top_values": [
+        {
+          "value": "SF",
+          "count": 74776,
+          "share": 0.9347
+        },
+        {
+          "value": "REJ",
+          "count": 4392,
+          "share": 0.0549
+        },
+        {
+          "value": "S0",
+          "count": 681,
+          "share": 0.008512
+        },
+        {
+          "value": "RSTO",
+          "count": 61,
+          "share": 0.000763
+        },
+        {
+          "value": "S1",
+          "count": 41,
+          "share": 0.000513
+        },
+        {
+          "value": "RSTR",
+          "count": 29,
+          "share": 0.000362
+        },
+        {
+          "value": "S2",
+          "count": 14,
+          "share": 0.000175
+        },
+        {
+          "value": "S3",
+          "count": 5,
+          "share": 6.3e-05
+        },
+        {
+          "value": "OTH",
+          "count": 1,
+          "share": 1.3e-05
+        }
+      ],
+      "tail_share": 0.0,
+      "is_high_cardinality": false
+    }
+  ],
+  "correlation": {
+    "columns": [
+      "duration",
+      "src_bytes",
+      "dst_bytes",
+      "count",
+      "srv_count",
+      "serror_rate",
+      "same_srv_rate",
+      "dst_host_count",
+      "log_src_bytes",
+      "log_dst_bytes"
+    ],
+    "pearson": [
+      [
+        1.0,
+        -0.0041,
+        0.0142,
+        -0.0388,
+        -0.0419,
+        -0.0163,
+        -0.0855,
+        0.1381,
+        -0.0103,
+        -0.0366
+      ],
+      [
+        -0.0041,
+        1.0,
+        -0.0018,
+        -0.0036,
+        -0.0038,
+        -0.0017,
+        -0.0002,
+        -0.0112,
+        0.1189,
+        -0.0398
+      ],
+      [
+        0.0142,
+        -0.0018,
+        1.0,
+        -0.0164,
+        -0.0151,
+        -0.0068,
+        0.0148,
+        -0.0134,
+        0.0177,
+        0.1327
+      ],
+      [
+        -0.0388,
+        -0.0036,
+        -0.0164,
+        1.0,
+        0.9603,
+        0.1894,
+        -0.1401,
+        0.1991,
+        0.0665,
+        -0.3046
+      ],
+      [
+        -0.0419,
+        -0.0038,
+        -0.0151,
+        0.9603,
+        1.0,
+        -0.0164,
+        0.0396,
+        0.1822,
+        0.1382,
+        -0.2547
+      ],
+      [
+        -0.0163,
+        -0.0017,
+        -0.0068,
+        0.1894,
+        -0.0164,
+        1.0,
+        -0.6289,
+        0.0826,
+        -0.2803,
+        -0.1717
+      ],
+      [
+        -0.0855,
+        -0.0002,
+        0.0148,
+        -0.1401,
+        0.0396,
+        -0.6289,
+        1.0,
+        -0.1468,
+        0.2277,
+        0.2421
+      ],
+      [
+        0.1381,
+        -0.0112,
+        -0.0134,
+        0.1991,
+        0.1822,
+        0.0826,
+        -0.1468,
+        1.0,
+        0.0966,
+        -0.0881
+      ],
+      [
+        -0.0103,
+        0.1189,
+        0.0177,
+        0.0665,
+        0.1382,
+        -0.2803,
+        0.2277,
+        0.0966,
+        1.0,
+        0.407
+      ],
+      [
+        -0.0366,
+        -0.0398,
+        0.1327,
+        -0.3046,
+        -0.2547,
+        -0.1717,
+        0.2421,
+        -0.0881,
+        0.407,
+        1.0
+      ]
+    ],
+    "spearman": [
+      [
+        1.0,
+        0.0566,
+        -0.1662,
+        -0.3224,
+        -0.3159,
+        -0.0444,
+        -0.0721,
+        0.1205,
+        0.0566,
+        -0.1662
+      ],
+      [
+        0.0566,
+        1.0,
+        0.3379,
+        0.1735,
+        0.2316,
+        -0.1072,
+        0.1653,
+        -0.0675,
+        1.0,
+        0.3379
+      ],
+      [
+        -0.1662,
+        0.3379,
+        1.0,
+        0.24,
+        0.3017,
+        -0.0812,
+        0.2268,
+        -0.172,
+        0.3379,
+        1.0
+      ],
+      [
+        -0.3224,
+        0.1735,
+        0.24,
+        1.0,
+        0.8886,
+        0.1538,
+        -0.1127,
+        0.2037,
+        0.1735,
+        0.24
+      ],
+      [
+        -0.3159,
+        0.2316,
+        0.3017,
+        0.8886,
+        1.0,
+        0.0675,
+        0.0705,
+        0.1098,
+        0.2316,
+        0.3017
+      ],
+      [
+        -0.0444,
+        -0.1072,
+        -0.0812,
+        0.1538,
+        0.0675,
+        1.0,
+        -0.3671,
+        0.062,
+        -0.1072,
+        -0.0812
+      ],
+      [
+        -0.0721,
+        0.1653,
+        0.2268,
+        -0.1127,
+        0.0705,
+        -0.3671,
+        1.0,
+        -0.1534,
+        0.1653,
+        0.2268
+      ],
+      [
+        0.1205,
+        -0.0675,
+        -0.172,
+        0.2037,
+        0.1098,
+        0.062,
+        -0.1534,
+        1.0,
+        -0.0675,
+        -0.172
+      ],
+      [
+        0.0566,
+        1.0,
+        0.3379,
+        0.1735,
+        0.2316,
+        -0.1072,
+        0.1653,
+        -0.0675,
+        1.0,
+        0.3379
+      ],
+      [
+        -0.1662,
+        0.3379,
+        1.0,
+        0.24,
+        0.3017,
+        -0.0812,
+        0.2268,
+        -0.172,
+        0.3379,
+        1.0
+      ]
+    ],
+    "strong_pairs": [
+      {
+        "a": "src_bytes",
+        "b": "log_src_bytes",
+        "pearson": 0.1189,
+        "spearman": 1.0,
+        "nonlinear_gap": 0.8811
+      },
+      {
+        "a": "dst_bytes",
+        "b": "log_dst_bytes",
+        "pearson": 0.1327,
+        "spearman": 1.0,
+        "nonlinear_gap": 0.8673
+      },
+      {
+        "a": "count",
+        "b": "srv_count",
+        "pearson": 0.9603,
+        "spearman": 0.8886,
+        "nonlinear_gap": -0.0718
+      },
+      {
+        "a": "serror_rate",
+        "b": "same_srv_rate",
+        "pearson": -0.6289,
+        "spearman": -0.3671,
+        "nonlinear_gap": -0.2618
+      }
+    ]
+  },
+  "missingness": {
+    "total_cells": 1040000,
+    "missing_cells": 0,
+    "missing_pct": 0.0,
+    "complete_rows_pct": 1.0,
+    "columns": [],
+    "co_missing_pairs": []
+  },
+  "quality": {
+    "dimensions": [
+      {
+        "dimension": "Completeness",
+        "score": 1.0,
+        "detail": "0 of 1,040,000 cells are null",
+        "worst_column": null
+      },
+      {
+        "dimension": "Uniqueness",
+        "score": 0.797538,
+        "detail": "16,197 fully duplicated rows"
+      },
+      {
+        "dimension": "Validity",
+        "score": 1.0,
+        "detail": "0 domain-rule violations across 2 rules",
+        "rules": [
+          {
+            "column": "duration",
+            "rule": "duration >= 0",
+            "violations": 0,
+            "violation_pct": 0.0
+          },
+          {
+            "column": "src_bytes",
+            "rule": "src_bytes >= 0",
+            "violations": 0,
+            "violation_pct": 0.0
+          }
+        ]
+      },
+      {
+        "dimension": "Consistency",
+        "score": 1.0,
+        "detail": "no constant columns"
+      },
+      {
+        "dimension": "Timeliness",
+        "score": 1.0,
+        "detail": "no temporal column declared"
+      },
+      {
+        "dimension": "Cardinality health",
+        "score": 1.0,
+        "detail": "no identifier-like text columns among features"
+      }
+    ],
+    "overall_score": 0.966256,
+    "grade": "A",
+    "note": "Scores describe the data as published. Nothing here is repaired at the ingestion layer; remediation happens inside the modelling pipeline where it can be fitted per-fold."
+  },
+  "target_relationships": [],
+  "target": null,
+  "class_balance": {
+    "normal": 77306,
+    "attack": 2694,
+    "attack_rate": 0.033675,
+    "accuracy_of_flag_nothing": 0.9663,
+    "note": "A detector that flags nothing scores 96.6% accuracy. That is why accuracy appears nowhere in this project's headline."
+  },
+  "attack_families": [
+    {
+      "family": "smurf",
+      "count": 1875,
+      "share_of_attacks": 0.696
+    },
+    {
+      "family": "neptune",
+      "count": 773,
+      "share_of_attacks": 0.2869
+    },
+    {
+      "family": "back",
+      "count": 10,
+      "share_of_attacks": 0.0037
+    },
+    {
+      "family": "teardrop",
+      "count": 10,
+      "share_of_attacks": 0.0037
+    },
+    {
+      "family": "satan",
+      "count": 8,
+      "share_of_attacks": 0.003
+    },
+    {
+      "family": "ipsweep",
+      "count": 6,
+      "share_of_attacks": 0.0022
+    },
+    {
+      "family": "portsweep",
+      "count": 5,
+      "share_of_attacks": 0.0019
+    },
+    {
+      "family": "warezclient",
+      "count": 5,
+      "share_of_attacks": 0.0019
+    },
+    {
+      "family": "pod",
+      "count": 1,
+      "share_of_attacks": 0.0004
+    },
+    {
+      "family": "nmap",
+      "count": 1,
+      "share_of_attacks": 0.0004
+    }
+  ],
+  "separability": [
+    {
+      "feature": "count",
+      "attack_median": 511.0,
+      "normal_median": 3.0,
+      "cohens_d": 3.6036
+    },
+    {
+      "feature": "log_dst_bytes",
+      "attack_median": 0.0,
+      "normal_median": 6.0379,
+      "cohens_d": -2.8192
+    },
+    {
+      "feature": "srv_count",
+      "attack_median": 511.0,
+      "normal_median": 4.0,
+      "cohens_d": 2.1248
+    },
+    {
+      "feature": "dst_host_count",
+      "attack_median": 255.0,
+      "normal_median": 160.0,
+      "cohens_d": 1.418
+    },
+    {
+      "feature": "same_srv_rate",
+      "attack_median": 1.0,
+      "normal_median": 1.0,
+      "cohens_d": -0.8335
+    },
+    {
+      "feature": "serror_rate",
+      "attack_median": 0.0,
+      "normal_median": 0.0,
+      "cohens_d": 0.7828
+    },
+    {
+      "feature": "duration",
+      "attack_median": 0.0,
+      "normal_median": 0.0,
+      "cohens_d": -0.2215
+    },
+    {
+      "feature": "log_src_bytes",
+      "attack_median": 6.9402,
+      "normal_median": 5.4424,
+      "cohens_d": -0.156
+    },
+    {
+      "feature": "dst_bytes",
+      "attack_median": 0.0,
+      "normal_median": 418.0,
+      "cohens_d": -0.1229
+    },
+    {
+      "feature": "src_bytes",
+      "attack_median": 1032.0,
+      "normal_median": 230.0,
+      "cohens_d": 0.0217
+    }
+  ],
+  "label_policy": "Detectors are fitted on X alone. The label is used only to score the resulting rankings. Contamination is set from a stated operational assumption (2%), not from the observed rate (3.37%) -- in deployment that rate is unknown, and supplying it would be leaking the answer through a hyperparameter.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:29:36+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "kdd99_intrusion",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Isolation Forest"
+  }
+}

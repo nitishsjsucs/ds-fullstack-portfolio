@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "check": "No shuffling anywhere",
+      "status": "pass",
+      "evidence": "temporal_split asserts monotonic timestamps; every CV fold is an expanding window in time order."
+    },
+    {
+      "check": "Rolling features shifted before aggregation",
+      "status": "pass",
+      "evidence": "engineer() computes past = target.shift(1) and derives every rolling statistic from it, so no window contains its own target."
+    },
+    {
+      "check": "Target-summing columns excluded",
+      "status": "pass",
+      "evidence": "casual + registered == cnt exactly. Either would give a perfect score and neither is known before the hour happens."
+    },
+    {
+      "check": "CV purged by the maximum look-back",
+      "status": "pass",
+      "evidence": "PurgedTimeSeriesSplit(window=168, embargo=24) -- training rows whose feature window reaches into validation are dropped."
+    },
+    {
+      "check": "Gaps made explicit, not silently skipped",
+      "status": "pass",
+      "evidence": "The archive omits 165 hours. They are reindexed in as explicit NaNs rather than left as absent rows, so a 24-lag is genuinely 24 hours back. Rows whose target is missing are exclud"
+    },
+    {
+      "check": "Missing targets never imputed",
+      "status": "pass",
+      "evidence": "165 hours with no observed demand are excluded from both training and scoring."
+    },
+    {
+      "check": "Baseline scored under the identical protocol",
+      "status": "pass",
+      "evidence": "Seasonal naive is an estimator inside the same backtest loop, not a separately-computed number."
+    },
+    {
+      "check": "Skill measured head-to-head, not inferred from MASE",
+      "status": "pass",
+      "evidence": "MASE 0.3346532242437272 is reported, but the deciding comparison is the skill score 0.5516 = 1 - MAE_model/MAE_naive, both on the same hold-out. MASE's denominator is in-sample error, so MASE < 1 alone would not establish skill."
+    },
+    {
+      "check": "Multi-horizon evaluated honestly",
+      "status": "pass",
+      "evidence": "At horizon h, every lag shorter than h is removed, because it would not have been observed yet. This is the difference between a real multi-step forecast and a "
+    },
+    {
+      "check": "Intervals conformally calibrated and coverage-tested",
+      "status": "pass",
+      "evidence": "Quantile models fitted on the first 85% of training and calibrated on the most recent 15% they never saw. Coverage went 67.1% -> 79.2% against 80% nominal."
+    },
+    {
+      "check": "Conformal calibration set disjoint from quantile fitting",
+      "status": "pass",
+      "evidence": "The calibration block is the last 15% of the training span and is excluded from the quantile models' fit, so conformity scores are genuinely out-of-sample."
+    },
+    {
+      "check": "Search overfitting",
+      "status": "pass",
+      "evidence": "No model's hold-out MASE exceeds its CV MASE by more than 0.15."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "All estimators seeded at 42; folds are deterministic by position."
+    }
+  ],
+  "passed": 13,
+  "total": 13,
+  "grade": "A",
+  "scope": "Review for the failure modes specific to time series: lookahead in rolling windows, unshuffled-but-unpurged CV, uneven spacing treated as even, and one-step accuracy quoted for multi-step use.",
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

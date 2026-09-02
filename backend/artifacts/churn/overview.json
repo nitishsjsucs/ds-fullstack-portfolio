@@ -1,0 +1,58 @@
+{
+  "slug": "churn",
+  "number": 2,
+  "title": "Telco Churn & Retention Economics",
+  "tagline": "Cost-sensitive classification with calibration and a fairness audit on 7,043 subscribers.",
+  "task": "Supervised binary classification (imbalanced)",
+  "domain": "Subscription retention",
+  "dataset": "telco_churn",
+  "dataset_title": "IBM Telco Customer Churn",
+  "dataset_rows": 7043,
+  "primary_metric": "PR-AUC (average precision)",
+  "metric_reason": "Churn prevalence is 26.5%. Accuracy rewards predicting 'stays' for everyone (73.5%); PR-AUC only rewards ranking real churners highly.",
+  "techniques": [
+    "Regularised logistic regression",
+    "Gradient boosting",
+    "Isotonic & Platt calibration",
+    "Cost-matrix threshold search",
+    "Demographic parity / equalised odds"
+  ],
+  "skills": [
+    "Imbalanced learning",
+    "Probability calibration",
+    "Cost-sensitive decisions",
+    "Fairness auditing",
+    "Business value modelling"
+  ],
+  "accent": "rose",
+  "icon": "users",
+  "highlights": [
+    "Drag the retention-offer economics and watch the optimal threshold move",
+    "Calibration curve with expected calibration error before/after isotonic fit",
+    "Disparate-impact audit across gender, senior-citizen and partner status"
+  ],
+  "rows_modelled": 7043,
+  "champion": "XGBoost",
+  "headline": {
+    "pr_auc": 0.660406,
+    "roc_auc": 0.848044,
+    "recall_at_deployed": 0.820856,
+    "precision_at_deployed": 0.514238,
+    "deployed_threshold": 0.2746,
+    "calibration": "isotonic",
+    "worst_disparate_impact": 0.5083,
+    "campaign_net_value": 11597.29
+  },
+  "train_seconds": 448.2,
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

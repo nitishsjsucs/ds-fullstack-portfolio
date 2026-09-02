@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "check": "Exact algorithms cross-validated",
+      "status": "pass",
+      "evidence": "Apriori and FP-Growth itemsets identical: True."
+    },
+    {
+      "check": "Rules validated out of sample",
+      "status": "pass",
+      "evidence": "Rules mined on the first 80% of invoices by date; lift recomputed on the final 20%. A rule is 'confirmed' if its out-of-sample lift still exceeds 1.2."
+    },
+    {
+      "check": "Hold-out split is temporal, not random",
+      "status": "pass",
+      "evidence": "Invoices ordered by date; the final 20% form the hold-out, so seasonal patterns cannot appear on both sides."
+    },
+    {
+      "check": "Ranking metric corrects for base rates",
+      "status": "pass",
+      "evidence": "Rules ranked by lift; confidence retained only as a filter. Leverage, conviction and Zhang's metric reported alongside."
+    },
+    {
+      "check": "Support floor and vocabulary cut disclosed",
+      "status": "pass",
+      "evidence": "The vocabulary is capped at 480 items covering 49.6% of all line items. The excluded tail appears in too few baskets for a support estimate to be stable, and including it would inf"
+    },
+    {
+      "check": "No silent truncation",
+      "status": "pass",
+      "evidence": "3,351 singleton baskets and the item tail are both counted and reported in the EDA payload."
+    },
+    {
+      "check": "Failed rules reported",
+      "status": "pass",
+      "evidence": "0 degraded and 189 unmeasurable rules retained in the payload with their status, not dropped."
+    },
+    {
+      "check": "Causal language avoided",
+      "status": "pass",
+      "evidence": "Model card states explicitly that co-occurrence is not causation."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "Both miners are deterministic; the vocabulary cut is by rank with a stable sort."
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "grade": "A",
+  "scope": "Review for the failure modes specific to pattern mining: rules that restate base rates, seasonal artefacts presented as durable, and undisclosed thresholds that manufacture the result.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

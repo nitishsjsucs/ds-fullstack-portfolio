@@ -1,0 +1,629 @@
+{
+  "permutation": {
+    "method": "permutation importance (held-out)",
+    "scoring": "average_precision",
+    "n_repeats": 10,
+    "n_samples": 1409,
+    "features": [
+      {
+        "feature": "Contract",
+        "importance": 0.09568,
+        "std": 0.015724,
+        "significant": true
+      },
+      {
+        "feature": "tenure",
+        "importance": 0.089154,
+        "std": 0.014479,
+        "significant": true
+      },
+      {
+        "feature": "TotalCharges",
+        "importance": 0.030762,
+        "std": 0.008167,
+        "significant": true
+      },
+      {
+        "feature": "InternetService",
+        "importance": 0.027019,
+        "std": 0.007528,
+        "significant": true
+      },
+      {
+        "feature": "charges_per_tenure",
+        "importance": 0.017477,
+        "std": 0.007593,
+        "significant": true
+      },
+      {
+        "feature": "OnlineSecurity",
+        "importance": 0.016615,
+        "std": 0.005279,
+        "significant": true
+      },
+      {
+        "feature": "PaperlessBilling",
+        "importance": 0.013176,
+        "std": 0.005024,
+        "significant": true
+      },
+      {
+        "feature": "TechSupport",
+        "importance": 0.010531,
+        "std": 0.005236,
+        "significant": true
+      },
+      {
+        "feature": "MonthlyCharges",
+        "importance": 0.005297,
+        "std": 0.006411,
+        "significant": false
+      },
+      {
+        "feature": "OnlineBackup",
+        "importance": 0.003423,
+        "std": 0.002258,
+        "significant": false
+      },
+      {
+        "feature": "PaymentMethod",
+        "importance": 0.003198,
+        "std": 0.004089,
+        "significant": false
+      },
+      {
+        "feature": "MultipleLines",
+        "importance": 0.002825,
+        "std": 0.004831,
+        "significant": false
+      },
+      {
+        "feature": "Dependents",
+        "importance": 0.000625,
+        "std": 0.001604,
+        "significant": false
+      },
+      {
+        "feature": "StreamingMovies",
+        "importance": 0.000479,
+        "std": 0.000543,
+        "significant": false
+      },
+      {
+        "feature": "monthly_vs_avg_ratio",
+        "importance": 0.000399,
+        "std": 0.002883,
+        "significant": false
+      },
+      {
+        "feature": "PhoneService",
+        "importance": 9.7e-05,
+        "std": 0.000219,
+        "significant": false
+      },
+      {
+        "feature": "DeviceProtection",
+        "importance": -2.7e-05,
+        "std": 0.000405,
+        "significant": false
+      },
+      {
+        "feature": "tenure_bucket_idx",
+        "importance": -0.000109,
+        "std": 0.00107,
+        "significant": false
+      },
+      {
+        "feature": "StreamingTV",
+        "importance": -0.00036,
+        "std": 0.001169,
+        "significant": false
+      },
+      {
+        "feature": "has_dependents_and_partner",
+        "importance": -0.000519,
+        "std": 0.0003,
+        "significant": false
+      }
+    ],
+    "n_significant": 8,
+    "note": "8 of 21 features shift average_precision by more than twice their own permutation noise. Measured on held-out rows, so it reflects generalisation rather than how often a split was taken."
+  },
+  "impurity": {
+    "method": "mean impurity decrease (in-sample)",
+    "features": [
+      {
+        "feature": "Contract_Month-to-month",
+        "importance": 0.361877
+      },
+      {
+        "feature": "InternetService_Fiber optic",
+        "importance": 0.109851
+      },
+      {
+        "feature": "tenure_bucket_idx",
+        "importance": 0.076119
+      },
+      {
+        "feature": "TechSupport_No",
+        "importance": 0.072847
+      },
+      {
+        "feature": "InternetService_DSL",
+        "importance": 0.043291
+      },
+      {
+        "feature": "OnlineSecurity_No",
+        "importance": 0.032626
+      },
+      {
+        "feature": "Contract_Two year",
+        "importance": 0.029425
+      },
+      {
+        "feature": "PaymentMethod_Electronic check",
+        "importance": 0.019154
+      },
+      {
+        "feature": "tenure",
+        "importance": 0.019087
+      },
+      {
+        "feature": "Contract_One year",
+        "importance": 0.017917
+      },
+      {
+        "feature": "PhoneService_Yes",
+        "importance": 0.0171
+      },
+      {
+        "feature": "PaperlessBilling_Yes",
+        "importance": 0.012744
+      },
+      {
+        "feature": "StreamingMovies_Yes",
+        "importance": 0.0127
+      },
+      {
+        "feature": "MultipleLines_No phone service",
+        "importance": 0.011394
+      },
+      {
+        "feature": "OnlineBackup_No",
+        "importance": 0.010605
+      },
+      {
+        "feature": "MultipleLines_No",
+        "importance": 0.009818
+      },
+      {
+        "feature": "StreamingTV_Yes",
+        "importance": 0.009815
+      },
+      {
+        "feature": "OnlineSecurity_No internet service",
+        "importance": 0.00955
+      },
+      {
+        "feature": "InternetService_No",
+        "importance": 0.008913
+      },
+      {
+        "feature": "OnlineSecurity_Yes",
+        "importance": 0.008411
+      }
+    ],
+    "caveat": "Impurity importance is biased toward high-cardinality and continuous features and is computed on training data. Compare against permutation importance; large disagreement indicates memorisation."
+  },
+  "shap": null,
+  "partial_dependence": [
+    {
+      "feature": "tenure",
+      "curve": [
+        {
+          "x": 1.0,
+          "y": 0.361213
+        },
+        {
+          "x": 4.043478,
+          "y": 0.335511
+        },
+        {
+          "x": 7.086957,
+          "y": 0.301132
+        },
+        {
+          "x": 10.130435,
+          "y": 0.291552
+        },
+        {
+          "x": 13.173913,
+          "y": 0.282349
+        },
+        {
+          "x": 16.217391,
+          "y": 0.269472
+        },
+        {
+          "x": 19.26087,
+          "y": 0.241436
+        },
+        {
+          "x": 22.304348,
+          "y": 0.241379
+        },
+        {
+          "x": 25.347826,
+          "y": 0.227664
+        },
+        {
+          "x": 28.391304,
+          "y": 0.20813
+        },
+        {
+          "x": 31.434783,
+          "y": 0.205939
+        },
+        {
+          "x": 34.478261,
+          "y": 0.206045
+        },
+        {
+          "x": 37.521739,
+          "y": 0.211193
+        },
+        {
+          "x": 40.565217,
+          "y": 0.212766
+        },
+        {
+          "x": 43.608696,
+          "y": 0.208943
+        },
+        {
+          "x": 46.652174,
+          "y": 0.201371
+        },
+        {
+          "x": 49.695652,
+          "y": 0.202056
+        },
+        {
+          "x": 52.73913,
+          "y": 0.180632
+        },
+        {
+          "x": 55.782609,
+          "y": 0.178599
+        },
+        {
+          "x": 58.826087,
+          "y": 0.178011
+        },
+        {
+          "x": 61.869565,
+          "y": 0.161133
+        },
+        {
+          "x": 64.913043,
+          "y": 0.159643
+        },
+        {
+          "x": 67.956522,
+          "y": 0.164731
+        },
+        {
+          "x": 71.0,
+          "y": 0.120792
+        }
+      ],
+      "deciles": [
+        2.0,
+        6.0,
+        12.0,
+        20.0,
+        28.0,
+        40.0,
+        50.0,
+        60.0,
+        69.0
+      ],
+      "effect_range": 0.240421,
+      "monotone": false
+    },
+    {
+      "feature": "charges_per_tenure",
+      "curve": [
+        {
+          "x": 19.385648,
+          "y": 0.246775
+        },
+        {
+          "x": 23.212452,
+          "y": 0.239978
+        },
+        {
+          "x": 27.039256,
+          "y": 0.230963
+        },
+        {
+          "x": 30.86606,
+          "y": 0.231031
+        },
+        {
+          "x": 34.692864,
+          "y": 0.232736
+        },
+        {
+          "x": 38.519668,
+          "y": 0.23653
+        },
+        {
+          "x": 42.346472,
+          "y": 0.244073
+        },
+        {
+          "x": 46.173276,
+          "y": 0.249297
+        },
+        {
+          "x": 50.00008,
+          "y": 0.243778
+        },
+        {
+          "x": 53.826884,
+          "y": 0.245799
+        },
+        {
+          "x": 57.653688,
+          "y": 0.244848
+        },
+        {
+          "x": 61.480492,
+          "y": 0.249619
+        },
+        {
+          "x": 65.307296,
+          "y": 0.250954
+        },
+        {
+          "x": 69.1341,
+          "y": 0.253892
+        },
+        {
+          "x": 72.960904,
+          "y": 0.25183
+        },
+        {
+          "x": 76.787708,
+          "y": 0.258313
+        },
+        {
+          "x": 80.614513,
+          "y": 0.263787
+        },
+        {
+          "x": 84.441317,
+          "y": 0.276126
+        },
+        {
+          "x": 88.268121,
+          "y": 0.278055
+        },
+        {
+          "x": 92.094925,
+          "y": 0.290147
+        },
+        {
+          "x": 95.921729,
+          "y": 0.314606
+        },
+        {
+          "x": 99.748533,
+          "y": 0.313762
+        },
+        {
+          "x": 103.575337,
+          "y": 0.331314
+        },
+        {
+          "x": 107.402141,
+          "y": 0.332133
+        }
+      ],
+      "deciles": [
+        20.154233,
+        24.801522,
+        44.076842,
+        55.779415,
+        69.267073,
+        77.492105,
+        85.174861,
+        93.244821,
+        102.866762
+      ],
+      "effect_range": 0.10117,
+      "monotone": false
+    },
+    {
+      "feature": "MonthlyCharges",
+      "curve": [
+        {
+          "x": 19.7,
+          "y": 0.261558
+        },
+        {
+          "x": 23.474522,
+          "y": 0.246428
+        },
+        {
+          "x": 27.249043,
+          "y": 0.244093
+        },
+        {
+          "x": 31.023565,
+          "y": 0.245541
+        },
+        {
+          "x": 34.798087,
+          "y": 0.245541
+        },
+        {
+          "x": 38.572609,
+          "y": 0.245579
+        },
+        {
+          "x": 42.34713,
+          "y": 0.249572
+        },
+        {
+          "x": 46.121652,
+          "y": 0.269708
+        },
+        {
+          "x": 49.896174,
+          "y": 0.246297
+        },
+        {
+          "x": 53.670696,
+          "y": 0.257061
+        },
+        {
+          "x": 57.445217,
+          "y": 0.258308
+        },
+        {
+          "x": 61.219739,
+          "y": 0.250318
+        },
+        {
+          "x": 64.994261,
+          "y": 0.250013
+        },
+        {
+          "x": 68.768783,
+          "y": 0.250561
+        },
+        {
+          "x": 72.543304,
+          "y": 0.254385
+        },
+        {
+          "x": 76.317826,
+          "y": 0.264736
+        },
+        {
+          "x": 80.092348,
+          "y": 0.267652
+        },
+        {
+          "x": 83.86687,
+          "y": 0.269458
+        },
+        {
+          "x": 87.641391,
+          "y": 0.261711
+        },
+        {
+          "x": 91.415913,
+          "y": 0.259357
+        },
+        {
+          "x": 95.190435,
+          "y": 0.278634
+        },
+        {
+          "x": 98.964957,
+          "y": 0.290595
+        },
+        {
+          "x": 102.739478,
+          "y": 0.293145
+        },
+        {
+          "x": 106.514,
+          "y": 0.326664
+        }
+      ],
+      "deciles": [
+        20.1,
+        24.95,
+        44.82,
+        55.41,
+        69.75,
+        78.59,
+        85.35,
+        94.0,
+        102.86
+      ],
+      "effect_range": 0.082571,
+      "monotone": false
+    },
+    {
+      "feature": "services_subscribed",
+      "curve": [
+        {
+          "x": 1.0,
+          "y": 0.264277
+        },
+        {
+          "x": 2.0,
+          "y": 0.264627
+        },
+        {
+          "x": 3.0,
+          "y": 0.265066
+        },
+        {
+          "x": 4.0,
+          "y": 0.266729
+        },
+        {
+          "x": 5.0,
+          "y": 0.265509
+        },
+        {
+          "x": 6.0,
+          "y": 0.264368
+        },
+        {
+          "x": 7.0,
+          "y": 0.264981
+        },
+        {
+          "x": 8.0,
+          "y": 0.253493
+        },
+        {
+          "x": 9.0,
+          "y": 0.253493
+        }
+      ],
+      "deciles": [
+        1.0,
+        2.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        6.0,
+        7.0
+      ],
+      "effect_range": 0.013236,
+      "monotone": false
+    }
+  ],
+  "feature_count": 42,
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

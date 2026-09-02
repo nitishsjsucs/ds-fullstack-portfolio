@@ -1,0 +1,328 @@
+{
+  "project": "AutoML Stacking Tournament",
+  "business_question": "Given a fixed tabular dataset, how much does automated model search actually buy over a sensible default -- and how much of the apparent gain is the search fitting its own validation folds?",
+  "success_criteria": [
+    "Report the CV-to-hold-out gap for every family, not just the best score.",
+    "Any ensemble gain must be demonstrated on out-of-fold predictions only.",
+    "Quantify what a single interpretable tree gives up against the ensemble.",
+    "Audit disparity across sex, race and age band."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "The subject of this project is model selection itself, so the deliverable is a *diagnosis*, not just a leaderboard. The three questions fixed up front were: does search overfit, does stacking genuinely help, and would a simple tree have been enough?",
+      "activities": [
+        "Framed the goal as measuring the value of search, not maximising a number.",
+        "Chose ROC-AUC for stability across folds, with PR-AUC reported alongside.",
+        "Declared sex, race and age band as audit-only.",
+        "Committed to distillation as a test of necessity."
+      ],
+      "findings": [
+        {
+          "statement": "A leaderboard without a hold-out gap is not evidence",
+          "evidence": "CV scores rise with every trial by construction",
+          "implication": "Both numbers are reported for every family.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report CV and hold-out side by side for every family.",
+          "rationale": "The gap is the cost of searching and is the actual finding of an AutoML exercise.",
+          "alternative_rejected": "Publish the best CV score",
+          "rejection_reason": "Systematically overstates deployed performance."
+        }
+      ],
+      "metrics": {
+        "families": 6,
+        "criteria": 4
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Diagnosis framed",
+          "Metrics justified",
+          "Sensitive attributes quarantined"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "48,842 census records, 23.9% above the $50k threshold, 6,465 missing cells across three columns.",
+      "activities": [
+        "Profiled all features and the three sensitive attributes.",
+        "Measured the base rate within every demographic group.",
+        "Identified redundant and design-artefact columns."
+      ],
+      "findings": [
+        {
+          "statement": "fnlwgt is a survey design artefact",
+          "evidence": "Census sampling weight -- a survey-design artefact describing how many people the row represents, not a proper",
+          "implication": "Dropped: it describes the sampling frame, not the person, and trees find spurious structure in it.",
+          "severity": "critical"
+        },
+        {
+          "statement": "education and education_num are the same variable",
+          "evidence": "one-to-one text/ordinal correspondence",
+          "implication": "Kept the ordinal; keeping both would split one signal across two columns.",
+          "severity": "info"
+        },
+        {
+          "statement": "Base rates differ sharply across demographic groups",
+          "evidence": "see the rate-by-group table",
+          "implication": "Guarantees that demographic parity and calibration cannot both hold -- the trade-off is structural, not a modelling failure.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Drop fnlwgt despite its predictive correlation.",
+          "rationale": "Predictive power sourced from survey design does not transfer to any deployment.",
+          "alternative_rejected": "Keep it because it improves CV score",
+          "rejection_reason": "Optimising a metric using an artefact is the definition of reward hacking."
+        }
+      ],
+      "metrics": {
+        "rows": 48842,
+        "features": 13,
+        "positive_rate": 0.239282,
+        "dropped": 5
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Redundancy identified",
+          "Design artefacts removed",
+          "Group base rates measured"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "13 features. Rare native-country levels grouped at a 1% floor; imputation and encoding fitted per fold.",
+      "activities": [
+        "Engineered capital-net, capital-gain indicator and hours bands.",
+        "Grouped categorical levels below 1% frequency.",
+        "Stratified the split on the target."
+      ],
+      "findings": [
+        {
+          "statement": "native_country has 42 levels, most extremely rare",
+          "evidence": "grouped below a 1% floor",
+          "implication": "A level seen a handful of times is a memorisation hook, not a signal.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Group rare categories inside the pipeline.",
+          "rationale": "The frequency table must be learned per fold.",
+          "alternative_rejected": "Group them on the full dataset first",
+          "rejection_reason": "The grouping decision would then be informed by the test rows."
+        }
+      ],
+      "metrics": {
+        "features": 13,
+        "total_trials": 101
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "All fitted transforms inside the Pipeline",
+          "Rare levels grouped per fold"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "101 hill-climbing trials over 6 families, then out-of-fold stacking and Caruana greedy selection. Caruana greedy ensemble was deployed.",
+      "activities": [
+        "Hill-climbed every family on cross-validated ROC-AUC.",
+        "Scored each family once on the hold-out and recorded the gap.",
+        "Generated out-of-fold predictions for both ensembling methods.",
+        "Fitted a logistic meta-learner and a Caruana greedy blend.",
+        "Distilled the result into a depth-4 tree."
+      ],
+      "findings": [
+        {
+          "statement": "No family overfitted the search at this data size",
+          "evidence": "mean CV-to-hold-out gap -0.00315 across 6 families",
+          "implication": "The gap is reported per family so nobody quotes the CV number as deployed performance. Here it happens to be negative, which is a result of the measurement rather than an assumption that search is safe.",
+          "severity": "info"
+        },
+        {
+          "statement": "Ensembling changed hold-out AUC by +0.00010",
+          "evidence": "best single 0.9313, greedy 0.9314, logistic stack 0.9309",
+          "implication": "A difference in the fourth decimal place is indistinguishable from noise on a 9,769-row hold-out. The honest reading is that ensembling bought nothing here, which is what a 0.92 correlation between base learners predicts.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Base models agree closely with each other",
+          "evidence": "lowest pairwise OOF correlation: 0.9247",
+          "implication": "Ensembling can only exploit disagreement; near-identical members leave nothing to combine.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Train the meta-learner strictly on out-of-fold predictions.",
+          "rationale": "The meta-learner is trained exclusively on out-of-fold predictions: every base-model probability it sees was produced by a model that did not train on",
+          "alternative_rejected": "Fit base models on all training data, then predict that same data for the meta-learner",
+          "rejection_reason": "The meta-learner then sees the labels through base-model memorisation; the gain is fictional."
+        },
+        {
+          "decision": "Report greedy selection and logistic stacking together.",
+          "rationale": "Greedy cannot use negative weights; logistic can, but can overfit the OOF matrix. Neither dominates.",
+          "alternative_rejected": "Report only the better one",
+          "rejection_reason": "Selecting the winner post hoc on the hold-out is itself a form of hold-out contamination."
+        }
+      ],
+      "metrics": {
+        "trials": 101,
+        "families": 6,
+        "deployed": "Caruana greedy ensemble",
+        "ensemble_gain": 0.0001,
+        "flagged_overfit": 0
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Hold-out scored once per family",
+          "Stacking built on out-of-fold predictions only",
+          "Search overfitting measured and published"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "Hold-out ROC-AUC 0.9314 (PR-AUC 0.8363) against 0.7543 for an analyst heuristic. A depth-4 tree reproduces 92.5% of the ensemble's decisions and 93.1% of its AUC. The gap is large enough to justify the",
+      "activities": [
+        "Scored the untouched hold-out once.",
+        "Compared the ensemble against a distilled depth-4 tree.",
+        "Audited disparity on three attributes and four criteria.",
+        "Cross-checked permutation against impurity importance."
+      ],
+      "findings": [
+        {
+          "statement": "A depth-4 tree recovers most of the ensemble",
+          "evidence": "fidelity 92.5%, AUC retained 93.1%",
+          "implication": "he ensemble's decisions and 93.1% of its AUC. The gap is large enough to justify the ensemble where accuracy genuinely matters more than transparency.",
+          "severity": "info"
+        },
+        {
+          "statement": "Worst disparate impact is 0.0203",
+          "evidence": "four-fifths failures: ['sex', 'race', 'age_band']",
+          "implication": "Excluding sex and race from the features did not remove the disparity, because correlated proxies remain. This is the central lesson of the fairness literature, reproduced here.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Publish the distillation comparison prominently.",
+          "rationale": "It is the honest answer to 'was the AutoML worth it?'",
+          "alternative_rejected": "Report only the ensemble's score",
+          "rejection_reason": "Implies complexity was necessary without testing it."
+        }
+      ],
+      "metrics": {
+        "roc_auc": 0.931425,
+        "pr_auc": 0.836278,
+        "distillation_fidelity": 0.9249,
+        "worst_disparate_impact": 0.0203
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Beats the analyst heuristic",
+          "Search overfitting quantified",
+          "Fairness audited on all declared attributes"
+        ],
+        "passed": true,
+        "notes": "ROC-AUC 0.9314 vs heuristic 0.7543."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Both the champion pipeline and the distilled tree are pickled, so a deployment can choose accuracy or auditability explicitly rather than by default.",
+      "activities": [
+        "Pickled the champion and the distilled student.",
+        "Exposed the tree's rules as readable text.",
+        "Documented the fairness findings in the model card."
+      ],
+      "findings": [
+        {
+          "statement": "Shipping two models makes the trade-off explicit",
+          "evidence": "champion and depth-4 student both served",
+          "implication": "A regulated context can take the auditable one and know exactly what it costs.",
+          "severity": "info"
+        },
+        {
+          "statement": "1994 census data must not drive present-day decisions",
+          "evidence": "stated prominently in the model card",
+          "implication": "This is a methodology benchmark, not an income model.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Publish the distilled tree's rules in full.",
+          "rationale": "Four levels of if-statements can be read and contested by a non-specialist.",
+          "alternative_rejected": "Serve only the ensemble",
+          "rejection_reason": "Removes any possibility of external scrutiny."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/automl/predict",
+        "models_served": 2
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Both models persisted",
+          "Rules published",
+          "Historical-data caveat documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "The first run kept fnlwgt and scored noticeably higher. The audit flagged it as a sampling artefact, and removing it cost real AUC -- which is the point: the lost performance was never available in deployment.",
+    "Stacking initially showed a large gain because the meta-learner was trained on in-fold base predictions. Rebuilding it on out-of-fold predictions shrank the gain to near zero, which is the honest number."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

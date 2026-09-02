@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "check": "Validation block contiguous and unshuffled",
+      "status": "pass",
+      "evidence": "The final 10% of the text, as one contiguous block, is held out. Never shuffled: a random split would place a line in training and the next line in validation, so the mod"
+    },
+    {
+      "check": "Causal masking enforced",
+      "status": "pass",
+      "evidence": "Lower-triangular mask registered as a buffer inside attention; the published attention maps are exactly zero above the diagonal."
+    },
+    {
+      "check": "No batch spans the train/validation boundary",
+      "status": "pass",
+      "evidence": "get_batch samples windows from one split tensor at a time, and the two tensors are disjoint slices of the corpus."
+    },
+    {
+      "check": "Metric compared against explicit baselines",
+      "status": "pass",
+      "evidence": "Validation 2.1714 bits/char against a 4.7794 unigram floor and 6.0224 uniform."
+    },
+    {
+      "check": "Sample output not presented as evidence",
+      "status": "pass",
+      "evidence": "Samples are labelled illustrative; every claim rests on held-out cross-entropy."
+    },
+    {
+      "check": "Overfitting reported, not cropped",
+      "status": "pass",
+      "evidence": "Train and validation loss first separate by more than 0.05 nats at step 125. Beyond that the model is spending capacity memorising rather than general"
+    },
+    {
+      "check": "Best checkpoint selected on validation, not training",
+      "status": "pass",
+      "evidence": "State dict snapshotted whenever validation loss improves."
+    },
+    {
+      "check": "Evaluation windows fixed across steps",
+      "status": "pass",
+      "evidence": "The loss estimator re-seeds its generator each call, so successive measurements are on identical windows and the curve is comparable."
+    },
+    {
+      "check": "Capability limits stated",
+      "status": "pass",
+      "evidence": "Model card states the model has no knowledge and cannot answer questions."
+    },
+    {
+      "check": "Determinism",
+      "status": "pass",
+      "evidence": "torch, numpy and the batch generator all seeded at 42."
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "grade": "A",
+  "scope": "Review for the failure modes specific to generative modelling: lookahead through a missing causal mask, shuffled text splits, and sample quality substituted for measurement.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

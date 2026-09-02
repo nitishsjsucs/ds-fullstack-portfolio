@@ -1,0 +1,27 @@
+{
+  "slug": "basket",
+  "payloads": [
+    "audit",
+    "crispdm",
+    "eda",
+    "evaluation",
+    "explain",
+    "extras",
+    "leaderboard",
+    "model_card",
+    "overview"
+  ],
+  "models": [
+    "rules"
+  ],
+  "provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

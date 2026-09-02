@@ -1,0 +1,37 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Raw downloads: 73 MB, and regenerable byte-for-byte by scripts/fetch_data.py.
+# The deterministic curated samples in data/curated/ ARE committed (10 MB), with a
+# SHA-256 for each in data/MANIFEST.json.
+data/raw/
+
+# Trained artifacts ARE committed -- both the JSON payloads (3.9 MB) and the
+# pickled pipelines (16 MB). That is a deliberate choice: it means a fresh clone
+# can serve the console and run live inference immediately, instead of requiring
+# an hour of training before anything renders. They are regenerable with
+# `python scripts/train_all.py`, and every one carries the git commit, timestamp
+# and seed of the run that produced it.
+#
+# scikit-learn pickles are version-sensitive, so requirements.txt is pinned; if a
+# pickle fails to load, retraining is the supported fix.
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Scratch
+*.log
+/tmp/

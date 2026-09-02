@@ -1,0 +1,86 @@
+{
+  "model": "K-Means (k=4) on log1p-scaled RFM",
+  "version": "1.0.0",
+  "task": "Unsupervised clustering",
+  "intended_use": "Assign e-commerce customers to behavioural segments for differentiated merchandising and contact strategy.",
+  "out_of_scope": [
+    "Individual credit, pricing or eligibility decisions.",
+    "Predicting whether a specific customer will buy -- this is a description of past behaviour, not a forecast.",
+    "Markets outside the UK-dominated book this was fitted on."
+  ],
+  "training_data": {
+    "source": "UCI Online Retail (customer-level RFM aggregation)",
+    "rows": 4338,
+    "period": "2010-12-01 to 2011-12-09",
+    "licence": "CC BY 4.0"
+  },
+  "features": {
+    "count": 5,
+    "inputs": [
+      "recency_days",
+      "frequency",
+      "monetary",
+      "n_distinct_skus",
+      "avg_basket_value"
+    ],
+    "transform": "log1p then z-score, fitted inside the pipeline"
+  },
+  "metrics": {
+    "k": 4,
+    "silhouette": 0.238943,
+    "davies_bouldin": 1.292298,
+    "calinski_harabasz": 2029.624415,
+    "bootstrap_ari": 0.9273,
+    "gap_supports_clustering": true
+  },
+  "segments": [
+    {
+      "name": "Champions",
+      "size": 911,
+      "revenue_share": 0.7233
+    },
+    {
+      "name": "Lapsed modest spenders",
+      "size": 1188,
+      "revenue_share": 0.1343
+    },
+    {
+      "name": "Frequent low-ticket",
+      "size": 1183,
+      "revenue_share": 0.1186
+    },
+    {
+      "name": "Dormant minimal-value",
+      "size": 1056,
+      "revenue_share": 0.0238
+    }
+  ],
+  "ethical_considerations": [
+    "Value-based segmentation systematically directs better service to higher-spending customers. That is a legitimate commercial choice, but it should be a conscious one -- the revenue-share table makes the effect explicit rather than letting it happen quietly.",
+    "Segment labels are descriptive of past purchasing and must not be used as proxies for any protected characteristic."
+  ],
+  "limitations": [
+    "Only customers with an ID are represented; roughly a quarter of the source line items are anonymous guest checkouts and are absent entirely.",
+    "Recency is measured against a fixed as-of date, so the model must be refitted rather than merely re-scored as time passes.",
+    "Monetary is gross of returns.",
+    "Customers near a segment boundary have low silhouette and should receive generic rather than segment-specific treatment."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Quarterly, or when bootstrap ARI on fresh data falls below 0.6.",
+    "monitored_signals": [
+      "segment size drift",
+      "silhouette decay",
+      "share of low-confidence assignments"
+    ]
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

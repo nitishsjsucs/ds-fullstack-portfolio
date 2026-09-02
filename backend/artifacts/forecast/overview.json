@@ -1,0 +1,59 @@
+{
+  "slug": "forecast",
+  "number": 6,
+  "title": "Bike-Share Demand Forecasting",
+  "tagline": "Multi-horizon hourly forecasting over 17,379 real Capital Bikeshare observations.",
+  "task": "Time series forecasting",
+  "domain": "Demand planning",
+  "dataset": "bike_sharing_hourly",
+  "dataset_title": "UCI Bike Sharing (hourly, 2011-2012)",
+  "dataset_rows": 17379,
+  "primary_metric": "MASE",
+  "metric_reason": "MASE is scale-free and divides by the seasonal-naive error, so a value below 1 proves the model beats 'same hour last week' -- the only baseline that matters.",
+  "techniques": [
+    "Seasonal naive baseline",
+    "SARIMAX",
+    "Gradient boosting on lags",
+    "STL decomposition",
+    "ACF/PACF",
+    "Purged & embargoed CV",
+    "Quantile prediction intervals"
+  ],
+  "skills": [
+    "Temporal validation",
+    "Seasonality decomposition",
+    "Lag feature engineering",
+    "Interval calibration",
+    "Backtesting"
+  ],
+  "accent": "sky",
+  "icon": "trend",
+  "highlights": [
+    "Rolling-origin backtest across 5 purged folds, never shuffled",
+    "80% intervals with empirical coverage reported against nominal",
+    "STL trend/season/residual decomposition with a 48-lag correlogram"
+  ],
+  "rows_modelled": 16631,
+  "champion": "Gradient boosting on lags",
+  "headline": {
+    "mase": 0.334653,
+    "mae": 28.79689,
+    "rmse": 45.654637,
+    "r2": 0.957121,
+    "skill_vs_seasonal_naive": 0.5516,
+    "beats_seasonal_naive": true,
+    "interval_coverage": 0.792005,
+    "folds": 5
+  },
+  "train_seconds": 41.6,
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

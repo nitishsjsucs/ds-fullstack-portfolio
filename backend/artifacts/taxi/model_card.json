@@ -1,0 +1,102 @@
+{
+  "model": "XGBoost",
+  "version": "1.0.0",
+  "task": "Supervised regression (dual target)",
+  "intended_use": "Give a rider an expected duration and fare, with an 80% band, at the moment they request a yellow cab in New York City.",
+  "out_of_scope": [
+    "Green cabs, for-hire vehicles and app-dispatch services, which have different pricing rules and are not in the training data.",
+    "Any month other than January: the model has never seen summer traffic, school holidays, or a different congestion-pricing regime.",
+    "Individual driver or passenger assessment of any kind."
+  ],
+  "training_data": {
+    "source": "NYC TLC Yellow Taxi Trip Records, January 2024",
+    "rows": 114950,
+    "period": "January 2024 (first ~25 days)",
+    "licence": "NYC Open Data / TLC public domain"
+  },
+  "evaluation_data": {
+    "rows": 28738,
+    "period": "January 2024 (final ~6 days), never used for tuning",
+    "protocol": "chronological hold-out"
+  },
+  "features": {
+    "count": 30,
+    "inputs": [
+      "trip_distance",
+      "passenger_count",
+      "hour_sin",
+      "hour_cos",
+      "dow_sin",
+      "dow_cos",
+      "is_weekend",
+      "is_rush_hour",
+      "is_night",
+      "same_borough",
+      "day_of_month",
+      "pu_borough",
+      "do_borough",
+      "ratecode_label",
+      "trip_type",
+      "pu_location_id",
+      "do_location_id"
+    ],
+    "excluded_by_design": [
+      "tip_amount",
+      "tolls_amount",
+      "total_amount",
+      "congestion_surcharge",
+      "dropoff_datetime"
+    ],
+    "exclusion_reason": "All are known only during or after the trip."
+  },
+  "metrics": {
+    "duration_mae_min": 2.928357,
+    "duration_rmse_min": 4.607179,
+    "duration_r2": 0.835585,
+    "duration_bias_min": -0.036539,
+    "p90_abs_error_min": 6.376711,
+    "fare_mae_usd": 1.736978,
+    "fare_r2": 0.950983,
+    "interval_nominal": 0.8,
+    "interval_empirical": 0.77267
+  },
+  "ethical_considerations": [
+    "Zone-level features could encode neighbourhood demographics. The model predicts travel time, not creditworthiness or risk, and is not used to accept or refuse service, which bounds the harm surface.",
+    "Duration estimates that are systematically pessimistic for outer-borough trips could discourage drivers from accepting them; the per-borough bias table exists to make that measurable rather than invisible."
+  ],
+  "limitations": [
+    "Trained on a single month; no seasonal coverage.",
+    "No live traffic, weather or incident feed -- the model learns the average January Tuesday, not today's Tuesday.",
+    "Widest errors on airport trips; MAE there exceeds the aggregate by a visible margin (see the per-segment table).",
+    "Predicted fare excludes tips, tolls and surcharges by construction."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Quarterly, or when observed MAE exceeds 6 minutes for 7 consecutive days.",
+    "monitored_signals": [
+      "PSI on trip_distance and hour",
+      "rolling MAE",
+      "interval coverage",
+      "share of unseen zone IDs"
+    ],
+    "owner": "Portfolio maintainer"
+  },
+  "hyperparameters": {
+    "n_estimators": 350,
+    "learning_rate": 0.06,
+    "max_depth": 7,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "min_child_weight": 4,
+    "reg_lambda": 5.0
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T18:06:42+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "nyc_taxi_trips",
+    "seed": 42,
+    "quick_mode": false,
+    "train_seconds": 431.3
+  }
+}

@@ -1,0 +1,5462 @@
+{
+  "algorithm_comparison": {
+    "min_support": 0.012,
+    "n_items": 480,
+    "n_baskets": 16785,
+    "density": 0.03181,
+    "results": [
+      {
+        "algorithm": "Apriori",
+        "itemsets": 1497,
+        "seconds": 7.209,
+        "strategy": "Breadth-first candidate generation: one database scan per itemset size, pruned by the downward-closure property.",
+        "wins_when": "Support is high and the lattice stays small, so few scans are needed and no tree has to be built.",
+        "cost": "Candidate explosion at low support; a scan per level."
+      },
+      {
+        "algorithm": "FP-Growth",
+        "itemsets": 1497,
+        "seconds": 23.218,
+        "strategy": "Builds a compressed FP-tree in two scans, then mines it recursively via conditional pattern bases -- no candidates.",
+        "wins_when": "Support is low and data is sparse, where avoiding candidate generation dominates the tree-construction overhead.",
+        "cost": "Tree construction is paid up front and must fit in memory."
+      }
+    ],
+    "identical_output": true,
+    "faster_algorithm": "Apriori",
+    "speedup": 3.22,
+    "conclusion": "Both algorithms return identical itemsets -- they must, because both are exact; only the search strategy differs. On this configuration (480 items at min_support=0.012, 3.2% density) Apriori is 3.2x faster. That is the opposite of the usual textbook ordering when Apriori is Apriori: FP-Growth's advantage comes from avoiding candidate generation, which only pays off once the support floor is low enough for candidates to explode. Here the floor is high, the lattice is small, and building the tree costs more than it saves."
+  },
+  "thresholds": {
+    "min_support": 0.012,
+    "min_confidence": 0.25,
+    "min_lift": 1.2
+  },
+  "n_frequent_itemsets": 1497,
+  "itemset_size_breakdown": [
+    {
+      "size": 1,
+      "count": 480
+    },
+    {
+      "size": 2,
+      "count": 803
+    },
+    {
+      "size": 3,
+      "count": 214
+    }
+  ],
+  "n_rules": 1861,
+  "rules": [
+    {
+      "id": 0,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN",
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE PINK"
+      ],
+      "support": 0.01519,
+      "confidence": 0.7994,
+      "lift": 43.992,
+      "leverage": 0.014847,
+      "conviction": 4.894,
+      "zhangs_metric": 0.9962,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 1,
+      "antecedents": [
+        "REGENCY TEA PLATE PINK"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN",
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "support": 0.01519,
+      "confidence": 0.8361,
+      "lift": 43.992,
+      "leverage": 0.014847,
+      "conviction": 5.984,
+      "zhangs_metric": 0.9954,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 2,
+      "antecedents": [
+        "REGENCY TEA PLATE PINK",
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "support": 0.01519,
+      "confidence": 0.948,
+      "lift": 41.872,
+      "leverage": 0.014829,
+      "conviction": 18.779,
+      "zhangs_metric": 0.992,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 3,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE PINK",
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "support": 0.01519,
+      "confidence": 0.6711,
+      "lift": 41.872,
+      "leverage": 0.014829,
+      "conviction": 2.991,
+      "zhangs_metric": 0.9987,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 4,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE PINK"
+      ],
+      "support": 0.01656,
+      "confidence": 0.7316,
+      "lift": 40.261,
+      "leverage": 0.016151,
+      "conviction": 3.658,
+      "zhangs_metric": 0.9978,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 5,
+      "antecedents": [
+        "REGENCY TEA PLATE PINK"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "support": 0.01656,
+      "confidence": 0.9115,
+      "lift": 40.261,
+      "leverage": 0.016151,
+      "conviction": 11.041,
+      "zhangs_metric": 0.9932,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 6,
+      "antecedents": [
+        "REGENCY MILK JUG PINK"
+      ],
+      "consequents": [
+        "REGENCY SUGAR BOWL GREEN"
+      ],
+      "support": 0.01448,
+      "confidence": 0.7454,
+      "lift": 38.856,
+      "leverage": 0.014105,
+      "conviction": 3.852,
+      "zhangs_metric": 0.9936,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 7,
+      "antecedents": [
+        "REGENCY SUGAR BOWL GREEN"
+      ],
+      "consequents": [
+        "REGENCY MILK JUG PINK"
+      ],
+      "support": 0.01448,
+      "confidence": 0.7547,
+      "lift": 38.856,
+      "leverage": 0.014105,
+      "conviction": 3.997,
+      "zhangs_metric": 0.9933,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 8,
+      "antecedents": [
+        "JAM JAR WITH PINK LID"
+      ],
+      "consequents": [
+        "JAM JAR WITH GREEN LID"
+      ],
+      "support": 0.01352,
+      "confidence": 0.6676,
+      "lift": 36.742,
+      "leverage": 0.013156,
+      "conviction": 2.954,
+      "zhangs_metric": 0.9929,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 9,
+      "antecedents": [
+        "JAM JAR WITH GREEN LID"
+      ],
+      "consequents": [
+        "JAM JAR WITH PINK LID"
+      ],
+      "support": 0.01352,
+      "confidence": 0.7443,
+      "lift": 36.742,
+      "leverage": 0.013156,
+      "conviction": 3.831,
+      "zhangs_metric": 0.9908,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 10,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE BEDROOM",
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "support": 0.01335,
+      "confidence": 0.7157,
+      "lift": 36.623,
+      "leverage": 0.012981,
+      "conviction": 3.448,
+      "zhangs_metric": 0.9912,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 11,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE BEDROOM",
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "support": 0.01335,
+      "confidence": 0.6829,
+      "lift": 36.623,
+      "leverage": 0.012981,
+      "conviction": 3.095,
+      "zhangs_metric": 0.9921,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 12,
+      "antecedents": [
+        "SET OF 3 WOODEN SLEIGH DECORATIONS"
+      ],
+      "consequents": [
+        "SET OF 3 WOODEN STOCKING DECORATION"
+      ],
+      "support": 0.01209,
+      "confidence": 0.6812,
+      "lift": 35.956,
+      "leverage": 0.011758,
+      "conviction": 3.077,
+      "zhangs_metric": 0.9898,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 14.91966,
+      "lift_retained": 0.415
+    },
+    {
+      "id": 13,
+      "antecedents": [
+        "SET OF 3 WOODEN STOCKING DECORATION"
+      ],
+      "consequents": [
+        "SET OF 3 WOODEN SLEIGH DECORATIONS"
+      ],
+      "support": 0.01209,
+      "confidence": 0.6384,
+      "lift": 35.956,
+      "leverage": 0.011758,
+      "conviction": 2.716,
+      "zhangs_metric": 0.991,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 14.91966,
+      "lift_retained": 0.415
+    },
+    {
+      "id": 14,
+      "antecedents": [
+        "BLUE POLKADOT CUP"
+      ],
+      "consequents": [
+        "PINK  POLKADOT CUP"
+      ],
+      "support": 0.01239,
+      "confidence": 0.64,
+      "lift": 34.992,
+      "leverage": 0.012038,
+      "conviction": 2.727,
+      "zhangs_metric": 0.9906,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 15,
+      "antecedents": [
+        "PINK  POLKADOT CUP"
+      ],
+      "consequents": [
+        "BLUE POLKADOT CUP"
+      ],
+      "support": 0.01239,
+      "confidence": 0.6775,
+      "lift": 34.992,
+      "leverage": 0.012038,
+      "conviction": 3.041,
+      "zhangs_metric": 0.9895,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 16,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN",
+        "REGENCY TEA PLATE PINK"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "support": 0.01519,
+      "confidence": 0.9173,
+      "lift": 34.912,
+      "leverage": 0.014757,
+      "conviction": 11.769,
+      "zhangs_metric": 0.9877,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 17,
+      "antecedents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN",
+        "REGENCY TEA PLATE PINK"
+      ],
+      "support": 0.01519,
+      "confidence": 0.5782,
+      "lift": 34.912,
+      "leverage": 0.014757,
+      "conviction": 2.332,
+      "zhangs_metric": 0.9976,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 18,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "support": 0.01233,
+      "confidence": 0.9079,
+      "lift": 34.556,
+      "leverage": 0.011976,
+      "conviction": 10.572,
+      "zhangs_metric": 0.9844,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 19,
+      "antecedents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.01233,
+      "confidence": 0.4694,
+      "lift": 34.556,
+      "leverage": 0.011976,
+      "conviction": 1.859,
+      "zhangs_metric": 0.9973,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 20,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE KITCHEN",
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE BEDROOM"
+      ],
+      "support": 0.01335,
+      "confidence": 0.855,
+      "lift": 33.926,
+      "leverage": 0.012952,
+      "conviction": 6.721,
+      "zhangs_metric": 0.9859,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 21,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE BEDROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE KITCHEN",
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "support": 0.01335,
+      "confidence": 0.5296,
+      "lift": 33.926,
+      "leverage": 0.012952,
+      "conviction": 2.092,
+      "zhangs_metric": 0.9956,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 22,
+      "antecedents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE PINK"
+      ],
+      "support": 0.01603,
+      "confidence": 0.61,
+      "lift": 33.569,
+      "leverage": 0.015549,
+      "conviction": 2.517,
+      "zhangs_metric": 0.9964,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 23,
+      "antecedents": [
+        "REGENCY TEA PLATE PINK"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "support": 0.01603,
+      "confidence": 0.882,
+      "lift": 33.569,
+      "leverage": 0.015549,
+      "conviction": 8.25,
+      "zhangs_metric": 0.9882,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 24,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE ROSES",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.01233,
+      "confidence": 0.5447,
+      "lift": 33.249,
+      "leverage": 0.011962,
+      "conviction": 2.161,
+      "zhangs_metric": 0.9924,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 25,
+      "antecedents": [
+        "REGENCY TEA PLATE ROSES",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "support": 0.01233,
+      "confidence": 0.7527,
+      "lift": 33.249,
+      "leverage": 0.011962,
+      "conviction": 3.953,
+      "zhangs_metric": 0.9861,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 26,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE BEDROOM",
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "support": 0.01335,
+      "confidence": 0.5149,
+      "lift": 33.244,
+      "leverage": 0.012944,
+      "conviction": 2.03,
+      "zhangs_metric": 0.9957,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 27,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE BEDROOM",
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "support": 0.01335,
+      "confidence": 0.8615,
+      "lift": 33.244,
+      "leverage": 0.012944,
+      "conviction": 7.035,
+      "zhangs_metric": 0.9852,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 28,
+      "antecedents": [
+        "PINK POLKADOT BOWL"
+      ],
+      "consequents": [
+        "BLUE POLKADOT BOWL"
+      ],
+      "support": 0.01239,
+      "confidence": 0.6265,
+      "lift": 32.658,
+      "leverage": 0.012013,
+      "conviction": 2.626,
+      "zhangs_metric": 0.9889,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 29,
+      "antecedents": [
+        "BLUE POLKADOT BOWL"
+      ],
+      "consequents": [
+        "PINK POLKADOT BOWL"
+      ],
+      "support": 0.01239,
+      "confidence": 0.646,
+      "lift": 32.658,
+      "leverage": 0.012013,
+      "conviction": 2.769,
+      "zhangs_metric": 0.9883,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 30,
+      "antecedents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "support": 0.01901,
+      "confidence": 0.8395,
+      "lift": 31.951,
+      "leverage": 0.01841,
+      "conviction": 6.066,
+      "zhangs_metric": 0.9911,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 31,
+      "antecedents": [
+        "REGENCY TEA PLATE ROSES"
+      ],
+      "consequents": [
+        "REGENCY TEA PLATE GREEN"
+      ],
+      "support": 0.01901,
+      "confidence": 0.7234,
+      "lift": 31.951,
+      "leverage": 0.01841,
+      "conviction": 3.533,
+      "zhangs_metric": 0.9948,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 32,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE BEDROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "support": 0.01549,
+      "confidence": 0.6147,
+      "lift": 31.454,
+      "leverage": 0.014998,
+      "conviction": 2.544,
+      "zhangs_metric": 0.9932,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 33,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE BEDROOM"
+      ],
+      "support": 0.01549,
+      "confidence": 0.7927,
+      "lift": 31.454,
+      "leverage": 0.014998,
+      "conviction": 4.702,
+      "zhangs_metric": 0.9875,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 34,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "support": 0.01561,
+      "confidence": 0.6023,
+      "lift": 30.822,
+      "leverage": 0.015103,
+      "conviction": 2.465,
+      "zhangs_metric": 0.9933,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 35,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE LIVINGROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "support": 0.01561,
+      "confidence": 0.7988,
+      "lift": 30.822,
+      "leverage": 0.015103,
+      "conviction": 4.841,
+      "zhangs_metric": 0.9868,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 36,
+      "antecedents": [
+        "KEY FOB , BACK DOOR"
+      ],
+      "consequents": [
+        "KEY FOB , SHED"
+      ],
+      "support": 0.01251,
+      "confidence": 0.6796,
+      "lift": 30.583,
+      "leverage": 0.012102,
+      "conviction": 3.052,
+      "zhangs_metric": 0.9854,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 37,
+      "antecedents": [
+        "KEY FOB , SHED"
+      ],
+      "consequents": [
+        "KEY FOB , BACK DOOR"
+      ],
+      "support": 0.01251,
+      "confidence": 0.563,
+      "lift": 30.583,
+      "leverage": 0.012102,
+      "conviction": 2.246,
+      "zhangs_metric": 0.9893,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 38,
+      "antecedents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01376,
+      "confidence": 0.9277,
+      "lift": 30.533,
+      "leverage": 0.013312,
+      "conviction": 13.413,
+      "zhangs_metric": 0.9818,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 10.49149,
+      "lift_retained": 0.344
+    },
+    {
+      "id": 39,
+      "antecedents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01376,
+      "confidence": 0.4529,
+      "lift": 30.533,
+      "leverage": 0.013312,
+      "conviction": 1.801,
+      "zhangs_metric": 0.9976,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 10.49149,
+      "lift_retained": 0.344
+    },
+    {
+      "id": 40,
+      "antecedents": [
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01376,
+      "confidence": 0.6834,
+      "lift": 29.565,
+      "leverage": 0.013297,
+      "conviction": 3.086,
+      "zhangs_metric": 0.986,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 10.50309,
+      "lift_retained": 0.355
+    },
+    {
+      "id": 41,
+      "antecedents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01376,
+      "confidence": 0.5954,
+      "lift": 29.565,
+      "leverage": 0.013297,
+      "conviction": 2.422,
+      "zhangs_metric": 0.989,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 10.50309,
+      "lift_retained": 0.355
+    },
+    {
+      "id": 42,
+      "antecedents": [
+        "REGENCY TEAPOT ROSES"
+      ],
+      "consequents": [
+        "REGENCY SUGAR BOWL GREEN"
+      ],
+      "support": 0.01388,
+      "confidence": 0.5628,
+      "lift": 29.337,
+      "leverage": 0.013408,
+      "conviction": 2.243,
+      "zhangs_metric": 0.9903,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 43,
+      "antecedents": [
+        "REGENCY SUGAR BOWL GREEN"
+      ],
+      "consequents": [
+        "REGENCY TEAPOT ROSES"
+      ],
+      "support": 0.01388,
+      "confidence": 0.7236,
+      "lift": 29.337,
+      "leverage": 0.013408,
+      "conviction": 3.529,
+      "zhangs_metric": 0.9848,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 44,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE BEDROOM"
+      ],
+      "support": 0.01865,
+      "confidence": 0.7195,
+      "lift": 28.552,
+      "leverage": 0.017994,
+      "conviction": 3.476,
+      "zhangs_metric": 0.9906,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 28.7112,
+      "lift_retained": 1.006
+    },
+    {
+      "id": 45,
+      "antecedents": [
+        "POPPY'S PLAYHOUSE BEDROOM"
+      ],
+      "consequents": [
+        "POPPY'S PLAYHOUSE KITCHEN"
+      ],
+      "support": 0.01865,
+      "confidence": 0.74,
+      "lift": 28.552,
+      "leverage": 0.017994,
+      "conviction": 3.746,
+      "zhangs_metric": 0.9899,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 28.7112,
+      "lift_retained": 1.006
+    },
+    {
+      "id": 46,
+      "antecedents": [
+        "SET/6 RED SPOTTY PAPER PLATES"
+      ],
+      "consequents": [
+        "SET/20 RED RETROSPOT PAPER NAPKINS",
+        "SET/6 RED SPOTTY PAPER CUPS"
+      ],
+      "support": 0.01579,
+      "confidence": 0.5028,
+      "lift": 28.514,
+      "leverage": 0.015234,
+      "conviction": 1.976,
+      "zhangs_metric": 0.9962,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 47,
+      "antecedents": [
+        "SET/20 RED RETROSPOT PAPER NAPKINS",
+        "SET/6 RED SPOTTY PAPER CUPS"
+      ],
+      "consequents": [
+        "SET/6 RED SPOTTY PAPER PLATES"
+      ],
+      "support": 0.01579,
+      "confidence": 0.8953,
+      "lift": 28.514,
+      "leverage": 0.015234,
+      "conviction": 9.249,
+      "zhangs_metric": 0.9823,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 48,
+      "antecedents": [
+        "PINK HAPPY BIRTHDAY BUNTING"
+      ],
+      "consequents": [
+        "BLUE HAPPY BIRTHDAY BUNTING"
+      ],
+      "support": 0.01561,
+      "confidence": 0.6517,
+      "lift": 28.267,
+      "leverage": 0.015057,
+      "conviction": 2.805,
+      "zhangs_metric": 0.9883,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 49,
+      "antecedents": [
+        "BLUE HAPPY BIRTHDAY BUNTING"
+      ],
+      "consequents": [
+        "PINK HAPPY BIRTHDAY BUNTING"
+      ],
+      "support": 0.01561,
+      "confidence": 0.677,
+      "lift": 28.267,
+      "leverage": 0.015057,
+      "conviction": 3.022,
+      "zhangs_metric": 0.9874,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 50,
+      "antecedents": [
+        "SET/6 RED SPOTTY PAPER CUPS"
+      ],
+      "consequents": [
+        "SET/20 RED RETROSPOT PAPER NAPKINS",
+        "SET/6 RED SPOTTY PAPER PLATES"
+      ],
+      "support": 0.01579,
+      "confidence": 0.6221,
+      "lift": 28.22,
+      "leverage": 0.015228,
+      "conviction": 2.588,
+      "zhangs_metric": 0.9897,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 51,
+      "antecedents": [
+        "SET/20 RED RETROSPOT PAPER NAPKINS",
+        "SET/6 RED SPOTTY PAPER PLATES"
+      ],
+      "consequents": [
+        "SET/6 RED SPOTTY PAPER CUPS"
+      ],
+      "support": 0.01579,
+      "confidence": 0.7162,
+      "lift": 28.22,
+      "leverage": 0.015228,
+      "conviction": 3.434,
+      "zhangs_metric": 0.9863,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 52,
+      "antecedents": [
+        "REGENCY TEAPOT ROSES"
+      ],
+      "consequents": [
+        "REGENCY MILK JUG PINK"
+      ],
+      "support": 0.01346,
+      "confidence": 0.5459,
+      "lift": 28.107,
+      "leverage": 0.012985,
+      "conviction": 2.159,
+      "zhangs_metric": 0.9888,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 53,
+      "antecedents": [
+        "REGENCY MILK JUG PINK"
+      ],
+      "consequents": [
+        "REGENCY TEAPOT ROSES"
+      ],
+      "support": 0.01346,
+      "confidence": 0.6933,
+      "lift": 28.107,
+      "leverage": 0.012985,
+      "conviction": 3.18,
+      "zhangs_metric": 0.9835,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 54,
+      "antecedents": [
+        "FELTCRAFT CUSHION BUTTERFLY"
+      ],
+      "consequents": [
+        "FELTCRAFT CUSHION RABBIT"
+      ],
+      "support": 0.01329,
+      "confidence": 0.6408,
+      "lift": 27.937,
+      "leverage": 0.01281,
+      "conviction": 2.72,
+      "zhangs_metric": 0.9846,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 55,
+      "antecedents": [
+        "FELTCRAFT CUSHION RABBIT"
+      ],
+      "consequents": [
+        "FELTCRAFT CUSHION BUTTERFLY"
+      ],
+      "support": 0.01329,
+      "confidence": 0.5792,
+      "lift": 27.937,
+      "leverage": 0.01281,
+      "conviction": 2.327,
+      "zhangs_metric": 0.9868,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 56,
+      "antecedents": [
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01674,
+      "confidence": 0.8314,
+      "lift": 27.362,
+      "leverage": 0.016129,
+      "conviction": 5.75,
+      "zhangs_metric": 0.9833,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.88862,
+      "lift_retained": 0.361
+    },
+    {
+      "id": 57,
+      "antecedents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01674,
+      "confidence": 0.551,
+      "lift": 27.362,
+      "leverage": 0.016129,
+      "conviction": 2.182,
+      "zhangs_metric": 0.9936,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.88862,
+      "lift_retained": 0.361
+    },
+    {
+      "id": 58,
+      "antecedents": [
+        "SET/6 RED SPOTTY PAPER CUPS"
+      ],
+      "consequents": [
+        "SET/6 RED SPOTTY PAPER PLATES"
+      ],
+      "support": 0.02085,
+      "confidence": 0.8216,
+      "lift": 26.168,
+      "leverage": 0.020055,
+      "conviction": 5.429,
+      "zhangs_metric": 0.9868,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 59,
+      "antecedents": [
+        "SET/6 RED SPOTTY PAPER PLATES"
+      ],
+      "consequents": [
+        "SET/6 RED SPOTTY PAPER CUPS"
+      ],
+      "support": 0.02085,
+      "confidence": 0.6641,
+      "lift": 26.168,
+      "leverage": 0.020055,
+      "conviction": 2.902,
+      "zhangs_metric": 0.993,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 60,
+      "antecedents": [
+        "SET OF 6 SNACK LOAF BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 6 TEA TIME BAKING CASES"
+      ],
+      "support": 0.01233,
+      "confidence": 0.5864,
+      "lift": 26.108,
+      "leverage": 0.01186,
+      "conviction": 2.364,
+      "zhangs_metric": 0.9824,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 16.60096,
+      "lift_retained": 0.636
+    },
+    {
+      "id": 61,
+      "antecedents": [
+        "SET OF 6 TEA TIME BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 6 SNACK LOAF BAKING CASES"
+      ],
+      "support": 0.01233,
+      "confidence": 0.5491,
+      "lift": 26.108,
+      "leverage": 0.01186,
+      "conviction": 2.171,
+      "zhangs_metric": 0.9838,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 16.60096,
+      "lift_retained": 0.636
+    },
+    {
+      "id": 62,
+      "antecedents": [
+        "PINK VINTAGE PAISLEY PICNIC BAG"
+      ],
+      "consequents": [
+        "SCANDINAVIAN PAISLEY PICNIC BAG"
+      ],
+      "support": 0.01668,
+      "confidence": 0.688,
+      "lift": 26.066,
+      "leverage": 0.016042,
+      "conviction": 3.12,
+      "zhangs_metric": 0.9855,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 63,
+      "antecedents": [
+        "SCANDINAVIAN PAISLEY PICNIC BAG"
+      ],
+      "consequents": [
+        "PINK VINTAGE PAISLEY PICNIC BAG"
+      ],
+      "support": 0.01668,
+      "confidence": 0.6321,
+      "lift": 26.066,
+      "leverage": 0.016042,
+      "conviction": 2.652,
+      "zhangs_metric": 0.9877,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 64,
+      "antecedents": [
+        "SET OF 3 WOODEN HEART DECORATIONS"
+      ],
+      "consequents": [
+        "SET OF 3 WOODEN STOCKING DECORATION"
+      ],
+      "support": 0.01299,
+      "confidence": 0.4899,
+      "lift": 25.858,
+      "leverage": 0.012486,
+      "conviction": 1.923,
+      "zhangs_metric": 0.9875,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 12.72579,
+      "lift_retained": 0.492
+    },
+    {
+      "id": 65,
+      "antecedents": [
+        "SET OF 3 WOODEN STOCKING DECORATION"
+      ],
+      "consequents": [
+        "SET OF 3 WOODEN HEART DECORATIONS"
+      ],
+      "support": 0.01299,
+      "confidence": 0.6855,
+      "lift": 25.858,
+      "leverage": 0.012486,
+      "conviction": 3.096,
+      "zhangs_metric": 0.9799,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 12.72579,
+      "lift_retained": 0.492
+    },
+    {
+      "id": 66,
+      "antecedents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01376,
+      "confidence": 0.4302,
+      "lift": 25.695,
+      "leverage": 0.013227,
+      "conviction": 1.726,
+      "zhangs_metric": 0.9928,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.83645,
+      "lift_retained": 0.383
+    },
+    {
+      "id": 67,
+      "antecedents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01376,
+      "confidence": 0.8221,
+      "lift": 25.695,
+      "leverage": 0.013227,
+      "conviction": 5.44,
+      "zhangs_metric": 0.9774,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.83645,
+      "lift_retained": 0.383
+    },
+    {
+      "id": 68,
+      "antecedents": [
+        "WHITE SPOT BLUE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01227,
+      "confidence": 0.5659,
+      "lift": 25.399,
+      "leverage": 0.01179,
+      "conviction": 2.252,
+      "zhangs_metric": 0.9819,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 69,
+      "antecedents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "WHITE SPOT BLUE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01227,
+      "confidence": 0.5508,
+      "lift": 25.399,
+      "leverage": 0.01179,
+      "conviction": 2.178,
+      "zhangs_metric": 0.9825,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 70,
+      "antecedents": [
+        "SET OF 12 MINI LOAF BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 6 SNACK LOAF BAKING CASES"
+      ],
+      "support": 0.014,
+      "confidence": 0.5293,
+      "lift": 25.167,
+      "leverage": 0.013444,
+      "conviction": 2.08,
+      "zhangs_metric": 0.9864,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 17.62256,
+      "lift_retained": 0.7
+    },
+    {
+      "id": 71,
+      "antecedents": [
+        "SET OF 6 SNACK LOAF BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 12 MINI LOAF BAKING CASES"
+      ],
+      "support": 0.014,
+      "confidence": 0.6657,
+      "lift": 25.167,
+      "leverage": 0.013444,
+      "conviction": 2.912,
+      "zhangs_metric": 0.9809,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 17.62256,
+      "lift_retained": 0.7
+    },
+    {
+      "id": 72,
+      "antecedents": [
+        "RED SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01227,
+      "confidence": 0.5583,
+      "lift": 25.055,
+      "leverage": 0.011783,
+      "conviction": 2.213,
+      "zhangs_metric": 0.9817,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 73,
+      "antecedents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01227,
+      "confidence": 0.5508,
+      "lift": 25.055,
+      "leverage": 0.011783,
+      "conviction": 2.177,
+      "zhangs_metric": 0.982,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 74,
+      "antecedents": [
+        "SMALL DOLLY MIX DESIGN ORANGE BOWL"
+      ],
+      "consequents": [
+        "SMALL MARSHMALLOWS PINK BOWL"
+      ],
+      "support": 0.02079,
+      "confidence": 0.6635,
+      "lift": 25.027,
+      "leverage": 0.019962,
+      "conviction": 2.893,
+      "zhangs_metric": 0.9911,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 26.13961,
+      "lift_retained": 1.044
+    },
+    {
+      "id": 75,
+      "antecedents": [
+        "SMALL MARSHMALLOWS PINK BOWL"
+      ],
+      "consequents": [
+        "SMALL DOLLY MIX DESIGN ORANGE BOWL"
+      ],
+      "support": 0.02079,
+      "confidence": 0.7843,
+      "lift": 25.027,
+      "leverage": 0.019962,
+      "conviction": 4.49,
+      "zhangs_metric": 0.9862,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 26.13961,
+      "lift_retained": 1.044
+    },
+    {
+      "id": 76,
+      "antecedents": [
+        "RED SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01388,
+      "confidence": 0.6314,
+      "lift": 24.309,
+      "leverage": 0.01331,
+      "conviction": 2.643,
+      "zhangs_metric": 0.9804,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 77,
+      "antecedents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01388,
+      "confidence": 0.5344,
+      "lift": 24.309,
+      "leverage": 0.01331,
+      "conviction": 2.101,
+      "zhangs_metric": 0.9844,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 78,
+      "antecedents": [
+        "WHITE SPOT RED CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01287,
+      "confidence": 0.5294,
+      "lift": 24.082,
+      "leverage": 0.012334,
+      "conviction": 2.078,
+      "zhangs_metric": 0.9824,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 79,
+      "antecedents": [
+        "RED SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "WHITE SPOT RED CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01287,
+      "confidence": 0.5854,
+      "lift": 24.082,
+      "leverage": 0.012334,
+      "conviction": 2.353,
+      "zhangs_metric": 0.98,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 80,
+      "antecedents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.02312,
+      "confidence": 0.7608,
+      "lift": 23.78,
+      "leverage": 0.022144,
+      "conviction": 4.047,
+      "zhangs_metric": 0.988,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.26098,
+      "lift_retained": 0.389
+    },
+    {
+      "id": 81,
+      "antecedents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN STAR CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.02312,
+      "confidence": 0.7225,
+      "lift": 23.78,
+      "leverage": 0.022144,
+      "conviction": 3.495,
+      "zhangs_metric": 0.9896,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.26098,
+      "lift_retained": 0.389
+    },
+    {
+      "id": 82,
+      "antecedents": [
+        "FLORAL FOLK STATIONERY SET"
+      ],
+      "consequents": [
+        "MODERN FLORAL STATIONERY SET"
+      ],
+      "support": 0.01275,
+      "confidence": 0.5047,
+      "lift": 23.147,
+      "leverage": 0.012199,
+      "conviction": 1.975,
+      "zhangs_metric": 0.9816,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 17.46415,
+      "lift_retained": 0.755
+    },
+    {
+      "id": 83,
+      "antecedents": [
+        "MODERN FLORAL STATIONERY SET"
+      ],
+      "consequents": [
+        "FLORAL FOLK STATIONERY SET"
+      ],
+      "support": 0.01275,
+      "confidence": 0.5847,
+      "lift": 23.147,
+      "leverage": 0.012199,
+      "conviction": 2.347,
+      "zhangs_metric": 0.9781,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 17.46415,
+      "lift_retained": 0.755
+    },
+    {
+      "id": 84,
+      "antecedents": [
+        "FELTCRAFT PRINCESS CHARLOTTE DOLL"
+      ],
+      "consequents": [
+        "FELTCRAFT PRINCESS LOLA DOLL"
+      ],
+      "support": 0.01519,
+      "confidence": 0.5679,
+      "lift": 23.082,
+      "leverage": 0.014534,
+      "conviction": 2.257,
+      "zhangs_metric": 0.983,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 16.6345,
+      "lift_retained": 0.721
+    },
+    {
+      "id": 85,
+      "antecedents": [
+        "FELTCRAFT PRINCESS LOLA DOLL"
+      ],
+      "consequents": [
+        "FELTCRAFT PRINCESS CHARLOTTE DOLL"
+      ],
+      "support": 0.01519,
+      "confidence": 0.6174,
+      "lift": 23.082,
+      "leverage": 0.014534,
+      "conviction": 2.544,
+      "zhangs_metric": 0.9808,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 16.6345,
+      "lift_retained": 0.721
+    },
+    {
+      "id": 86,
+      "antecedents": [
+        "SET OF 6 TEA TIME BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 12 MINI LOAF BAKING CASES"
+      ],
+      "support": 0.0137,
+      "confidence": 0.6101,
+      "lift": 23.063,
+      "leverage": 0.013109,
+      "conviction": 2.497,
+      "zhangs_metric": 0.9786,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 15.74017,
+      "lift_retained": 0.682
+    },
+    {
+      "id": 87,
+      "antecedents": [
+        "SET OF 12 MINI LOAF BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 6 TEA TIME BAKING CASES"
+      ],
+      "support": 0.0137,
+      "confidence": 0.518,
+      "lift": 23.063,
+      "leverage": 0.013109,
+      "conviction": 2.028,
+      "zhangs_metric": 0.9826,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 15.74017,
+      "lift_retained": 0.682
+    },
+    {
+      "id": 88,
+      "antecedents": [
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01483,
+      "confidence": 0.7367,
+      "lift": 23.027,
+      "leverage": 0.01419,
+      "conviction": 3.676,
+      "zhangs_metric": 0.9762,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.27122,
+      "lift_retained": 0.403
+    },
+    {
+      "id": 89,
+      "antecedents": [
+        "WOODEN HEART CHRISTMAS SCANDINAVIAN"
+      ],
+      "consequents": [
+        "WOODEN TREE CHRISTMAS SCANDINAVIAN"
+      ],
+      "support": 0.01483,
+      "confidence": 0.4637,
+      "lift": 23.027,
+      "leverage": 0.01419,
+      "conviction": 1.827,
+      "zhangs_metric": 0.9882,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.27122,
+      "lift_retained": 0.403
+    },
+    {
+      "id": 90,
+      "antecedents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "BLUE STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01489,
+      "confidence": 0.5734,
+      "lift": 22.861,
+      "leverage": 0.014243,
+      "conviction": 2.285,
+      "zhangs_metric": 0.9818,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 91,
+      "antecedents": [
+        "BLUE STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01489,
+      "confidence": 0.5938,
+      "lift": 22.861,
+      "leverage": 0.014243,
+      "conviction": 2.398,
+      "zhangs_metric": 0.9809,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 92,
+      "antecedents": [
+        "BLUE STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01275,
+      "confidence": 0.5083,
+      "lift": 22.813,
+      "leverage": 0.012191,
+      "conviction": 1.988,
+      "zhangs_metric": 0.9808,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 93,
+      "antecedents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "BLUE STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01275,
+      "confidence": 0.5722,
+      "lift": 22.813,
+      "leverage": 0.012191,
+      "conviction": 2.279,
+      "zhangs_metric": 0.978,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 94,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JAM MAKING SET PRINTED",
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01245,
+      "confidence": 0.296,
+      "lift": 22.793,
+      "leverage": 0.011905,
+      "conviction": 1.402,
+      "zhangs_metric": 0.9981,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 47.95833,
+      "lift_retained": 2.104
+    },
+    {
+      "id": 95,
+      "antecedents": [
+        "JAM MAKING SET PRINTED",
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01245,
+      "confidence": 0.9587,
+      "lift": 22.793,
+      "leverage": 0.011905,
+      "conviction": 23.203,
+      "zhangs_metric": 0.9687,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 47.95833,
+      "lift_retained": 2.104
+    },
+    {
+      "id": 96,
+      "antecedents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE",
+        "JAM MAKING SET PRINTED"
+      ],
+      "support": 0.01245,
+      "confidence": 0.3943,
+      "lift": 22.361,
+      "leverage": 0.011895,
+      "conviction": 1.622,
+      "zhangs_metric": 0.9864,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 31.12287,
+      "lift_retained": 1.392
+    },
+    {
+      "id": 97,
+      "antecedents": [
+        "DOTCOM POSTAGE",
+        "JAM MAKING SET PRINTED"
+      ],
+      "consequents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01245,
+      "confidence": 0.7061,
+      "lift": 22.361,
+      "leverage": 0.011895,
+      "conviction": 3.295,
+      "zhangs_metric": 0.9724,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 31.12287,
+      "lift_retained": 1.392
+    },
+    {
+      "id": 98,
+      "antecedents": [
+        "WHITE SPOT RED CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01388,
+      "confidence": 0.5711,
+      "lift": 21.985,
+      "leverage": 0.01325,
+      "conviction": 2.271,
+      "zhangs_metric": 0.9783,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 99,
+      "antecedents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "WHITE SPOT RED CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01388,
+      "confidence": 0.5344,
+      "lift": 21.985,
+      "leverage": 0.01325,
+      "conviction": 2.096,
+      "zhangs_metric": 0.98,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 100,
+      "antecedents": [
+        "SET OF 12 FAIRY CAKE BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 6 SNACK LOAF BAKING CASES"
+      ],
+      "support": 0.01507,
+      "confidence": 0.4617,
+      "lift": 21.953,
+      "leverage": 0.014386,
+      "conviction": 1.819,
+      "zhangs_metric": 0.9867,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 13.75228,
+      "lift_retained": 0.626
+    },
+    {
+      "id": 101,
+      "antecedents": [
+        "SET OF 6 SNACK LOAF BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 12 FAIRY CAKE BAKING CASES"
+      ],
+      "support": 0.01507,
+      "confidence": 0.7167,
+      "lift": 21.953,
+      "leverage": 0.014386,
+      "conviction": 3.415,
+      "zhangs_metric": 0.975,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 13.75228,
+      "lift_retained": 0.626
+    },
+    {
+      "id": 102,
+      "antecedents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01245,
+      "confidence": 0.5588,
+      "lift": 21.513,
+      "leverage": 0.011873,
+      "conviction": 2.208,
+      "zhangs_metric": 0.9752,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 103,
+      "antecedents": [
+        "RED STRIPE CERAMIC DRAWER KNOB"
+      ],
+      "consequents": [
+        "BLUE SPOT CERAMIC DRAWER KNOB"
+      ],
+      "support": 0.01245,
+      "confidence": 0.4794,
+      "lift": 21.513,
+      "leverage": 0.011873,
+      "conviction": 1.878,
+      "zhangs_metric": 0.9789,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 104,
+      "antecedents": [
+        "SET OF 12 MINI LOAF BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 12 FAIRY CAKE BAKING CASES"
+      ],
+      "support": 0.01823,
+      "confidence": 0.6892,
+      "lift": 21.11,
+      "leverage": 0.017367,
+      "conviction": 3.112,
+      "zhangs_metric": 0.9785,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 13.20218,
+      "lift_retained": 0.625
+    },
+    {
+      "id": 105,
+      "antecedents": [
+        "SET OF 12 FAIRY CAKE BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 12 MINI LOAF BAKING CASES"
+      ],
+      "support": 0.01823,
+      "confidence": 0.5584,
+      "lift": 21.11,
+      "leverage": 0.017367,
+      "conviction": 2.205,
+      "zhangs_metric": 0.9848,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 13.20218,
+      "lift_retained": 0.625
+    },
+    {
+      "id": 106,
+      "antecedents": [
+        "SET OF 6 TEA TIME BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 12 FAIRY CAKE BAKING CASES"
+      ],
+      "support": 0.01543,
+      "confidence": 0.687,
+      "lift": 21.043,
+      "leverage": 0.014697,
+      "conviction": 3.091,
+      "zhangs_metric": 0.9744,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 13.43212,
+      "lift_retained": 0.638
+    },
+    {
+      "id": 107,
+      "antecedents": [
+        "SET OF 12 FAIRY CAKE BAKING CASES"
+      ],
+      "consequents": [
+        "SET OF 6 TEA TIME BAKING CASES"
+      ],
+      "support": 0.01543,
+      "confidence": 0.4726,
+      "lift": 21.043,
+      "leverage": 0.014697,
+      "conviction": 1.854,
+      "zhangs_metric": 0.9846,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 13.43212,
+      "lift_retained": 0.638
+    },
+    {
+      "id": 108,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO BAG RED RETROSPOT",
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01483,
+      "confidence": 0.3527,
+      "lift": 20.993,
+      "leverage": 0.014128,
+      "conviction": 1.519,
+      "zhangs_metric": 0.9942,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 39.16597,
+      "lift_retained": 1.866
+    },
+    {
+      "id": 109,
+      "antecedents": [
+        "JUMBO BAG RED RETROSPOT",
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01483,
+      "confidence": 0.883,
+      "lift": 20.993,
+      "leverage": 0.014128,
+      "conviction": 8.186,
+      "zhangs_metric": 0.9686,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 39.16597,
+      "lift_retained": 1.866
+    },
+    {
+      "id": 110,
+      "antecedents": [
+        "SMALL HEART MEASURING SPOONS"
+      ],
+      "consequents": [
+        "LARGE HEART MEASURING SPOONS"
+      ],
+      "support": 0.01299,
+      "confidence": 0.4619,
+      "lift": 20.784,
+      "leverage": 0.012363,
+      "conviction": 1.817,
+      "zhangs_metric": 0.9794,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.09864,
+      "lift_retained": 1.063
+    },
+    {
+      "id": 111,
+      "antecedents": [
+        "LARGE HEART MEASURING SPOONS"
+      ],
+      "consequents": [
+        "SMALL HEART MEASURING SPOONS"
+      ],
+      "support": 0.01299,
+      "confidence": 0.5845,
+      "lift": 20.784,
+      "leverage": 0.012363,
+      "conviction": 2.339,
+      "zhangs_metric": 0.9735,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.09864,
+      "lift_retained": 1.063
+    },
+    {
+      "id": 112,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO STORAGE BAG SUKI",
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01203,
+      "confidence": 0.2861,
+      "lift": 20.436,
+      "leverage": 0.011446,
+      "conviction": 1.381,
+      "zhangs_metric": 0.9928,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 39.56562,
+      "lift_retained": 1.936
+    },
+    {
+      "id": 113,
+      "antecedents": [
+        "JUMBO STORAGE BAG SUKI",
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01203,
+      "confidence": 0.8596,
+      "lift": 20.436,
+      "leverage": 0.011446,
+      "conviction": 6.822,
+      "zhangs_metric": 0.9646,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 39.56562,
+      "lift_retained": 1.936
+    },
+    {
+      "id": 114,
+      "antecedents": [
+        "VINTAGE PAISLEY STATIONERY SET"
+      ],
+      "consequents": [
+        "FLORAL FOLK STATIONERY SET"
+      ],
+      "support": 0.01329,
+      "confidence": 0.5138,
+      "lift": 20.341,
+      "leverage": 0.012633,
+      "conviction": 2.005,
+      "zhangs_metric": 0.9761,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 115,
+      "antecedents": [
+        "FLORAL FOLK STATIONERY SET"
+      ],
+      "consequents": [
+        "VINTAGE PAISLEY STATIONERY SET"
+      ],
+      "support": 0.01329,
+      "confidence": 0.5259,
+      "lift": 20.341,
+      "leverage": 0.012633,
+      "conviction": 2.055,
+      "zhangs_metric": 0.9755,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 116,
+      "antecedents": [
+        "FELTCRAFT CUSHION RABBIT"
+      ],
+      "consequents": [
+        "FELTCRAFT CUSHION OWL"
+      ],
+      "support": 0.01293,
+      "confidence": 0.5636,
+      "lift": 20.172,
+      "leverage": 0.012287,
+      "conviction": 2.228,
+      "zhangs_metric": 0.9727,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 117,
+      "antecedents": [
+        "FELTCRAFT CUSHION OWL"
+      ],
+      "consequents": [
+        "FELTCRAFT CUSHION RABBIT"
+      ],
+      "support": 0.01293,
+      "confidence": 0.4627,
+      "lift": 20.172,
+      "leverage": 0.012287,
+      "conviction": 1.818,
+      "zhangs_metric": 0.9777,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 118,
+      "antecedents": [
+        "GREEN REGENCY TEACUP AND SAUCER",
+        "JUMBO BAG RED RETROSPOT"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01352,
+      "confidence": 0.8407,
+      "lift": 19.988,
+      "leverage": 0.012847,
+      "conviction": 6.015,
+      "zhangs_metric": 0.9655,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 44.96094,
+      "lift_retained": 2.249
+    },
+    {
+      "id": 119,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "GREEN REGENCY TEACUP AND SAUCER",
+        "JUMBO BAG RED RETROSPOT"
+      ],
+      "support": 0.01352,
+      "confidence": 0.3215,
+      "lift": 19.988,
+      "leverage": 0.012847,
+      "conviction": 1.45,
+      "zhangs_metric": 0.9917,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 44.96094,
+      "lift_retained": 2.249
+    },
+    {
+      "id": 120,
+      "antecedents": [
+        "CHRISTMAS CRAFT WHITE FAIRY"
+      ],
+      "consequents": [
+        "CHRISTMAS CRAFT LITTLE FRIENDS"
+      ],
+      "support": 0.01448,
+      "confidence": 0.6446,
+      "lift": 19.961,
+      "leverage": 0.013752,
+      "conviction": 2.723,
+      "zhangs_metric": 0.9717,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.25229,
+      "lift_retained": 0.464
+    },
+    {
+      "id": 121,
+      "antecedents": [
+        "CHRISTMAS CRAFT LITTLE FRIENDS"
+      ],
+      "consequents": [
+        "CHRISTMAS CRAFT WHITE FAIRY"
+      ],
+      "support": 0.01448,
+      "confidence": 0.4483,
+      "lift": 19.961,
+      "leverage": 0.013752,
+      "conviction": 1.772,
+      "zhangs_metric": 0.9816,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 9.25229,
+      "lift_retained": 0.464
+    },
+    {
+      "id": 122,
+      "antecedents": [
+        "SKULL SHOULDER BAG"
+      ],
+      "consequents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01519,
+      "confidence": 0.622,
+      "lift": 19.697,
+      "leverage": 0.014421,
+      "conviction": 2.562,
+      "zhangs_metric": 0.973,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 26.28581,
+      "lift_retained": 1.335
+    },
+    {
+      "id": 123,
+      "antecedents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "SKULL SHOULDER BAG"
+      ],
+      "support": 0.01519,
+      "confidence": 0.4811,
+      "lift": 19.697,
+      "leverage": 0.014421,
+      "conviction": 1.88,
+      "zhangs_metric": 0.9802,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 26.28581,
+      "lift_retained": 1.335
+    },
+    {
+      "id": 124,
+      "antecedents": [
+        "JUMBO BAG APPLES",
+        "JUMBO BAG VINTAGE LEAF"
+      ],
+      "consequents": [
+        "JUMBO BAG PEARS"
+      ],
+      "support": 0.01442,
+      "confidence": 0.6648,
+      "lift": 18.787,
+      "leverage": 0.01365,
+      "conviction": 2.878,
+      "zhangs_metric": 0.9678,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 18.43952,
+      "lift_retained": 0.982
+    },
+    {
+      "id": 125,
+      "antecedents": [
+        "JUMBO BAG PEARS"
+      ],
+      "consequents": [
+        "JUMBO BAG APPLES",
+        "JUMBO BAG VINTAGE LEAF"
+      ],
+      "support": 0.01442,
+      "confidence": 0.4074,
+      "lift": 18.787,
+      "leverage": 0.01365,
+      "conviction": 1.651,
+      "zhangs_metric": 0.9815,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 18.43952,
+      "lift_retained": 0.982
+    },
+    {
+      "id": 126,
+      "antecedents": [
+        "CHRISTMAS CRAFT LITTLE FRIENDS"
+      ],
+      "consequents": [
+        "CHRISTMAS CRAFT TREE TOP ANGEL"
+      ],
+      "support": 0.01644,
+      "confidence": 0.5092,
+      "lift": 18.703,
+      "leverage": 0.015564,
+      "conviction": 1.982,
+      "zhangs_metric": 0.9781,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 8.31666,
+      "lift_retained": 0.445
+    },
+    {
+      "id": 127,
+      "antecedents": [
+        "CHRISTMAS CRAFT TREE TOP ANGEL"
+      ],
+      "consequents": [
+        "CHRISTMAS CRAFT LITTLE FRIENDS"
+      ],
+      "support": 0.01644,
+      "confidence": 0.6039,
+      "lift": 18.703,
+      "leverage": 0.015564,
+      "conviction": 2.443,
+      "zhangs_metric": 0.973,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 8.31666,
+      "lift_retained": 0.445
+    },
+    {
+      "id": 128,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO BAG RED RETROSPOT",
+        "RED TOADSTOOL LED NIGHT LIGHT"
+      ],
+      "support": 0.01388,
+      "confidence": 0.33,
+      "lift": 18.589,
+      "leverage": 0.013135,
+      "conviction": 1.466,
+      "zhangs_metric": 0.9878,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 43.08121,
+      "lift_retained": 2.318
+    },
+    {
+      "id": 129,
+      "antecedents": [
+        "JUMBO BAG RED RETROSPOT",
+        "RED TOADSTOOL LED NIGHT LIGHT"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01388,
+      "confidence": 0.7819,
+      "lift": 18.589,
+      "leverage": 0.013135,
+      "conviction": 4.392,
+      "zhangs_metric": 0.9633,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 43.08121,
+      "lift_retained": 2.318
+    },
+    {
+      "id": 130,
+      "antecedents": [
+        "BATHROOM METAL SIGN"
+      ],
+      "consequents": [
+        "KITCHEN METAL SIGN"
+      ],
+      "support": 0.01311,
+      "confidence": 0.3279,
+      "lift": 18.103,
+      "leverage": 0.012383,
+      "conviction": 1.461,
+      "zhangs_metric": 0.9841,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 131,
+      "antecedents": [
+        "KITCHEN METAL SIGN"
+      ],
+      "consequents": [
+        "BATHROOM METAL SIGN"
+      ],
+      "support": 0.01311,
+      "confidence": 0.7237,
+      "lift": 18.103,
+      "leverage": 0.012383,
+      "conviction": 3.474,
+      "zhangs_metric": 0.9622,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 132,
+      "antecedents": [
+        "BATHROOM METAL SIGN"
+      ],
+      "consequents": [
+        "TOILET METAL SIGN"
+      ],
+      "support": 0.01746,
+      "confidence": 0.4367,
+      "lift": 18.097,
+      "leverage": 0.016491,
+      "conviction": 1.732,
+      "zhangs_metric": 0.9841,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 133,
+      "antecedents": [
+        "TOILET METAL SIGN"
+      ],
+      "consequents": [
+        "BATHROOM METAL SIGN"
+      ],
+      "support": 0.01746,
+      "confidence": 0.7235,
+      "lift": 18.097,
+      "leverage": 0.016491,
+      "conviction": 3.472,
+      "zhangs_metric": 0.9681,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 134,
+      "antecedents": [
+        "HAND WARMER SCOTTY DOG DESIGN"
+      ],
+      "consequents": [
+        "HAND WARMER RED RETROSPOT"
+      ],
+      "support": 0.01215,
+      "confidence": 0.3729,
+      "lift": 16.738,
+      "leverage": 0.011428,
+      "conviction": 1.559,
+      "zhangs_metric": 0.9719,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 6.93462,
+      "lift_retained": 0.414
+    },
+    {
+      "id": 135,
+      "antecedents": [
+        "HAND WARMER RED RETROSPOT"
+      ],
+      "consequents": [
+        "HAND WARMER SCOTTY DOG DESIGN"
+      ],
+      "support": 0.01215,
+      "confidence": 0.5455,
+      "lift": 16.738,
+      "leverage": 0.011428,
+      "conviction": 2.128,
+      "zhangs_metric": 0.9617,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 6.93462,
+      "lift_retained": 0.414
+    },
+    {
+      "id": 136,
+      "antecedents": [
+        "JUMBO STORAGE BAG SUKI",
+        "RECYCLING BAG RETROSPOT"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01239,
+      "confidence": 0.7027,
+      "lift": 16.707,
+      "leverage": 0.01165,
+      "conviction": 3.222,
+      "zhangs_metric": 0.957,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 37.16771,
+      "lift_retained": 2.225
+    },
+    {
+      "id": 137,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO STORAGE BAG SUKI",
+        "RECYCLING BAG RETROSPOT"
+      ],
+      "support": 0.01239,
+      "confidence": 0.2946,
+      "lift": 16.707,
+      "leverage": 0.01165,
+      "conviction": 1.393,
+      "zhangs_metric": 0.9814,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 37.16771,
+      "lift_retained": 2.225
+    },
+    {
+      "id": 138,
+      "antecedents": [
+        "TRAVEL CARD WALLET KEEP CALM"
+      ],
+      "consequents": [
+        "TRAVEL CARD WALLET VINTAGE TICKET"
+      ],
+      "support": 0.01263,
+      "confidence": 0.403,
+      "lift": 16.663,
+      "leverage": 0.011872,
+      "conviction": 1.635,
+      "zhangs_metric": 0.9704,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 17.34208,
+      "lift_retained": 1.041
+    },
+    {
+      "id": 139,
+      "antecedents": [
+        "TRAVEL CARD WALLET VINTAGE TICKET"
+      ],
+      "consequents": [
+        "TRAVEL CARD WALLET KEEP CALM"
+      ],
+      "support": 0.01263,
+      "confidence": 0.5222,
+      "lift": 16.663,
+      "leverage": 0.011872,
+      "conviction": 2.027,
+      "zhangs_metric": 0.9633,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 17.34208,
+      "lift_retained": 1.041
+    },
+    {
+      "id": 140,
+      "antecedents": [
+        "CHARLIE+LOLA PINK HOT WATER BOTTLE"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01281,
+      "confidence": 0.6869,
+      "lift": 16.331,
+      "leverage": 0.012025,
+      "conviction": 3.06,
+      "zhangs_metric": 0.9566,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 27.17639,
+      "lift_retained": 1.664
+    },
+    {
+      "id": 141,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "CHARLIE+LOLA PINK HOT WATER BOTTLE"
+      ],
+      "support": 0.01281,
+      "confidence": 0.3045,
+      "lift": 16.331,
+      "leverage": 0.012025,
+      "conviction": 1.411,
+      "zhangs_metric": 0.98,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 27.17639,
+      "lift_retained": 1.664
+    },
+    {
+      "id": 142,
+      "antecedents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE",
+        "JUMBO BAG RED RETROSPOT"
+      ],
+      "support": 0.01483,
+      "confidence": 0.4698,
+      "lift": 16.259,
+      "leverage": 0.013922,
+      "conviction": 1.832,
+      "zhangs_metric": 0.9691,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 29.62132,
+      "lift_retained": 1.822
+    },
+    {
+      "id": 143,
+      "antecedents": [
+        "DOTCOM POSTAGE",
+        "JUMBO BAG RED RETROSPOT"
+      ],
+      "consequents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01483,
+      "confidence": 0.5134,
+      "lift": 16.259,
+      "leverage": 0.013922,
+      "conviction": 1.99,
+      "zhangs_metric": 0.9664,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 29.62132,
+      "lift_retained": 1.822
+    },
+    {
+      "id": 144,
+      "antecedents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE",
+        "JUMBO STORAGE BAG SUKI"
+      ],
+      "support": 0.01203,
+      "confidence": 0.3811,
+      "lift": 16.196,
+      "leverage": 0.011291,
+      "conviction": 1.578,
+      "zhangs_metric": 0.9688,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 29.39861,
+      "lift_retained": 1.815
+    },
+    {
+      "id": 145,
+      "antecedents": [
+        "DOTCOM POSTAGE",
+        "JUMBO STORAGE BAG SUKI"
+      ],
+      "consequents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.01203,
+      "confidence": 0.5114,
+      "lift": 16.196,
+      "leverage": 0.011291,
+      "conviction": 1.982,
+      "zhangs_metric": 0.9609,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 29.39861,
+      "lift_retained": 1.815
+    },
+    {
+      "id": 146,
+      "antecedents": [
+        "SKULL LUNCH BOX WITH CUTLERY"
+      ],
+      "consequents": [
+        "STRAWBERRY LUNCH BOX WITH CUTLERY"
+      ],
+      "support": 0.01346,
+      "confidence": 0.5499,
+      "lift": 16.108,
+      "leverage": 0.012629,
+      "conviction": 2.146,
+      "zhangs_metric": 0.9615,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 147,
+      "antecedents": [
+        "STRAWBERRY LUNCH BOX WITH CUTLERY"
+      ],
+      "consequents": [
+        "SKULL LUNCH BOX WITH CUTLERY"
+      ],
+      "support": 0.01346,
+      "confidence": 0.3944,
+      "lift": 16.108,
+      "leverage": 0.012629,
+      "conviction": 1.611,
+      "zhangs_metric": 0.9711,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 148,
+      "antecedents": [
+        "SET OF 60 VINTAGE LEAF CAKE CASES"
+      ],
+      "consequents": [
+        "SET OF 60 PANTRY DESIGN CAKE CASES"
+      ],
+      "support": 0.01352,
+      "confidence": 0.5974,
+      "lift": 16.069,
+      "leverage": 0.012682,
+      "conviction": 2.391,
+      "zhangs_metric": 0.9595,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 14.33806,
+      "lift_retained": 0.892
+    },
+    {
+      "id": 149,
+      "antecedents": [
+        "SET OF 60 PANTRY DESIGN CAKE CASES"
+      ],
+      "consequents": [
+        "SET OF 60 VINTAGE LEAF CAKE CASES"
+      ],
+      "support": 0.01352,
+      "confidence": 0.3638,
+      "lift": 16.069,
+      "leverage": 0.012682,
+      "conviction": 1.536,
+      "zhangs_metric": 0.974,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 14.33806,
+      "lift_retained": 0.892
+    },
+    {
+      "id": 150,
+      "antecedents": [
+        "JUMBO BAG 50'S CHRISTMAS"
+      ],
+      "consequents": [
+        "JUMBO BAG VINTAGE CHRISTMAS"
+      ],
+      "support": 0.01918,
+      "confidence": 0.4529,
+      "lift": 16.037,
+      "leverage": 0.017988,
+      "conviction": 1.776,
+      "zhangs_metric": 0.9791,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 6.9285,
+      "lift_retained": 0.432
+    },
+    {
+      "id": 151,
+      "antecedents": [
+        "JUMBO BAG VINTAGE CHRISTMAS"
+      ],
+      "consequents": [
+        "JUMBO BAG 50'S CHRISTMAS"
+      ],
+      "support": 0.01918,
+      "confidence": 0.6793,
+      "lift": 16.037,
+      "leverage": 0.017988,
+      "conviction": 2.986,
+      "zhangs_metric": 0.9649,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 6.9285,
+      "lift_retained": 0.432
+    },
+    {
+      "id": 152,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "LUNCH BAG CARS BLUE",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01239,
+      "confidence": 0.2885,
+      "lift": 15.876,
+      "leverage": 0.011611,
+      "conviction": 1.38,
+      "zhangs_metric": 0.9791,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 24.29409,
+      "lift_retained": 1.53
+    },
+    {
+      "id": 153,
+      "antecedents": [
+        "LUNCH BAG CARS BLUE",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01239,
+      "confidence": 0.682,
+      "lift": 15.876,
+      "leverage": 0.011611,
+      "conviction": 3.009,
+      "zhangs_metric": 0.9544,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 24.29409,
+      "lift_retained": 1.53
+    },
+    {
+      "id": 154,
+      "antecedents": [
+        "HAND WARMER OWL DESIGN"
+      ],
+      "consequents": [
+        "HAND WARMER SCOTTY DOG DESIGN"
+      ],
+      "support": 0.01996,
+      "confidence": 0.5146,
+      "lift": 15.791,
+      "leverage": 0.018694,
+      "conviction": 1.993,
+      "zhangs_metric": 0.9745,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 6.57287,
+      "lift_retained": 0.416
+    },
+    {
+      "id": 155,
+      "antecedents": [
+        "HAND WARMER SCOTTY DOG DESIGN"
+      ],
+      "consequents": [
+        "HAND WARMER OWL DESIGN"
+      ],
+      "support": 0.01996,
+      "confidence": 0.6124,
+      "lift": 15.791,
+      "leverage": 0.018694,
+      "conviction": 2.48,
+      "zhangs_metric": 0.9682,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 6.57287,
+      "lift_retained": 0.416
+    },
+    {
+      "id": 156,
+      "antecedents": [
+        "HAND WARMER SCOTTY DOG DESIGN"
+      ],
+      "consequents": [
+        "HAND WARMER BIRD DESIGN"
+      ],
+      "support": 0.01698,
+      "confidence": 0.521,
+      "lift": 15.786,
+      "leverage": 0.015904,
+      "conviction": 2.019,
+      "zhangs_metric": 0.9682,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 7.57813,
+      "lift_retained": 0.48
+    },
+    {
+      "id": 157,
+      "antecedents": [
+        "HAND WARMER BIRD DESIGN"
+      ],
+      "consequents": [
+        "HAND WARMER SCOTTY DOG DESIGN"
+      ],
+      "support": 0.01698,
+      "confidence": 0.5144,
+      "lift": 15.786,
+      "leverage": 0.015904,
+      "conviction": 1.992,
+      "zhangs_metric": 0.9686,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 7.57813,
+      "lift_retained": 0.48
+    },
+    {
+      "id": 158,
+      "antecedents": [
+        "JAM MAKING SET PRINTED",
+        "JUMBO BAG RED RETROSPOT"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01221,
+      "confidence": 0.6634,
+      "lift": 15.773,
+      "leverage": 0.011439,
+      "conviction": 2.846,
+      "zhangs_metric": 0.9542,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 39.96528,
+      "lift_retained": 2.534
+    },
+    {
+      "id": 159,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JAM MAKING SET PRINTED",
+        "JUMBO BAG RED RETROSPOT"
+      ],
+      "support": 0.01221,
+      "confidence": 0.2904,
+      "lift": 15.773,
+      "leverage": 0.011439,
+      "conviction": 1.383,
+      "zhangs_metric": 0.9777,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 39.96528,
+      "lift_retained": 2.534
+    },
+    {
+      "id": 160,
+      "antecedents": [
+        "GREEN REGENCY TEACUP AND SAUCER",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "PINK REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.03229,
+      "confidence": 0.7057,
+      "lift": 15.586,
+      "leverage": 0.030219,
+      "conviction": 3.244,
+      "zhangs_metric": 0.9807,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.87724,
+      "lift_retained": 1.404
+    },
+    {
+      "id": 161,
+      "antecedents": [
+        "PINK REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "GREEN REGENCY TEACUP AND SAUCER",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.03229,
+      "confidence": 0.7132,
+      "lift": 15.586,
+      "leverage": 0.030219,
+      "conviction": 3.327,
+      "zhangs_metric": 0.9802,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.87724,
+      "lift_retained": 1.404
+    },
+    {
+      "id": 162,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "LUNCH BAG CARS BLUE",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01251,
+      "confidence": 0.2826,
+      "lift": 15.554,
+      "leverage": 0.011707,
+      "conviction": 1.369,
+      "zhangs_metric": 0.979,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.96896,
+      "lift_retained": 1.477
+    },
+    {
+      "id": 163,
+      "antecedents": [
+        "LUNCH BAG CARS BLUE",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01251,
+      "confidence": 0.6885,
+      "lift": 15.554,
+      "leverage": 0.011707,
+      "conviction": 3.068,
+      "zhangs_metric": 0.953,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.96896,
+      "lift_retained": 1.477
+    },
+    {
+      "id": 164,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "support": 0.01567,
+      "confidence": 0.3648,
+      "lift": 15.5,
+      "leverage": 0.014658,
+      "conviction": 1.537,
+      "zhangs_metric": 0.9775,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.95442,
+      "lift_retained": 1.481
+    },
+    {
+      "id": 165,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01567,
+      "confidence": 0.6658,
+      "lift": 15.5,
+      "leverage": 0.014658,
+      "conviction": 2.864,
+      "zhangs_metric": 0.958,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.95442,
+      "lift_retained": 1.481
+    },
+    {
+      "id": 166,
+      "antecedents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01805,
+      "confidence": 0.6645,
+      "lift": 15.469,
+      "leverage": 0.016885,
+      "conviction": 2.852,
+      "zhangs_metric": 0.9615,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 23.16413,
+      "lift_retained": 1.497
+    },
+    {
+      "id": 167,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "support": 0.01805,
+      "confidence": 0.4202,
+      "lift": 15.469,
+      "leverage": 0.016885,
+      "conviction": 1.678,
+      "zhangs_metric": 0.9773,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 23.16413,
+      "lift_retained": 1.497
+    },
+    {
+      "id": 168,
+      "antecedents": [
+        "JUMBO BAG TOYS"
+      ],
+      "consequents": [
+        "JUMBO BAG WOODLAND ANIMALS",
+        "JUMBO STORAGE BAG SUKI"
+      ],
+      "support": 0.01287,
+      "confidence": 0.413,
+      "lift": 15.439,
+      "leverage": 0.012035,
+      "conviction": 1.658,
+      "zhangs_metric": 0.9653,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 169,
+      "antecedents": [
+        "JUMBO BAG WOODLAND ANIMALS",
+        "JUMBO STORAGE BAG SUKI"
+      ],
+      "consequents": [
+        "JUMBO BAG TOYS"
+      ],
+      "support": 0.01287,
+      "confidence": 0.4811,
+      "lift": 15.439,
+      "leverage": 0.012035,
+      "conviction": 1.867,
+      "zhangs_metric": 0.9609,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 170,
+      "antecedents": [
+        "SINGLE HEART ZINC T-LIGHT HOLDER"
+      ],
+      "consequents": [
+        "HANGING HEART ZINC T-LIGHT HOLDER"
+      ],
+      "support": 0.01668,
+      "confidence": 0.5545,
+      "lift": 15.434,
+      "leverage": 0.015601,
+      "conviction": 2.164,
+      "zhangs_metric": 0.9642,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 171,
+      "antecedents": [
+        "HANGING HEART ZINC T-LIGHT HOLDER"
+      ],
+      "consequents": [
+        "SINGLE HEART ZINC T-LIGHT HOLDER"
+      ],
+      "support": 0.01668,
+      "confidence": 0.4643,
+      "lift": 15.434,
+      "leverage": 0.015601,
+      "conviction": 1.811,
+      "zhangs_metric": 0.9701,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 172,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT",
+        "CHARLOTTE BAG SUKI DESIGN"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01615,
+      "confidence": 0.661,
+      "lift": 15.388,
+      "leverage": 0.015096,
+      "conviction": 2.823,
+      "zhangs_metric": 0.9584,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 25.00924,
+      "lift_retained": 1.625
+    },
+    {
+      "id": 173,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT",
+        "CHARLOTTE BAG SUKI DESIGN"
+      ],
+      "support": 0.01615,
+      "confidence": 0.3759,
+      "lift": 15.388,
+      "leverage": 0.015096,
+      "conviction": 1.563,
+      "zhangs_metric": 0.977,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 25.00924,
+      "lift_retained": 1.625
+    },
+    {
+      "id": 174,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.0199,
+      "confidence": 0.4632,
+      "lift": 15.336,
+      "leverage": 0.018601,
+      "conviction": 1.807,
+      "zhangs_metric": 0.9768,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 23.5502,
+      "lift_retained": 1.536
+    },
+    {
+      "id": 175,
+      "antecedents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.0199,
+      "confidence": 0.6588,
+      "lift": 15.336,
+      "leverage": 0.018601,
+      "conviction": 2.805,
+      "zhangs_metric": 0.9639,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 23.5502,
+      "lift_retained": 1.536
+    },
+    {
+      "id": 176,
+      "antecedents": [
+        "PACK OF 72 RETROSPOT CAKE CASES",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01287,
+      "confidence": 0.675,
+      "lift": 15.249,
+      "leverage": 0.012025,
+      "conviction": 2.941,
+      "zhangs_metric": 0.9526,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 25.42404,
+      "lift_retained": 1.667
+    },
+    {
+      "id": 177,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "PACK OF 72 RETROSPOT CAKE CASES",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01287,
+      "confidence": 0.2907,
+      "lift": 15.249,
+      "leverage": 0.012025,
+      "conviction": 1.383,
+      "zhangs_metric": 0.9777,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 25.42404,
+      "lift_retained": 1.667
+    },
+    {
+      "id": 178,
+      "antecedents": [
+        "JUMBO BAG DOILEY PATTERNS"
+      ],
+      "consequents": [
+        "LUNCH BAG DOILEY PATTERN"
+      ],
+      "support": 0.01352,
+      "confidence": 0.4442,
+      "lift": 15.248,
+      "leverage": 0.012637,
+      "conviction": 1.747,
+      "zhangs_metric": 0.9638,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 179,
+      "antecedents": [
+        "LUNCH BAG DOILEY PATTERN"
+      ],
+      "consequents": [
+        "JUMBO BAG DOILEY PATTERNS"
+      ],
+      "support": 0.01352,
+      "confidence": 0.4642,
+      "lift": 15.248,
+      "leverage": 0.012637,
+      "conviction": 1.81,
+      "zhangs_metric": 0.9625,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 180,
+      "antecedents": [
+        "JUMBO BAG RED RETROSPOT",
+        "NATURAL SLATE HEART CHALKBOARD"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01215,
+      "confidence": 0.6395,
+      "lift": 15.204,
+      "leverage": 0.011354,
+      "conviction": 2.657,
+      "zhangs_metric": 0.9523,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 33.32698,
+      "lift_retained": 2.192
+    },
+    {
+      "id": 181,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO BAG RED RETROSPOT",
+        "NATURAL SLATE HEART CHALKBOARD"
+      ],
+      "support": 0.01215,
+      "confidence": 0.289,
+      "lift": 15.204,
+      "leverage": 0.011354,
+      "conviction": 1.38,
+      "zhangs_metric": 0.9752,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 33.32698,
+      "lift_retained": 2.192
+    },
+    {
+      "id": 182,
+      "antecedents": [
+        "RED RETROSPOT CHARLOTTE BAG",
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01942,
+      "confidence": 0.6708,
+      "lift": 15.154,
+      "leverage": 0.01814,
+      "conviction": 2.903,
+      "zhangs_metric": 0.9619,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 23.71922,
+      "lift_retained": 1.565
+    },
+    {
+      "id": 183,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "RED RETROSPOT CHARLOTTE BAG",
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01942,
+      "confidence": 0.4388,
+      "lift": 15.154,
+      "leverage": 0.01814,
+      "conviction": 1.73,
+      "zhangs_metric": 0.9773,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 23.71922,
+      "lift_retained": 1.565
+    },
+    {
+      "id": 184,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG APPLES DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01275,
+      "confidence": 0.2968,
+      "lift": 15.143,
+      "leverage": 0.011908,
+      "conviction": 1.394,
+      "zhangs_metric": 0.9759,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 19.58062,
+      "lift_retained": 1.293
+    },
+    {
+      "id": 185,
+      "antecedents": [
+        "CHARLOTTE BAG APPLES DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01275,
+      "confidence": 0.6505,
+      "lift": 15.143,
+      "leverage": 0.011908,
+      "conviction": 2.738,
+      "zhangs_metric": 0.9526,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 19.58062,
+      "lift_retained": 1.293
+    },
+    {
+      "id": 186,
+      "antecedents": [
+        "CHARLOTTE BAG VINTAGE ALPHABET"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG APPLES DESIGN"
+      ],
+      "support": 0.01388,
+      "confidence": 0.5236,
+      "lift": 15.101,
+      "leverage": 0.012962,
+      "conviction": 2.026,
+      "zhangs_metric": 0.9592,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 16.33609,
+      "lift_retained": 1.082
+    },
+    {
+      "id": 187,
+      "antecedents": [
+        "CHARLOTTE BAG APPLES DESIGN"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG VINTAGE ALPHABET"
+      ],
+      "support": 0.01388,
+      "confidence": 0.4003,
+      "lift": 15.101,
+      "leverage": 0.012962,
+      "conviction": 1.623,
+      "zhangs_metric": 0.9673,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 16.33609,
+      "lift_retained": 1.082
+    },
+    {
+      "id": 188,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "support": 0.02002,
+      "confidence": 0.4759,
+      "lift": 15.072,
+      "leverage": 0.01869,
+      "conviction": 1.848,
+      "zhangs_metric": 0.9746,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 28.21078,
+      "lift_retained": 1.872
+    },
+    {
+      "id": 189,
+      "antecedents": [
+        "SUKI  SHOULDER BAG"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.02002,
+      "confidence": 0.634,
+      "lift": 15.072,
+      "leverage": 0.01869,
+      "conviction": 2.617,
+      "zhangs_metric": 0.9641,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 28.21078,
+      "lift_retained": 1.872
+    },
+    {
+      "id": 190,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "RED RETROSPOT CHARLOTTE BAG",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "support": 0.01948,
+      "confidence": 0.4535,
+      "lift": 15.045,
+      "leverage": 0.018187,
+      "conviction": 1.775,
+      "zhangs_metric": 0.9754,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.26415,
+      "lift_retained": 1.413
+    },
+    {
+      "id": 191,
+      "antecedents": [
+        "RED RETROSPOT CHARLOTTE BAG",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01948,
+      "confidence": 0.6462,
+      "lift": 15.045,
+      "leverage": 0.018187,
+      "conviction": 2.705,
+      "zhangs_metric": 0.9625,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.26415,
+      "lift_retained": 1.413
+    },
+    {
+      "id": 192,
+      "antecedents": [
+        "JUMBO BAG RED RETROSPOT",
+        "JUMBO BAG TOYS"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01293,
+      "confidence": 0.6308,
+      "lift": 14.997,
+      "leverage": 0.012066,
+      "conviction": 2.595,
+      "zhangs_metric": 0.9529,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 193,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO BAG RED RETROSPOT",
+        "JUMBO BAG TOYS"
+      ],
+      "support": 0.01293,
+      "confidence": 0.3074,
+      "lift": 14.997,
+      "leverage": 0.012066,
+      "conviction": 1.414,
+      "zhangs_metric": 0.9743,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "unmeasurable",
+      "holdout_lift": null,
+      "lift_retained": null
+    },
+    {
+      "id": 194,
+      "antecedents": [
+        "GREEN REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "PINK REGENCY TEACUP AND SAUCER",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.03229,
+      "confidence": 0.5345,
+      "lift": 14.978,
+      "leverage": 0.030135,
+      "conviction": 2.072,
+      "zhangs_metric": 0.9932,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.48331,
+      "lift_retained": 1.434
+    },
+    {
+      "id": 195,
+      "antecedents": [
+        "PINK REGENCY TEACUP AND SAUCER",
+        "ROSES REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "GREEN REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.03229,
+      "confidence": 0.9048,
+      "lift": 14.978,
+      "leverage": 0.030135,
+      "conviction": 9.874,
+      "zhangs_metric": 0.9678,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.48331,
+      "lift_retained": 1.434
+    },
+    {
+      "id": 196,
+      "antecedents": [
+        "PINK REGENCY TEACUP AND SAUCER"
+      ],
+      "consequents": [
+        "GREEN REGENCY TEACUP AND SAUCER",
+        "REGENCY CAKESTAND 3 TIER"
+      ],
+      "support": 0.02043,
+      "confidence": 0.4513,
+      "lift": 14.883,
+      "leverage": 0.019062,
+      "conviction": 1.767,
+      "zhangs_metric": 0.977,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.50017,
+      "lift_retained": 1.512
+    },
+    {
+      "id": 197,
+      "antecedents": [
+        "GREEN REGENCY TEACUP AND SAUCER",
+        "REGENCY CAKESTAND 3 TIER"
+      ],
+      "consequents": [
+        "PINK REGENCY TEACUP AND SAUCER"
+      ],
+      "support": 0.02043,
+      "confidence": 0.6739,
+      "lift": 14.883,
+      "leverage": 0.019062,
+      "conviction": 2.927,
+      "zhangs_metric": 0.962,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.50017,
+      "lift_retained": 1.512
+    },
+    {
+      "id": 198,
+      "antecedents": [
+        "LUNCH BAG  BLACK SKULL.",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.0134,
+      "confidence": 0.6392,
+      "lift": 14.881,
+      "leverage": 0.012504,
+      "conviction": 2.653,
+      "zhangs_metric": 0.9528,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 20.99533,
+      "lift_retained": 1.411
+    },
+    {
+      "id": 199,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "LUNCH BAG  BLACK SKULL.",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.0134,
+      "confidence": 0.3121,
+      "lift": 14.881,
+      "leverage": 0.012504,
+      "conviction": 1.423,
+      "zhangs_metric": 0.9747,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 20.99533,
+      "lift_retained": 1.411
+    },
+    {
+      "id": 200,
+      "antecedents": [
+        "PACK OF 72 RETROSPOT CAKE CASES",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01209,
+      "confidence": 0.6344,
+      "lift": 14.768,
+      "leverage": 0.011275,
+      "conviction": 2.618,
+      "zhangs_metric": 0.9504,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 25.3542,
+      "lift_retained": 1.717
+    },
+    {
+      "id": 201,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "PACK OF 72 RETROSPOT CAKE CASES",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01209,
+      "confidence": 0.2816,
+      "lift": 14.768,
+      "leverage": 0.011275,
+      "conviction": 1.365,
+      "zhangs_metric": 0.9741,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 25.3542,
+      "lift_retained": 1.717
+    },
+    {
+      "id": 202,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01615,
+      "confidence": 0.3647,
+      "lift": 14.752,
+      "leverage": 0.015051,
+      "conviction": 1.535,
+      "zhangs_metric": 0.9754,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.67338,
+      "lift_retained": 1.537
+    },
+    {
+      "id": 203,
+      "antecedents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01615,
+      "confidence": 0.653,
+      "lift": 14.752,
+      "leverage": 0.015051,
+      "conviction": 2.754,
+      "zhangs_metric": 0.9558,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.67338,
+      "lift_retained": 1.537
+    },
+    {
+      "id": 204,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG APPLES DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01275,
+      "confidence": 0.288,
+      "lift": 14.694,
+      "leverage": 0.011882,
+      "conviction": 1.377,
+      "zhangs_metric": 0.9751,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.31755,
+      "lift_retained": 1.519
+    },
+    {
+      "id": 205,
+      "antecedents": [
+        "CHARLOTTE BAG APPLES DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01275,
+      "confidence": 0.6505,
+      "lift": 14.694,
+      "leverage": 0.011882,
+      "conviction": 2.734,
+      "zhangs_metric": 0.9506,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.31755,
+      "lift_retained": 1.519
+    },
+    {
+      "id": 206,
+      "antecedents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "support": 0.01805,
+      "confidence": 0.7301,
+      "lift": 14.694,
+      "leverage": 0.016823,
+      "conviction": 3.521,
+      "zhangs_metric": 0.9556,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 20.71593,
+      "lift_retained": 1.41
+    },
+    {
+      "id": 207,
+      "antecedents": [
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01805,
+      "confidence": 0.3633,
+      "lift": 14.694,
+      "leverage": 0.016823,
+      "conviction": 1.532,
+      "zhangs_metric": 0.9807,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 20.71593,
+      "lift_retained": 1.41
+    },
+    {
+      "id": 208,
+      "antecedents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.0196,
+      "confidence": 0.6489,
+      "lift": 14.66,
+      "leverage": 0.018264,
+      "conviction": 2.722,
+      "zhangs_metric": 0.9608,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.56429,
+      "lift_retained": 1.539
+    },
+    {
+      "id": 209,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG SUKI DESIGN",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.0196,
+      "confidence": 0.4428,
+      "lift": 14.66,
+      "leverage": 0.018264,
+      "conviction": 1.74,
+      "zhangs_metric": 0.9749,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.56429,
+      "lift_retained": 1.539
+    },
+    {
+      "id": 210,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01567,
+      "confidence": 0.6478,
+      "lift": 14.634,
+      "leverage": 0.014598,
+      "conviction": 2.713,
+      "zhangs_metric": 0.9548,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.89154,
+      "lift_retained": 1.496
+    },
+    {
+      "id": 211,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "support": 0.01567,
+      "confidence": 0.354,
+      "lift": 14.634,
+      "leverage": 0.014598,
+      "conviction": 1.51,
+      "zhangs_metric": 0.9748,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.89154,
+      "lift_retained": 1.496
+    },
+    {
+      "id": 212,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO BAG RED RETROSPOT",
+        "RECYCLING BAG RETROSPOT"
+      ],
+      "support": 0.01519,
+      "confidence": 0.3612,
+      "lift": 14.609,
+      "leverage": 0.014152,
+      "conviction": 1.527,
+      "zhangs_metric": 0.9724,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 33.90158,
+      "lift_retained": 2.321
+    },
+    {
+      "id": 213,
+      "antecedents": [
+        "JUMBO BAG RED RETROSPOT",
+        "RECYCLING BAG RETROSPOT"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01519,
+      "confidence": 0.6145,
+      "lift": 14.609,
+      "leverage": 0.014152,
+      "conviction": 2.485,
+      "zhangs_metric": 0.9552,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 33.90158,
+      "lift_retained": 2.321
+    },
+    {
+      "id": 214,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "support": 0.01942,
+      "confidence": 0.6245,
+      "lift": 14.539,
+      "leverage": 0.018086,
+      "conviction": 2.549,
+      "zhangs_metric": 0.9611,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.46387,
+      "lift_retained": 1.476
+    },
+    {
+      "id": 215,
+      "antecedents": [
+        "STRAWBERRY CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT",
+        "RED RETROSPOT CHARLOTTE BAG"
+      ],
+      "support": 0.01942,
+      "confidence": 0.4521,
+      "lift": 14.539,
+      "leverage": 0.018086,
+      "conviction": 1.769,
+      "zhangs_metric": 0.973,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 21.46387,
+      "lift_retained": 1.476
+    },
+    {
+      "id": 216,
+      "antecedents": [
+        "RED RETROSPOT CHARLOTTE BAG",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "consequents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "support": 0.01936,
+      "confidence": 0.6423,
+      "lift": 14.51,
+      "leverage": 0.018028,
+      "conviction": 2.672,
+      "zhangs_metric": 0.96,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.44498,
+      "lift_retained": 1.547
+    },
+    {
+      "id": 217,
+      "antecedents": [
+        "CHARLOTTE BAG PINK POLKADOT"
+      ],
+      "consequents": [
+        "RED RETROSPOT CHARLOTTE BAG",
+        "WOODLAND CHARLOTTE BAG"
+      ],
+      "support": 0.01936,
+      "confidence": 0.4374,
+      "lift": 14.51,
+      "leverage": 0.018028,
+      "conviction": 1.724,
+      "zhangs_metric": 0.9742,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 22.44498,
+      "lift_retained": 1.547
+    },
+    {
+      "id": 218,
+      "antecedents": [
+        "DOTCOM POSTAGE"
+      ],
+      "consequents": [
+        "JUMBO BAG WOODLAND ANIMALS",
+        "JUMBO SHOPPER VINTAGE RED PAISLEY"
+      ],
+      "support": 0.01418,
+      "confidence": 0.3371,
+      "lift": 14.509,
+      "leverage": 0.013202,
+      "conviction": 1.473,
+      "zhangs_metric": 0.972,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 35.96875,
+      "lift_retained": 2.479
+    },
+    {
+      "id": 219,
+      "antecedents": [
+        "JUMBO BAG WOODLAND ANIMALS",
+        "JUMBO SHOPPER VINTAGE RED PAISLEY"
+      ],
+      "consequents": [
+        "DOTCOM POSTAGE"
+      ],
+      "support": 0.01418,
+      "confidence": 0.6103,
+      "lift": 14.509,
+      "leverage": 0.013202,
+      "conviction": 2.458,
+      "zhangs_metric": 0.9532,
+      "interpretation": "strong positive dependence -- worth a physical or on-site adjacency",
+      "holdout_status": "confirmed",
+      "holdout_lift": 35.96875,
+      "lift_retained": 2.479
+    }
+  ],
+  "top_pairs": [
+    {
+      "a": "REGENCY TEA PLATE GREEN",
+      "b": "REGENCY TEA PLATE PINK",
+      "lift": 40.261,
+      "confidence": 0.7316,
+      "support": 0.01656
+    },
+    {
+      "a": "REGENCY TEA PLATE PINK",
+      "b": "REGENCY TEA PLATE GREEN",
+      "lift": 40.261,
+      "confidence": 0.9115,
+      "support": 0.01656
+    },
+    {
+      "a": "REGENCY MILK JUG PINK",
+      "b": "REGENCY SUGAR BOWL GREEN",
+      "lift": 38.856,
+      "confidence": 0.7454,
+      "support": 0.01448
+    },
+    {
+      "a": "REGENCY SUGAR BOWL GREEN",
+      "b": "REGENCY MILK JUG PINK",
+      "lift": 38.856,
+      "confidence": 0.7547,
+      "support": 0.01448
+    },
+    {
+      "a": "JAM JAR WITH PINK LID",
+      "b": "JAM JAR WITH GREEN LID",
+      "lift": 36.742,
+      "confidence": 0.6676,
+      "support": 0.01352
+    },
+    {
+      "a": "JAM JAR WITH GREEN LID",
+      "b": "JAM JAR WITH PINK LID",
+      "lift": 36.742,
+      "confidence": 0.7443,
+      "support": 0.01352
+    },
+    {
+      "a": "SET OF 3 WOODEN SLEIGH DECORATIONS",
+      "b": "SET OF 3 WOODEN STOCKING DECORATION",
+      "lift": 35.956,
+      "confidence": 0.6812,
+      "support": 0.01209
+    },
+    {
+      "a": "SET OF 3 WOODEN STOCKING DECORATION",
+      "b": "SET OF 3 WOODEN SLEIGH DECORATIONS",
+      "lift": 35.956,
+      "confidence": 0.6384,
+      "support": 0.01209
+    },
+    {
+      "a": "BLUE POLKADOT CUP",
+      "b": "PINK  POLKADOT CUP",
+      "lift": 34.992,
+      "confidence": 0.64,
+      "support": 0.01239
+    },
+    {
+      "a": "PINK  POLKADOT CUP",
+      "b": "BLUE POLKADOT CUP",
+      "lift": 34.992,
+      "confidence": 0.6775,
+      "support": 0.01239
+    },
+    {
+      "a": "REGENCY TEA PLATE ROSES",
+      "b": "REGENCY TEA PLATE PINK",
+      "lift": 33.569,
+      "confidence": 0.61,
+      "support": 0.01603
+    },
+    {
+      "a": "REGENCY TEA PLATE PINK",
+      "b": "REGENCY TEA PLATE ROSES",
+      "lift": 33.569,
+      "confidence": 0.882,
+      "support": 0.01603
+    },
+    {
+      "a": "PINK POLKADOT BOWL",
+      "b": "BLUE POLKADOT BOWL",
+      "lift": 32.658,
+      "confidence": 0.6265,
+      "support": 0.01239
+    },
+    {
+      "a": "BLUE POLKADOT BOWL",
+      "b": "PINK POLKADOT BOWL",
+      "lift": 32.658,
+      "confidence": 0.646,
+      "support": 0.01239
+    },
+    {
+      "a": "REGENCY TEA PLATE ROSES",
+      "b": "REGENCY TEA PLATE GREEN",
+      "lift": 31.951,
+      "confidence": 0.7234,
+      "support": 0.01901
+    }
+  ],
+  "metric_distribution": {
+    "support": [
+      {
+        "bin_start": 0.01203,
+        "bin_end": 0.01389,
+        "count": 685
+      },
+      {
+        "bin_start": 0.01389,
+        "bin_end": 0.01575,
+        "count": 350
+      },
+      {
+        "bin_start": 0.01575,
+        "bin_end": 0.0176,
+        "count": 297
+      },
+      {
+        "bin_start": 0.0176,
+        "bin_end": 0.01946,
+        "count": 182
+      },
+      {
+        "bin_start": 0.01946,
+        "bin_end": 0.02131,
+        "count": 104
+      },
+      {
+        "bin_start": 0.02131,
+        "bin_end": 0.02317,
+        "count": 55
+      },
+      {
+        "bin_start": 0.02317,
+        "bin_end": 0.02503,
+        "count": 63
+      },
+      {
+        "bin_start": 0.02503,
+        "bin_end": 0.02688,
+        "count": 22
+      },
+      {
+        "bin_start": 0.02688,
+        "bin_end": 0.02874,
+        "count": 16
+      },
+      {
+        "bin_start": 0.02874,
+        "bin_end": 0.03059,
+        "count": 22
+      },
+      {
+        "bin_start": 0.03059,
+        "bin_end": 0.03245,
+        "count": 31
+      },
+      {
+        "bin_start": 0.03245,
+        "bin_end": 0.0343,
+        "count": 12
+      },
+      {
+        "bin_start": 0.0343,
+        "bin_end": 0.03616,
+        "count": 8
+      },
+      {
+        "bin_start": 0.03616,
+        "bin_end": 0.03802,
+        "count": 2
+      },
+      {
+        "bin_start": 0.03802,
+        "bin_end": 0.03987,
+        "count": 4
+      },
+      {
+        "bin_start": 0.03987,
+        "bin_end": 0.04173,
+        "count": 2
+      },
+      {
+        "bin_start": 0.04173,
+        "bin_end": 0.04358,
+        "count": 2
+      },
+      {
+        "bin_start": 0.04358,
+        "bin_end": 0.04544,
+        "count": 0
+      },
+      {
+        "bin_start": 0.04544,
+        "bin_end": 0.0473,
+        "count": 2
+      },
+      {
+        "bin_start": 0.0473,
+        "bin_end": 0.04915,
+        "count": 2
+      }
+    ],
+    "confidence": [
+      {
+        "bin_start": 0.25,
+        "bin_end": 0.28544,
+        "count": 263
+      },
+      {
+        "bin_start": 0.28544,
+        "bin_end": 0.32087,
+        "count": 190
+      },
+      {
+        "bin_start": 0.32087,
+        "bin_end": 0.35631,
+        "count": 171
+      },
+      {
+        "bin_start": 0.35631,
+        "bin_end": 0.39174,
+        "count": 150
+      },
+      {
+        "bin_start": 0.39174,
+        "bin_end": 0.42718,
+        "count": 156
+      },
+      {
+        "bin_start": 0.42718,
+        "bin_end": 0.46261,
+        "count": 121
+      },
+      {
+        "bin_start": 0.46261,
+        "bin_end": 0.49805,
+        "count": 110
+      },
+      {
+        "bin_start": 0.49805,
+        "bin_end": 0.53349,
+        "count": 116
+      },
+      {
+        "bin_start": 0.53349,
+        "bin_end": 0.56892,
+        "count": 112
+      },
+      {
+        "bin_start": 0.56892,
+        "bin_end": 0.60436,
+        "count": 96
+      },
+      {
+        "bin_start": 0.60436,
+        "bin_end": 0.63979,
+        "count": 86
+      },
+      {
+        "bin_start": 0.63979,
+        "bin_end": 0.67523,
+        "count": 66
+      },
+      {
+        "bin_start": 0.67523,
+        "bin_end": 0.71067,
+        "count": 58
+      },
+      {
+        "bin_start": 0.71067,
+        "bin_end": 0.7461,
+        "count": 53
+      },
+      {
+        "bin_start": 0.7461,
+        "bin_end": 0.78154,
+        "count": 42
+      },
+      {
+        "bin_start": 0.78154,
+        "bin_end": 0.81697,
+        "count": 35
+      },
+      {
+        "bin_start": 0.81697,
+        "bin_end": 0.85241,
+        "count": 18
+      },
+      {
+        "bin_start": 0.85241,
+        "bin_end": 0.88784,
+        "count": 9
+      },
+      {
+        "bin_start": 0.88784,
+        "bin_end": 0.92328,
+        "count": 6
+      },
+      {
+        "bin_start": 0.92328,
+        "bin_end": 0.95872,
+        "count": 3
+      }
+    ],
+    "lift": [
+      {
+        "bin_start": 1.88969,
+        "bin_end": 3.9948,
+        "count": 144
+      },
+      {
+        "bin_start": 3.9948,
+        "bin_end": 6.0999,
+        "count": 340
+      },
+      {
+        "bin_start": 6.0999,
+        "bin_end": 8.205,
+        "count": 485
+      },
+      {
+        "bin_start": 8.205,
+        "bin_end": 10.3101,
+        "count": 309
+      },
+      {
+        "bin_start": 10.3101,
+        "bin_end": 12.4152,
+        "count": 191
+      },
+      {
+        "bin_start": 12.4152,
+        "bin_end": 14.5203,
+        "count": 176
+      },
+      {
+        "bin_start": 14.5203,
+        "bin_end": 16.62541,
+        "count": 76
+      },
+      {
+        "bin_start": 16.62541,
+        "bin_end": 18.73051,
+        "count": 14
+      },
+      {
+        "bin_start": 18.73051,
+        "bin_end": 20.83561,
+        "count": 16
+      },
+      {
+        "bin_start": 20.83561,
+        "bin_end": 22.94071,
+        "count": 20
+      },
+      {
+        "bin_start": 22.94071,
+        "bin_end": 25.04581,
+        "count": 16
+      },
+      {
+        "bin_start": 25.04581,
+        "bin_end": 27.15091,
+        "count": 16
+      },
+      {
+        "bin_start": 27.15091,
+        "bin_end": 29.25602,
+        "count": 14
+      },
+      {
+        "bin_start": 29.25602,
+        "bin_end": 31.36112,
+        "count": 10
+      },
+      {
+        "bin_start": 31.36112,
+        "bin_end": 33.46622,
+        "count": 10
+      },
+      {
+        "bin_start": 33.46622,
+        "bin_end": 35.57132,
+        "count": 10
+      },
+      {
+        "bin_start": 35.57132,
+        "bin_end": 37.67642,
+        "count": 6
+      },
+      {
+        "bin_start": 37.67642,
+        "bin_end": 39.78152,
+        "count": 2
+      },
+      {
+        "bin_start": 39.78152,
+        "bin_end": 41.88662,
+        "count": 4
+      },
+      {
+        "bin_start": 41.88662,
+        "bin_end": 43.99173,
+        "count": 2
+      }
+    ]
+  },
+  "holdout_validation": {
+    "protocol": "Rules mined on the first 80% of invoices by date; lift recomputed on the final 20%. A rule is 'confirmed' if its out-of-sample lift still exceeds 1.2.",
+    "train_invoices": 16108,
+    "holdout_invoices": 3453,
+    "rules_tested": 1861,
+    "rules_confirmed": 1672,
+    "rules_degraded": 0,
+    "rules_unmeasurable": 189,
+    "survival_rate": 1.0,
+    "interpretation": "1672 of 1672 measurable rules still show lift above 1.2 on invoices the miner never saw (189 more could not be scored because an item vanished from the hold-out vocabulary). Note that this archive ends in December, so the chronological hold-out is the Christmas peak: the test rules out patterns that faded across the year, but it cannot refute ones specific to that season."
+  },
+  "network": {
+    "nodes": [
+      {
+        "id": "REGENCY TEA PLATE GREEN",
+        "degree": 14,
+        "support": 0.019005
+      },
+      {
+        "id": "REGENCY TEA PLATE ROSES",
+        "degree": 14,
+        "support": 0.019005
+      },
+      {
+        "id": "REGENCY TEA PLATE PINK",
+        "degree": 10,
+        "support": 0.016562
+      },
+      {
+        "id": "POPPY'S PLAYHOUSE BEDROOM",
+        "degree": 10,
+        "support": 0.018648
+      },
+      {
+        "id": "POPPY'S PLAYHOUSE KITCHEN",
+        "degree": 10,
+        "support": 0.018648
+      },
+      {
+        "id": "POPPY'S PLAYHOUSE LIVINGROOM",
+        "degree": 10,
+        "support": 0.015609
+      },
+      {
+        "id": "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "degree": 10,
+        "support": 0.023116
+      },
+      {
+        "id": "WOODEN TREE CHRISTMAS SCANDINAVIAN",
+        "degree": 10,
+        "support": 0.016741
+      },
+      {
+        "id": "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "degree": 10,
+        "support": 0.023116
+      },
+      {
+        "id": "SET/6 RED SPOTTY PAPER PLATES",
+        "degree": 6,
+        "support": 0.020852
+      },
+      {
+        "id": "SET/6 RED SPOTTY PAPER CUPS",
+        "degree": 6,
+        "support": 0.020852
+      },
+      {
+        "id": "RED SPOT CERAMIC DRAWER KNOB",
+        "degree": 6,
+        "support": 0.013881
+      },
+      {
+        "id": "REGENCY MILK JUG PINK",
+        "degree": 4,
+        "support": 0.014477
+      },
+      {
+        "id": "REGENCY SUGAR BOWL GREEN",
+        "degree": 4,
+        "support": 0.014477
+      },
+      {
+        "id": "SET OF 3 WOODEN STOCKING DECORATION",
+        "degree": 4,
+        "support": 0.012988
+      },
+      {
+        "id": "ROSES REGENCY TEACUP AND SAUCER",
+        "degree": 4,
+        "support": 0.012332
+      },
+      {
+        "id": "REGENCY TEAPOT ROSES",
+        "degree": 4,
+        "support": 0.013881
+      },
+      {
+        "id": "SET/20 RED RETROSPOT PAPER NAPKINS",
+        "degree": 4,
+        "support": 0.015788
+      },
+      {
+        "id": "SET OF 6 SNACK LOAF BAKING CASES",
+        "degree": 4,
+        "support": 0.014001
+      },
+      {
+        "id": "SET OF 6 TEA TIME BAKING CASES",
+        "degree": 4,
+        "support": 0.013703
+      },
+      {
+        "id": "BLUE SPOT CERAMIC DRAWER KNOB",
+        "degree": 4,
+        "support": 0.012273
+      },
+      {
+        "id": "SET OF 12 MINI LOAF BAKING CASES",
+        "degree": 4,
+        "support": 0.014001
+      },
+      {
+        "id": "JAM JAR WITH PINK LID",
+        "degree": 2,
+        "support": 0.013524
+      },
+      {
+        "id": "JAM JAR WITH GREEN LID",
+        "degree": 2,
+        "support": 0.013524
+      },
+      {
+        "id": "SET OF 3 WOODEN SLEIGH DECORATIONS",
+        "degree": 2,
+        "support": 0.012094
+      },
+      {
+        "id": "BLUE POLKADOT CUP",
+        "degree": 2,
+        "support": 0.012392
+      },
+      {
+        "id": "PINK  POLKADOT CUP",
+        "degree": 2,
+        "support": 0.012392
+      },
+      {
+        "id": "PINK POLKADOT BOWL",
+        "degree": 2,
+        "support": 0.012392
+      },
+      {
+        "id": "BLUE POLKADOT BOWL",
+        "degree": 2,
+        "support": 0.012392
+      },
+      {
+        "id": "KEY FOB , BACK DOOR",
+        "degree": 2,
+        "support": 0.012511
+      },
+      {
+        "id": "KEY FOB , SHED",
+        "degree": 2,
+        "support": 0.012511
+      },
+      {
+        "id": "PINK HAPPY BIRTHDAY BUNTING",
+        "degree": 2,
+        "support": 0.015609
+      },
+      {
+        "id": "BLUE HAPPY BIRTHDAY BUNTING",
+        "degree": 2,
+        "support": 0.015609
+      },
+      {
+        "id": "FELTCRAFT CUSHION BUTTERFLY",
+        "degree": 2,
+        "support": 0.013286
+      },
+      {
+        "id": "FELTCRAFT CUSHION RABBIT",
+        "degree": 2,
+        "support": 0.013286
+      },
+      {
+        "id": "PINK VINTAGE PAISLEY PICNIC BAG",
+        "degree": 2,
+        "support": 0.016682
+      },
+      {
+        "id": "SCANDINAVIAN PAISLEY PICNIC BAG",
+        "degree": 2,
+        "support": 0.016682
+      },
+      {
+        "id": "SET OF 3 WOODEN HEART DECORATIONS",
+        "degree": 2,
+        "support": 0.012988
+      },
+      {
+        "id": "WHITE SPOT BLUE CERAMIC DRAWER KNOB",
+        "degree": 2,
+        "support": 0.012273
+      },
+      {
+        "id": "SMALL DOLLY MIX DESIGN ORANGE BOWL",
+        "degree": 2,
+        "support": 0.020792
+      },
+      {
+        "id": "SMALL MARSHMALLOWS PINK BOWL",
+        "degree": 2,
+        "support": 0.020792
+      },
+      {
+        "id": "RED STRIPE CERAMIC DRAWER KNOB",
+        "degree": 2,
+        "support": 0.013881
+      },
+      {
+        "id": "WHITE SPOT RED CERAMIC DRAWER KNOB",
+        "degree": 2,
+        "support": 0.012869
+      },
+      {
+        "id": "FLORAL FOLK STATIONERY SET",
+        "degree": 2,
+        "support": 0.012749
+      },
+      {
+        "id": "MODERN FLORAL STATIONERY SET",
+        "degree": 2,
+        "support": 0.012749
+      },
+      {
+        "id": "FELTCRAFT PRINCESS CHARLOTTE DOLL",
+        "degree": 2,
+        "support": 0.015192
+      },
+      {
+        "id": "FELTCRAFT PRINCESS LOLA DOLL",
+        "degree": 2,
+        "support": 0.015192
+      }
+    ],
+    "links": [
+      {
+        "source": "REGENCY TEA PLATE GREEN",
+        "target": "REGENCY TEA PLATE PINK",
+        "lift": 40.261,
+        "confidence": 0.7316,
+        "support": 0.01656
+      },
+      {
+        "source": "REGENCY TEA PLATE PINK",
+        "target": "REGENCY TEA PLATE GREEN",
+        "lift": 40.261,
+        "confidence": 0.9115,
+        "support": 0.01656
+      },
+      {
+        "source": "REGENCY MILK JUG PINK",
+        "target": "REGENCY SUGAR BOWL GREEN",
+        "lift": 38.856,
+        "confidence": 0.7454,
+        "support": 0.01448
+      },
+      {
+        "source": "REGENCY SUGAR BOWL GREEN",
+        "target": "REGENCY MILK JUG PINK",
+        "lift": 38.856,
+        "confidence": 0.7547,
+        "support": 0.01448
+      },
+      {
+        "source": "JAM JAR WITH PINK LID",
+        "target": "JAM JAR WITH GREEN LID",
+        "lift": 36.742,
+        "confidence": 0.6676,
+        "support": 0.01352
+      },
+      {
+        "source": "JAM JAR WITH GREEN LID",
+        "target": "JAM JAR WITH PINK LID",
+        "lift": 36.742,
+        "confidence": 0.7443,
+        "support": 0.01352
+      },
+      {
+        "source": "SET OF 3 WOODEN SLEIGH DECORATIONS",
+        "target": "SET OF 3 WOODEN STOCKING DECORATION",
+        "lift": 35.956,
+        "confidence": 0.6812,
+        "support": 0.01209
+      },
+      {
+        "source": "SET OF 3 WOODEN STOCKING DECORATION",
+        "target": "SET OF 3 WOODEN SLEIGH DECORATIONS",
+        "lift": 35.956,
+        "confidence": 0.6384,
+        "support": 0.01209
+      },
+      {
+        "source": "BLUE POLKADOT CUP",
+        "target": "PINK  POLKADOT CUP",
+        "lift": 34.992,
+        "confidence": 0.64,
+        "support": 0.01239
+      },
+      {
+        "source": "PINK  POLKADOT CUP",
+        "target": "BLUE POLKADOT CUP",
+        "lift": 34.992,
+        "confidence": 0.6775,
+        "support": 0.01239
+      },
+      {
+        "source": "REGENCY TEA PLATE ROSES",
+        "target": "REGENCY TEA PLATE PINK",
+        "lift": 33.569,
+        "confidence": 0.61,
+        "support": 0.01603
+      },
+      {
+        "source": "REGENCY TEA PLATE PINK",
+        "target": "REGENCY TEA PLATE ROSES",
+        "lift": 33.569,
+        "confidence": 0.882,
+        "support": 0.01603
+      },
+      {
+        "source": "PINK POLKADOT BOWL",
+        "target": "BLUE POLKADOT BOWL",
+        "lift": 32.658,
+        "confidence": 0.6265,
+        "support": 0.01239
+      },
+      {
+        "source": "BLUE POLKADOT BOWL",
+        "target": "PINK POLKADOT BOWL",
+        "lift": 32.658,
+        "confidence": 0.646,
+        "support": 0.01239
+      },
+      {
+        "source": "REGENCY TEA PLATE GREEN",
+        "target": "REGENCY TEA PLATE ROSES",
+        "lift": 31.951,
+        "confidence": 0.8395,
+        "support": 0.01901
+      },
+      {
+        "source": "REGENCY TEA PLATE ROSES",
+        "target": "REGENCY TEA PLATE GREEN",
+        "lift": 31.951,
+        "confidence": 0.7234,
+        "support": 0.01901
+      },
+      {
+        "source": "POPPY'S PLAYHOUSE BEDROOM",
+        "target": "POPPY'S PLAYHOUSE LIVINGROOM",
+        "lift": 31.454,
+        "confidence": 0.6147,
+        "support": 0.01549
+      },
+      {
+        "source": "POPPY'S PLAYHOUSE LIVINGROOM",
+        "target": "POPPY'S PLAYHOUSE BEDROOM",
+        "lift": 31.454,
+        "confidence": 0.7927,
+        "support": 0.01549
+      },
+      {
+        "source": "POPPY'S PLAYHOUSE KITCHEN",
+        "target": "POPPY'S PLAYHOUSE LIVINGROOM",
+        "lift": 30.822,
+        "confidence": 0.6023,
+        "support": 0.01561
+      },
+      {
+        "source": "POPPY'S PLAYHOUSE LIVINGROOM",
+        "target": "POPPY'S PLAYHOUSE KITCHEN",
+        "lift": 30.822,
+        "confidence": 0.7988,
+        "support": 0.01561
+      },
+      {
+        "source": "KEY FOB , BACK DOOR",
+        "target": "KEY FOB , SHED",
+        "lift": 30.583,
+        "confidence": 0.6796,
+        "support": 0.01251
+      },
+      {
+        "source": "KEY FOB , SHED",
+        "target": "KEY FOB , BACK DOOR",
+        "lift": 30.583,
+        "confidence": 0.563,
+        "support": 0.01251
+      },
+      {
+        "source": "REGENCY TEAPOT ROSES",
+        "target": "REGENCY SUGAR BOWL GREEN",
+        "lift": 29.337,
+        "confidence": 0.5628,
+        "support": 0.01388
+      },
+      {
+        "source": "REGENCY SUGAR BOWL GREEN",
+        "target": "REGENCY TEAPOT ROSES",
+        "lift": 29.337,
+        "confidence": 0.7236,
+        "support": 0.01388
+      },
+      {
+        "source": "POPPY'S PLAYHOUSE KITCHEN",
+        "target": "POPPY'S PLAYHOUSE BEDROOM",
+        "lift": 28.552,
+        "confidence": 0.7195,
+        "support": 0.01865
+      },
+      {
+        "source": "POPPY'S PLAYHOUSE BEDROOM",
+        "target": "POPPY'S PLAYHOUSE KITCHEN",
+        "lift": 28.552,
+        "confidence": 0.74,
+        "support": 0.01865
+      },
+      {
+        "source": "PINK HAPPY BIRTHDAY BUNTING",
+        "target": "BLUE HAPPY BIRTHDAY BUNTING",
+        "lift": 28.267,
+        "confidence": 0.6517,
+        "support": 0.01561
+      },
+      {
+        "source": "BLUE HAPPY BIRTHDAY BUNTING",
+        "target": "PINK HAPPY BIRTHDAY BUNTING",
+        "lift": 28.267,
+        "confidence": 0.677,
+        "support": 0.01561
+      },
+      {
+        "source": "REGENCY TEAPOT ROSES",
+        "target": "REGENCY MILK JUG PINK",
+        "lift": 28.107,
+        "confidence": 0.5459,
+        "support": 0.01346
+      },
+      {
+        "source": "REGENCY MILK JUG PINK",
+        "target": "REGENCY TEAPOT ROSES",
+        "lift": 28.107,
+        "confidence": 0.6933,
+        "support": 0.01346
+      },
+      {
+        "source": "FELTCRAFT CUSHION BUTTERFLY",
+        "target": "FELTCRAFT CUSHION RABBIT",
+        "lift": 27.937,
+        "confidence": 0.6408,
+        "support": 0.01329
+      },
+      {
+        "source": "FELTCRAFT CUSHION RABBIT",
+        "target": "FELTCRAFT CUSHION BUTTERFLY",
+        "lift": 27.937,
+        "confidence": 0.5792,
+        "support": 0.01329
+      },
+      {
+        "source": "WOODEN TREE CHRISTMAS SCANDINAVIAN",
+        "target": "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "lift": 27.362,
+        "confidence": 0.8314,
+        "support": 0.01674
+      },
+      {
+        "source": "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "target": "WOODEN TREE CHRISTMAS SCANDINAVIAN",
+        "lift": 27.362,
+        "confidence": 0.551,
+        "support": 0.01674
+      },
+      {
+        "source": "SET/6 RED SPOTTY PAPER CUPS",
+        "target": "SET/6 RED SPOTTY PAPER PLATES",
+        "lift": 26.168,
+        "confidence": 0.8216,
+        "support": 0.02085
+      },
+      {
+        "source": "SET/6 RED SPOTTY PAPER PLATES",
+        "target": "SET/6 RED SPOTTY PAPER CUPS",
+        "lift": 26.168,
+        "confidence": 0.6641,
+        "support": 0.02085
+      },
+      {
+        "source": "SET OF 6 SNACK LOAF BAKING CASES",
+        "target": "SET OF 6 TEA TIME BAKING CASES",
+        "lift": 26.108,
+        "confidence": 0.5864,
+        "support": 0.01233
+      },
+      {
+        "source": "SET OF 6 TEA TIME BAKING CASES",
+        "target": "SET OF 6 SNACK LOAF BAKING CASES",
+        "lift": 26.108,
+        "confidence": 0.5491,
+        "support": 0.01233
+      },
+      {
+        "source": "PINK VINTAGE PAISLEY PICNIC BAG",
+        "target": "SCANDINAVIAN PAISLEY PICNIC BAG",
+        "lift": 26.066,
+        "confidence": 0.688,
+        "support": 0.01668
+      },
+      {
+        "source": "SCANDINAVIAN PAISLEY PICNIC BAG",
+        "target": "PINK VINTAGE PAISLEY PICNIC BAG",
+        "lift": 26.066,
+        "confidence": 0.6321,
+        "support": 0.01668
+      },
+      {
+        "source": "SET OF 3 WOODEN HEART DECORATIONS",
+        "target": "SET OF 3 WOODEN STOCKING DECORATION",
+        "lift": 25.858,
+        "confidence": 0.4899,
+        "support": 0.01299
+      },
+      {
+        "source": "SET OF 3 WOODEN STOCKING DECORATION",
+        "target": "SET OF 3 WOODEN HEART DECORATIONS",
+        "lift": 25.858,
+        "confidence": 0.6855,
+        "support": 0.01299
+      },
+      {
+        "source": "WHITE SPOT BLUE CERAMIC DRAWER KNOB",
+        "target": "BLUE SPOT CERAMIC DRAWER KNOB",
+        "lift": 25.399,
+        "confidence": 0.5659,
+        "support": 0.01227
+      },
+      {
+        "source": "BLUE SPOT CERAMIC DRAWER KNOB",
+        "target": "WHITE SPOT BLUE CERAMIC DRAWER KNOB",
+        "lift": 25.399,
+        "confidence": 0.5508,
+        "support": 0.01227
+      },
+      {
+        "source": "SET OF 12 MINI LOAF BAKING CASES",
+        "target": "SET OF 6 SNACK LOAF BAKING CASES",
+        "lift": 25.167,
+        "confidence": 0.5293,
+        "support": 0.014
+      },
+      {
+        "source": "SET OF 6 SNACK LOAF BAKING CASES",
+        "target": "SET OF 12 MINI LOAF BAKING CASES",
+        "lift": 25.167,
+        "confidence": 0.6657,
+        "support": 0.014
+      },
+      {
+        "source": "RED SPOT CERAMIC DRAWER KNOB",
+        "target": "BLUE SPOT CERAMIC DRAWER KNOB",
+        "lift": 25.055,
+        "confidence": 0.5583,
+        "support": 0.01227
+      },
+      {
+        "source": "BLUE SPOT CERAMIC DRAWER KNOB",
+        "target": "RED SPOT CERAMIC DRAWER KNOB",
+        "lift": 25.055,
+        "confidence": 0.5508,
+        "support": 0.01227
+      },
+      {
+        "source": "SMALL DOLLY MIX DESIGN ORANGE BOWL",
+        "target": "SMALL MARSHMALLOWS PINK BOWL",
+        "lift": 25.027,
+        "confidence": 0.6635,
+        "support": 0.02079
+      },
+      {
+        "source": "SMALL MARSHMALLOWS PINK BOWL",
+        "target": "SMALL DOLLY MIX DESIGN ORANGE BOWL",
+        "lift": 25.027,
+        "confidence": 0.7843,
+        "support": 0.02079
+      },
+      {
+        "source": "RED SPOT CERAMIC DRAWER KNOB",
+        "target": "RED STRIPE CERAMIC DRAWER KNOB",
+        "lift": 24.309,
+        "confidence": 0.6314,
+        "support": 0.01388
+      },
+      {
+        "source": "RED STRIPE CERAMIC DRAWER KNOB",
+        "target": "RED SPOT CERAMIC DRAWER KNOB",
+        "lift": 24.309,
+        "confidence": 0.5344,
+        "support": 0.01388
+      },
+      {
+        "source": "WHITE SPOT RED CERAMIC DRAWER KNOB",
+        "target": "RED SPOT CERAMIC DRAWER KNOB",
+        "lift": 24.082,
+        "confidence": 0.5294,
+        "support": 0.01287
+      },
+      {
+        "source": "RED SPOT CERAMIC DRAWER KNOB",
+        "target": "WHITE SPOT RED CERAMIC DRAWER KNOB",
+        "lift": 24.082,
+        "confidence": 0.5854,
+        "support": 0.01287
+      },
+      {
+        "source": "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "target": "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "lift": 23.78,
+        "confidence": 0.7608,
+        "support": 0.02312
+      },
+      {
+        "source": "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "target": "WOODEN STAR CHRISTMAS SCANDINAVIAN",
+        "lift": 23.78,
+        "confidence": 0.7225,
+        "support": 0.02312
+      },
+      {
+        "source": "FLORAL FOLK STATIONERY SET",
+        "target": "MODERN FLORAL STATIONERY SET",
+        "lift": 23.147,
+        "confidence": 0.5047,
+        "support": 0.01275
+      },
+      {
+        "source": "MODERN FLORAL STATIONERY SET",
+        "target": "FLORAL FOLK STATIONERY SET",
+        "lift": 23.147,
+        "confidence": 0.5847,
+        "support": 0.01275
+      },
+      {
+        "source": "FELTCRAFT PRINCESS CHARLOTTE DOLL",
+        "target": "FELTCRAFT PRINCESS LOLA DOLL",
+        "lift": 23.082,
+        "confidence": 0.5679,
+        "support": 0.01519
+      },
+      {
+        "source": "FELTCRAFT PRINCESS LOLA DOLL",
+        "target": "FELTCRAFT PRINCESS CHARLOTTE DOLL",
+        "lift": 23.082,
+        "confidence": 0.6174,
+        "support": 0.01519
+      },
+      {
+        "source": "SET OF 6 TEA TIME BAKING CASES",
+        "target": "SET OF 12 MINI LOAF BAKING CASES",
+        "lift": 23.063,
+        "confidence": 0.6101,
+        "support": 0.0137
+      },
+      {
+        "source": "SET OF 12 MINI LOAF BAKING CASES",
+        "target": "SET OF 6 TEA TIME BAKING CASES",
+        "lift": 23.063,
+        "confidence": 0.518,
+        "support": 0.0137
+      },
+      {
+        "source": "WOODEN TREE CHRISTMAS SCANDINAVIAN",
+        "target": "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "lift": 23.027,
+        "confidence": 0.7367,
+        "support": 0.01483
+      },
+      {
+        "source": "WOODEN HEART CHRISTMAS SCANDINAVIAN",
+        "target": "WOODEN TREE CHRISTMAS SCANDINAVIAN",
+        "lift": 23.027,
+        "confidence": 0.4637,
+        "support": 0.01483
+      }
+    ],
+    "note": "Edges are single-item rules; thickness maps to lift."
+  },
+  "note": "Rules are ranked by lift, not confidence. Confidence rewards rules whose consequent is simply popular; lift measures how much more often the pair co-occurs than independence would predict.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}

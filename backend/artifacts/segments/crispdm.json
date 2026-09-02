@@ -1,0 +1,331 @@
+{
+  "project": "RFM Customer Segmentation",
+  "business_question": "Our 4,339 customers are currently treated as one undifferentiated list. Are there natural groups with distinct buying behaviour that would justify separate merchandising and contact strategies?",
+  "success_criteria": [
+    "Segments must be internally coherent (positive mean silhouette).",
+    "The partition must beat a uniform null on the gap statistic.",
+    "It must survive bootstrap resampling (ARI comfortably above chance).",
+    "Every segment must map to an action a merchandiser can actually take."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "Segmentation is only worth doing if the segments change what someone does on Monday morning. We therefore treated 'each cluster has a distinct recommended action' as a hard success criterion, not a nice-to-have, and rejected any k that produced two segments with the same story.",
+      "activities": [
+        "Defined RFM as the value summary and named the decision it feeds.",
+        "Set silhouette as the selection index and stability as a gate.",
+        "Committed to testing against a null before believing any partition."
+      ],
+      "findings": [
+        {
+          "statement": "No ground truth exists for segmentation",
+          "evidence": "unsupervised task",
+          "implication": "Validation must come from convergent evidence: multiple algorithms, a null test and stability.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Judge segments by actionability as well as by index.",
+          "rationale": "A statistically excellent partition nobody can act on has no value.",
+          "alternative_rejected": "Maximise silhouette unconditionally",
+          "rejection_reason": "k=2 often wins on silhouette while telling a merchandiser nothing they did not know."
+        }
+      ],
+      "metrics": {
+        "customers": 4338,
+        "features": 5
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Decision named",
+          "Validation strategy fixed in advance"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "4,338 customers aggregated from 530,693 real invoice lines. All three RFM axes are severely right-skewed -- monetary skew exceeds 19 before transformation.",
+      "activities": [
+        "Profiled the RFM distributions and quantified skew.",
+        "Built the classic 5x5 RFM quintile grid as a pre-ML reference.",
+        "Checked the country mix for a dominant home market."
+      ],
+      "findings": [
+        {
+          "statement": "RFM features are extremely right-skewed",
+          "evidence": "monetary skew before transform: 19.325",
+          "implication": "Untransformed, K-Means would produce one huge cluster and a few wholesale singletons.",
+          "severity": "critical"
+        },
+        {
+          "statement": "A small number of customers dominate revenue",
+          "evidence": "top segment holds 72.3% of revenue with 21.0% of customers",
+          "implication": "Confirms segmentation is worth doing at all.",
+          "severity": "info"
+        },
+        {
+          "statement": "1 customers have non-positive net spend",
+          "evidence": "monetary > 0 and frequency > 0",
+          "implication": "Excluded: they have no position in RFM space.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Use only five features for clustering.",
+          "rationale": "Euclidean distance weights every axis equally, so weak features actively dilute strong ones.",
+          "alternative_rejected": "Cluster on all nine available columns",
+          "rejection_reason": "Tenure and average unit price add noise dimensions without adding separation."
+        }
+      ],
+      "metrics": {
+        "rows": 4338,
+        "quality_score": 1.0
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Skew quantified",
+          "Reference RFM grid built",
+          "Exclusions counted"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "log1p then standardise, as one fitted Pipeline. The transform is the single most consequential decision in this project.",
+      "activities": [
+        "Applied log1p to compress the heavy right tail.",
+        "Standardised so all five axes contribute comparably to distance.",
+        "Verified skew reduction feature by feature."
+      ],
+      "findings": [
+        {
+          "statement": "log1p reduces skew on every feature",
+          "evidence": "5 of 5 features improved",
+          "implication": "Distance now reflects relative, not absolute, spend.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "log1p rather than a fitted power transform.",
+          "rationale": "Log spend is the unit merchandisers reason in, which keeps the segment profiles explainable.",
+          "alternative_rejected": "Yeo-Johnson with a fitted lambda",
+          "rejection_reason": "Marginally more symmetric, considerably less interpretable in the profile tables."
+        },
+        {
+          "decision": "Standardise after logging, inside the pipeline.",
+          "rationale": "Keeps the transform a single fitted object that travels with the model to inference.",
+          "alternative_rejected": "Transform the frame up front",
+          "rejection_reason": "Splits the transform from the model and invites training/serving skew."
+        }
+      ],
+      "metrics": {
+        "features": 5,
+        "transform": "log1p + z-score"
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Skew addressed",
+          "Scaling applied",
+          "Transform is one object"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "k swept from 2 to 10 on three internal indices plus a 12-reference gap statistic; four algorithms then compared at k=4. K-Means won on silhouette.",
+      "activities": [
+        "Swept k across three indices and the inertia elbow.",
+        "Ran the gap statistic against a uniform null.",
+        "Compared K-Means, GMM, Ward and DBSCAN on identical features.",
+        "Measured pairwise agreement by adjusted Rand index.",
+        "Bootstrapped each algorithm to test partition stability."
+      ],
+      "findings": [
+        {
+          "statement": "The three internal indices disagree on k",
+          "evidence": "silhouette 2, Davies-Bouldin 2, elbow 5",
+          "implication": "Normal and worth showing; we state which index decided and why rather than hiding the conflict.",
+          "severity": "watch"
+        },
+        {
+          "statement": "The gap statistic supports real structure",
+          "evidence": "Maximum gap over a uniform null is 1.924. A positive gap means the data is genuinely more clustered than featureless noi",
+          "implication": "The partition is not an artefact of imposing k on featureless data.",
+          "severity": "info"
+        },
+        {
+          "statement": "Algorithms with different assumptions largely agree",
+          "evidence": "best pairwise ARI: 0.4817 (K-Means vs Ward hierarchical)",
+          "implication": "Convergent evidence that the groups are real.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Deploy K-Means at k=4.",
+          "rationale": "Highest silhouette with strong bootstrap stability.",
+          "alternative_rejected": "DBSCAN",
+          "rejection_reason": "Labels a large share of customers as noise, which leaves them unassignable to any campaign."
+        },
+        {
+          "decision": "Report the gap statistic rather than only the elbow.",
+          "rationale": "The elbow always exists, even in pure noise; the gap statistic is the only test that can say 'no clusters'.",
+          "alternative_rejected": "Elbow plot alone",
+          "rejection_reason": "Unfalsifiable -- it cannot fail."
+        }
+      ],
+      "metrics": {
+        "k": 4,
+        "algorithms": 4,
+        "silhouette": 0.238943,
+        "gap_optimal_k": 3
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Multiple algorithms compared",
+          "Null hypothesis tested",
+          "Stability measured by bootstrap ARI"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "4 segments, silhouette 0.239, bootstrap ARI 0.9273. The top two segments hold 86% of revenue. Every segment carries a distinct action.",
+      "activities": [
+        "Profiled each segment against population medians.",
+        "Named segments from centroid position, not by hand.",
+        "Measured per-customer silhouette to find poorly-assigned members.",
+        "Cross-checked clusters against classic RFM quintile scores."
+      ],
+      "findings": [
+        {
+          "statement": "Revenue is heavily concentrated",
+          "evidence": "top two segments hold 85.8% of revenue",
+          "implication": "Directly justifies differentiated spend.",
+          "severity": "info"
+        },
+        {
+          "statement": "A minority of customers sit on segment boundaries",
+          "evidence": "negative per-customer silhouette in each segment (see the distribution chart)",
+          "implication": "Borderline members should not receive strongly segment-specific treatment; the UI flags them.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Publish per-customer silhouette, not just the mean.",
+          "rationale": "A good average hides customers the model is unsure about.",
+          "alternative_rejected": "Report the aggregate index only",
+          "rejection_reason": "Would imply every assignment is equally confident."
+        }
+      ],
+      "metrics": {
+        "segments": 4,
+        "silhouette": 0.238943,
+        "davies_bouldin": 1.292298,
+        "stability_ari": 0.9273,
+        "top2_revenue_share": 0.8576
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Mean silhouette above 0.25",
+          "Gap statistic beats the uniform null",
+          "Every segment carries a distinct action"
+        ],
+        "passed": false,
+        "notes": "FAILED on cohesion: mean silhouette 0.239 falls short of the 0.25 bar fixed in phase 1. The other two criteria pass -- the gap statistic rejects a uniform null and the partition is highly stable under resampling (ARI 0.9273) -- so the structure is real, it is simply not crisply separated. That is the expected shape of customer RFM data: a continuum with soft boundaries rather than distinct blobs. The gate is reported as failed rather than the threshold being moved to fit the result, and the consequence is stated in the model card: customers near a boundary get generic treatment, not a segment-specific campaign."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Centroids and the fitted transform are pickled together, so a new customer can be assigned by transforming their RFM vector and taking the nearest centroid.",
+      "activities": [
+        "Pickled the preprocessor and the centroid model as separate objects.",
+        "Exposed an assignment endpoint that returns distance to every centroid.",
+        "Documented that segments drift and need periodic refitting."
+      ],
+      "findings": [
+        {
+          "statement": "Assignment confidence is reportable at inference",
+          "evidence": "distance ratio between nearest and second-nearest centroid",
+          "implication": "Borderline customers can be routed to generic treatment instead of a wrong segment.",
+          "severity": "info"
+        },
+        {
+          "statement": "Segments are a snapshot of a 13-month window",
+          "evidence": "2010-12 to 2011-12",
+          "implication": "Recency shifts for everyone as time passes; the model needs refitting, not just rescoring.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Return distance to all centroids, not just the label.",
+          "rationale": "Makes assignment confidence visible to the caller.",
+          "alternative_rejected": "Return the label alone",
+          "rejection_reason": "Hides that many customers sit near a boundary."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/segments/predict",
+        "k": 4
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Transform and model pickled together",
+          "Confidence exposed",
+          "Refit cadence documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 5,
+  "gates_total": 6,
+  "all_gates_passed": false,
+  "iteration_notes": [
+    "The first run clustered on raw RFM and produced one cluster holding 96% of customers. That failure is what drove the log transform, and it is the single largest improvement in the project.",
+    "k was initially chosen by the elbow alone. Adding the gap statistic and silhouette showed the elbow was reading a smooth curve, so the selection rule was rewritten to state which index decides and why."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

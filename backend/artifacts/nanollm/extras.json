@@ -1,0 +1,178 @@
+{
+  "architecture": {
+    "config": {
+      "vocab_size": 65,
+      "n_layer": 4,
+      "n_head": 4,
+      "n_embd": 128,
+      "block_size": 128,
+      "dropout": 0.1,
+      "rope_theta": 10000.0,
+      "head_dim": 32
+    },
+    "total_parameters": 812288,
+    "non_embedding_parameters": 803968,
+    "components": [
+      {
+        "name": "Token embedding",
+        "shape": "65 x 128",
+        "params": 8320,
+        "role": "Maps each character to a learned vector.",
+        "note": "Tied to the output head, so this block is counted once."
+      },
+      {
+        "name": "Rotary position embedding",
+        "shape": "cached, non-learned",
+        "params": 0,
+        "role": "Rotates queries and keys so attention scores depend on relative offset rather than absolute index.",
+        "note": "No parameters at all -- position is encoded geometrically."
+      },
+      {
+        "name": "4 x Causal self-attention",
+        "shape": "4 heads x 32 dims",
+        "params": 262144,
+        "role": "Each position gathers information from earlier positions.",
+        "note": "Lower-triangular mask enforces that nothing attends forward."
+      },
+      {
+        "name": "4 x SwiGLU feed-forward",
+        "shape": "128 -> 352 -> 128",
+        "params": 540672,
+        "role": "Per-position non-linear transformation.",
+        "note": "Gated activation; ~8/3 expansion keeps parameters comparable to a 4x ReLU MLP."
+      },
+      {
+        "name": "9 x RMSNorm",
+        "shape": "128",
+        "params": 1152,
+        "role": "Stabilises activation scale before each sublayer.",
+        "note": "Pre-norm placement is what makes the stack trainable without learning-rate warmup gymnastics."
+      },
+      {
+        "name": "Output head (tied)",
+        "shape": "128 x 65",
+        "params": 0,
+        "role": "Projects back to vocabulary logits.",
+        "note": "Shares weights with the token embedding."
+      }
+    ],
+    "design_notes": [
+      "RMSNorm over LayerNorm: no mean subtraction and no bias term.",
+      "Pre-norm residuals: normalise the sublayer input, not the residual sum.",
+      "RoPE over learned positions: relative offsets, graceful length extrapolation.",
+      "SwiGLU over ReLU: gated activation, better quality at equal parameters.",
+      "Weight tying: removes a whole vocab x embedding block and regularises."
+    ]
+  },
+  "vocabulary": {
+    "vocab_size": 65,
+    "characters": [
+      "\\n",
+      " ",
+      "!",
+      "$",
+      "&",
+      "'",
+      ",",
+      "-",
+      ".",
+      "3",
+      ":",
+      ";",
+      "?",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z"
+    ],
+    "note": "Character-level: the entire vocabulary is 65 printable symbols, so nothing about the input representation is hidden."
+  },
+  "prompts": [
+    "ROMEO:\n",
+    "JULIET:\n",
+    "To be, or not to be",
+    "First Citizen:\n",
+    "KING RICHARD III:\n"
+  ],
+  "temperature_guide": [
+    {
+      "temperature": 0.2,
+      "character": "Near-greedy: repetitive and safe. The model falls into loops because the highest-probability continuation is often the one it just used."
+    },
+    {
+      "temperature": 0.5,
+      "character": "Conservative: well-formed words, limited variety."
+    },
+    {
+      "temperature": 0.8,
+      "character": "Balanced: the usual deployment range -- coherent but not repetitive."
+    },
+    {
+      "temperature": 1.0,
+      "character": "Unmodified sampling: draws straight from the learned distribution."
+    },
+    {
+      "temperature": 1.4,
+      "character": "Hot: the flattened distribution admits low-probability characters, so spelling degrades into plausible-looking non-words."
+    }
+  ],
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

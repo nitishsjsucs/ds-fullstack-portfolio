@@ -1,0 +1,195 @@
+{
+  "scoring": "silhouette",
+  "leaderboard": [
+    {
+      "algorithm": "K-Means",
+      "assumption": "Clusters are spherical and equally sized in scaled space.",
+      "n_clusters": 4,
+      "silhouette": 0.238943,
+      "davies_bouldin": 1.292298,
+      "calinski_harabasz": 2029.624415,
+      "noise_fraction": 0.0,
+      "cluster_sizes": {
+        "0": 911,
+        "1": 1183,
+        "2": 1056,
+        "3": 1188
+      },
+      "stability_ari": 0.9273,
+      "stability_std": 0.0474,
+      "n_assigned": 4338,
+      "coverage": 1.0,
+      "eligible": true,
+      "ineligible_reason": null
+    },
+    {
+      "algorithm": "Ward hierarchical",
+      "assumption": "Clusters merge to minimise within-cluster variance growth.",
+      "n_clusters": 4,
+      "silhouette": 0.192077,
+      "davies_bouldin": 1.451984,
+      "calinski_harabasz": 1634.03706,
+      "noise_fraction": 0.0,
+      "cluster_sizes": {
+        "0": 1598,
+        "1": 1085,
+        "2": 693,
+        "3": 962
+      },
+      "stability_ari": 0.3656,
+      "stability_std": 0.0804,
+      "n_assigned": 4338,
+      "coverage": 1.0,
+      "eligible": true,
+      "ineligible_reason": null
+    },
+    {
+      "algorithm": "Gaussian mixture",
+      "assumption": "Clusters are elliptical Gaussians; membership is soft.",
+      "n_clusters": 4,
+      "silhouette": 0.09185,
+      "davies_bouldin": 2.409243,
+      "calinski_harabasz": 1107.155327,
+      "noise_fraction": 0.0,
+      "cluster_sizes": {
+        "0": 1493,
+        "1": 1137,
+        "2": 874,
+        "3": 834
+      },
+      "stability_ari": 0.971,
+      "stability_std": 0.0405,
+      "n_assigned": 4338,
+      "coverage": 1.0,
+      "eligible": true,
+      "ineligible_reason": null
+    },
+    {
+      "algorithm": "DBSCAN",
+      "assumption": "Clusters are dense regions of any shape; sparse points are noise.",
+      "n_clusters": 2,
+      "silhouette": 0.266701,
+      "davies_bouldin": 1.266176,
+      "calinski_harabasz": 1754.625027,
+      "noise_fraction": 0.130936,
+      "cluster_sizes": {
+        "0": 2406,
+        "1": 1364
+      },
+      "stability_ari": 0.9574,
+      "stability_std": 0.0061,
+      "n_assigned": 3770,
+      "coverage": 0.8691,
+      "eligible": false,
+      "ineligible_reason": "assigns only 86.9% of customers (13.1% left as noise, so they cannot be targeted by any campaign); produces 2 clusters, outside the actionable range [4, 7]"
+    }
+  ],
+  "agreement": [
+    {
+      "a": "K-Means",
+      "b": "Ward hierarchical",
+      "adjusted_rand": 0.4817
+    },
+    {
+      "a": "Gaussian mixture",
+      "b": "DBSCAN",
+      "adjusted_rand": 0.4223
+    },
+    {
+      "a": "Gaussian mixture",
+      "b": "Ward hierarchical",
+      "adjusted_rand": 0.2857
+    },
+    {
+      "a": "K-Means",
+      "b": "Gaussian mixture",
+      "adjusted_rand": 0.2838
+    },
+    {
+      "a": "Ward hierarchical",
+      "b": "DBSCAN",
+      "adjusted_rand": 0.2516
+    },
+    {
+      "a": "K-Means",
+      "b": "DBSCAN",
+      "adjusted_rand": 0.1588
+    }
+  ],
+  "k_sweep": [
+    {
+      "k": 2,
+      "inertia": 12964.784592,
+      "silhouette": 0.347121,
+      "davies_bouldin": 1.100691,
+      "calinski_harabasz": 2918.133153
+    },
+    {
+      "k": 3,
+      "inertia": 10453.503938,
+      "silhouette": 0.253127,
+      "davies_bouldin": 1.277349,
+      "calinski_harabasz": 2329.85393
+    },
+    {
+      "k": 4,
+      "inertia": 9019.246616,
+      "silhouette": 0.238309,
+      "davies_bouldin": 1.293918,
+      "calinski_harabasz": 2029.558381
+    },
+    {
+      "k": 5,
+      "inertia": 8018.443435,
+      "silhouette": 0.233366,
+      "davies_bouldin": 1.256113,
+      "calinski_harabasz": 1846.963017
+    },
+    {
+      "k": 6,
+      "inertia": 7336.321323,
+      "silhouette": 0.224423,
+      "davies_bouldin": 1.262511,
+      "calinski_harabasz": 1695.140736
+    },
+    {
+      "k": 7,
+      "inertia": 6829.55473,
+      "silhouette": 0.212783,
+      "davies_bouldin": 1.309536,
+      "calinski_harabasz": 1570.648031
+    },
+    {
+      "k": 8,
+      "inertia": 6402.240714,
+      "silhouette": 0.212747,
+      "davies_bouldin": 1.265114,
+      "calinski_harabasz": 1477.085912
+    },
+    {
+      "k": 9,
+      "inertia": 6055.864547,
+      "silhouette": 0.20196,
+      "davies_bouldin": 1.288606,
+      "calinski_harabasz": 1396.999169
+    },
+    {
+      "k": 10,
+      "inertia": 5750.518313,
+      "silhouette": 0.199882,
+      "davies_bouldin": 1.268724,
+      "calinski_harabasz": 1332.958084
+    }
+  ],
+  "protocol": "Unconstrained, silhouette is maximised at k=2 (0.347); it falls monotonically as k grows, so the index alone would always prefer the coarsest possible split. A two-way high/low split is not a segmentation a merchandiser can act on differently, so phase 1's actionability criterion restricts the search to k in [4, 7]. Within that range silhouette is highest at k=4 (0.238). Davies-Bouldin is minimised at k=2 and the inertia elbow sits near k=5; the indices disagree, which is normal, and the gap statistic confirms the partition beats a uniform null.",
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

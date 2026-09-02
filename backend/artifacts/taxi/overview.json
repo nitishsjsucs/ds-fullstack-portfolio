@@ -1,0 +1,56 @@
+{
+  "slug": "taxi",
+  "number": 1,
+  "title": "NYC Taxi Fare & Duration",
+  "tagline": "Spatio-temporal gradient boosting on 150,000 real January-2024 yellow-cab trips.",
+  "task": "Supervised regression (dual target)",
+  "domain": "Urban mobility / pricing",
+  "dataset": "nyc_taxi_trips",
+  "dataset_title": "NYC TLC Yellow Taxi Trip Records, January 2024",
+  "dataset_rows": 150000,
+  "primary_metric": "MAE (minutes)",
+  "metric_reason": "Riders experience absolute lateness, not squared error, and MAE is robust to the genuine 4-hour outlier trips the TLC publishes.",
+  "techniques": [
+    "Gradient boosting (LightGBM/XGBoost)",
+    "Haversine & zone features",
+    "Cyclical time encoding",
+    "TreeSHAP",
+    "Partial dependence",
+    "Quantile regression intervals"
+  ],
+  "skills": [
+    "Feature engineering",
+    "Geospatial analysis",
+    "Outlier diagnostics",
+    "Model explainability",
+    "Prediction intervals"
+  ],
+  "accent": "amber",
+  "icon": "map",
+  "highlights": [
+    "Interactive borough-to-borough estimator with a live SHAP waterfall",
+    "80% prediction intervals from paired quantile models, coverage-tested",
+    "Data-quality scorecard over the TLC's real anomalies"
+  ],
+  "rows_raw": 150000,
+  "rows_modelled": 143688,
+  "champion": "XGBoost",
+  "headline": {
+    "mae_minutes": 2.928357,
+    "rmse_minutes": 4.607179,
+    "r2": 0.835585,
+    "fare_mae_usd": 1.736978,
+    "interval_coverage": 0.77267
+  },
+  "train_seconds": 431.3,
+  "_provenance": {
+    "trained_at": "2026-09-02T18:06:42+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "nyc_taxi_trips",
+    "seed": 42,
+    "quick_mode": false,
+    "train_seconds": 431.3
+  }
+}

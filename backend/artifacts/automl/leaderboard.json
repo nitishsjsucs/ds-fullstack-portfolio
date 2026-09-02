@@ -1,0 +1,2057 @@
+{
+  "scoring": "roc_auc",
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model": "LightGBM",
+      "family": "boosting",
+      "cv_score": 0.928296,
+      "seed_score": 0.9268,
+      "improvement_from_search": 0.001497,
+      "holdout_score": 0.931327,
+      "generalisation_gap": -0.00303,
+      "overfit_flag": false,
+      "best_params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "n_trials": 21,
+      "fit_seconds": 254.9,
+      "hypothesis": "Leaf-wise boosting; usually the leaderboard leader.",
+      "holdout_metrics": {
+        "threshold": 0.5,
+        "prevalence": 0.239328,
+        "roc_auc": 0.931327,
+        "pr_auc": 0.835911,
+        "brier": 0.08641,
+        "log_loss": 0.271006,
+        "precision": 0.785319,
+        "recall": 0.668092,
+        "f1": 0.721978,
+        "accuracy": 0.876855,
+        "balanced_accuracy": 0.805315,
+        "mcc": 0.647019,
+        "baseline_accuracy": 0.760672,
+        "baseline_pr_auc": 0.239328,
+        "accuracy_is_misleading": false
+      }
+    },
+    {
+      "rank": 2,
+      "model": "Hist gradient boosting",
+      "family": "boosting",
+      "cv_score": 0.927965,
+      "seed_score": 0.926795,
+      "improvement_from_search": 0.00117,
+      "holdout_score": 0.93132,
+      "generalisation_gap": -0.003355,
+      "overfit_flag": false,
+      "best_params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "n_trials": 21,
+      "fit_seconds": 513.45,
+      "hypothesis": "The strongest scikit-learn tabular classifier; the target to beat.",
+      "holdout_metrics": {
+        "threshold": 0.5,
+        "prevalence": 0.239328,
+        "roc_auc": 0.93132,
+        "pr_auc": 0.83594,
+        "brier": 0.086401,
+        "log_loss": 0.270747,
+        "precision": 0.793529,
+        "recall": 0.660821,
+        "f1": 0.72112,
+        "accuracy": 0.877674,
+        "balanced_accuracy": 0.803362,
+        "mcc": 0.64803,
+        "baseline_accuracy": 0.760672,
+        "baseline_pr_auc": 0.239328,
+        "accuracy_is_misleading": false
+      }
+    },
+    {
+      "rank": 3,
+      "model": "XGBoost",
+      "family": "boosting",
+      "cv_score": 0.927989,
+      "seed_score": 0.927404,
+      "improvement_from_search": 0.000586,
+      "holdout_score": 0.930837,
+      "generalisation_gap": -0.002848,
+      "overfit_flag": false,
+      "best_params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "n_trials": 20,
+      "fit_seconds": 95.89,
+      "hypothesis": "Level-wise boosting; the independent check on LightGBM's lead.",
+      "holdout_metrics": {
+        "threshold": 0.5,
+        "prevalence": 0.239328,
+        "roc_auc": 0.930837,
+        "pr_auc": 0.835241,
+        "brier": 0.086606,
+        "log_loss": 0.27149,
+        "precision": 0.789258,
+        "recall": 0.659966,
+        "f1": 0.718845,
+        "accuracy": 0.876446,
+        "balanced_accuracy": 0.802261,
+        "mcc": 0.644686,
+        "baseline_accuracy": 0.760672,
+        "baseline_pr_auc": 0.239328,
+        "accuracy_is_misleading": false
+      }
+    },
+    {
+      "rank": 4,
+      "model": "Random forest",
+      "family": "bagging",
+      "cv_score": 0.920003,
+      "seed_score": 0.918228,
+      "improvement_from_search": 0.001776,
+      "holdout_score": 0.924485,
+      "generalisation_gap": -0.004482,
+      "overfit_flag": false,
+      "best_params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "n_trials": 17,
+      "fit_seconds": 119.63,
+      "hypothesis": "Variance reduction without sequential bias; a robust mid-point.",
+      "holdout_metrics": {
+        "threshold": 0.5,
+        "prevalence": 0.239328,
+        "roc_auc": 0.924485,
+        "pr_auc": 0.823925,
+        "brier": 0.090036,
+        "log_loss": 0.282477,
+        "precision": 0.803481,
+        "recall": 0.612062,
+        "f1": 0.694829,
+        "accuracy": 0.871328,
+        "balanced_accuracy": 0.782481,
+        "mcc": 0.624329,
+        "baseline_accuracy": 0.760672,
+        "baseline_pr_auc": 0.239328,
+        "accuracy_is_misleading": false
+      }
+    },
+    {
+      "rank": 5,
+      "model": "Extra trees",
+      "family": "bagging",
+      "cv_score": 0.909709,
+      "seed_score": 0.908,
+      "improvement_from_search": 0.001709,
+      "holdout_score": 0.913843,
+      "generalisation_gap": -0.004134,
+      "overfit_flag": false,
+      "best_params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 1
+      },
+      "n_trials": 12,
+      "fit_seconds": 61.32,
+      "hypothesis": "Extra randomisation as a variance control on noisy categoricals.",
+      "holdout_metrics": {
+        "threshold": 0.5,
+        "prevalence": 0.239328,
+        "roc_auc": 0.913843,
+        "pr_auc": 0.799218,
+        "brier": 0.09695,
+        "log_loss": 0.306073,
+        "precision": 0.77954,
+        "recall": 0.609495,
+        "f1": 0.684109,
+        "accuracy": 0.865288,
+        "balanced_accuracy": 0.777632,
+        "mcc": 0.607462,
+        "baseline_accuracy": 0.760672,
+        "baseline_pr_auc": 0.239328,
+        "accuracy_is_misleading": false
+      }
+    },
+    {
+      "rank": 6,
+      "model": "Logistic regression",
+      "family": "linear",
+      "cv_score": 0.90675,
+      "seed_score": 0.906727,
+      "improvement_from_search": 2.2e-05,
+      "holdout_score": 0.907873,
+      "generalisation_gap": -0.001123,
+      "overfit_flag": false,
+      "best_params": {
+        "C": 4.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "n_trials": 10,
+      "fit_seconds": 5.73,
+      "hypothesis": "A calibrated linear model is often within a point of boosting on wide one-hot tabular data, and it is far easier to defend to a regulator.",
+      "holdout_metrics": {
+        "threshold": 0.5,
+        "prevalence": 0.239328,
+        "roc_auc": 0.907873,
+        "pr_auc": 0.774138,
+        "brier": 0.100625,
+        "log_loss": 0.31883,
+        "precision": 0.746277,
+        "recall": 0.600086,
+        "f1": 0.665244,
+        "accuracy": 0.855461,
+        "balanced_accuracy": 0.767947,
+        "mcc": 0.58001,
+        "baseline_accuracy": 0.760672,
+        "baseline_pr_auc": 0.239328,
+        "accuracy_is_misleading": false
+      }
+    }
+  ],
+  "trajectory": [
+    {
+      "step": 61,
+      "family": "boosting",
+      "score": 0.9268,
+      "accepted": true,
+      "changed": null,
+      "note": "seed configuration",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 40,
+        "min_child_samples": 25,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 17.558
+    },
+    {
+      "step": 62,
+      "family": "boosting",
+      "score": 0.926563,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 0.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 40,
+        "min_child_samples": 25,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 0.0
+      },
+      "elapsed_s": 17.186
+    },
+    {
+      "step": 63,
+      "family": "boosting",
+      "score": 0.927521,
+      "accepted": true,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 5.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 40,
+        "min_child_samples": 25,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      },
+      "elapsed_s": 17.77
+    },
+    {
+      "step": 64,
+      "family": "boosting",
+      "score": 0.927973,
+      "accepted": true,
+      "changed": "min_child_samples",
+      "note": "min_child_samples: 25 -> 10",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 40,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      },
+      "elapsed_s": 18.032
+    },
+    {
+      "step": 65,
+      "family": "boosting",
+      "score": 0.928114,
+      "accepted": true,
+      "changed": "num_leaves",
+      "note": "num_leaves: 40 -> 20",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      },
+      "elapsed_s": 9.554
+    },
+    {
+      "step": 66,
+      "family": "boosting",
+      "score": 0.926808,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.03",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.03,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      },
+      "elapsed_s": 9.665
+    },
+    {
+      "step": 67,
+      "family": "boosting",
+      "score": 0.92783,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.12",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.12,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      },
+      "elapsed_s": 9.445
+    },
+    {
+      "step": 68,
+      "family": "boosting",
+      "score": 0.927884,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 5.0 -> 0.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 0.0
+      },
+      "elapsed_s": 9.516
+    },
+    {
+      "step": 69,
+      "family": "boosting",
+      "score": 0.928296,
+      "accepted": true,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 5.0 -> 1.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 9.313
+    },
+    {
+      "step": 70,
+      "family": "boosting",
+      "score": 0.927891,
+      "accepted": false,
+      "changed": "min_child_samples",
+      "note": "min_child_samples: 10 -> 25",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 25,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 8.952
+    },
+    {
+      "step": 71,
+      "family": "boosting",
+      "score": 0.927419,
+      "accepted": false,
+      "changed": "min_child_samples",
+      "note": "min_child_samples: 10 -> 60",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 60,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 8.881
+    },
+    {
+      "step": 72,
+      "family": "boosting",
+      "score": 0.927504,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.03",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.03,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 9.296
+    },
+    {
+      "step": 73,
+      "family": "boosting",
+      "score": 0.927442,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.12",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.12,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 8.893
+    },
+    {
+      "step": 74,
+      "family": "boosting",
+      "score": 0.92755,
+      "accepted": false,
+      "changed": "num_leaves",
+      "note": "num_leaves: 20 -> 40",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 40,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 17.547
+    },
+    {
+      "step": 75,
+      "family": "boosting",
+      "score": 0.925257,
+      "accepted": false,
+      "changed": "num_leaves",
+      "note": "num_leaves: 20 -> 80",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 80,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 34.607
+    },
+    {
+      "step": 76,
+      "family": "boosting",
+      "score": 0.927504,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.03",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.03,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 8.69
+    },
+    {
+      "step": 77,
+      "family": "boosting",
+      "score": 0.927442,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.12",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.12,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 7.966
+    },
+    {
+      "step": 78,
+      "family": "boosting",
+      "score": 0.927884,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 0.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 0.0
+      },
+      "elapsed_s": 7.988
+    },
+    {
+      "step": 79,
+      "family": "boosting",
+      "score": 0.928114,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 5.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 10,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 5.0
+      },
+      "elapsed_s": 8.141
+    },
+    {
+      "step": 80,
+      "family": "boosting",
+      "score": 0.927891,
+      "accepted": false,
+      "changed": "min_child_samples",
+      "note": "min_child_samples: 10 -> 25",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 25,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 7.98
+    },
+    {
+      "step": 81,
+      "family": "boosting",
+      "score": 0.927419,
+      "accepted": false,
+      "changed": "min_child_samples",
+      "note": "min_child_samples: 10 -> 60",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "num_leaves": 20,
+        "min_child_samples": 60,
+        "colsample_bytree": 0.9,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 7.915
+    },
+    {
+      "step": 40,
+      "family": "boosting",
+      "score": 0.926795,
+      "accepted": true,
+      "changed": null,
+      "note": "seed configuration",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": null,
+        "min_samples_leaf": 24,
+        "l2_regularization": 0.5
+      },
+      "elapsed_s": 34.56
+    },
+    {
+      "step": 41,
+      "family": "boosting",
+      "score": 0.92662,
+      "accepted": false,
+      "changed": "l2_regularization",
+      "note": "l2_regularization: 0.5 -> 0.0",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": null,
+        "min_samples_leaf": 24,
+        "l2_regularization": 0.0
+      },
+      "elapsed_s": 28.076
+    },
+    {
+      "step": 42,
+      "family": "boosting",
+      "score": 0.927366,
+      "accepted": true,
+      "changed": "l2_regularization",
+      "note": "l2_regularization: 0.5 -> 2.0",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": null,
+        "min_samples_leaf": 24,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 32.089
+    },
+    {
+      "step": 43,
+      "family": "boosting",
+      "score": 0.927759,
+      "accepted": true,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 24 -> 12",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": null,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 29.293
+    },
+    {
+      "step": 44,
+      "family": "boosting",
+      "score": 0.927965,
+      "accepted": true,
+      "changed": "max_depth",
+      "note": "max_depth: None -> 6",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 25.233
+    },
+    {
+      "step": 45,
+      "family": "boosting",
+      "score": 0.926524,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.08 -> 0.04",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.04,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 28.761
+    },
+    {
+      "step": 46,
+      "family": "boosting",
+      "score": 0.927595,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.08 -> 0.15",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.15,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 19.716
+    },
+    {
+      "step": 47,
+      "family": "boosting",
+      "score": 0.927446,
+      "accepted": false,
+      "changed": "l2_regularization",
+      "note": "l2_regularization: 2.0 -> 0.0",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 0.0
+      },
+      "elapsed_s": 16.868
+    },
+    {
+      "step": 48,
+      "family": "boosting",
+      "score": 0.927953,
+      "accepted": false,
+      "changed": "l2_regularization",
+      "note": "l2_regularization: 2.0 -> 0.5",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 0.5
+      },
+      "elapsed_s": 15.494
+    },
+    {
+      "step": 49,
+      "family": "boosting",
+      "score": 0.927285,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 12 -> 24",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 24,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 22.859
+    },
+    {
+      "step": 50,
+      "family": "boosting",
+      "score": 0.927145,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 12 -> 60",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 60,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 19.981
+    },
+    {
+      "step": 51,
+      "family": "boosting",
+      "score": 0.926524,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.08 -> 0.04",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.04,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 26.864
+    },
+    {
+      "step": 52,
+      "family": "boosting",
+      "score": 0.927595,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.08 -> 0.15",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.15,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 22.237
+    },
+    {
+      "step": 53,
+      "family": "boosting",
+      "score": 0.927759,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 6 -> None",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": null,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 30.353
+    },
+    {
+      "step": 54,
+      "family": "boosting",
+      "score": 0.927652,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 6 -> 10",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 10,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 31.175
+    },
+    {
+      "step": 55,
+      "family": "boosting",
+      "score": 0.926524,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.08 -> 0.04",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.04,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 26.722
+    },
+    {
+      "step": 56,
+      "family": "boosting",
+      "score": 0.927595,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.08 -> 0.15",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.15,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 21.704
+    },
+    {
+      "step": 57,
+      "family": "boosting",
+      "score": 0.927446,
+      "accepted": false,
+      "changed": "l2_regularization",
+      "note": "l2_regularization: 2.0 -> 0.0",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 0.0
+      },
+      "elapsed_s": 26.414
+    },
+    {
+      "step": 58,
+      "family": "boosting",
+      "score": 0.927953,
+      "accepted": false,
+      "changed": "l2_regularization",
+      "note": "l2_regularization: 2.0 -> 0.5",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "l2_regularization": 0.5
+      },
+      "elapsed_s": 22.135
+    },
+    {
+      "step": 59,
+      "family": "boosting",
+      "score": 0.927285,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 12 -> 24",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 24,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 18.948
+    },
+    {
+      "step": 60,
+      "family": "boosting",
+      "score": 0.927145,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 12 -> 60",
+      "params": {
+        "max_iter": 260,
+        "learning_rate": 0.08,
+        "max_depth": 6,
+        "min_samples_leaf": 60,
+        "l2_regularization": 2.0
+      },
+      "elapsed_s": 13.97
+    },
+    {
+      "step": 82,
+      "family": "boosting",
+      "score": 0.927404,
+      "accepted": true,
+      "changed": null,
+      "note": "seed configuration",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 3,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.25
+    },
+    {
+      "step": 83,
+      "family": "boosting",
+      "score": 0.927255,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 0.5",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 3,
+        "reg_lambda": 0.5
+      },
+      "elapsed_s": 4.245
+    },
+    {
+      "step": 84,
+      "family": "boosting",
+      "score": 0.927325,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 4.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 3,
+        "reg_lambda": 4.0
+      },
+      "elapsed_s": 4.334
+    },
+    {
+      "step": 85,
+      "family": "boosting",
+      "score": 0.927989,
+      "accepted": true,
+      "changed": "min_child_weight",
+      "note": "min_child_weight: 3 -> 1",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.407
+    },
+    {
+      "step": 86,
+      "family": "boosting",
+      "score": 0.92721,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 6 -> 4",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 4,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 3.283
+    },
+    {
+      "step": 87,
+      "family": "boosting",
+      "score": 0.925029,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 6 -> 9",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 9,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 6.074
+    },
+    {
+      "step": 88,
+      "family": "boosting",
+      "score": 0.927149,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.03",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.03,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.437
+    },
+    {
+      "step": 89,
+      "family": "boosting",
+      "score": 0.92509,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.12",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.12,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.31
+    },
+    {
+      "step": 90,
+      "family": "boosting",
+      "score": 0.927917,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 0.5",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 0.5
+      },
+      "elapsed_s": 4.342
+    },
+    {
+      "step": 91,
+      "family": "boosting",
+      "score": 0.92772,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 4.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 4.0
+      },
+      "elapsed_s": 4.302
+    },
+    {
+      "step": 92,
+      "family": "boosting",
+      "score": 0.927404,
+      "accepted": false,
+      "changed": "min_child_weight",
+      "note": "min_child_weight: 1 -> 3",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 3,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.32
+    },
+    {
+      "step": 93,
+      "family": "boosting",
+      "score": 0.926727,
+      "accepted": false,
+      "changed": "min_child_weight",
+      "note": "min_child_weight: 1 -> 8",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 8,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.341
+    },
+    {
+      "step": 94,
+      "family": "boosting",
+      "score": 0.927149,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.03",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.03,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.467
+    },
+    {
+      "step": 95,
+      "family": "boosting",
+      "score": 0.92509,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.12",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.12,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 4.304
+    },
+    {
+      "step": 96,
+      "family": "boosting",
+      "score": 0.92721,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 6 -> 4",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 4,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 3.288
+    },
+    {
+      "step": 97,
+      "family": "boosting",
+      "score": 0.925029,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 6 -> 9",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 9,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 6.215
+    },
+    {
+      "step": 98,
+      "family": "boosting",
+      "score": 0.927149,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.03",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.03,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 5.631
+    },
+    {
+      "step": 99,
+      "family": "boosting",
+      "score": 0.92509,
+      "accepted": false,
+      "changed": "learning_rate",
+      "note": "learning_rate: 0.06 -> 0.12",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.12,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 1.0
+      },
+      "elapsed_s": 6.709
+    },
+    {
+      "step": 100,
+      "family": "boosting",
+      "score": 0.927917,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 0.5",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 0.5
+      },
+      "elapsed_s": 6.124
+    },
+    {
+      "step": 101,
+      "family": "boosting",
+      "score": 0.92772,
+      "accepted": false,
+      "changed": "reg_lambda",
+      "note": "reg_lambda: 1.0 -> 4.0",
+      "params": {
+        "n_estimators": 340,
+        "learning_rate": 0.06,
+        "max_depth": 6,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 1,
+        "reg_lambda": 4.0
+      },
+      "elapsed_s": 6.509
+    },
+    {
+      "step": 11,
+      "family": "bagging",
+      "score": 0.918228,
+      "accepted": true,
+      "changed": null,
+      "note": "seed configuration",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt"
+      },
+      "elapsed_s": 3.476
+    },
+    {
+      "step": 12,
+      "family": "bagging",
+      "score": 0.919534,
+      "accepted": true,
+      "changed": "max_features",
+      "note": "max_features: sqrt -> 0.4",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 4,
+        "max_features": 0.4
+      },
+      "elapsed_s": 6.239
+    },
+    {
+      "step": 13,
+      "family": "bagging",
+      "score": 0.920003,
+      "accepted": true,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 4 -> 2",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 6.11
+    },
+    {
+      "step": 14,
+      "family": "bagging",
+      "score": 0.914957,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 14 -> 8",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 4.56
+    },
+    {
+      "step": 15,
+      "family": "bagging",
+      "score": 0.9166,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 14 -> 22",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 22,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 9.061
+    },
+    {
+      "step": 16,
+      "family": "bagging",
+      "score": 0.914957,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 14 -> 8",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 5.99
+    },
+    {
+      "step": 17,
+      "family": "bagging",
+      "score": 0.9166,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 14 -> 22",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 22,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 9.718
+    },
+    {
+      "step": 18,
+      "family": "bagging",
+      "score": 0.91913,
+      "accepted": false,
+      "changed": "max_features",
+      "note": "max_features: 0.4 -> sqrt",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      "elapsed_s": 3.989
+    },
+    {
+      "step": 19,
+      "family": "bagging",
+      "score": 0.917871,
+      "accepted": false,
+      "changed": "max_features",
+      "note": "max_features: 0.4 -> 0.7",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 2,
+        "max_features": 0.7
+      },
+      "elapsed_s": 11.15
+    },
+    {
+      "step": 20,
+      "family": "bagging",
+      "score": 0.919534,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 2 -> 4",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 4,
+        "max_features": 0.4
+      },
+      "elapsed_s": 7.858
+    },
+    {
+      "step": 21,
+      "family": "bagging",
+      "score": 0.918167,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 2 -> 12",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 12,
+        "max_features": 0.4
+      },
+      "elapsed_s": 6.797
+    },
+    {
+      "step": 22,
+      "family": "bagging",
+      "score": 0.919534,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 2 -> 4",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 4,
+        "max_features": 0.4
+      },
+      "elapsed_s": 6.882
+    },
+    {
+      "step": 23,
+      "family": "bagging",
+      "score": 0.918167,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 2 -> 12",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 12,
+        "max_features": 0.4
+      },
+      "elapsed_s": 6.76
+    },
+    {
+      "step": 24,
+      "family": "bagging",
+      "score": 0.91913,
+      "accepted": false,
+      "changed": "max_features",
+      "note": "max_features: 0.4 -> sqrt",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      "elapsed_s": 3.953
+    },
+    {
+      "step": 25,
+      "family": "bagging",
+      "score": 0.917871,
+      "accepted": false,
+      "changed": "max_features",
+      "note": "max_features: 0.4 -> 0.7",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 14,
+        "min_samples_leaf": 2,
+        "max_features": 0.7
+      },
+      "elapsed_s": 12.116
+    },
+    {
+      "step": 26,
+      "family": "bagging",
+      "score": 0.914957,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 14 -> 8",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 5.509
+    },
+    {
+      "step": 27,
+      "family": "bagging",
+      "score": 0.9166,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 14 -> 22",
+      "params": {
+        "n_estimators": 220,
+        "max_depth": 22,
+        "min_samples_leaf": 2,
+        "max_features": 0.4
+      },
+      "elapsed_s": 9.463
+    },
+    {
+      "step": 28,
+      "family": "bagging",
+      "score": 0.908,
+      "accepted": true,
+      "changed": null,
+      "note": "seed configuration",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 3
+      },
+      "elapsed_s": 4.271
+    },
+    {
+      "step": 29,
+      "family": "bagging",
+      "score": 0.909709,
+      "accepted": true,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 3 -> 1",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 4.558
+    },
+    {
+      "step": 30,
+      "family": "bagging",
+      "score": 0.903256,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 18 -> 12",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 12,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 3.905
+    },
+    {
+      "step": 31,
+      "family": "bagging",
+      "score": 0.902957,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 18 -> 26",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 26,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 5.514
+    },
+    {
+      "step": 32,
+      "family": "bagging",
+      "score": 0.903256,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 18 -> 12",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 12,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 4.403
+    },
+    {
+      "step": 33,
+      "family": "bagging",
+      "score": 0.902957,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 18 -> 26",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 26,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 6.565
+    },
+    {
+      "step": 34,
+      "family": "bagging",
+      "score": 0.908,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 1 -> 3",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 3
+      },
+      "elapsed_s": 5.734
+    },
+    {
+      "step": 35,
+      "family": "bagging",
+      "score": 0.904569,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 1 -> 8",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 8
+      },
+      "elapsed_s": 4.829
+    },
+    {
+      "step": 36,
+      "family": "bagging",
+      "score": 0.903256,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 18 -> 12",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 12,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 5.123
+    },
+    {
+      "step": 37,
+      "family": "bagging",
+      "score": 0.902957,
+      "accepted": false,
+      "changed": "max_depth",
+      "note": "max_depth: 18 -> 26",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 26,
+        "min_samples_leaf": 1
+      },
+      "elapsed_s": 7.092
+    },
+    {
+      "step": 38,
+      "family": "bagging",
+      "score": 0.908,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 1 -> 3",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 3
+      },
+      "elapsed_s": 5.103
+    },
+    {
+      "step": 39,
+      "family": "bagging",
+      "score": 0.904569,
+      "accepted": false,
+      "changed": "min_samples_leaf",
+      "note": "min_samples_leaf: 1 -> 8",
+      "params": {
+        "n_estimators": 240,
+        "max_depth": 18,
+        "min_samples_leaf": 8
+      },
+      "elapsed_s": 4.219
+    },
+    {
+      "step": 1,
+      "family": "linear",
+      "score": 0.906727,
+      "accepted": true,
+      "changed": null,
+      "note": "seed configuration",
+      "params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.611
+    },
+    {
+      "step": 2,
+      "family": "linear",
+      "score": 0.905931,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 1.0 -> 0.05",
+      "params": {
+        "C": 0.05,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.576
+    },
+    {
+      "step": 3,
+      "family": "linear",
+      "score": 0.906626,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 1.0 -> 0.3",
+      "params": {
+        "C": 0.3,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.586
+    },
+    {
+      "step": 4,
+      "family": "linear",
+      "score": 0.90675,
+      "accepted": true,
+      "changed": "C",
+      "note": "C: 1.0 -> 4.0",
+      "params": {
+        "C": 4.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.579
+    },
+    {
+      "step": 5,
+      "family": "linear",
+      "score": 0.905931,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 4.0 -> 0.05",
+      "params": {
+        "C": 0.05,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.567
+    },
+    {
+      "step": 6,
+      "family": "linear",
+      "score": 0.906626,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 4.0 -> 0.3",
+      "params": {
+        "C": 0.3,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.568
+    },
+    {
+      "step": 7,
+      "family": "linear",
+      "score": 0.906727,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 4.0 -> 1.0",
+      "params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.562
+    },
+    {
+      "step": 8,
+      "family": "linear",
+      "score": 0.905931,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 4.0 -> 0.05",
+      "params": {
+        "C": 0.05,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.55
+    },
+    {
+      "step": 9,
+      "family": "linear",
+      "score": 0.906626,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 4.0 -> 0.3",
+      "params": {
+        "C": 0.3,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.561
+    },
+    {
+      "step": 10,
+      "family": "linear",
+      "score": 0.906727,
+      "accepted": false,
+      "changed": "C",
+      "note": "C: 4.0 -> 1.0",
+      "params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      },
+      "elapsed_s": 0.566
+    }
+  ],
+  "total_trials": 101,
+  "total_seconds": 1050.9,
+  "ensemble": {
+    "weights": {
+      "LightGBM": 0.5714,
+      "XGBoost": 0.2857,
+      "Hist gradient boosting": 0.1429
+    },
+    "score": 0.928426,
+    "n_rounds_used": 6,
+    "trajectory": [
+      {
+        "round": 0,
+        "added": "LightGBM",
+        "score": 0.928224,
+        "members": [
+          "LightGBM"
+        ]
+      },
+      {
+        "round": 1,
+        "added": "XGBoost",
+        "score": 0.928394,
+        "members": [
+          "LightGBM",
+          "XGBoost"
+        ]
+      },
+      {
+        "round": 2,
+        "added": "LightGBM",
+        "score": 0.928412,
+        "members": [
+          "LightGBM",
+          "XGBoost",
+          "LightGBM"
+        ]
+      },
+      {
+        "round": 3,
+        "added": "Hist gradient boosting",
+        "score": 0.928418,
+        "members": [
+          "LightGBM",
+          "XGBoost",
+          "LightGBM",
+          "Hist gradient boosting"
+        ]
+      },
+      {
+        "round": 4,
+        "added": "LightGBM",
+        "score": 0.928419,
+        "members": [
+          "LightGBM",
+          "XGBoost",
+          "LightGBM",
+          "Hist gradient boosting",
+          "LightGBM"
+        ]
+      },
+      {
+        "round": 5,
+        "added": "XGBoost",
+        "score": 0.928423,
+        "members": [
+          "LightGBM",
+          "XGBoost",
+          "LightGBM",
+          "Hist gradient boosting",
+          "LightGBM",
+          "XGBoost"
+        ]
+      },
+      {
+        "round": 6,
+        "added": "LightGBM",
+        "score": 0.928426,
+        "members": [
+          "LightGBM",
+          "XGBoost",
+          "LightGBM",
+          "Hist gradient boosting",
+          "LightGBM",
+          "XGBoost",
+          "LightGBM"
+        ]
+      }
+    ],
+    "best_single": "LightGBM",
+    "best_single_score": 0.928224,
+    "method": "Caruana et al. (2004) greedy forward selection with replacement",
+    "holdout_score": 0.931425
+  },
+  "protocol": "Hyperparameters were selected by coordinate-ascent hill climbing on the cross-validated roc_auc. The hold-out set was scored once per family after the search finished and never fed back into selection. 'generalisation_gap' = CV minus hold-out; a large positive gap means the search overfitted the folds.",
+  "stacking": {
+    "method": "Stacked generalisation (Wolpert 1992) on out-of-fold predictions",
+    "base_models": [
+      "LightGBM",
+      "XGBoost",
+      "Hist gradient boosting",
+      "Random forest",
+      "Extra trees",
+      "Logistic regression"
+    ],
+    "meta_learner": "LogisticRegression(C=1.0)",
+    "meta_weights": {
+      "LightGBM": 2.1989,
+      "XGBoost": 1.5219,
+      "Hist gradient boosting": 1.8499,
+      "Random forest": 0.4738,
+      "Extra trees": 1.4185,
+      "Logistic regression": -0.5369
+    },
+    "holdout_auc": 0.9309,
+    "greedy_holdout_auc": 0.9314,
+    "best_single_holdout_auc": 0.9313,
+    "gain_over_best_single": 0.0001,
+    "base_model_correlation": [
+      {
+        "a": "XGBoost",
+        "b": "Logistic regression",
+        "correlation": 0.9247
+      },
+      {
+        "a": "Hist gradient boosting",
+        "b": "Logistic regression",
+        "correlation": 0.9268
+      },
+      {
+        "a": "LightGBM",
+        "b": "Logistic regression",
+        "correlation": 0.9269
+      },
+      {
+        "a": "LightGBM",
+        "b": "Extra trees",
+        "correlation": 0.9362
+      },
+      {
+        "a": "Hist gradient boosting",
+        "b": "Extra trees",
+        "correlation": 0.937
+      },
+      {
+        "a": "XGBoost",
+        "b": "Extra trees",
+        "correlation": 0.9374
+      },
+      {
+        "a": "Random forest",
+        "b": "Logistic regression",
+        "correlation": 0.9421
+      },
+      {
+        "a": "Random forest",
+        "b": "Extra trees",
+        "correlation": 0.9559
+      },
+      {
+        "a": "Extra trees",
+        "b": "Logistic regression",
+        "correlation": 0.9585
+      },
+      {
+        "a": "LightGBM",
+        "b": "Random forest",
+        "correlation": 0.9759
+      },
+      {
+        "a": "Hist gradient boosting",
+        "b": "Random forest",
+        "correlation": 0.9764
+      },
+      {
+        "a": "XGBoost",
+        "b": "Random forest",
+        "correlation": 0.9766
+      },
+      {
+        "a": "LightGBM",
+        "b": "XGBoost",
+        "correlation": 0.9963
+      },
+      {
+        "a": "LightGBM",
+        "b": "Hist gradient boosting",
+        "correlation": 0.9967
+      },
+      {
+        "a": "XGBoost",
+        "b": "Hist gradient boosting",
+        "correlation": 0.9972
+      }
+    ],
+    "leakage_note": "The meta-learner is trained exclusively on out-of-fold predictions: every base-model probability it sees was produced by a model that did not train on that row. Fitting it on in-fold predictions instead is the standard stacking bug -- the meta-learner then effectively sees the labels through the base models' memorisation, and the gain vanishes in production."
+  },
+  "deployed": "Caruana greedy ensemble",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

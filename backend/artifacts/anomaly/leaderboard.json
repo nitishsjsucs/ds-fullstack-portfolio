@@ -1,0 +1,380 @@
+{
+  "scoring": "average_precision",
+  "leaderboard": [
+    {
+      "detector": "Isolation Forest",
+      "assumption": "Anomalies are easy to isolate: a random axis-aligned split separates them from the bulk in few cuts.",
+      "blind_spot": "Anomalies that are normal on every individual axis but odd in combination -- it never looks at feature interactions.",
+      "pr_auc": 0.5056,
+      "roc_auc": 0.9659,
+      "precision_at_100": 0.56,
+      "lift_over_random": 15.01,
+      "inverted": false,
+      "diagnosis": "Ranking is positively correlated with intrusion.",
+      "fit_seconds": 1.82,
+      "alert_budget": [
+        {
+          "alert_budget": 25,
+          "true_positives": 13,
+          "false_positives": 12,
+          "precision_at_k": 0.52,
+          "recall_at_k": 0.0048,
+          "missed_attacks": 2681,
+          "analyst_hours": 2.5
+        },
+        {
+          "alert_budget": 50,
+          "true_positives": 23,
+          "false_positives": 27,
+          "precision_at_k": 0.46,
+          "recall_at_k": 0.0085,
+          "missed_attacks": 2671,
+          "analyst_hours": 5.0
+        },
+        {
+          "alert_budget": 100,
+          "true_positives": 56,
+          "false_positives": 44,
+          "precision_at_k": 0.56,
+          "recall_at_k": 0.0208,
+          "missed_attacks": 2638,
+          "analyst_hours": 10.0
+        },
+        {
+          "alert_budget": 200,
+          "true_positives": 137,
+          "false_positives": 63,
+          "precision_at_k": 0.685,
+          "recall_at_k": 0.0509,
+          "missed_attacks": 2557,
+          "analyst_hours": 20.0
+        },
+        {
+          "alert_budget": 400,
+          "true_positives": 264,
+          "false_positives": 136,
+          "precision_at_k": 0.66,
+          "recall_at_k": 0.098,
+          "missed_attacks": 2430,
+          "analyst_hours": 40.0
+        },
+        {
+          "alert_budget": 800,
+          "true_positives": 579,
+          "false_positives": 221,
+          "precision_at_k": 0.7238,
+          "recall_at_k": 0.2149,
+          "missed_attacks": 2115,
+          "analyst_hours": 80.0
+        },
+        {
+          "alert_budget": 1600,
+          "true_positives": 992,
+          "false_positives": 608,
+          "precision_at_k": 0.62,
+          "recall_at_k": 0.3682,
+          "missed_attacks": 1702,
+          "analyst_hours": 160.0
+        }
+      ]
+    },
+    {
+      "detector": "PCA reconstruction",
+      "assumption": "Normal traffic lies near a low-dimensional linear subspace; anomalies reconstruct badly from it.",
+      "blind_spot": "Anomalies that happen to lie within the principal subspace, and any non-linear structure.",
+      "pr_auc": 0.0403,
+      "roc_auc": 0.2388,
+      "precision_at_100": 0.09,
+      "lift_over_random": 1.2,
+      "inverted": true,
+      "diagnosis": "INVERTED: ranks intrusions as more normal than benign traffic. The dominant DoS families are highly repetitive, so they occupy the densest regions of the feature space and this detector's notion of 'normal' is precisely where the attacks live.",
+      "fit_seconds": 0.02,
+      "alert_budget": [
+        {
+          "alert_budget": 25,
+          "true_positives": 7,
+          "false_positives": 18,
+          "precision_at_k": 0.28,
+          "recall_at_k": 0.0026,
+          "missed_attacks": 2687,
+          "analyst_hours": 2.5
+        },
+        {
+          "alert_budget": 50,
+          "true_positives": 9,
+          "false_positives": 41,
+          "precision_at_k": 0.18,
+          "recall_at_k": 0.0033,
+          "missed_attacks": 2685,
+          "analyst_hours": 5.0
+        },
+        {
+          "alert_budget": 100,
+          "true_positives": 9,
+          "false_positives": 91,
+          "precision_at_k": 0.09,
+          "recall_at_k": 0.0033,
+          "missed_attacks": 2685,
+          "analyst_hours": 10.0
+        },
+        {
+          "alert_budget": 200,
+          "true_positives": 9,
+          "false_positives": 191,
+          "precision_at_k": 0.045,
+          "recall_at_k": 0.0033,
+          "missed_attacks": 2685,
+          "analyst_hours": 20.0
+        },
+        {
+          "alert_budget": 400,
+          "true_positives": 73,
+          "false_positives": 327,
+          "precision_at_k": 0.1825,
+          "recall_at_k": 0.0271,
+          "missed_attacks": 2621,
+          "analyst_hours": 40.0
+        },
+        {
+          "alert_budget": 800,
+          "true_positives": 180,
+          "false_positives": 620,
+          "precision_at_k": 0.225,
+          "recall_at_k": 0.0668,
+          "missed_attacks": 2514,
+          "analyst_hours": 80.0
+        },
+        {
+          "alert_budget": 1600,
+          "true_positives": 193,
+          "false_positives": 1407,
+          "precision_at_k": 0.1206,
+          "recall_at_k": 0.0716,
+          "missed_attacks": 2501,
+          "analyst_hours": 160.0
+        }
+      ]
+    },
+    {
+      "detector": "Local Outlier Factor",
+      "assumption": "Anomalies sit in regions of markedly lower density than their own neighbours.",
+      "blind_spot": "Dense clusters of attacks: if a whole intrusion class is common, its members are each other's neighbours and look perfectly normal.",
+      "pr_auc": 0.0335,
+      "roc_auc": 0.3372,
+      "precision_at_100": 0.03,
+      "lift_over_random": 0.99,
+      "inverted": true,
+      "diagnosis": "INVERTED: ranks intrusions as more normal than benign traffic. The dominant DoS families are highly repetitive, so they occupy the densest regions of the feature space and this detector's notion of 'normal' is precisely where the attacks live.",
+      "fit_seconds": 8.1,
+      "alert_budget": [
+        {
+          "alert_budget": 25,
+          "true_positives": 0,
+          "false_positives": 25,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 2.5
+        },
+        {
+          "alert_budget": 50,
+          "true_positives": 3,
+          "false_positives": 47,
+          "precision_at_k": 0.06,
+          "recall_at_k": 0.0011,
+          "missed_attacks": 2691,
+          "analyst_hours": 5.0
+        },
+        {
+          "alert_budget": 100,
+          "true_positives": 3,
+          "false_positives": 97,
+          "precision_at_k": 0.03,
+          "recall_at_k": 0.0011,
+          "missed_attacks": 2691,
+          "analyst_hours": 10.0
+        },
+        {
+          "alert_budget": 200,
+          "true_positives": 3,
+          "false_positives": 197,
+          "precision_at_k": 0.015,
+          "recall_at_k": 0.0011,
+          "missed_attacks": 2691,
+          "analyst_hours": 20.0
+        },
+        {
+          "alert_budget": 400,
+          "true_positives": 3,
+          "false_positives": 397,
+          "precision_at_k": 0.0075,
+          "recall_at_k": 0.0011,
+          "missed_attacks": 2691,
+          "analyst_hours": 40.0
+        },
+        {
+          "alert_budget": 800,
+          "true_positives": 34,
+          "false_positives": 766,
+          "precision_at_k": 0.0425,
+          "recall_at_k": 0.0126,
+          "missed_attacks": 2660,
+          "analyst_hours": 80.0
+        },
+        {
+          "alert_budget": 1600,
+          "true_positives": 81,
+          "false_positives": 1519,
+          "precision_at_k": 0.0506,
+          "recall_at_k": 0.0301,
+          "missed_attacks": 2613,
+          "analyst_hours": 160.0
+        }
+      ]
+    },
+    {
+      "detector": "One-Class SVM (SGD)",
+      "assumption": "Normal data lies inside one compact region; anything outside the learned boundary is anomalous.",
+      "blind_spot": "Multi-modal normality -- legitimate traffic with several distinct profiles gets partly excluded.",
+      "pr_auc": 0.0275,
+      "roc_auc": 0.2779,
+      "precision_at_100": 0.0,
+      "lift_over_random": 0.82,
+      "inverted": true,
+      "diagnosis": "INVERTED: ranks intrusions as more normal than benign traffic. The dominant DoS families are highly repetitive, so they occupy the densest regions of the feature space and this detector's notion of 'normal' is precisely where the attacks live.",
+      "fit_seconds": 0.09,
+      "alert_budget": [
+        {
+          "alert_budget": 25,
+          "true_positives": 0,
+          "false_positives": 25,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 2.5
+        },
+        {
+          "alert_budget": 50,
+          "true_positives": 0,
+          "false_positives": 50,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 5.0
+        },
+        {
+          "alert_budget": 100,
+          "true_positives": 0,
+          "false_positives": 100,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 10.0
+        },
+        {
+          "alert_budget": 200,
+          "true_positives": 0,
+          "false_positives": 200,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 20.0
+        },
+        {
+          "alert_budget": 400,
+          "true_positives": 0,
+          "false_positives": 400,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 40.0
+        },
+        {
+          "alert_budget": 800,
+          "true_positives": 0,
+          "false_positives": 800,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 80.0
+        },
+        {
+          "alert_budget": 1600,
+          "true_positives": 0,
+          "false_positives": 1600,
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "missed_attacks": 2694,
+          "analyst_hours": 160.0
+        }
+      ]
+    },
+    {
+      "detector": "Elliptic Envelope",
+      "assumption": "Normal data is multivariate Gaussian; distance from the robust centre in Mahalanobis terms measures strangeness.",
+      "blind_spot": "Anything non-Gaussian, which network telemetry emphatically is -- included as a deliberately mis-specified reference.",
+      "error": "15,325 of 80,000 scores were NaN or infinite",
+      "diagnosis": "The detector fitted without raising but produced non-finite scores, so it cannot be ranked. For a covariance-based method this means the covariance estimate is singular -- with 52 largely one-hot columns the feature matrix is rank-deficient, and the Gaussian assumption this detector rests on does not merely fit badly, it is undefined. That is a genuine result about the method, and it is reported rather than hidden.",
+      "fit_seconds": 4.9
+    }
+  ],
+  "fusion": {
+    "method": "unweighted rank averaging over all detectors",
+    "members": [
+      "Isolation Forest",
+      "Local Outlier Factor",
+      "One-Class SVM (SGD)",
+      "PCA reconstruction"
+    ],
+    "pr_auc": 0.0258,
+    "roc_auc": 0.3842,
+    "best_single_pr_auc": 0.5056,
+    "improvement": -0.4798,
+    "helps": false,
+    "pairwise_agreement": [
+      {
+        "a": "Isolation Forest",
+        "b": "PCA reconstruction",
+        "rank_correlation": 0.719
+      },
+      {
+        "a": "Isolation Forest",
+        "b": "Local Outlier Factor",
+        "rank_correlation": 0.189
+      },
+      {
+        "a": "Local Outlier Factor",
+        "b": "PCA reconstruction",
+        "rank_correlation": 0.177
+      },
+      {
+        "a": "Local Outlier Factor",
+        "b": "One-Class SVM (SGD)",
+        "rank_correlation": -0.205
+      },
+      {
+        "a": "One-Class SVM (SGD)",
+        "b": "PCA reconstruction",
+        "rank_correlation": -0.499
+      },
+      {
+        "a": "Isolation Forest",
+        "b": "One-Class SVM (SGD)",
+        "rank_correlation": -0.656
+      }
+    ],
+    "rationale": "Ranks, not raw scores: the five detectors output values on incomparable scales, so averaging raw scores would just amplify whichever has the largest range.",
+    "honest_negative_result": "Naive fusion over all five detectors is *worse* than the best single detector, because three of the five are inverted on this data and averaging them in cancels the good signal. The obvious fix -- drop the inverted ones -- requires the labels to know which they are, which is exactly what an unsupervised deployment does not have. The pairwise rank correlations below are the only label-free evidence available, and they show the detectors splitting into two mutually-disagreeing camps without revealing which camp is correct. Ensembling is reported here as a negative result rather than quietly tuned until it looked positive."
+  },
+  "protocol": "All five detectors are unsupervised and fitted on identical transformed features. Labels are used only to score the resulting rankings.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:29:36+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "kdd99_intrusion",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Isolation Forest"
+  }
+}

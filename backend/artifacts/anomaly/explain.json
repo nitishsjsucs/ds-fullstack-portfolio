@@ -1,0 +1,150 @@
+{
+  "detector_assumptions": [
+    {
+      "detector": "Isolation Forest",
+      "assumption": "Anomalies are easy to isolate: a random axis-aligned split separates them from the bulk in few cuts.",
+      "blind_spot": "Anomalies that are normal on every individual axis but odd in combination -- it never looks at feature interactions."
+    },
+    {
+      "detector": "Local Outlier Factor",
+      "assumption": "Anomalies sit in regions of markedly lower density than their own neighbours.",
+      "blind_spot": "Dense clusters of attacks: if a whole intrusion class is common, its members are each other's neighbours and look perfectly normal."
+    },
+    {
+      "detector": "One-Class SVM (SGD)",
+      "assumption": "Normal data lies inside one compact region; anything outside the learned boundary is anomalous.",
+      "blind_spot": "Multi-modal normality -- legitimate traffic with several distinct profiles gets partly excluded."
+    },
+    {
+      "detector": "Elliptic Envelope",
+      "assumption": "Normal data is multivariate Gaussian; distance from the robust centre in Mahalanobis terms measures strangeness.",
+      "blind_spot": "Anything non-Gaussian, which network telemetry emphatically is -- included as a deliberately mis-specified reference."
+    },
+    {
+      "detector": "PCA reconstruction",
+      "assumption": "Normal traffic lies near a low-dimensional linear subspace; anomalies reconstruct badly from it.",
+      "blind_spot": "Anomalies that happen to lie within the principal subspace, and any non-linear structure."
+    }
+  ],
+  "feature_deviation": [
+    {
+      "feature": "count",
+      "flagged_median": 121.5,
+      "population_median": 3.0,
+      "deviation_iqr": 11.85
+    },
+    {
+      "feature": "dst_host_same_srv_rate",
+      "flagged_median": 0.07,
+      "population_median": 1.0,
+      "deviation_iqr": -10.333
+    },
+    {
+      "feature": "log_src_bytes",
+      "flagged_median": 0.0,
+      "population_median": 5.451,
+      "deviation_iqr": -7.064
+    },
+    {
+      "feature": "dst_host_diff_srv_rate",
+      "flagged_median": 0.06,
+      "population_median": 0.0,
+      "deviation_iqr": 6.0
+    },
+    {
+      "feature": "dst_host_srv_count",
+      "flagged_median": 13.0,
+      "population_median": 255.0,
+      "deviation_iqr": -2.814
+    },
+    {
+      "feature": "log_dst_bytes",
+      "flagged_median": 0.0,
+      "population_median": 5.9687,
+      "deviation_iqr": -2.029
+    },
+    {
+      "feature": "src_bytes",
+      "flagged_median": 0.0,
+      "population_median": 232.0,
+      "deviation_iqr": -1.357
+    },
+    {
+      "feature": "logged_in",
+      "flagged_median": 0.0,
+      "population_median": 1.0,
+      "deviation_iqr": -1.0
+    },
+    {
+      "feature": "srv_rerror_rate",
+      "flagged_median": 1.0,
+      "population_median": 0.0,
+      "deviation_iqr": 1.0
+    },
+    {
+      "feature": "is_zero_payload",
+      "flagged_median": 1.0,
+      "population_median": 0.0,
+      "deviation_iqr": 1.0
+    },
+    {
+      "feature": "rerror_rate",
+      "flagged_median": 0.925,
+      "population_median": 0.0,
+      "deviation_iqr": 0.925
+    },
+    {
+      "feature": "same_srv_rate",
+      "flagged_median": 0.11,
+      "population_median": 1.0,
+      "deviation_iqr": -0.89
+    },
+    {
+      "feature": "dst_host_count",
+      "flagged_median": 255.0,
+      "population_median": 174.0,
+      "deviation_iqr": 0.377
+    },
+    {
+      "feature": "bytes_ratio",
+      "flagged_median": 0.0,
+      "population_median": 0.359,
+      "deviation_iqr": -0.279
+    },
+    {
+      "feature": "dst_bytes",
+      "flagged_median": 0.0,
+      "population_median": 390.0,
+      "deviation_iqr": -0.205
+    },
+    {
+      "feature": "dst_host_same_src_port_rate",
+      "flagged_median": 0.0,
+      "population_median": 0.01,
+      "deviation_iqr": -0.125
+    },
+    {
+      "feature": "srv_count",
+      "flagged_median": 4.0,
+      "population_median": 5.0,
+      "deviation_iqr": -0.077
+    },
+    {
+      "feature": "diff_srv_rate",
+      "flagged_median": 0.06,
+      "population_median": 0.0,
+      "deviation_iqr": 0.06
+    }
+  ],
+  "note": "Unsupervised detectors have no feature importances. What is shown instead is how far the top-scoring connections deviate from the normal median on each feature -- the closest honest analogue.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:29:36+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "kdd99_intrusion",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Isolation Forest"
+  }
+}

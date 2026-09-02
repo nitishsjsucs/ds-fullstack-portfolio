@@ -1,0 +1,326 @@
+{
+  "project": "NanoGPT: A Transformer From Scratch",
+  "business_question": "Can a transformer small enough to train on a laptop in minutes learn the statistical structure of English text -- and can we demonstrate that with a number rather than by showing off a paragraph of output?",
+  "success_criteria": [
+    "Validation cross-entropy well below the unigram baseline of 4.7794 bits/char.",
+    "Train and validation loss logged together so overfitting is locatable.",
+    "Validation text held out as a contiguous block, never shuffled.",
+    "Every architectural component implemented from primitives and explained."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "This is a teaching artefact, so the objective is legibility as much as loss. Every component is written out rather than imported, and the evaluation is deliberately framed around baselines, because the characteristic failure of a generative demo is to present convincing-looking output as if it were a measurement.",
+      "activities": [
+        "Fixed held-out bits-per-character as the sole success metric.",
+        "Established uniform and unigram baselines before training.",
+        "Chose character-level tokenisation for full transparency."
+      ],
+      "findings": [
+        {
+          "statement": "Sample quality is not a metric",
+          "evidence": "Shakespeare-shaped text is achievable at any loss level",
+          "implication": "Samples are labelled as illustration; every claim rests on validation loss.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report bits per character, not nats.",
+          "rationale": "Directly comparable to the uniform baseline of log2(65) = 6.0224 bits.",
+          "alternative_rejected": "Report the raw cross-entropy in nats",
+          "rejection_reason": "Obscures the comparison the reader needs to judge whether anything was learned."
+        }
+      ],
+      "metrics": {
+        "uniform_baseline_bpc": 6.0224,
+        "unigram_baseline_bpc": 4.7794
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Metric fixed in advance",
+          "Baselines established",
+          "Sample output explicitly excluded as evidence"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "1,115,394 characters, 65 distinct symbols, 40,001 lines. The unigram distribution alone reaches 4.7794 bits/char against a uniform 6.0224.",
+      "activities": [
+        "Built the character frequency profile.",
+        "Computed the unigram entropy as a context-free floor.",
+        "Inspected the corpus structure (speaker names, stage directions)."
+      ],
+      "findings": [
+        {
+          "statement": "Character frequencies are far from uniform",
+          "evidence": "unigram entropy 4.7794 vs uniform 6.0224 bits",
+          "implication": "1.24 bits are available from marginal frequencies alone, before any context is modelled.",
+          "severity": "info"
+        },
+        {
+          "statement": "The corpus has strong repeated structure",
+          "evidence": "speaker names and line breaks recur constantly",
+          "implication": "Easy structure a model learns first; the attention maps show exactly this.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Character-level rather than subword tokenisation.",
+          "rationale": "A 65-symbol vocabulary can be printed in full, making the input representation completely transparent.",
+          "alternative_rejected": "Byte-pair encoding",
+          "rejection_reason": "Better compression, but the tokeniser becomes an opaque component in a project whose purpose is transparency."
+        }
+      ],
+      "metrics": {
+        "characters": 1115394,
+        "vocab_size": 65,
+        "unigram_entropy": 4.7794
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Corpus profiled",
+          "Entropy baselines computed"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "1,003,855 training tokens and 111,539 validation tokens, split by position at character 1,003,855.",
+      "activities": [
+        "Encoded the corpus to integer ids.",
+        "Split by position, taking the final 10% as one contiguous block.",
+        "Sampled training windows uniformly within the training split only."
+      ],
+      "findings": [
+        {
+          "statement": "The split is contiguous and never shuffled",
+          "evidence": "The final 10% of the text, as one contiguous block, is held out. Never shuffled: a random split would place a line in training and the next line in va",
+          "implication": "A shuffled split would score the model on completing passages it had effectively read.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Hold out the last 10% as a single block.",
+          "rationale": "Guarantees the validation text is unseen continuation.",
+          "alternative_rejected": "Random window sampling across the whole text",
+          "rejection_reason": "Adjacent windows overlap heavily; validation loss would measure memorisation."
+        }
+      ],
+      "metrics": {
+        "train_tokens": 1003855,
+        "val_tokens": 111539
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Contiguous held-out block",
+          "No batch spans the split boundary"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "812,288 parameters: 4 pre-norm blocks, 4 heads, 128-dim residual stream, 128-token context. RoPE, RMSNorm, SwiGLU, tied embeddings.",
+      "activities": [
+        "Implemented attention, RoPE, RMSNorm and SwiGLU from primitives.",
+        "Trained with AdamW, cosine schedule and linear warmup.",
+        "Applied gradient clipping and selective weight decay.",
+        "Checkpointed on best validation loss, not final loss."
+      ],
+      "findings": [
+        {
+          "statement": "Causal masking is enforced structurally",
+          "evidence": "lower-triangular mask registered as a module buffer",
+          "implication": "A model that can see forward achieves near-zero training loss by copying; the attention maps show exact zeros above the diagonal.",
+          "severity": "critical"
+        },
+        {
+          "statement": "Weight tying removes a large parameter block",
+          "evidence": "65 x 128 shared between embedding and output head",
+          "implication": "On a model this small it is both a size saving and a meaningful regulariser.",
+          "severity": "info"
+        },
+        {
+          "statement": "Decay is applied only to matrices",
+          "evidence": "biases and norm gains excluded from weight decay",
+          "implication": "Standard recipe; decaying a norm gain fights the normalisation it is meant to perform.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Keep the best-validation checkpoint, not the final one.",
+          "rationale": "The final step is not necessarily the best step.",
+          "alternative_rejected": "Ship the last checkpoint",
+          "rejection_reason": "Discards the genuinely best model whenever overfitting has begun."
+        },
+        {
+          "decision": "Implement every component from primitives.",
+          "rationale": "The project's purpose is that the mechanism be legible.",
+          "alternative_rejected": "torch.nn.TransformerDecoder",
+          "rejection_reason": "Fewer lines, but the interesting parts become invisible."
+        }
+      ],
+      "metrics": {
+        "parameters": 812288,
+        "layers": 4,
+        "heads": 4,
+        "context": 128,
+        "steps": 2500
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Causal mask verified",
+          "Best checkpoint retained",
+          "Every component implemented and documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "Best validation loss 1.5051 nats (2.1714 bits/char, perplexity 4.505). That is 2.608 bits below the unigram baseline and 3.851 below uniform.",
+      "activities": [
+        "Tracked train and validation loss on identical fixed windows.",
+        "Compared against uniform and unigram baselines.",
+        "Located the train/validation divergence point.",
+        "Sampled across five temperatures.",
+        "Extracted attention maps from the trained weights."
+      ],
+      "findings": [
+        {
+          "statement": "The model beats the context-free baseline",
+          "evidence": "2.1714 vs 4.7794 bits/char",
+          "implication": "This is the minimum bar for claiming the model learned anything about language at all.",
+          "severity": "info"
+        },
+        {
+          "statement": "Overfitting is located rather than hidden",
+          "evidence": "Train and validation loss first separate by more than 0.05 nats at step 125. Beyond that the model is spending capacity memorising rather than general",
+          "implication": "Both curves are published in full.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Temperature controls a real quality trade-off",
+          "evidence": "low temperature loops; high temperature misspells",
+          "implication": "Demonstrated with five samples from the same prompt and the same seed.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Publish samples at five temperatures rather than one.",
+          "rationale": "A single cherry-picked sample says nothing about the distribution the model learned.",
+          "alternative_rejected": "Show the best-looking output",
+          "rejection_reason": "The standard way generative demos mislead."
+        }
+      ],
+      "metrics": {
+        "val_loss": 1.5051,
+        "val_bpc": 2.1714,
+        "perplexity": 4.505,
+        "improvement_over_unigram": 2.608
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Beats the unigram baseline",
+          "Train and validation curves both published",
+          "Samples labelled as illustration, not evidence"
+        ],
+        "passed": true,
+        "notes": "2.1714 bits/char against a 4.7794 unigram floor."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Weights and tokeniser are saved together; generation is served with live temperature and top-k controls at /api/projects/nanollm/generate.",
+      "activities": [
+        "Saved config, weights and vocabulary in one checkpoint.",
+        "Exposed streaming-style generation with sampling controls.",
+        "Published attention maps from the trained model."
+      ],
+      "findings": [
+        {
+          "statement": "The checkpoint carries its own tokeniser",
+          "evidence": "config, state_dict and character list saved together",
+          "implication": "Impossible to load the weights against a mismatched vocabulary.",
+          "severity": "info"
+        },
+        {
+          "statement": "This model has no knowledge, only style",
+          "evidence": "812,288 parameters on 1.1M characters",
+          "implication": "It produces Shakespeare-shaped text. It cannot answer questions and must never be presented as if it could.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Expose temperature and top-k to the user.",
+          "rationale": "The trade-off is the most instructive thing to experience directly.",
+          "alternative_rejected": "Fix sampling parameters",
+          "rejection_reason": "Hides the mechanism the project exists to teach."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/nanollm/generate",
+        "parameters": 812288
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Checkpoint self-contained",
+          "Sampling controls exposed",
+          "Capability limits stated plainly"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "The first architecture used learned absolute position embeddings and LayerNorm. Switching to RoPE and RMSNorm improved validation loss at identical parameter count and removed a whole embedding table.",
+    "An early run reported an implausibly low training loss. The cause was a missing causal mask in the attention block -- the model was reading ahead. The test suite now asserts that attention above the diagonal is exactly zero, which is the generative equivalent of a leakage check."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T20:21:34+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "tiny_shakespeare",
+    "seed": 42,
+    "quick_mode": false,
+    "device": "mps",
+    "steps": 2500
+  }
+}

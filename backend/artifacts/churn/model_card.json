@@ -1,0 +1,118 @@
+{
+  "model": "XGBoost + isotonic calibration",
+  "version": "1.0.0",
+  "task": "Supervised binary classification (imbalanced)",
+  "intended_use": "Rank an existing subscriber base by churn risk so a retention team can decide who to contact, and estimate whether an offer pays for itself.",
+  "out_of_scope": [
+    "Pricing decisions for individual customers.",
+    "Any use where the prediction affects service eligibility.",
+    "Markets other than the one this snapshot describes -- contract mix and payment norms differ enough to invalidate the learned relationships."
+  ],
+  "training_data": {
+    "source": "IBM Telco Customer Churn",
+    "rows": 5634,
+    "positive_rate": 0.2654,
+    "licence": "Apache-2.0 (IBM sample)"
+  },
+  "evaluation_data": {
+    "rows": 1409,
+    "protocol": "stratified random hold-out"
+  },
+  "features": {
+    "count": 42,
+    "inputs": [
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges",
+      "charges_per_tenure",
+      "services_subscribed",
+      "tenure_bucket_idx",
+      "monthly_vs_avg_ratio",
+      "has_dependents_and_partner",
+      "Contract",
+      "PaymentMethod",
+      "PaperlessBilling",
+      "InternetService",
+      "OnlineSecurity",
+      "TechSupport",
+      "StreamingTV",
+      "StreamingMovies",
+      "DeviceProtection",
+      "OnlineBackup",
+      "MultipleLines",
+      "PhoneService",
+      "Dependents"
+    ],
+    "excluded_by_design": [
+      "customerID",
+      "gender",
+      "SeniorCitizen",
+      "Partner"
+    ],
+    "exclusion_reason": "customerID is a unique identifier; the other three are sensitive attributes reserved for the fairness audit."
+  },
+  "decision_threshold": {
+    "value": 0.2746,
+    "derivation": "Minimises expected cost under the documented economics.",
+    "recall_at_threshold": 0.820856,
+    "precision_at_threshold": 0.514238
+  },
+  "metrics": {
+    "pr_auc": 0.660406,
+    "roc_auc": 0.848044,
+    "brier": 0.134951,
+    "expected_calibration_error": 0.009953,
+    "recall": 0.820856,
+    "precision": 0.514238,
+    "f1": 0.632338
+  },
+  "fairness": {
+    "attributes_audited": 3,
+    "worst_disparate_impact": 0.5083,
+    "four_fifths_failures": [
+      "SeniorCitizen",
+      "Partner"
+    ],
+    "prioritised_criterion": "equal opportunity",
+    "note": "Demographic parity, equalised odds and calibration cannot all hold at once when base rates differ across groups (Kleinberg et al. 2016). All four are reported; this project prioritises equal opportunity, and the trade-off is a stated choice rather than an oversight."
+  },
+  "ethical_considerations": [
+    "A retention model concentrates discounts on customers likely to leave, which can mean loyal customers systematically pay more. That is a business policy question the model surfaces but cannot answer.",
+    "Sensitive attributes are excluded from features, but proxies (payment method, service mix) remain, so exclusion is not a fairness guarantee -- hence the published audit."
+  ],
+  "limitations": [
+    "A single point-in-time snapshot: no seasonality, no campaign history, no way to learn what past interventions already changed.",
+    "7,043 rows is small; confidence intervals on segment metrics are wide.",
+    "Economics are stated assumptions, not measured values; the conclusions move with them, which is why the UI exposes them as sliders.",
+    "Trained on one operator's book; transfer to another market is unproven."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Quarterly, or when PR-AUC drops below 0.60 on a rolling month of labelled outcomes.",
+    "monitored_signals": [
+      "contract-mix PSI",
+      "tenure distribution drift",
+      "calibration error",
+      "per-group selection rates"
+    ]
+  },
+  "hyperparameters": {
+    "n_estimators": 340,
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "min_child_weight": 3,
+    "reg_lambda": 4.0
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T18:14:10+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "telco_churn",
+    "seed": 42,
+    "quick_mode": false,
+    "calibration": "isotonic",
+    "threshold": 0.2746
+  }
+}

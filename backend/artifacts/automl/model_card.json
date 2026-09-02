@@ -1,0 +1,97 @@
+{
+  "model": "Caruana greedy ensemble",
+  "version": "1.0.0",
+  "task": "AutoML / model selection",
+  "intended_use": "A benchmark for automated model selection on tabular data. The deliverable is the methodology comparison, not an income prediction service.",
+  "out_of_scope": [
+    "Any real decision about a real person -- lending, hiring, housing, insurance or eligibility of any kind.",
+    "Present-day income estimation. The data is a 1994 US census extract; the labour market, the $50k threshold and the demographics have all moved.",
+    "Transfer to any population outside the 1994 US Current Population Survey."
+  ],
+  "training_data": {
+    "source": "UCI Adult / Census Income (1994 CPS)",
+    "rows": 39073,
+    "positive_rate": 0.239282,
+    "licence": "CC BY 4.0"
+  },
+  "evaluation_data": {
+    "rows": 9769,
+    "protocol": "stratified random hold-out"
+  },
+  "features": {
+    "count": 13,
+    "inputs": [
+      "age",
+      "education_num",
+      "capital_gain",
+      "capital_loss",
+      "hours_per_week",
+      "capital_net",
+      "has_capital_gain",
+      "hours_band",
+      "workclass",
+      "marital_status",
+      "occupation",
+      "relationship",
+      "native_country"
+    ],
+    "excluded_by_design": [
+      "fnlwgt",
+      "education",
+      "split_origin",
+      "sex",
+      "race"
+    ],
+    "exclusion_reasons": {
+      "fnlwgt": "Census sampling weight -- a survey-design artefact describing how many people the row represents, not a property of the person. Correlates with geographic strata, so a tree finds spurious structure in it.",
+      "education": "Perfectly redundant with education_num, which is the same variable as an ordinal code. Keeping both splits one signal across two columns and corrupts every importance measure.",
+      "split_origin": "Bookkeeping column recording which archive file the row came from.",
+      "sex": "Reserved for the fairness audit; excluded from features.",
+      "race": "Reserved for the fairness audit; excluded from features."
+    }
+  },
+  "metrics": {
+    "roc_auc": 0.931425,
+    "pr_auc": 0.836278,
+    "brier": 0.086312,
+    "search_overfit_gap": -0.003,
+    "ensemble_gain": 0.0001,
+    "distillation_fidelity": 0.9249
+  },
+  "fairness": {
+    "attributes_audited": 3,
+    "worst_disparate_impact": 0.0203,
+    "four_fifths_failures": [
+      "sex",
+      "race",
+      "age_band"
+    ],
+    "prioritised_criterion": "equalised odds",
+    "note": "Demographic parity, equalised odds and calibration cannot all hold at once when base rates differ across groups (Kleinberg et al. 2016). All four are reported; this project prioritises equalised odds, and the trade-off is a stated choice rather than an oversight.",
+    "key_finding": "Removing sex and race from the feature set did not remove the disparity. Correlated proxies -- relationship, occupation, hours -- carry the same information, which is why 'fairness through unawareness' is not a strategy."
+  },
+  "ethical_considerations": [
+    "This dataset encodes the labour-market inequalities of 1994 America. A model fitted to it reproduces those inequalities faithfully; that is a property of the data, and no amount of modelling technique removes it.",
+    "The disparate-impact results are reported in full precisely because a portfolio that showed only the AUC would be modelling the same data and silently omitting its most important characteristic."
+  ],
+  "limitations": [
+    "1994 data with a fixed nominal $50k threshold; not inflation-adjusted and not comparable to any present-day income band.",
+    "Self-reported survey responses with known non-response bias.",
+    "The ensemble's gain over a single model is within noise on this dataset.",
+    "Distillation fidelity is measured against the ensemble's decisions, not against ground truth."
+  ],
+  "maintenance": {
+    "retrain_trigger": "Not applicable -- this is a fixed historical benchmark, not a live service.",
+    "monitored_signals": []
+  },
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

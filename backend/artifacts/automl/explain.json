@@ -1,0 +1,615 @@
+{
+  "permutation": {
+    "method": "permutation importance (held-out)",
+    "scoring": "roc_auc",
+    "n_repeats": 8,
+    "n_samples": 3000,
+    "features": [
+      {
+        "feature": "marital_status",
+        "importance": 0.078306,
+        "std": 0.003581,
+        "significant": true
+      },
+      {
+        "feature": "capital_gain",
+        "importance": 0.058708,
+        "std": 0.00377,
+        "significant": true
+      },
+      {
+        "feature": "age",
+        "importance": 0.043252,
+        "std": 0.005255,
+        "significant": true
+      },
+      {
+        "feature": "education_num",
+        "importance": 0.027064,
+        "std": 0.002612,
+        "significant": true
+      },
+      {
+        "feature": "hours_per_week",
+        "importance": 0.010849,
+        "std": 0.002037,
+        "significant": true
+      },
+      {
+        "feature": "occupation",
+        "importance": 0.010669,
+        "std": 0.002167,
+        "significant": true
+      },
+      {
+        "feature": "capital_loss",
+        "importance": 0.007845,
+        "std": 0.00152,
+        "significant": true
+      },
+      {
+        "feature": "relationship",
+        "importance": 0.005733,
+        "std": 0.000783,
+        "significant": true
+      },
+      {
+        "feature": "capital_net",
+        "importance": 0.00441,
+        "std": 0.000471,
+        "significant": true
+      },
+      {
+        "feature": "workclass",
+        "importance": 0.001662,
+        "std": 0.000638,
+        "significant": true
+      },
+      {
+        "feature": "native_country",
+        "importance": 0.000481,
+        "std": 0.000221,
+        "significant": true
+      },
+      {
+        "feature": "hours_band",
+        "importance": 8e-05,
+        "std": 0.00013,
+        "significant": false
+      },
+      {
+        "feature": "has_capital_gain",
+        "importance": 1e-06,
+        "std": 5e-06,
+        "significant": false
+      }
+    ],
+    "n_significant": 11,
+    "note": "11 of 13 features shift roc_auc by more than twice their own permutation noise. Measured on held-out rows, so it reflects generalisation rather than how often a split was taken."
+  },
+  "impurity": {
+    "method": "mean impurity decrease (in-sample)",
+    "features": [
+      {
+        "feature": "age",
+        "importance": 1360.0
+      },
+      {
+        "feature": "hours_per_week",
+        "importance": 805.0
+      },
+      {
+        "feature": "capital_gain",
+        "importance": 762.0
+      },
+      {
+        "feature": "education_num",
+        "importance": 709.0
+      },
+      {
+        "feature": "capital_loss",
+        "importance": 443.0
+      },
+      {
+        "feature": "capital_net",
+        "importance": 373.0
+      },
+      {
+        "feature": "marital_status_Married-civ-spouse",
+        "importance": 181.0
+      },
+      {
+        "feature": "workclass_Self-emp-not-inc",
+        "importance": 122.0
+      },
+      {
+        "feature": "relationship_Husband",
+        "importance": 109.0
+      },
+      {
+        "feature": "relationship_Not-in-family",
+        "importance": 98.0
+      },
+      {
+        "feature": "relationship_Wife",
+        "importance": 96.0
+      },
+      {
+        "feature": "occupation_Exec-managerial",
+        "importance": 88.0
+      },
+      {
+        "feature": "occupation_Sales",
+        "importance": 82.0
+      },
+      {
+        "feature": "workclass_Private",
+        "importance": 75.0
+      },
+      {
+        "feature": "occupation_Prof-specialty",
+        "importance": 68.0
+      },
+      {
+        "feature": "workclass_Local-gov",
+        "importance": 67.0
+      },
+      {
+        "feature": "workclass_Federal-gov",
+        "importance": 61.0
+      },
+      {
+        "feature": "occupation_Other-service",
+        "importance": 60.0
+      },
+      {
+        "feature": "relationship_Unmarried",
+        "importance": 54.0
+      },
+      {
+        "feature": "occupation_Machine-op-inspct",
+        "importance": 52.0
+      }
+    ],
+    "caveat": "Impurity importance is biased toward high-cardinality and continuous features and is computed on training data. Compare against permutation importance; large disagreement indicates memorisation."
+  },
+  "shap": null,
+  "partial_dependence": [
+    {
+      "feature": "education_num",
+      "curve": [
+        {
+          "x": 1.0,
+          "y": 0.077069
+        },
+        {
+          "x": 2.0,
+          "y": 0.113798
+        },
+        {
+          "x": 3.0,
+          "y": 0.123933
+        },
+        {
+          "x": 4.0,
+          "y": 0.12258
+        },
+        {
+          "x": 5.0,
+          "y": 0.129026
+        },
+        {
+          "x": 6.0,
+          "y": 0.130983
+        },
+        {
+          "x": 7.0,
+          "y": 0.134119
+        },
+        {
+          "x": 8.0,
+          "y": 0.165716
+        },
+        {
+          "x": 9.0,
+          "y": 0.19892
+        },
+        {
+          "x": 10.0,
+          "y": 0.233609
+        },
+        {
+          "x": 11.0,
+          "y": 0.236919
+        },
+        {
+          "x": 12.0,
+          "y": 0.250654
+        },
+        {
+          "x": 13.0,
+          "y": 0.305827
+        },
+        {
+          "x": 14.0,
+          "y": 0.330325
+        },
+        {
+          "x": 15.0,
+          "y": 0.413065
+        },
+        {
+          "x": 16.0,
+          "y": 0.419193
+        }
+      ],
+      "deciles": [
+        7.0,
+        9.0,
+        9.0,
+        9.0,
+        10.0,
+        10.0,
+        11.0,
+        13.0,
+        13.0
+      ],
+      "effect_range": 0.342123,
+      "monotone": false
+    },
+    {
+      "feature": "age",
+      "curve": [
+        {
+          "x": 19.0,
+          "y": 0.059847
+        },
+        {
+          "x": 20.913043,
+          "y": 0.079449
+        },
+        {
+          "x": 22.826087,
+          "y": 0.096249
+        },
+        {
+          "x": 24.73913,
+          "y": 0.16325
+        },
+        {
+          "x": 26.652174,
+          "y": 0.170543
+        },
+        {
+          "x": 28.565217,
+          "y": 0.200219
+        },
+        {
+          "x": 30.478261,
+          "y": 0.213627
+        },
+        {
+          "x": 32.391304,
+          "y": 0.218033
+        },
+        {
+          "x": 34.304348,
+          "y": 0.232513
+        },
+        {
+          "x": 36.217391,
+          "y": 0.240345
+        },
+        {
+          "x": 38.130435,
+          "y": 0.252139
+        },
+        {
+          "x": 40.043478,
+          "y": 0.259378
+        },
+        {
+          "x": 41.956522,
+          "y": 0.263403
+        },
+        {
+          "x": 43.869565,
+          "y": 0.269639
+        },
+        {
+          "x": 45.782609,
+          "y": 0.280043
+        },
+        {
+          "x": 47.695652,
+          "y": 0.291245
+        },
+        {
+          "x": 49.608696,
+          "y": 0.287955
+        },
+        {
+          "x": 51.521739,
+          "y": 0.288449
+        },
+        {
+          "x": 53.434783,
+          "y": 0.288752
+        },
+        {
+          "x": 55.347826,
+          "y": 0.281083
+        },
+        {
+          "x": 57.26087,
+          "y": 0.281107
+        },
+        {
+          "x": 59.173913,
+          "y": 0.284449
+        },
+        {
+          "x": 61.086957,
+          "y": 0.269123
+        },
+        {
+          "x": 63.0,
+          "y": 0.256946
+        }
+      ],
+      "deciles": [
+        22.0,
+        26.0,
+        29.0,
+        33.0,
+        37.0,
+        41.0,
+        45.0,
+        50.0,
+        57.0
+      ],
+      "effect_range": 0.231398,
+      "monotone": false
+    },
+    {
+      "feature": "hours_per_week",
+      "curve": [
+        {
+          "x": 16.0,
+          "y": 0.156886
+        },
+        {
+          "x": 17.913043,
+          "y": 0.154866
+        },
+        {
+          "x": 19.826087,
+          "y": 0.154738
+        },
+        {
+          "x": 21.73913,
+          "y": 0.15747
+        },
+        {
+          "x": 23.652174,
+          "y": 0.160435
+        },
+        {
+          "x": 25.565217,
+          "y": 0.162453
+        },
+        {
+          "x": 27.478261,
+          "y": 0.163056
+        },
+        {
+          "x": 29.391304,
+          "y": 0.163115
+        },
+        {
+          "x": 31.304348,
+          "y": 0.170065
+        },
+        {
+          "x": 33.217391,
+          "y": 0.179282
+        },
+        {
+          "x": 35.130435,
+          "y": 0.216678
+        },
+        {
+          "x": 37.043478,
+          "y": 0.227869
+        },
+        {
+          "x": 38.956522,
+          "y": 0.229705
+        },
+        {
+          "x": 40.869565,
+          "y": 0.251441
+        },
+        {
+          "x": 42.782609,
+          "y": 0.257281
+        },
+        {
+          "x": 44.695652,
+          "y": 0.27055
+        },
+        {
+          "x": 46.608696,
+          "y": 0.272563
+        },
+        {
+          "x": 48.521739,
+          "y": 0.273071
+        },
+        {
+          "x": 50.434783,
+          "y": 0.278103
+        },
+        {
+          "x": 52.347826,
+          "y": 0.276025
+        },
+        {
+          "x": 54.26087,
+          "y": 0.27645
+        },
+        {
+          "x": 56.173913,
+          "y": 0.279215
+        },
+        {
+          "x": 58.086957,
+          "y": 0.278535
+        },
+        {
+          "x": 60.0,
+          "y": 0.276315
+        }
+      ],
+      "deciles": [
+        22.0,
+        35.0,
+        40.0,
+        40.0,
+        40.0,
+        40.0,
+        40.0,
+        48.0,
+        50.0
+      ],
+      "effect_range": 0.124477,
+      "monotone": false
+    },
+    {
+      "feature": "capital_net",
+      "curve": [
+        {
+          "x": 0.0,
+          "y": 0.239727
+        },
+        {
+          "x": 225.130435,
+          "y": 0.226344
+        },
+        {
+          "x": 450.26087,
+          "y": 0.226344
+        },
+        {
+          "x": 675.391304,
+          "y": 0.221385
+        },
+        {
+          "x": 900.521739,
+          "y": 0.221385
+        },
+        {
+          "x": 1125.652174,
+          "y": 0.221385
+        },
+        {
+          "x": 1350.782609,
+          "y": 0.221385
+        },
+        {
+          "x": 1575.913043,
+          "y": 0.221385
+        },
+        {
+          "x": 1801.043478,
+          "y": 0.221385
+        },
+        {
+          "x": 2026.173913,
+          "y": 0.221385
+        },
+        {
+          "x": 2251.304348,
+          "y": 0.221385
+        },
+        {
+          "x": 2476.434783,
+          "y": 0.221385
+        },
+        {
+          "x": 2701.565217,
+          "y": 0.221385
+        },
+        {
+          "x": 2926.695652,
+          "y": 0.221385
+        },
+        {
+          "x": 3151.826087,
+          "y": 0.215966
+        },
+        {
+          "x": 3376.956522,
+          "y": 0.215966
+        },
+        {
+          "x": 3602.086957,
+          "y": 0.215966
+        },
+        {
+          "x": 3827.217391,
+          "y": 0.215966
+        },
+        {
+          "x": 4052.347826,
+          "y": 0.215966
+        },
+        {
+          "x": 4277.478261,
+          "y": 0.247346
+        },
+        {
+          "x": 4502.608696,
+          "y": 0.226967
+        },
+        {
+          "x": 4727.73913,
+          "y": 0.260179
+        },
+        {
+          "x": 4952.869565,
+          "y": 0.250495
+        },
+        {
+          "x": 5178.0,
+          "y": 0.255135
+        }
+      ],
+      "deciles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "effect_range": 0.044213,
+      "monotone": false
+    }
+  ],
+  "distilled_tree": "|--- marital_status_Married-civ-spouse <= 0.50\n|   |--- capital_gain <= 7055.50\n|   |   |--- education_num <= 14.50\n|   |   |   |--- capital_net <= -2270.00\n|   |   |   |   |--- class: 1\n|   |   |   |--- capital_net >  -2270.00\n|   |   |   |   |--- class: 0\n|   |   |--- education_num >  14.50\n|   |   |   |--- age <= 32.50\n|   |   |   |   |--- class: 0\n|   |   |   |--- age >  32.50\n|   |   |   |   |--- class: 1\n|   |--- capital_gain >  7055.50\n|   |   |--- relationship_Not-in-family <= 0.50\n|   |   |   |--- class: 1\n|   |   |--- relationship_Not-in-family >  0.50\n|   |   |   |--- capital_gain <= 9567.00\n|   |   |   |   |--- class: 1\n|   |   |   |--- capital_gain >  9567.00\n|   |   |   |   |--- class: 1\n|--- marital_status_Married-civ-spouse >  0.50\n|   |--- education_num <= 11.50\n|   |   |--- capital_net <= 5095.50\n|   |   |   |--- education_num <= 9.50\n|   |   |   |   |--- class: 0\n|   |   |   |--- education_num >  9.50\n|   |   |   |   |--- class: 0\n|   |   |--- capital_net >  5095.50\n|   |   |   |--- age <= 60.50\n|   |   |   |   |--- class: 1\n|   |   |   |--- age >  60.50\n|   |   |   |   |--- class: 1\n|   |--- education_num >  11.50\n|   |   |--- hours_per_week <= 34.50\n|   |   |   |--- relationship_Wife <= 0.50\n|   |   |   |   |--- class: 0\n|   |   |   |--- relationship_Wife >  0.50\n|   |   |   |   |--- class: 1\n|   |   |--- hours_per_week >  34.50\n|   |   |   |--- age <= 27.50\n|   |   |   |   |--- class: 0\n|   |   |   |--- age >  27.50\n|   |   |   |   |--- class: 1\n",
+  "feature_count": 44,
+  "_provenance": {
+    "trained_at": "2026-09-02T21:16:26+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "adult_census_income",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Caruana greedy ensemble"
+  }
+}

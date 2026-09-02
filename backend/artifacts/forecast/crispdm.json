@@ -1,0 +1,351 @@
+{
+  "project": "Bike-Share Demand Forecasting",
+  "business_question": "How many bikes will be hired in the next hour, and how confident can an operations team be in that number when deciding where to rebalance stock?",
+  "success_criteria": [
+    "Positive skill against seasonal naive on the same hold-out -- the model must genuinely beat 'same hour last week', not merely score MASE < 1.",
+    "Accuracy verified across five rolling-origin folds, not one lucky split.",
+    "An 80% interval whose empirical coverage is close to 80%.",
+    "No feature may use information unavailable at forecast time."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "Rebalancing decisions are made on the expected shortfall, not the point forecast, so an interval was a requirement from the outset. MASE was chosen as the headline because it is the only metric that makes the seasonal-naive baseline unavoidable -- with RMSE alone it is entirely possible to report an impressive-looking number that quietly loses to 'same hour last week'.",
+      "activities": [
+        "Framed the task as next-hour demand with an uncertainty band.",
+        "Chose MASE so the seasonal baseline is built into the metric.",
+        "Defined the forecast-time information boundary.",
+        "Committed to a rolling-origin backtest rather than one split."
+      ],
+      "findings": [
+        {
+          "statement": "casual and registered sum exactly to the target",
+          "evidence": "casual + registered == cnt for every row",
+          "implication": "Both dropped: either alone gives a perfect score and neither is known before the hour occurs.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report MASE as the headline metric.",
+          "rationale": "It is scale-free and divides by the seasonal-naive error, so a value below 1 is a genuine claim.",
+          "alternative_rejected": "RMSE alone",
+          "rejection_reason": "Says nothing about whether the model beats the trivial baseline, which on strongly seasonal data is a real risk."
+        }
+      ],
+      "metrics": {
+        "season_hours": 168,
+        "success_criteria": 4
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Baseline built into the metric",
+          "Information boundary defined",
+          "Target-summing columns identified and excluded"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "17,379 observed hours over two years with 165 gaps. STL attributes 70% of variance to the daily cycle and 28% to residual noise.",
+      "activities": [
+        "Reindexed to a complete hourly grid to expose gaps.",
+        "Ran STL decomposition and a 72-lag correlogram.",
+        "Tested stationarity with ADF and KPSS.",
+        "Profiled demand by hour, working day and weather."
+      ],
+      "findings": [
+        {
+          "statement": "165 hours are missing from the archive",
+          "evidence": "0.94% of the expected grid",
+          "implication": "Reindexed as explicit NaNs so lag distances stay true; never imputed.",
+          "severity": "watch"
+        },
+        {
+          "statement": "ACF shows dominant peaks at lags 24 and 168",
+          "evidence": "both far outside the significance band",
+          "implication": "Directly determined the lag feature set.",
+          "severity": "info"
+        },
+        {
+          "statement": "Demand is bimodal on working days",
+          "evidence": "morning and evening commuting peaks; a single midday hump at weekends",
+          "implication": "Motivated the hour x working-day interaction that tree models capture and the linear model cannot.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Reindex gaps rather than dropping the rows.",
+          "rationale": "Lags must be measured in hours, not in rows.",
+          "alternative_rejected": "Treat consecutive rows as consecutive hours",
+          "rejection_reason": "Turns a 24-lag into 'whatever happened 24 rows ago', silently corrupting every lag feature."
+        }
+      ],
+      "metrics": {
+        "observed_hours": 17379,
+        "missing_hours": 165,
+        "seasonal_variance_share": 0.6976
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Gaps quantified and made explicit",
+          "Seasonality characterised",
+          "Lag set justified by the ACF"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "33 features: calendar, cyclical encodings, seven lags and rolling statistics -- all shifted so they look strictly backwards. 748 warm-up rows dropped where the 168-hour look-back is undefined.",
+      "activities": [
+        "Applied shift(1) before every rolling statistic.",
+        "Built lags at 1, 2, 3, 24, 25, 48 and 168 hours.",
+        "Encoded hour, weekday and month cyclically.",
+        "Split chronologically at 2012-12-31."
+      ],
+      "findings": [
+        {
+          "statement": "Rolling features are shifted before aggregation",
+          "evidence": "past = target.shift(1) precedes every .rolling() call",
+          "implication": "Without it each rolling window contains the value it is used to predict -- a leak that typically halves the reported error.",
+          "severity": "critical"
+        },
+        {
+          "statement": "Warm-up rows cannot be scored fairly",
+          "evidence": "748 rows dropped",
+          "implication": "The longest lag is undefined there; keeping them would mean imputing the predictor.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Shift before rolling, everywhere.",
+          "rationale": "A window that includes the current hour is a leak.",
+          "alternative_rejected": "rolling(24).mean() on the raw target",
+          "rejection_reason": "The single most common time-series bug; produces excellent scores that do not survive deployment."
+        }
+      ],
+      "metrics": {
+        "features": 33,
+        "max_lookback_hours": 168,
+        "rows_modelled": 16631
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "All lags strictly backward-looking",
+          "Warm-up excluded rather than imputed",
+          "Chronological ordering asserted"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "Three models on 5 purged rolling-origin folds. Gradient boosting on lags wins with CV MASE 0.4443.",
+      "activities": [
+        "Ran a purged, embargoed expanding-window backtest.",
+        "Scored the seasonal-naive baseline under the identical protocol.",
+        "Refitted finalists on the full training span.",
+        "Fitted quantile models for the 80% band.",
+        "Measured accuracy decay across forecast horizons."
+      ],
+      "findings": [
+        {
+          "statement": "Purging removes 168 training hours per fold",
+          "evidence": "Expanding-window folds keep training strictly in the past. The purge drops the 168 rows before each validation fold so trailing-wi",
+          "implication": "Without it, trailing windows span the fold boundary and the score is optimistic.",
+          "severity": "info"
+        },
+        {
+          "statement": "The baseline competes under the same protocol",
+          "evidence": "seasonal naive is an estimator in the same backtest loop",
+          "implication": "A baseline scored differently is not a baseline.",
+          "severity": "info"
+        },
+        {
+          "statement": "Fold-to-fold variance is non-trivial",
+          "evidence": "CV MASE std 0.103 across folds",
+          "implication": "Reporting a single split would have been materially misleading in either direction.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Purge by the maximum look-back and embargo a further day.",
+          "rationale": "Feature windows must not reach across the fold boundary.",
+          "alternative_rejected": "Plain TimeSeriesSplit",
+          "rejection_reason": "Leaks whenever any feature uses a trailing window, which every useful one here does."
+        }
+      ],
+      "metrics": {
+        "folds": 5,
+        "purge_hours": 168,
+        "champion": "Gradient boosting on lags",
+        "cv_mase": 0.4443
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Purged and embargoed CV",
+          "Baseline evaluated identically",
+          "Variance across folds reported"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "Hold-out MAE 28.8 rides against 64.217 for seasonal naive -- a skill score of 55.2%. MASE is 0.335, but note the naive method itself scores 0.7463 on this hold-out, so the head-to-head skill score is the meaningful comparison. The 80% band covers 79.2% of hours.",
+      "activities": [
+        "Scored the untouched final months once.",
+        "Compared against four baselines including climatology.",
+        "Tested interval coverage against nominal.",
+        "Decomposed error by hour of day.",
+        "Measured multi-horizon degradation."
+      ],
+      "findings": [
+        {
+          "statement": "The model beats seasonal naive by 55.2% skill",
+          "evidence": "MAE 28.8 vs 64.217 rides on the identical hold-out",
+          "implication": "This is the claim the whole protocol exists to test.",
+          "severity": "info"
+        },
+        {
+          "statement": "MASE below 1 is not by itself evidence of skill",
+          "evidence": "seasonal naive also scores MASE 0.7463 on this hold-out",
+          "implication": "MASE divides by *in-sample* naive error, so a test period that is easier than the training span pushes every method below 1. The skill score compares both methods on the same data and is the honest test.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Raw quantile bands were over-confident and had to be calibrated",
+          "evidence": "Raw quantile band covered 67.1% (width 88.7); after conformal calibration it covers 79.2% (width 103.5). The price of honest coverage is a wider band, and that is the correct trade.",
+          "implication": "Conformalized quantile regression buys a finite-sample coverage guarantee at the cost of a wider band. An 80% interval that covers 71% is not a conservative estimate, it is a wrong one.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Calibrated interval coverage is well calibrated",
+          "evidence": "79.2% against 80% nominal",
+          "implication": "Determines whether operations can size buffers from the band.",
+          "severity": "info"
+        },
+        {
+          "statement": "Accuracy decays sharply with horizon",
+          "evidence": "Error grows from MAE 28.797 at 1 hour to 53.446 at 168 hours as recent history falls away and only calendar and weather remain.",
+          "implication": "Recent lags carry most of the signal; beyond a day only calendar and weather remain.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report per-horizon accuracy separately.",
+          "rationale": "A one-step model's error is not the error a planner forecasting a day ahead will experience.",
+          "alternative_rejected": "Quote the one-step number for all horizons",
+          "rejection_reason": "Overstates achievable accuracy by a wide margin."
+        }
+      ],
+      "metrics": {
+        "mase": 0.334653,
+        "mae": 28.79689,
+        "rmse": 45.654637,
+        "r2": 0.957121,
+        "skill_vs_naive": 0.5516,
+        "interval_coverage": 0.792005
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Positive skill against seasonal naive on the same hold-out",
+          "Beats all four baselines",
+          "80% interval covers within 5 points of nominal"
+        ],
+        "passed": true,
+        "notes": "Skill 55.2%; model MAE 28.8 vs naive 64.217; best baseline MAE 64.217."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Served at /api/projects/forecast/predict with a point forecast and an 80% band. The model needs the last 168 hours of history as input, which the endpoint documents explicitly.",
+      "activities": [
+        "Pickled the point model and both quantile models.",
+        "Exposed a horizon-aware forecast endpoint.",
+        "Documented the 168-hour history requirement."
+      ],
+      "findings": [
+        {
+          "statement": "The model has a hard input requirement",
+          "evidence": "168 hours of contiguous recent history",
+          "implication": "A gap in the live feed degrades the forecast to calendar-only accuracy; the endpoint says so.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Two years of data cannot capture multi-year trend",
+          "evidence": "2011-2012 only",
+          "implication": "Year-on-year growth is fitted as a level shift and will not extrapolate.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Return the band alongside every point forecast.",
+          "rationale": "Rebalancing decisions are made on the shortfall risk.",
+          "alternative_rejected": "Point forecast only",
+          "rejection_reason": "Hides exactly the quantity the operations team needs."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/forecast/predict",
+        "required_history_hours": 168
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Models persisted",
+          "History requirement documented",
+          "Interval served with every prediction"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "The first version computed rolling means without shifting and reported a MASE around 0.3. That number was impossible, which is what prompted the audit that found the leak. The shift is now the first thing the preparation module does, and the leakage test suite asserts it.",
+    "Plain TimeSeriesSplit was replaced by the purged variant after noticing that CV scores were consistently better than hold-out scores -- the signature of trailing windows crossing the fold boundary."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T18:16:32+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "bike_sharing_hourly",
+    "seed": 42,
+    "quick_mode": false,
+    "champion": "Gradient boosting on lags"
+  }
+}

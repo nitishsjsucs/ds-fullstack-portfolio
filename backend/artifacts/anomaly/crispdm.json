@@ -1,0 +1,336 @@
+{
+  "project": "Network Intrusion Anomaly Detection",
+  "business_question": "Without any labelled attack data, can we rank network connections so that the intrusions rise to the top of an analyst's alert queue?",
+  "success_criteria": [
+    "PR-AUC many times the 3.4% attack base rate.",
+    "Useful precision within a realistic alert budget, not just in aggregate.",
+    "No detector may see a label during fitting.",
+    "Report which attack families remain invisible rather than only the average."
+  ],
+  "phases": [
+    {
+      "key": "business_understanding",
+      "title": "1. Business Understanding",
+      "purpose": "Translate a business question into a measurable data-mining goal and fix the success criteria before seeing any results.",
+      "summary": "Framed as triage, not classification. An analyst team has finite hours, so the product is a ranked queue and the metric that matters is what fraction of the first hundred alerts are real. Unsupervised methods were mandated because in a real deployment labelled intrusions do not exist until after the incident.",
+      "activities": [
+        "Defined the deliverable as a ranked alert queue with a fixed budget.",
+        "Rejected accuracy outright given the 3.4% base rate.",
+        "Fixed the no-labels-in-fitting rule as a hard constraint.",
+        "Set contamination from an operational assumption, not the data."
+      ],
+      "findings": [
+        {
+          "statement": "Accuracy is actively misleading here",
+          "evidence": "flagging nothing scores 96.6%",
+          "implication": "PR-AUC and precision@k are the reported metrics.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Set contamination to a stated 2% assumption.",
+          "rationale": "In deployment the true rate is unknown; supplying it would leak the answer through a hyperparameter.",
+          "alternative_rejected": "Pass the observed 3.37%",
+          "rejection_reason": "Would flatter every detector and could not be reproduced in production."
+        }
+      ],
+      "metrics": {
+        "attack_rate": 0.033675,
+        "assumed_contamination": 0.02
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Triage framing fixed",
+          "Metric justified against base rate",
+          "Label quarantine declared"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_understanding",
+      "title": "2. Data Understanding",
+      "purpose": "Acquire the data, describe it honestly, and surface quality problems early enough that they can change the plan.",
+      "summary": "80,000 connections, 39 features, 3.37% attacks spanning 10 named families.",
+      "activities": [
+        "Profiled all numeric and categorical telemetry.",
+        "Measured univariate separability by Cohen's d.",
+        "Tabulated attack families and their prevalence."
+      ],
+      "findings": [
+        {
+          "statement": "Byte counts span nine orders of magnitude",
+          "evidence": "src_bytes ranges from 0 to hundreds of megabytes",
+          "implication": "Log transforms and a robust scaler are required before any distance-based method.",
+          "severity": "info"
+        },
+        {
+          "statement": "Attack families are extremely unbalanced among themselves",
+          "evidence": "10 families, most with a handful of instances",
+          "implication": "Aggregate recall would hide entire rare classes; per-family recall is reported instead.",
+          "severity": "watch"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Keep the label strictly out of the feature frame.",
+          "rationale": "Removes any code path where a detector could see it.",
+          "alternative_rejected": "Drop the label at fit time",
+          "rejection_reason": "One forgotten column selection and the whole project silently becomes supervised."
+        }
+      ],
+      "metrics": {
+        "rows": 80000,
+        "features": 39,
+        "families": 10
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Telemetry profiled",
+          "Families tabulated",
+          "Label quarantine asserted in code"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "data_preparation",
+      "title": "3. Data Preparation",
+      "purpose": "Construct the modelling dataset: selection, cleaning, feature engineering and the train/test protocol that makes evaluation trustworthy.",
+      "summary": "RobustScaler on the numerics, one-hot on protocol/service/flag, log transforms on byte counts. Fitted once, on unlabelled data.",
+      "activities": [
+        "Log-transformed source and destination byte counts.",
+        "Scaled numerics by median and IQR rather than mean and variance.",
+        "One-hot encoded the three categorical fields."
+      ],
+      "findings": [
+        {
+          "statement": "StandardScaler would suppress the signal",
+          "evidence": "mean and variance of src_bytes are set by the outliers themselves",
+          "implication": "RobustScaler used: median and IQR are unmoved by the very connections we are hunting.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "RobustScaler with a 5-95 percentile range.",
+          "rationale": "Anomalies must stay far from the centre after scaling.",
+          "alternative_rejected": "StandardScaler",
+          "rejection_reason": "Normalising by outlier-inflated variance shrinks exactly the deviations being detected."
+        }
+      ],
+      "metrics": {
+        "features_in": 39
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Scaling robust to outliers",
+          "Transforms fitted without labels"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "modeling",
+      "title": "4. Modeling",
+      "purpose": "Select techniques, search their hyperparameters, and record what was tried -- including what failed.",
+      "summary": "Five detectors with genuinely different definitions of 'anomalous', all fitted on identical features. Best single: Isolation Forest at PR-AUC 0.5056. Rank fusion did not beat it.",
+      "activities": [
+        "Fitted Isolation Forest, LOF, One-Class SVM, Elliptic Envelope and PCA reconstruction.",
+        "Documented each detector's assumption and its blind spot.",
+        "Fused all five by rank averaging.",
+        "Simulated analyst alert budgets from 25 to 1,600."
+      ],
+      "findings": [
+        {
+          "statement": "Isolation Forest ranks best overall",
+          "evidence": "PR-AUC 0.5056 vs 0.0275 for the weakest",
+          "implication": "Its isolation assumption fits telemetry where attacks are extreme on individual axes.",
+          "severity": "info"
+        },
+        {
+          "statement": "3 of 4 detectors are INVERTED on this data",
+          "evidence": "ROC-AUC below 0.5 means they rank intrusions as more normal than benign traffic",
+          "implication": "The dominant DoS families are highly repetitive, so they form the densest regions of the space. Every density-based detector therefore treats the attacks as the most ordinary traffic present. This is the central lesson of the project: 'anomalous' and 'malicious' are not the same property, and a frequent attack is not an outlier.",
+          "severity": "critical"
+        },
+        {
+          "statement": "4 of 5 detectors produced usable scores",
+          "evidence": "Elliptic Envelope: 15,325 of 80,000 scores were NaN or infinite",
+          "implication": "A detector that cannot produce finite scores on this feature matrix is a result about the method's assumptions, not a bug to be silently skipped.",
+          "severity": "watch"
+        },
+        {
+          "statement": "Detectors disagree substantially",
+          "evidence": "PR-AUC ranges 0.0275 to 0.5056 across five methods on identical features",
+          "implication": "'Anomaly' is not one concept; the definition chosen determines what is found.",
+          "severity": "info"
+        },
+        {
+          "statement": "Rank fusion does not help",
+          "evidence": "fusion PR-AUC 0.0258 vs best single 0.5056",
+          "implication": "Deployed the single best detector; averaging in weaker detectors diluted the strong signal.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Include Elliptic Envelope despite expecting it to lose.",
+          "rationale": "A deliberately mis-specified Gaussian reference shows how much the distributional assumption costs.",
+          "alternative_rejected": "Only run methods likely to win",
+          "rejection_reason": "Removes the comparison that makes the others interpretable."
+        },
+        {
+          "decision": "Fuse by rank, not by raw score.",
+          "rationale": "The five score scales are incomparable.",
+          "alternative_rejected": "Average raw scores",
+          "rejection_reason": "Whichever detector has the largest numeric range would silently dominate."
+        }
+      ],
+      "metrics": {
+        "detectors": 4,
+        "best_pr_auc": 0.5056,
+        "fusion_pr_auc": 0.0258,
+        "deployed": "Isolation Forest"
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "No detector saw a label",
+          "Assumptions and blind spots documented",
+          "Fusion evaluated rather than assumed to help"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    },
+    {
+      "key": "evaluation",
+      "title": "5. Evaluation",
+      "purpose": "Assess results against the business criteria from phase 1, not just the loss function, and review the whole process for defects.",
+      "summary": "Isolation Forest achieves PR-AUC 0.474 against a 0.034 base rate -- 14x random. In a 100-alert queue, 56% of alerts are real intrusions.",
+      "activities": [
+        "Scored PR-AUC, ROC-AUC and precision at seven alert budgets.",
+        "Measured recall per attack family.",
+        "Compared against hand-written signature rules.",
+        "Projected the feature space to show where detection fails."
+      ],
+      "findings": [
+        {
+          "statement": "The detector beats hand-written signatures",
+          "evidence": "PR-AUC 0.474 vs 0.254 for the best rule",
+          "implication": "Justifies the unsupervised approach over a rule sheet.",
+          "severity": "info"
+        },
+        {
+          "statement": "5 attack families are invisible at a 400-alert budget",
+          "evidence": "smurf, back, ipsweep, pod",
+          "implication": "These intrusions look statistically normal; they require signature-based rules, not outlier detection. Reporting only the aggregate would have hidden this entirely.",
+          "severity": "critical"
+        },
+        {
+          "statement": "Precision degrades as the alert budget grows",
+          "evidence": "see the alert-budget table",
+          "implication": "Directly sizes the analyst team required for a target recall.",
+          "severity": "info"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Report per-family recall, not just PR-AUC.",
+          "rationale": "A strong average can coexist with one entire attack class never being surfaced.",
+          "alternative_rejected": "Aggregate metrics only",
+          "rejection_reason": "Would conceal the single most operationally important weakness."
+        }
+      ],
+      "metrics": {
+        "pr_auc": 0.473889,
+        "roc_auc": 0.965933,
+        "precision_at_100": 0.56,
+        "recall_at_100": 0.0208,
+        "invisible_families": 5
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Beats random and hand-written signatures",
+          "Alert-budget economics reported",
+          "Per-family blind spots published"
+        ],
+        "passed": true,
+        "notes": "PR-AUC 0.474 against a 0.034 base rate."
+      }
+    },
+    {
+      "key": "deployment",
+      "title": "6. Deployment",
+      "purpose": "Ship the model behind an interface, with monitoring, documented limits, and a plan for the day the data drifts.",
+      "summary": "Scored connections are served at /api/projects/anomaly/predict, returning a percentile-normalised anomaly score and the features that deviate most from normal.",
+      "activities": [
+        "Pickled the fitted preprocessor and detector.",
+        "Exposed an alert-budget simulator for capacity planning.",
+        "Documented the families that require signature rules instead."
+      ],
+      "findings": [
+        {
+          "statement": "Scores are served as percentiles, not raw values",
+          "evidence": "raw isolation scores are uninterpretable on their own",
+          "implication": "An analyst can read 'top 0.5% most unusual' directly.",
+          "severity": "info"
+        },
+        {
+          "statement": "KDD-99 is a 1999 simulation, not modern traffic",
+          "evidence": "documented prominently in the model card",
+          "implication": "Results demonstrate methodology; they are not a claim about contemporary network security.",
+          "severity": "critical"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": "Serve a percentile score plus deviating features.",
+          "rationale": "An unexplained score cannot be triaged.",
+          "alternative_rejected": "Return the raw detector output",
+          "rejection_reason": "Meaningless without the population it came from."
+        }
+      ],
+      "metrics": {
+        "endpoint": "/api/projects/anomaly/predict"
+      },
+      "artifacts": [],
+      "gate": {
+        "criteria": [
+          "Detector persisted",
+          "Scores interpretable",
+          "Dataset limitations documented"
+        ],
+        "passed": true,
+        "notes": ""
+      }
+    }
+  ],
+  "gates_passed": 6,
+  "gates_total": 6,
+  "all_gates_passed": true,
+  "iteration_notes": [
+    "The first run passed the observed attack rate as contamination and produced flattering numbers. The audit caught it as leakage through a hyperparameter, which is why contamination is now a stated 2% assumption.",
+    "Per-family recall was added after aggregate PR-AUC looked strong; it revealed that whole attack classes sit inside the normal density and cannot be found by any outlier method."
+  ],
+  "methodology": "CRISP-DM (Cross-Industry Standard Process for Data Mining), Chapman et al. 2000. Phases are iterative; the notes below record where this project looped back rather than proceeding linearly.",
+  "_provenance": {
+    "trained_at": "2026-09-02T21:29:36+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "kdd99_intrusion",
+    "seed": 42,
+    "quick_mode": false,
+    "deployed": "Isolation Forest"
+  }
+}

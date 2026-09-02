@@ -1,0 +1,57 @@
+{
+  "slug": "segments",
+  "number": 3,
+  "title": "RFM Customer Segmentation",
+  "tagline": "Unsupervised segmentation of 4,339 real UK e-commerce customers.",
+  "task": "Unsupervised clustering",
+  "domain": "Customer intelligence",
+  "dataset": "online_retail_rfm",
+  "dataset_title": "UCI Online Retail (customer-level RFM aggregation)",
+  "dataset_rows": 4339,
+  "primary_metric": "Silhouette coefficient",
+  "metric_reason": "There is no ground-truth label, so cluster quality must be judged internally; silhouette balances cohesion against separation.",
+  "techniques": [
+    "K-Means",
+    "Gaussian mixture models",
+    "Hierarchical (Ward)",
+    "DBSCAN",
+    "PCA projection",
+    "Log/Yeo-Johnson transforms",
+    "Gap statistic"
+  ],
+  "skills": [
+    "Unsupervised learning",
+    "Cluster validation",
+    "Dimensionality reduction",
+    "Segment profiling",
+    "RFM analysis"
+  ],
+  "accent": "violet",
+  "icon": "scatter",
+  "highlights": [
+    "Four algorithms compared on the same features with agreement analysis",
+    "Interactive PCA scatter that recolours as you change k",
+    "Plain-English persona cards derived from cluster centroids"
+  ],
+  "rows_modelled": 4338,
+  "champion": "K-Means",
+  "headline": {
+    "k": 4,
+    "silhouette": 0.238943,
+    "davies_bouldin": 1.292298,
+    "stability_ari": 0.9273,
+    "segments": 4,
+    "gap_supports_clustering": true
+  },
+  "train_seconds": 11.4,
+  "_provenance": {
+    "trained_at": "2026-09-02T19:47:28+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_rfm",
+    "seed": 42,
+    "quick_mode": false,
+    "k": 4
+  }
+}

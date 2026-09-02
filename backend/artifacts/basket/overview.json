@@ -1,0 +1,57 @@
+{
+  "slug": "basket",
+  "number": 4,
+  "title": "Market Basket Association Mining",
+  "tagline": "Apriori and FP-Growth over 20,136 real invoices and 3,925 SKUs.",
+  "task": "Association rule mining",
+  "domain": "Retail merchandising",
+  "dataset": "online_retail_transactions",
+  "dataset_title": "UCI Online Retail (invoice line items)",
+  "dataset_rows": 530693,
+  "primary_metric": "Lift (with conviction & leverage)",
+  "metric_reason": "Confidence alone promotes rules that merely restate a popular item's base rate; lift and conviction measure genuine dependence.",
+  "techniques": [
+    "Apriori",
+    "FP-Growth",
+    "Lift / leverage / conviction / Zhang's metric",
+    "Frequent itemset lattice",
+    "Rule network graph"
+  ],
+  "skills": [
+    "Pattern mining",
+    "Support-confidence framework",
+    "Graph visualisation",
+    "Recommendation heuristics"
+  ],
+  "accent": "emerald",
+  "icon": "network",
+  "highlights": [
+    "Side-by-side Apriori vs FP-Growth runtime at identical support",
+    "Force-directed rule network you can filter by lift in real time",
+    "Live 'customers who bought this' recommender over the mined rules"
+  ],
+  "rows_modelled": 16785,
+  "champion": "Apriori",
+  "headline": {
+    "baskets": 16785,
+    "items": 480,
+    "frequent_itemsets": 1497,
+    "rules": 1861,
+    "max_lift": 43.99,
+    "faster_algorithm": "Apriori",
+    "speedup": 3.22,
+    "rules_holding_out_of_sample": 1672,
+    "rule_survival_rate": 1.0
+  },
+  "train_seconds": 65.2,
+  "_provenance": {
+    "trained_at": "2026-09-02T20:39:49+00:00",
+    "git_commit": null,
+    "python": "3.12.13",
+    "platform": "Darwin arm64",
+    "dataset": "online_retail_transactions",
+    "seed": 42,
+    "quick_mode": false,
+    "min_support": 0.012
+  }
+}
