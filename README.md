@@ -10,7 +10,7 @@ this repository.
 <!-- VIDEO:START -->
 ## 📺 Video walkthrough
 
-**▶ [Watch the full walkthrough on YouTube](https://youtube.com/watch?v=)**
+**▶ [Watch the full walkthrough on YouTube](https://youtu.be/4C5_ZU11Ues)**
 
 A guided tour of all eight systems: the architecture, the CRISP-DM record, the live
 inference playgrounds, and the three findings that make the portfolio worth reading.
