@@ -10,13 +10,10 @@ this repository.
 <!-- VIDEO:START -->
 ## 📺 Video walkthrough
 
-**▶ [Watch the full walkthrough on YouTube](https://youtube.com/watch?v=REPLACE_ME)**
+**▶ [Watch the full walkthrough on YouTube](https://youtube.com/watch?v=)**
 
 A guided tour of all eight systems: the architecture, the CRISP-DM record, the live
 inference playgrounds, and the three findings that make the portfolio worth reading.
-Chapter markers and the full narration script are in
-[`docs/VIDEO_SCRIPT.md`](docs/VIDEO_SCRIPT.md).
-<!-- VIDEO:END -->
 
 ---
 
