@@ -414,7 +414,8 @@ intrusions as more normal than benign traffic, an ensemble that gains nothing ov
 best single member, and a prediction interval that had to be conformally recalibrated
 after covering 67% of outcomes instead of 80%.
 
-Code, generated papers, audit report and prompts: <REPO URL>
+Code, generated papers, audit report and prompts:
+https://github.com/nitishsjsucs/ds-fullstack-portfolio
 
 Built with FastAPI, scikit-learn, XGBoost, LightGBM, PyTorch, React and TypeScript.
 ```
@@ -423,20 +424,12 @@ Built with FastAPI, scikit-learn, XGBoost, LightGBM, PyTorch, React and TypeScri
 
 ## After recording
 
-```bash
-# Wire the URL into the README (replaces the placeholder between the VIDEO markers).
-python - <<'PY'
-import pathlib, re
-url = "https://youtu.be/YOUR_ID"          # <- paste it here
-p = pathlib.Path("README.md")
-s = p.read_text()
-s = re.sub(r"https://youtube\.com/watch\?v=REPLACE_ME", url, s)
-p.write_text(s)
-print("README updated ->", url)
-PY
+The walkthrough is recorded and already linked from the README, between the
+`<!-- VIDEO:START -->` and `<!-- VIDEO:END -->` markers:
 
-git add README.md && git commit -m "docs: link the walkthrough video" && git push
-```
+<https://youtu.be/4C5_ZU11Ues>
+
+To swap in a re-recorded take, edit the link between those two markers and commit.
 
 ---
 
