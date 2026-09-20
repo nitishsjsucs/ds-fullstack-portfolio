@@ -20,8 +20,10 @@ data/raw/
 # pickled pipelines (16 MB). That is a deliberate choice: it means a fresh clone
 # can serve the console and run live inference immediately, instead of requiring
 # an hour of training before anything renders. They are regenerable with
-# `python scripts/train_all.py`, and every one carries the git commit, timestamp
-# and seed of the run that produced it.
+# `python scripts/train_all.py`, and every one carries the timestamp, seed,
+# Python version and platform of the run that produced it. The commit is stamped
+# too when training runs inside a git checkout; the committed artifacts were
+# trained before this repository was initialised, so theirs reads `n/a`.
 #
 # scikit-learn pickles are version-sensitive, so requirements.txt is pinned; if a
 # pickle fails to load, retraining is the supported fix.
@@ -35,3 +37,6 @@ data/raw/
 # Scratch
 *.log
 /tmp/
+
+# TypeScript incremental build info
+*.tsbuildinfo

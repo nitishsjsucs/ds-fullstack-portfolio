@@ -170,7 +170,8 @@ NYC taxi — the same eight tabs every project gets.
 Requires Python 3.11+ and Node 18+.
 
 ```bash
-git clone <this-repo> && cd ds-fullstack-portfolio
+git clone https://github.com/nitishsjsucs/ds-fullstack-portfolio
+cd ds-fullstack-portfolio
 
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt

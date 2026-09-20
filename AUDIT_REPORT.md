@@ -177,5 +177,5 @@ No static rule fired across 25 project files.
 ## What this audit does not establish
 
 - A static scan matches syntax, not semantics. It cannot detect leakage expressed through a variable it did not follow, nor a feature that is legitimate in form but computed from the future in substance.
-- It does not verify that the numbers in the artifacts were produced by the code as committed; that is what the pinned seeds, the git commit stamped into every artifact and the reproduction instructions are for.
+- It does not verify that the numbers in the artifacts were produced by the code as committed; that is what the pinned seeds, the run provenance stamped into every artifact and the reproduction instructions are for. Note the committed artifacts predate this repository's first commit, so their git_commit field is null -- seed, timestamp, Python version and platform are recorded, the commit is not.
 - Passing every check means the known failure modes were checked for. It does not mean the analysis is correct.
