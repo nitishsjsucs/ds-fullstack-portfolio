@@ -14,6 +14,37 @@ this repository.
 
 A guided tour of all eight systems: the architecture, the CRISP-DM record, the live
 inference playgrounds, and the three findings that make the portfolio worth reading.
+<!-- VIDEO:END -->
+
+---
+
+## Verification first
+
+Two commands reproduce every correctness claim in this repository.
+
+```bash
+pytest backend/tests -q      # 133 tests
+python scripts/audit.py      # static AST leakage scan + phase-gate aggregation
+```
+
+`scripts/audit.py` parses the AST of all eight projects looking for the syntactic shapes
+that cause leakage, then aggregates every trained artifact and regenerates
+[`AUDIT_REPORT.md`](AUDIT_REPORT.md). Current output, reproducible from a clean checkout:
+
+| Check | Result |
+|---|---|
+| Static leakage scan | **0 critical, 0 warnings** across 8 projects |
+| Per-project audit checks | **83 / 83** passed |
+| CRISP-DM phase gates | **47 / 48** passed |
+| Open findings | **1** — `segments` fails a gate, and the report keeps it |
+| Test suite | **133** tests: core guarantees, per-project leakage, API contract |
+
+The one failing gate is the point. It is reported rather than tuned away, and the same
+payload is served live at `/api/audit`.
+
+What the scan does **not** establish: a static scan matches syntax, not semantics, and
+passing every check means the known failure modes were checked for — not that the
+analysis is correct.
 
 ---
 
@@ -222,7 +253,9 @@ Nine curated files, 838k rows, all genuinely public. Full provenance is served a
 
 ---
 
-## Verification
+## Verification, in full
+
+`make verify` runs everything a reviewer should run:
 
 ```bash
 pytest backend/tests -q      # 133 tests
@@ -230,10 +263,35 @@ python scripts/audit.py      # static leakage scan + phase-gate aggregation
 cd frontend && npm run build # typecheck + production build
 ```
 
-The audit writes [`AUDIT_REPORT.md`](AUDIT_REPORT.md) and serves the same payload at
-`/api/audit`. It states plainly what it does **not** establish: a static scan matches
-syntax, not semantics, and passing every check means the known failure modes were checked
-for — not that the analysis is correct.
+The numbers these produce are tabulated under [Verification first](#verification-first),
+along with the limits of what a static scan can establish.
+
+**What the 133 tests actually assert.** Not that the code runs — that the leakage
+guarantees hold. A sample: the forecast purge window covers the longest feature
+look-back; the anomaly label never enters the feature matrix; the transformer cannot
+attend forward; the language-model split is contiguous and unshuffled; contamination is
+treated as an assumption rather than a measurement.
+
+**What `scripts/audit.py` looks for.** It parses every `.py` file under each project and
+applies five syntactic rules, then cross-checks the trained artifacts against their
+declared CRISP-DM exit gates:
+
+| Rule | Shape it catches | Severity |
+|---|---|---|
+| `R1-rolling-without-shift` | a rolling/expanding window with no preceding `.shift()` — the row predicts itself | critical |
+| `R2-shuffled-temporal-split` | `train_test_split(shuffle=True)` on a time-ordered project | critical |
+| `R3-fit-transform-on-full-frame` | `fit_transform` outside a `Pipeline`, so CV cannot re-fit per fold | warning |
+| `R4-resample-before-split` | SMOTE/oversampling applied to the full frame | warning |
+| `R5-target-in-feature-list` | the target name appearing in a declared feature list | critical |
+
+Two details worth noting, because they are where this kind of tool usually goes wrong.
+R1 follows one level of assignment before firing, so the idiomatic two-statement
+`past = target.shift(1)` pattern is not reported — the code's own comment explains why:
+an audit tool that cries wolf gets switched off. And exceptions are made explicit rather
+than by loosening a rule: an `# audit: ok - <reason>` marker suppresses a single call
+site. The entire portfolio uses **one** such marker, in
+[`backend/app/projects/segments/data.py`](backend/app/projects/segments/data.py), with
+its reasoning written out.
 
 ---
 
